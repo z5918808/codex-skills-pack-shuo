@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lilbots Deploy"
+  short_description: "派出三隻 GPT-5.5 low 從不同角度研究專案，回收成單一報告"
+  default_prompt: "Use $lilbots-deploy to launch three GPT-5.5 low subagents with distinct roles, synthesize their findings into one research report, and write the verified result back into project continuity."

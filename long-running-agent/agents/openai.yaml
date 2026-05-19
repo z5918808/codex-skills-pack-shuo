@@ -1,0 +1,4 @@
+interface:
+  display_name: "Long Running Agent"
+  short_description: "Milestone workflow for durable agent runs."
+  default_prompt: "Use the long-running-agent workflow to turn this goal into durable milestones, verified checkpoints, and a completion audit."

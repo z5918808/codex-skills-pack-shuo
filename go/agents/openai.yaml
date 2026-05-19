@@ -1,0 +1,7 @@
+interface:
+  display_name: "Go"
+  short_description: "Continue to the next verified segment"
+  default_prompt: "Use $go to continue the current workspace by planning and executing the next meaningful verified segment."
+
+policy:
+  allow_implicit_invocation: true

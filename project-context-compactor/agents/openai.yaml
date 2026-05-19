@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Context Compactor"
+  short_description: "Non-destructive context compaction with provenance"
+  default_prompt: "Compact this project context without losing recoverability: inventory files, build manifest, classify artifacts, generate _ctx canonical docs, archive originals, and require approval before permanent deletion."

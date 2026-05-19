@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design 3 Steps"
+  short_description: "Use the conservative 3-step anti-slop design baseline"
+  default_prompt: "Use $design3steps to define a visual thesis, lock the layout skeleton, and then refine the finish."

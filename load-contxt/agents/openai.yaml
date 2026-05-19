@@ -1,0 +1,4 @@
+interface:
+  display_name: "Load Contxt"
+  short_description: "從 continuity / handoff / status 把新對話快速接回主線"
+  default_prompt: "Use $load-contxt to read the most relevant project continuity, handoff, and status notes, recover the verified phase, blocker, and next step, then continue the mainline work in this new conversation."

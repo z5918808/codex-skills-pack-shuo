@@ -1,0 +1,4 @@
+interface:
+  display_name: "Life Coaching"
+  short_description: "Use time-compressed deep thinking to turn stuck goals into verified motion with quick failure and rebound."
+  default_prompt: "Use life-coaching: treat the 1-hour lens as a deep-thinking accelerator, not a literal timer. Compress the problem to its essence, pick the first concrete action, define quick failure + rebound/fallback, and push toward visible evidence without sacrificing judgment."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Complete Every Stage"
+  short_description: "Loop until prior stages finish"
+  default_prompt: "Use $complete-every-stage. First visible line must be exactly /goal complete previous all stages, with no preface; then resume the previous staging plan and work in loop, until every previous stage completed, including resolving blockers instead of stopping at them unless outside input or unsafe permission is required."

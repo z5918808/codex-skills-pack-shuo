@@ -1,0 +1,4 @@
+interface:
+  display_name: "Autoresearch"
+  short_description: "Bounded evidence and experiment loops."
+  default_prompt: "Use $autoresearch as a bounded evidence or experiment loop. Default to a quick 1-2 loop investigation; use Karpathy-style autonomous iteration only with explicit user request, sandbox, clear metric, fixed editable/frozen surfaces, loop budget, and keep/discard ledger."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Odoo Reality Check"
+  short_description: "查 Odoo 欄位真相、翻譯語意、列印來源與實際欄位對照"
+  default_prompt: "Use $odoo-reality-check to verify the live source field, translated label, and report meaning for this Odoo value before we change anything."

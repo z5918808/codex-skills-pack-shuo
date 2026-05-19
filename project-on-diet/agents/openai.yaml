@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project On Diet"
+  short_description: "專案瘦身封存噪音檔案，保留最重要的核心精華與回復路徑"
+  default_prompt: "Use $project-on-diet to slim this project by archiving distracting files to E:\\CODEX AECHIEVE while preserving the essential core."

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Report For Outsourcing"
+  short_description: "Package local evidence for outside analysis"
+  default_prompt: "Use $report-for-outsourcing to package local repo context, sanitized evidence, architecture, constraints, and precise questions for an external AI or human analyst that cannot access my machine."
+
+policy:
+  allow_implicit_invocation: false

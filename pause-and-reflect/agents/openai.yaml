@@ -1,0 +1,7 @@
+interface:
+  display_name: "Pause and Reflect"
+  short_description: "俯瞰主線並檢查假成功風險"
+  default_prompt: "Use $pause-and-reflect to pause, inspect live truth, identify fake success, and choose the next concrete step."
+
+policy:
+  allow_implicit_invocation: true

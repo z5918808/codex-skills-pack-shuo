@@ -1,0 +1,4 @@
+interface:
+  display_name: "Where U At"
+  short_description: "Quick verified status reset"
+  default_prompt: "Use $i-just-wanna-know-where-u-at to answer where we at with verified facts, current blocker, progress, and the next smallest step."

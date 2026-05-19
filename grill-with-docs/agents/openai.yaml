@@ -1,0 +1,6 @@
+interface:
+  display_name: "Grill With Docs"
+  short_description: "Stress-test plans against domain docs."
+  default_prompt: "用 grill-with-docs：先讀現有 CONTEXT.md、CONTEXT-MAP.md、docs/adr 與相關程式碼，然後一題一題追問我，校準術語、邊界與設計決策；能從 code/doc 回答的問題先自己查，必要時即時更新 CONTEXT.md 或建議 ADR。"
+policy:
+  allow_implicit_invocation: true

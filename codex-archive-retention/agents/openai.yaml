@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Archive Retention"
+  short_description: "Audit archived Codex sessions before deletion."
+  default_prompt: "Audit my Codex archive retention candidates without deleting anything."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "PTC"
+  short_description: "Codex只做指揮，Cursor負責重實作與除錯"
+  default_prompt: "Use $ptc to carry forward the latest real context and turn this task into one execution prompt for Cursor."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Impeccable Design Workflow"
+  short_description: "Choose the right Impeccable command for the current design stage"
+  default_prompt: "Use $impeccable-design-workflow to choose the right Impeccable command or sequence for this UI task."

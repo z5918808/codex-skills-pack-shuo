@@ -1,0 +1,4 @@
+interface:
+  display_name: "Staging"
+  short_description: "Define final goal and staged outcomes"
+  default_prompt: "Use staging to define the final goal for this conversation and produce realistic executable phased goals."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bigbots Deploy"
+  short_description: "Deploy useful GPT-5.5 sidecar agents."
+  default_prompt: "Use /bigbots deploy to send up to three useful GPT-5.5 medium sidecar agents for parallel research or approved execution."

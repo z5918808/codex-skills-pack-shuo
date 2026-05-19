@@ -1,0 +1,4 @@
+interface:
+  display_name: "Serious Project Cleanup"
+  short_description: "Thread-safe whole-repo cleanup that slims stale agent artifacts through dry-run classification, reversible archive/quarantine, manifest recovery, and careful canonicalization before execution."
+  default_prompt: "Use serious-project-cleanup: do a read-only whole-repo inventory, preserve separate conversation/thread contexts, persist a dry-run cleanup matrix before changes, classify active truth vs stale agent artifacts, distinguish user-authored from agent-generated docs, archive or quarantine reversibly with manifest recovery, distill/rewrite only clearly superseded active-thread agent docs, list delete candidates without deleting, and leave canonical active files clear for execution."

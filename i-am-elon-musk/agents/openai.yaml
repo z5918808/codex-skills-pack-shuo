@@ -1,0 +1,4 @@
+interface:
+  display_name: "I AM ELON MUSK"
+  short_description: "Orchestrate swarm execution to completion"
+  default_prompt: "Use $i-am-elon-musk to analyze the current task, interrogate missing requirements, coordinate swarm-planner output, launch dependency-ready subagents, and supervise until the job goal is closed."

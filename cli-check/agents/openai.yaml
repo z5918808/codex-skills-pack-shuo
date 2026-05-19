@@ -1,0 +1,4 @@
+interface:
+  display_name: "CLI Check"
+  short_description: "Legacy alias for App terminal context checks."
+  default_prompt: "/cli-check"

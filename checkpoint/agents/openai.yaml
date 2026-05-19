@@ -1,0 +1,4 @@
+interface:
+  display_name: "Checkpoint"
+  short_description: "Project checkpoint, materialize files, archive safely"
+  default_prompt: "Use $checkpoint to create a serious project checkpoint: materialize useful conversation artifacts into project files, plan or safely archive unnecessary files, verify the checkpoint, and leave a durable handoff."

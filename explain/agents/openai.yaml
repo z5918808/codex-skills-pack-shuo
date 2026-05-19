@@ -1,0 +1,7 @@
+interface:
+  display_name: "Explain"
+  short_description: "Rebuild task context from scratch"
+  default_prompt: "Use $explain to rebuild the task context as if I forgot the prior conversation."
+
+policy:
+  allow_implicit_invocation: true

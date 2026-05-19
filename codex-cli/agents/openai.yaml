@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex CLI"
+  short_description: "Launch or run Codex CLI from the App as a sidecar."
+  default_prompt: "Use $codex-cli to choose the lightest safe CLI mode, launch Codex CLI with a correctly quoted workspace, monitor output when non-interactive, and report the verified result or blocker."

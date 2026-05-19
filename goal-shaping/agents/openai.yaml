@@ -1,0 +1,4 @@
+interface:
+  display_name: "Goal Shaping"
+  short_description: "Shape goals into roadmap plus staged execution."
+  default_prompt: "Use $goal-shaping to output a copy-ready conversation brief with a forward-looking roadmap, compact active stages, verification, continuation, and stop gates; no extra explanation or terminal-ready /goal prompt unless explicitly requested."

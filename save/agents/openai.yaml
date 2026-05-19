@@ -1,0 +1,3 @@
+interface:
+  display_name: "Save"
+  short_description: "Write a thread-aware lightweight checkpoint or last-known-good save point."

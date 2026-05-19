@@ -1,0 +1,4 @@
+interface:
+  display_name: "Babysitting"
+  short_description: "巡檢 live 專案或系統，抓最有意義的檢查面並在出問題時直接 babysit 回穩"
+  default_prompt: "Babysit the current project or system: inspect the latest conversation and current runtime truth, pick the highest-signal surfaces to check, determine whether the system is actually unhealthy, and if so immediately stabilize, reconnect, or debug it back to a healthy mainline. Prefer public symptoms, real process/state/log evidence, and minimal meaningful intervention over broad scans or speculative fixes."

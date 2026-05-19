@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Terminal Watcher"
+  short_description: "Judge latest terminal state"
+  default_prompt: "Use $codex-terminal-watcher to inspect the latest Codex terminal output, classify whether it is running, stopped, blocked, failed, stale, or completed, and judge whether the work is still on track."

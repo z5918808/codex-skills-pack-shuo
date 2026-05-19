@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brave"
+  short_description: "Use Brave browser session and extension-backed automation"
+  default_prompt: "Use Brave for this browser task, preserving the user session and extension context."

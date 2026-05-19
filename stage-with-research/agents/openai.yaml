@@ -1,0 +1,4 @@
+interface:
+  display_name: "Stage With Research"
+  short_description: "Evidence-backed staged goal planning"
+  default_prompt: "Use $stage-with-research to turn this uncertain direction into a verified outcome contract, final goal, staged execution plan, stop gates, progress percentages, and the next smallest action."

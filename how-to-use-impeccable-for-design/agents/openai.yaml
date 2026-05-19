@@ -1,0 +1,4 @@
+interface:
+  display_name: "How To Use Impeccable For Design"
+  short_description: "Recommend an Impeccable path and 3 UI concepts"
+  default_prompt: "Use $how-to-use-impeccable-for-design to propose a direction and 3 distinct frontend design options for this UI task."

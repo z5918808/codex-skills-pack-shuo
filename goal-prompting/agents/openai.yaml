@@ -1,0 +1,4 @@
+interface:
+  display_name: "Goal Prompting"
+  short_description: "Legacy /goal prompt wrapper"
+  default_prompt: "Use $goal-prompting only when a terminal-ready /goal prompt is explicitly requested; otherwise use $goal-shaping to shape stages without writing a prompt."
