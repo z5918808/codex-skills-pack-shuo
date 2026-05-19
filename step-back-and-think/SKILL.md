@@ -9,7 +9,7 @@ description: "用於使用者要求 /step-back-and-think、退一步想、俯瞰
 
 大工廠不是大改造，也不是把每個洞補得更快。它是一個小而穩的可重用機制，能吸收一整類問題，讓同類問題下次更難發生、比較早被發現、比較便宜被驗證，或不再需要人工救火。
 
-不要用可見度排序問題。高可見瑕疵可能只是 fit-and-finish；真正高槓桿的突破點通常在 product architecture、factory architecture、interface、state ownership、verification、release path、debug route、或 workflow operating system。
+不要用可見度排序問題。高可見瑕疵可能只是 fit-and-finish；真正高槓桿的突破點通常在底層設計：product / project architecture、factory / workflow architecture、interface、state ownership、verification、release path、debug route、或 operating system。
 
 ## 核心判斷
 
@@ -131,6 +131,8 @@ Current game board: 目前最重要的不是 <visible issue>，而是 <strategic
 
 不要忽略 defer 問題；把它們記下來，但不要讓它們主導工作順序。polish 可以排序，不能自動支配排序。
 
+不要 defer，如果高可見問題其實會影響 safety、trust、revenue、legal/compliance、critical user flow、production correctness，或它是底層 factory gap 的外顯訊號。這類問題雖然 visible，但不是單純 polish。
+
 ### 6. 選關鍵突破點
 
 不要用聲量、可見度或最近一次錯誤排序。用賽局槓桿排序。
@@ -216,6 +218,16 @@ Next:
 如果審查發現可接受且 actionable 的問題，修正後再審查一次。停止於沒有值得接受的問題，而不是追求完美。
 
 ## 輸出格式
+
+小任務或 review-only 時，允許壓縮輸出，不必完整展開所有表格。至少輸出：
+
+- 目前判斷：
+- Game-board priority：
+- 建議先做：
+- 驗證方式：
+- 暫不做什麼：
+
+只有在任務涉及多模組、多流程、重複錯誤、高風險，或使用者要求完整分析時，才使用完整輸出格式。
 
 ```text
 目前判斷：
