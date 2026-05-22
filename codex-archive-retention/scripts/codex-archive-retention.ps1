@@ -122,7 +122,7 @@ function Get-ArchiveClassification {
         "payment",
         "token",
         "API key",
-        "Shopify",
+        "commerce platform",
         "migration",
         "handoff",
         "incident",

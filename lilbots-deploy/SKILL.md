@@ -286,24 +286,7 @@ description: Use when the user wants parallel subagents for either distributed p
 2. 若沒有合適位置，寫入：
    - `docs/memory/session_continuity.md`
 
-若工作區是 JARVIS，優先補到既有 campaign / continuity，不要濫開新檔。
-
-## JARVIS 特化
-
-若 cwd 是 `D:\JARVIS`，或明顯是 JARVIS 專案：
-
-- 自動提高以下語境權重：
-  - Hermes
-  - OpenClaw
-  - IronClaw
-  - V2 rebuild
-  - v3 pivot
-
-最終報告需附一段**百分比現況**，例如：
-
-- `Hermes 50% / OpenClaw 20% / IronClaw 30%`
-
-百分比不是精密度量，而是快速理解目前架構重心。
+若 repo 已有明確 continuity / campaign / project memory 位置，優先補到既有位置，不要濫開新檔。
 
 ## 執行提示
 
@@ -313,7 +296,7 @@ description: Use when the user wants parallel subagents for either distributed p
 - 研究模式：三隻 agent 可平行派工
 - 計劃執行模式：依可並行 task 數量派多隻 `gpt-5.5` low worker
 - 主 agent 不要忙著等待；先整理已有 repo 真相，再回收結果
-- 若有適合的 continuity 位置，最後順手更新；若需要，可再配合 [$close-out](C:/Users/user/.codex/skills/close-out/SKILL.md) 的原則
+- 若有適合的 continuity 位置，最後順手更新；不要新增依賴個人機器路徑的連結
 
 ## 禁止事項
 

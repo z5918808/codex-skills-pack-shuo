@@ -61,7 +61,7 @@
 5. `_ctx`、resume、handoff、workstream 讀寫用 `$project-memory-gate`。
 6. 退一步想、賽局排序、判斷 visible defect 是否 defer、停止見洞補洞、設計最低可用大工廠，用 `/step-back-and-think`。
 7. 沉澱 script、rule、hook、skill、debug route、handoff 用 `$factory-output`。
-8. Browser / Shopify / Odoo / Codex CLI / deploy / PDF / slides / spreadsheets 等細節用對應 skill。
+8. Browser / Codex CLI / deploy / PDF / slides / spreadsheets / domain-specific tools 等細節用對應 skill。
 9. Repo-specific build、test、deploy、架構規則放 repo AGENTS.md。
 10. 若 routing 指向的 skill / script / rule 不存在，明講缺口，不假裝已 enforce。
 

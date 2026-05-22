@@ -32,7 +32,7 @@ Remove or move:
 - long explanations of why a rule exists
 - generic coding advice Codex already knows
 - stale tool/version details
-- repeated browser/CLI/DB/Shopify/PowerShell SOPs that belong in skills
+- repeated browser/CLI/DB/platform-specific/PowerShell SOPs that belong in skills
 - historical reports, handoff essays, examples that are not runtime rules
 - duplicated rules that appear in both global and project guidance
 

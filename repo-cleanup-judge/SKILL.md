@@ -73,7 +73,7 @@ Use concise bullets. For each matrix row, include:
 
 - Do not delete first and rationalize later.
 - Do not trust old conversation memory over live repo truth.
-- Do not call something safe just because it is under `.cache`, `.tmp`, `.jarvis-memory`, `logs`, `artifacts`, or `output`.
+- Do not call something safe just because it is under `.cache`, `.tmp`, `.project-memory`, `logs`, `artifacts`, or `output`.
 - Do not treat `running` state as equivalent to healthy state.
 - Do not rebuild indexes or storage blindly when namespaces are split.
 - Prefer the smallest meaningful cleanup step.

@@ -2,6 +2,8 @@ Codex 常用 skills 使用說明
 
 以下是一句話版：重點是「用在哪」，不是規定每次都要用。
 
+公開版不包含私人專案橋接、特定 ERP / commerce 平台專用技能；這類技能請留在自己的私有 skills 目錄。
+
 - $go：要 Codex 直接推進目前任務、讀現況、做最小可驗證增量時。
 - $smart-go：任務需要先判斷主戰場、排序路線，再開始推進時。
 - $stage-with-research：目標還有不確定性，需要先研究、再切成可執行 stage 時。
@@ -44,5 +46,4 @@ Codex 常用 skills 使用說明
 - $investor-materials：要做 pitch deck、one-pager、投資人文件時。
 - $pdf：需要讀取、整理、生成或處理 PDF 時。
 - $doc：需要建立、編輯、整理一般文件時。
-- $odoo-reality-check：Odoo 欄位、模型、前端假設需要查真實 Odoo truth 時。
 - $to-cursor：要把內容整理成 Cursor 可用的 prompt、rules 或工作包時。

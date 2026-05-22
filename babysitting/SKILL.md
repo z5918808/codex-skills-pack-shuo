@@ -1,6 +1,6 @@
 ---
 name: babysitting
-description: Use when the user wants Codex to babysit a live project, service, agent, bot, daemon, or workflow by checking current truth, the latest conversation, and the most meaningful surfaces to inspect; then immediately debug, stabilize, or reconnect the system if something is wrong. Trigger on requests like "顧一下", "babysit", "看一下 Jarvis 好不好", "接回去", "盯著它", "系統怪怪的", or similar.
+description: Use when the user wants Codex to babysit a live project, service, agent, bot, daemon, or workflow by checking current truth, the latest conversation, and the most meaningful surfaces to inspect; then immediately debug, stabilize, or reconnect the system if something is wrong. Trigger on requests like "顧一下", "babysit", "看一下服務好不好", "接回去", "盯著它", "系統怪怪的", or similar.
 ---
 
 # Babysitting
@@ -23,7 +23,7 @@ description: Use when the user wants Codex to babysit a live project, service, a
 當使用者意思接近：
 
 - 幫我看一下這東西現在好不好
-- 顧著這個 Jarvis / bot / daemon
+- 顧著這個 service / bot / daemon
 - 看看有沒有怪事
 - 如果壞了就接回去
 - 不知道哪裡有問題，但感覺不對

@@ -178,7 +178,7 @@ def collect_reviews(domain, stars=None, languages='en', max_pages=10, delay=0.5)
 
 
 # Usage — 200 reviews per call:
-reviews = collect_reviews("shopify.com")               # English only, all ratings
+reviews = collect_reviews("example.com")               # English only, all ratings
 reviews_1star = collect_reviews("amazon.com", stars=1) # 200 x 1-star reviews
 reviews_all = collect_reviews("stripe.com", languages='all')  # all languages
 ```
@@ -368,7 +368,7 @@ def scrape_trustpilot(domain, max_unique=200):
 
 
 # Run it:
-company, reviews = scrape_trustpilot("shopify.com", max_unique=200)
+company, reviews = scrape_trustpilot("example.com", max_unique=200)
 print(f"{company['name']} — TrustScore {company['trust_score']} — {company['total_reviews']} total reviews")
 print(f"Collected: {len(reviews)} reviews")
 print(f"Sample: [{reviews[0]['rating']}★] {reviews[0]['title'][:60]}")
