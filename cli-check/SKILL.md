@@ -21,7 +21,7 @@ Use the strongest available evidence in this order:
 4. Native CLI `/goal` state through the existing helper:
 
 ```powershell
-& "<codex-skills-dir>\check\scripts\Check-CodexCliStatus.ps1" -Workspace "<workspace>" -Detailed
+& "$env:USERPROFILE\.codex\skills\check\scripts\Check-CodexCliStatus.ps1" -Workspace "<workspace>" -Detailed
 ```
 
 5. Generic Codex CLI sidecar logs under `%LOCALAPPDATA%\CodexCliSidecars\codex-cli\<run>\`: `last-message.md`, `stdout.log`, `prompt.md`, `exit-code.txt`.

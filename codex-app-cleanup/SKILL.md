@@ -11,21 +11,21 @@ Codex App 變慢時，先處理全域 hot path，不要跳去每個 repo 或 thr
 
 主要位置：
 
-- `<codex-home>\sessions`
-- `<codex-home>\archived_sessions`
-- `<codex-home>\logs_*.sqlite*`
-- `<codex-home>\state_*.sqlite*`
-- `<codex-home>\config.toml`
-- `<codex-home>\.codex-global-state.json`
-- `<codex-home>\session_index.jsonl`
+- `C:\Users\user\.codex\sessions`
+- `C:\Users\user\.codex\archived_sessions`
+- `C:\Users\user\.codex\logs_*.sqlite*`
+- `C:\Users\user\.codex\state_*.sqlite*`
+- `C:\Users\user\.codex\config.toml`
+- `C:\Users\user\.codex\.codex-global-state.json`
+- `C:\Users\user\.codex\session_index.jsonl`
 
 本機冷 archive 預設統一放在：
 
-- `<archive-root>\archived_sessions`
-- `<archive-root>\archived_logs`
-- `<archive-root>\backups`
+- `E:\CodexArchive\archived_sessions`
+- `E:\CodexArchive\archived_logs`
+- `E:\CodexArchive\backups`
 
-`cleanup_reports` 仍保留在 `<codex-home>\cleanup_reports`，方便 Codex App 與後續 repair 找 report / manifest。
+`cleanup_reports` 仍保留在 `C:\Users\user\.codex\cleanup_reports`，方便 Codex App 與後續 repair 找 report / manifest。
 
 ## 預設政策
 
@@ -51,37 +51,37 @@ Codex App 變慢時，先處理全域 hot path，不要跳去每個 repo 或 thr
 Dry-run，可在 Codex 開著時跑：
 
 ```powershell
-pwsh -ExecutionPolicy Bypass -File "<codex-skills-dir>\codex-app-cleanup\scripts\codex-cleanup.ps1"
+pwsh -ExecutionPolicy Bypass -File "$env:USERPROFILE\.codex\skills\codex-app-cleanup\scripts\codex-cleanup.ps1"
 ```
 
 Apply，必須先關閉 Codex App：
 
 ```powershell
-pwsh -ExecutionPolicy Bypass -File "<codex-skills-dir>\codex-app-cleanup\scripts\codex-cleanup.ps1" -Apply
+pwsh -ExecutionPolicy Bypass -File "$env:USERPROFILE\.codex\skills\codex-app-cleanup\scripts\codex-cleanup.ps1" -Apply
 ```
 
 指定 E 槽 archive root：
 
 ```powershell
-pwsh -ExecutionPolicy Bypass -File "<codex-skills-dir>\codex-app-cleanup\scripts\codex-cleanup.ps1" -ArchiveStorageRoot "<archive-root>" -Apply
+pwsh -ExecutionPolicy Bypass -File "$env:USERPROFILE\.codex\skills\codex-app-cleanup\scripts\codex-cleanup.ps1" -ArchiveStorageRoot "E:\CodexArchive" -Apply
 ```
 
 把既有 C 槽冷 archive / logs / backups 遷移到 E 槽，並改寫 state DB 裡的 archived rollout path。必須先關閉 Codex App：
 
 ```powershell
-pwsh -ExecutionPolicy Bypass -File "<codex-skills-dir>\codex-app-cleanup\scripts\codex-cleanup.ps1" -ArchiveStorageRoot "<archive-root>" -MigrateExistingArchivesToStorage
+pwsh -ExecutionPolicy Bypass -File "$env:USERPROFILE\.codex\skills\codex-app-cleanup\scripts\codex-cleanup.ps1" -ArchiveStorageRoot "E:\CodexArchive" -MigrateExistingArchivesToStorage
 ```
 
 保留 pinned threads：
 
 ```powershell
-pwsh -ExecutionPolicy Bypass -File "<codex-skills-dir>\codex-app-cleanup\scripts\codex-cleanup.ps1" -Apply -KeepPinned
+pwsh -ExecutionPolicy Bypass -File "$env:USERPROFILE\.codex\skills\codex-app-cleanup\scripts\codex-cleanup.ps1" -Apply -KeepPinned
 ```
 
 調整天數：
 
 ```powershell
-pwsh -ExecutionPolicy Bypass -File "<codex-skills-dir>\codex-app-cleanup\scripts\codex-cleanup.ps1" -ArchiveOlderThanDays 14
+pwsh -ExecutionPolicy Bypass -File "$env:USERPROFILE\.codex\skills\codex-app-cleanup\scripts\codex-cleanup.ps1" -ArchiveOlderThanDays 14
 ```
 
 ## 驗證標準
@@ -105,7 +105,7 @@ pwsh -ExecutionPolicy Bypass -File "<codex-skills-dir>\codex-app-cleanup\scripts
 如果之前已經移動 sessions，但 `state_5.sqlite` 還有 active thread 指向缺失檔案，先關閉 Codex App，再跑：
 
 ```powershell
-pwsh -ExecutionPolicy Bypass -File "<codex-skills-dir>\codex-app-cleanup\scripts\codex-cleanup.ps1" -RepairStateDbFromLatestManifest
+pwsh -ExecutionPolicy Bypass -File "$env:USERPROFILE\.codex\skills\codex-app-cleanup\scripts\codex-cleanup.ps1" -RepairStateDbFromLatestManifest
 ```
 
 這只同步 Codex state DB，會先備份 `state_*.sqlite*`，並產生 `restore-sessions.py`。
@@ -113,11 +113,11 @@ pwsh -ExecutionPolicy Bypass -File "<codex-skills-dir>\codex-app-cleanup\scripts
 若舊 apply manifest 不只一份，優先跑全量 repair：
 
 ```powershell
-pwsh -ExecutionPolicy Bypass -File "<codex-skills-dir>\codex-app-cleanup\scripts\codex-cleanup.ps1" -RepairStateDbFromAllApplyManifests
+pwsh -ExecutionPolicy Bypass -File "$env:USERPROFILE\.codex\skills\codex-app-cleanup\scripts\codex-cleanup.ps1" -RepairStateDbFromAllApplyManifests
 ```
 
 全量 repair 會先同步所有 apply manifests，再把舊於 cutoff、rollout 檔已不存在、未 pinned 的 active residue 標成 archived；會先備份 state DB，並產生 manifest 與 restore script。
 
-桌面捷徑 `Codex Cleanup Apply + Repair.lnk` 會先關閉 Codex App，再依序跑既有 archive 遷移、Apply、全量 Repair、Verify，最後輸出 Final summary 的 PASS / FAIL；預設 archive storage root 是 `<archive-root>`。
+桌面捷徑 `Codex Cleanup Apply + Repair.lnk` 會先關閉 Codex App，再依序跑既有 archive 遷移、Apply、全量 Repair、Verify，最後輸出 Final summary 的 PASS / FAIL；預設 archive storage root 是 `E:\CodexArchive`。
 
 沒驗證前不要說完成。

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Thermo Nuclear Work Quality Review"
+  short_description: "Non-code complexity burn-down review"
+  default_prompt: "Use this skill to review non-code work systems such as plans, prompts, handoffs, docs, dashboards, agent workflows, factory outputs, and process artifacts. Identify complexity that should be deleted rather than moved, thin wrappers, leaked logic, oversized artifacts, and work that functions but makes the system harder to operate."

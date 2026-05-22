@@ -1,7 +1,7 @@
 interface:
   display_name: "Report For Outsourcing"
-  short_description: "Package local evidence for outside analysis"
-  default_prompt: "Use $report-for-outsourcing to package local repo context, sanitized evidence, architecture, constraints, and precise questions for an external AI or human analyst that cannot access my machine."
+  short_description: "Package project design, progress, risks, and evidence for outside analysis"
+  default_prompt: "Use $report-for-outsourcing to write a detailed Markdown report for an external AI or human analyst that cannot access my machine. Include sanitized local repo context, project preferences, program design, architecture map, implementation record, current progress, planned but unfinished work, risks, evidence, constraints, and precise questions."
 
 policy:
   allow_implicit_invocation: false

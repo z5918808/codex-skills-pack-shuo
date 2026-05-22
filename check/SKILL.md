@@ -126,17 +126,17 @@ Do not open a new goal, start a new worker, or continue roadmap execution from `
 Use this helper only for native CLI evidence:
 
 ```powershell
-& "<codex-skills-dir>\check\scripts\Check-CodexCliStatus.ps1"
+& "$env:USERPROFILE\.codex\skills\check\scripts\Check-CodexCliStatus.ps1"
 ```
 
 Optional:
 
 ```powershell
-& "<codex-skills-dir>\check\scripts\Check-CodexCliStatus.ps1" -Detailed
-& "<codex-skills-dir>\check\scripts\Check-CodexCliStatus.ps1" -List
-& "<codex-skills-dir>\check\scripts\Check-CodexCliStatus.ps1" -Workspace "C:\path\to\workspace"
-& "<codex-skills-dir>\check\scripts\Check-CodexCliStatus.ps1" -RunId "<run-id>"
-& "<codex-skills-dir>\check\scripts\Check-CodexCliStatus.ps1" -GlobalLatest
+& "$env:USERPROFILE\.codex\skills\check\scripts\Check-CodexCliStatus.ps1" -Detailed
+& "$env:USERPROFILE\.codex\skills\check\scripts\Check-CodexCliStatus.ps1" -List
+& "$env:USERPROFILE\.codex\skills\check\scripts\Check-CodexCliStatus.ps1" -Workspace "C:\path\to\workspace"
+& "$env:USERPROFILE\.codex\skills\check\scripts\Check-CodexCliStatus.ps1" -RunId "<run-id>"
+& "$env:USERPROFILE\.codex\skills\check\scripts\Check-CodexCliStatus.ps1" -GlobalLatest
 ```
 
 Use `-GlobalLatest` only when the user explicitly asks for the newest run across workspaces. Use `-RunId` when the user points to one candidate.

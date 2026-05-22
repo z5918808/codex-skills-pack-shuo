@@ -313,7 +313,7 @@ description: Use when the user wants parallel subagents for either distributed p
 - 研究模式：三隻 agent 可平行派工
 - 計劃執行模式：依可並行 task 數量派多隻 `gpt-5.5` low worker
 - 主 agent 不要忙著等待；先整理已有 repo 真相，再回收結果
-- 若有適合的 continuity 位置，最後順手更新；若需要，可再配合 [$close-out](<codex-skills-dir>/close-out/SKILL.md) 的原則
+- 若有適合的 continuity 位置，最後順手更新；若需要，可再配合 [$close-out](C:/Users/user/.codex/skills/close-out/SKILL.md) 的原則
 
 ## 禁止事項
 

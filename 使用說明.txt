@@ -1,0 +1,48 @@
+Codex 常用 skills 使用說明
+
+以下是一句話版：重點是「用在哪」，不是規定每次都要用。
+
+- $go：要 Codex 直接推進目前任務、讀現況、做最小可驗證增量時。
+- $smart-go：任務需要先判斷主戰場、排序路線，再開始推進時。
+- $stage-with-research：目標還有不確定性，需要先研究、再切成可執行 stage 時。
+- $autoresearch：需要主動查證背景、文件、資料來源，避免只靠記憶推理時。
+- $checkpoint：長任務告一段落，需要收斂目前證據、狀態、下一步時。
+- $recenter：長對話、多次壓縮或方向變亂時，用來重新抓主線與下一步。
+- $resume：要接續前次 workstream、handoff 或 durable project state 時。
+- $long-running-agent：任務需要跨 session 或長時間持續接力時。
+- $project-context-compactor：專案上下文過胖，需要保守壓縮與整理時。
+- $thermo-nuclear-agent-harness-feedback-loop：遇到可驗證工程問題、證據矛盾或 worker/verifier 不可信時，用 Harness + Feedback Loop 分析 root cause。
+- $thermo-nuclear-work-quality-review：審查非純代碼工作系統是否越做越胖，找 thin wrapper、leaked logic、該刪的複雜度時。
+- $risk-preflight：production、DB、bulk、token、public publish、不可逆操作前做風險預檢時。
+- $agent-db-safety：database、migration、bulk data 任務前建立 DB 安全邊界時。
+- $factory-output：同類錯誤重複或形成可重跑方案，要沉澱成 script、rule、test、skill、handoff 時。
+- $codex-app-cleanup：Codex App 變慢，sessions、logs、archives 需要安全清理時。
+- $codex-archive-retention：要審查或調整 Codex archive / session retention 策略時。
+- $bigbots-deploy：需要多 agent、多 worker 並行處理大批任務時。
+- $lilbots-deploy：需要小型平行子任務或批次 worker 時。
+- $save：要保存本輪重要結論或可接續狀態時。
+- $handoff：要把目前任務交給下一位 agent 或新 thread 接手時。
+- $step-back-and-think：要退一步做賽局排序、避免見洞補洞時。
+- $pause-and-reflect：要暫停、檢查盲點、重新校正策略時。
+- $check：要做快速一致性檢查、完成前檢查或 sanity check 時。
+- $audit：要做較完整的品質、安全、可維護性檢查時。
+- $repeat-review：要 review / fix / review 循環，直到沒有阻塞問題時。
+- $verification-loop：需要系統性驗證，反覆檢查到 evidence 穩定時。
+- $browser-harness：需要瀏覽器、localhost、前端或真實 UI 驗證時。
+- $playwright：需要 Playwright E2E 測試或瀏覽器流程自動化時。
+- $frontend-design：要做有設計感的前端頁面、產品介面或互動體驗時。
+- $impeccable-design-workflow：要用更高規格設計流程處理 UI、landing page、app shell 時。
+- $design-audit：要評估 UI、landing page、web app 的 UX 與視覺問題時。
+- $bolder：設計太保守，需要更大膽、更有辨識度時。
+- $quieter：設計太吵、太滿或太搶，需要降噪時。
+- $colorize：介面缺少策略性顏色或視覺層級時。
+- $layout：版面、間距、對齊、資訊密度需要整理時。
+- $typeset：字體、字級、行距、排版節奏需要修正時。
+- $polish：功能已完成，需要最後品質整理與細節收尾時。
+- $market-research：要做市場、競品、定位或客群研究時。
+- $content-engine：要建立平台原生內容系統或內容生產流程時。
+- $investor-materials：要做 pitch deck、one-pager、投資人文件時。
+- $pdf：需要讀取、整理、生成或處理 PDF 時。
+- $doc：需要建立、編輯、整理一般文件時。
+- $odoo-reality-check：Odoo 欄位、模型、前端假設需要查真實 Odoo truth 時。
+- $to-cursor：要把內容整理成 Cursor 可用的 prompt、rules 或工作包時。

@@ -91,7 +91,7 @@ Use concise bullets. For each matrix row, include:
 Use this when you want another repo-local agent to apply the skill:
 
 ```text
-Use $repo-cleanup-judge at <codex-skills-dir>\repo-cleanup-judge.
+Use $repo-cleanup-judge at C:\Users\user\.codex\skills\repo-cleanup-judge.
 
 Judge this repository's cleanup candidates from live repo truth. Do not delete anything yet.
 

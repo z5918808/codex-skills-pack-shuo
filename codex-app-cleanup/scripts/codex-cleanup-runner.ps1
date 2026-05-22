@@ -1,7 +1,7 @@
 param(
     [ValidateSet("Apply", "RepairStateDb")]
     [string]$Mode = "Apply",
-    [string]$ArchiveStorageRoot = "<archive-root>"
+    [string]$ArchiveStorageRoot = "E:\CodexArchive"
 )
 
 $ErrorActionPreference = "Stop"

@@ -1,6 +1,6 @@
 param(
-    [string]$ArchiveRoot = "<archive-root>\archived_sessions",
-    [string]$ReportRoot = "<archive-root>\reports",
+    [string]$ArchiveRoot = "E:\CodexArchive\archived_sessions",
+    [string]$ReportRoot = "E:\CodexArchive\reports",
     [int]$LargestLimit = 30,
     [int]$LowValueLimit = 80,
     [int]$SampleLines = 80,

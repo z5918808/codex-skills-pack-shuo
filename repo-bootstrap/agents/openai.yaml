@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repo Bootstrap"
+  short_description: "Create repo AGENTS.md defaults."
+  default_prompt: "Use $repo-bootstrap to initialize this repo."

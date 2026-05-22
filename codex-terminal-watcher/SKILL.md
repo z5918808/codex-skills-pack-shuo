@@ -30,7 +30,7 @@ description: Use when the user invokes /codex-terminal-watcher or wants Codex to
 4. 若 terminal 提到 native Codex CLI、`/goal`、sidecar、或 active CLI process，再查 CLI status helper：
 
 ```powershell
-& "<codex-skills-dir>\check\scripts\Check-CodexCliStatus.ps1" -Workspace "<workspace>" -Detailed
+& "$env:USERPROFILE\.codex\skills\check\scripts\Check-CodexCliStatus.ps1" -Workspace "<workspace>" -Detailed
 ```
 
 5. generic Codex CLI sidecar logs under `%LOCALAPPDATA%\CodexCliSidecars\codex-cli\<run>\`：`last-message.md`、`stdout.log`、`prompt.md`、`exit-code.txt`。

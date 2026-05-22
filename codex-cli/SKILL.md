@@ -33,19 +33,19 @@ Before launching CLI:
 Preferred entry:
 
 ```powershell
-& "<codex-skills-dir>\codex-cli\scripts\Start-CodexCli.ps1" -Workspace "C:\path\to\repo" -Interactive
+& "$env:USERPROFILE\.codex\skills\codex-cli\scripts\Start-CodexCli.ps1" -Workspace "C:\path\to\repo" -Interactive
 ```
 
 For App-controlled sidecar work:
 
 ```powershell
-& "<codex-skills-dir>\codex-cli\scripts\Start-CodexCli.ps1" -Workspace "C:\path\to\repo" -Prompt "Do the smallest verified step for this task."
+& "$env:USERPROFILE\.codex\skills\codex-cli\scripts\Start-CodexCli.ps1" -Workspace "C:\path\to\repo" -Prompt "Do the smallest verified step for this task."
 ```
 
 For read-only review:
 
 ```powershell
-& "<codex-skills-dir>\codex-cli\scripts\Start-CodexCli.ps1" -Workspace "C:\path\to\repo" -Prompt "Inspect these files and report risks." -ReadOnly
+& "$env:USERPROFILE\.codex\skills\codex-cli\scripts\Start-CodexCli.ps1" -Workspace "C:\path\to\repo" -Prompt "Inspect these files and report risks." -ReadOnly
 ```
 
 The script writes logs under `%LOCALAPPDATA%\CodexCliSidecars\codex-cli\`.
@@ -65,19 +65,19 @@ When using CLI from the App:
 Bad:
 
 ```powershell
-Set-Location -LiteralPath <project-root>; codex
+Set-Location -LiteralPath C:\Users\user\Desktop\MODESTY api專案; codex
 ```
 
 Good:
 
 ```powershell
-Start-Process powershell.exe -WorkingDirectory "<project-root>" -ArgumentList @("-NoExit", "-Command", "codex")
+Start-Process powershell.exe -WorkingDirectory "C:\Users\user\Desktop\MODESTY api專案" -ArgumentList @("-NoExit", "-Command", "codex")
 ```
 
 Better for non-interactive work:
 
 ```powershell
-codex exec -C "<project-root>" --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check "Inspect project status and report the next smallest action."
+codex exec -C "C:\Users\user\Desktop\MODESTY api專案" --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check "Inspect project status and report the next smallest action."
 ```
 
 Codex CLI 0.128.0 note:

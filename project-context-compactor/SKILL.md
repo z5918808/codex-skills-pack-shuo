@@ -30,12 +30,12 @@ Before saying a project has "no memory", check all applicable memory sources:
    - `migration-manifest.json`
    - `knowledge-graph.md`
 4. Global MemPalace:
-   - Default palace path on this machine: `<memory-palace-root>`
+   - Default palace path on this machine: `C:\Users\user\.mempalace\palace`
    - If MemPalace MCP tools are available, call `mempalace_status` and search for the project name/path/workstream before finalizing memory inventory.
-   - Known relevant wing example for `<workspace-root>`: `playground`.
+   - Known relevant wing example for `C:\Users\user\Documents\Playground`: `playground`.
 5. Global Codex memory/config:
-   - `<codex-home>\AGENTS.md`
-   - `<codex-skills-dir>\`
+   - `C:\Users\user\.codex\AGENTS.md`
+   - `C:\Users\user\.codex\skills\`
    - Any user-provided AGENTS.md routing in the current conversation.
 
 Memory wording rule:
