@@ -1,0 +1,16 @@
+{
+  "prompt-for-goal": ["/prompt for goal"],
+  "go": ["/go", "$go"],
+  "smart-go": ["/smart-go", "$smart-go"],
+  "resume": ["/resume", "$resume"],
+  "long-running-agent": ["/longrun", "/goal", "/resume"],
+  "check": ["/check"],
+  "explain": ["/explain", "$explain"],
+  "step-back-and-think": ["/step-back-and-think"],
+  "bigbots-deploy": ["/bigbots-deploy"],
+  "shape": ["/shape"],
+  "critique": ["/critique"],
+  "audit": ["/audit"],
+  "polish": ["/polish"],
+  "project-context-compactor": ["/ctx"]
+}

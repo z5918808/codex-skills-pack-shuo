@@ -1,0 +1,4 @@
+interface:
+  display_name: "Step Back and Think"
+  short_description: "賽局排序、延後低槓桿可見問題，設計最低可用大工廠路徑"
+  default_prompt: "Use $step-back-and-think to 先判斷賽局優先序，再找出最低可用的大工廠突破點。"

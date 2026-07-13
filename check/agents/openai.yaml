@@ -1,0 +1,3 @@
+interface:
+  display_name: "Check"
+  short_description: "Inspect the last Codex CLI, native goal CLI, terminal, or sidecar status."

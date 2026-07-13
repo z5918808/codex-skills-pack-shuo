@@ -1,0 +1,7 @@
+interface:
+  display_name: "Grill Me"
+  short_description: "Relentlessly pressure-test a plan before implementation"
+  brand_color: "#DC2626"
+  default_prompt: "Grill my plan one question at a time until it is concrete and verifiable"
+policy:
+  allow_implicit_invocation: true

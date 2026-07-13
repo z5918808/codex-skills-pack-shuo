@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resume"
+  short_description: "Reconnect and continue interrupted work"
+  default_prompt: "Resume the interrupted work by rebuilding current truth, identifying the active goal, and continuing the next safe action."

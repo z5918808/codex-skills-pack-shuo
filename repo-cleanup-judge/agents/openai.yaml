@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repo Cleanup Judge"
+  short_description: "Judge keep move delete ignore for repo artifacts before cleanup."
+  default_prompt: "Use this skill to decide whether files in a repo should be kept, moved, deleted, or ignored before cleanup."

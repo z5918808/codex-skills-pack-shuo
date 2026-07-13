@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Context Compactor"
+  short_description: "Non-destructive context compaction with provenance"
+  default_prompt: "Slim active project context with the smallest useful routing and status updates. Preserve provenance and unknown files; do not move, archive, pack, deduplicate, or delete unless explicitly requested."

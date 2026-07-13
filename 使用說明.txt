@@ -1,0 +1,51 @@
+Codex Skills 一句話使用指南
+
+需要哪種工作，就在 prompt 裡直接點名對應 skill。
+
+adapt：現有 UI 要適配手機、平板、列印或其他使用情境時用。
+agent-db-safety：要碰 database、migration、token 或批量資料前用。
+api-design：要設計或 review REST API、錯誤、分頁與 idempotency 時用。
+article-writing：要寫文章、教學、部落格或長篇內容時用。
+ask-like-human-user-prompt：要用非技術使用者角度質問另一個 agent 是否真的完成時用。
+audit：要唯讀檢查 UI 的 accessibility、responsive、performance 與技術品質時用。
+autoresearch：問題不確定，需要用短實驗取得證據再決策時用。
+backend-patterns：要決定 transaction、queue、cache、consistency 或 observability 做法時用。
+bigbots-deploy：已有兩個以上獨立子任務，想明確派給多個 agents 時用。
+check：要確認目前進度、完成證據與最小下一步時用。
+coding-standards：要改善 naming、boundaries、errors、comments 與 tests 品質時用。
+complexity-optimizer：要找效能瓶頸或不必要的演算法複雜度時用。
+critique：要用設計總監角度指出 UI 最大的體驗與視覺問題時用。
+design3steps：要用「方向、骨架、細節」三步快速完成 UI 設計時用。
+diagnose：遇到 bug，要用可重現證據與假設測試找 root cause 時用。
+duo：想用一個主控 agent 管理另一個執行 agent 時用。
+e2e-testing：要建立 Playwright E2E tests、CI 與 flaky test 策略時用。
+explain：看不懂目前狀況，想用短而清楚的方式重建上下文時用。
+find-some-shit-to-do：不知道 repo 下一步做什麼，想找最值得做的一件事時用。
+frontend-design：要直接建立有設計感的頁面、元件或 frontend app 時用。
+frontend-patterns：要決定 component、state、data flow、accessibility 或 frontend performance 時用。
+go：目標已清楚，想讓 Codex 自己完成下一個可驗證階段時用。
+grill-me：要把計畫問到具體、可執行且沒有明顯盲點時用。
+handoff：要把目前狀態整理給下一個 agent 接手時用。
+image-taste-frontend：要先用圖片與 reference 定義 frontend 視覺方向時用。
+impeccable：要建立或改善完整、獨特且可驗證的 UI design system 時用。
+improve-codebase-architecture：要找 coupling、ownership、interface 與架構瓶頸時用。
+long-running-agent：任務需要跨多個 milestone 或 session 持續執行時用。
+market-research：要做市場、競品、產業或投資研究時用。
+playwright：要從 terminal 操作真實 browser、截圖或驗證 UI flow 時用。
+polish：核心功能已完成，只差最後一致性與 edge states 時用。
+project-context-compactor：專案 context 太肥，想縮短入口但保留來源與可恢復性時用。
+prompt-for-goal：要把模糊需求編成可直接執行的 /goal prompt 時用。
+repeat-review：要 review、修正、再 review，直到沒有可接受問題時用。
+repo-bootstrap：新 repo 要建立最小 Codex 規則、入口與驗證方式時用。
+repo-cleanup-judge：要判斷 repo 裡哪些檔案該留、移動、刪除或忽略時用。
+report-for-outsourcing：要把問題整理成外部 reviewer 看得懂的零背景報告時用。
+resume：對話中斷或換 session，想從 live evidence 接回原任務時用。
+risk-preflight：要做 production、secret、bulk、delete 或不可逆操作前用。
+security-review：要用 threat model 與證據做 security review 時用。
+shape：寫 code 前要先確認功能的 UX、UI 與限制時用。
+skill-cleaner：要找過長 description、重複 skills 與索引浪費時用。
+smart-go：想先做 bounded research，再根據證據繼續執行時用。
+step-back-and-think：一直補洞或方向混亂，想重新找真正主戰場時用。
+step-by-step-report：要把流程、pipeline 或 handoff 寫成簡短編號步驟時用。
+trim-repo-agents-md：repo 的 AGENTS.md 太長，想保留關鍵規則並刪掉噪音時用。
+windows-encoding-safety：Windows、PowerShell、中文或 JSON output 有 encoding 風險時用。

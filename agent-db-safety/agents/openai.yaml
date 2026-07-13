@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent DB Safety"
+  short_description: "Guard AI agents from destructive database mistakes."
+  default_prompt: "Apply AI agent database safety guards before staging, production, migration, bulk update, or destructive database work."

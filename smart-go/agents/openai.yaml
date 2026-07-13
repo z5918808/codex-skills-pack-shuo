@@ -1,0 +1,6 @@
+interface:
+  display_name: "Smart Go"
+  short_description: "Research first, then drive verified progress."
+  default_prompt: "先做 bounded autoresearch：定 baseline、metric、editable surface、frozen surface，再根據 live truth 選擇 go segment 或內建 outcome-driver。優先推主結構，不打磨局部磁磚。不要復活或呼叫自製 goal skill，也不要跟 Codex App 原生「目標」入口搶責任；若使用者明確要原生目標，只產出 compact handoff 交給 App 目標入口。每輪要能判斷 keep/discard/crash/pivot，推進到可驗證 checkpoint、blocker 或 safety stop。"
+policy:
+  allow_implicit_invocation: true

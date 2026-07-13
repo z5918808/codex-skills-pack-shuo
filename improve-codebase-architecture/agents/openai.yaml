@@ -1,0 +1,4 @@
+interface:
+  display_name: "Improve System Architecture"
+  short_description: "Inspect any project as a system"
+  default_prompt: "Use $improve-codebase-architecture to treat this project as a system, map its interfaces and ownership, find deepening opportunities, and propose the highest-leverage architecture improvements."
