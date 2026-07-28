@@ -156,7 +156,7 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 不收錄：
 
 - 需要私人 API key、`.env`、cookie、登入態或客戶資料才能成立的 workflow。
-- Odoo、Shopify 或其他單一 vendor 的執行型 recipes。
+- 特定 ERP、commerce 平台或其他單一 vendor 的執行型 recipes。
 - 私人 bridge、本機固定磁碟、公司內部路徑與特定客戶流程。
 - 已失效 alias、重複 trigger 或只有目前作者環境才能使用的工具包。
 
