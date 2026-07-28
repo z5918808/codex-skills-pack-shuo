@@ -1,84 +1,214 @@
-# Codex Skills Pack：新手實用版
+# Codex Skills Pack · Shuo
 
-這是一套精選的通用 Codex skills。重點是讓新手能直接完成工作，不必先理解複雜 agent 架構。
+一套以「能直接完成工作」為標準整理的繁體中文 Codex skills collection。
 
-繁中一句話清單：`使用說明.txt`
+目前收錄 **84 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、Frontend 設計與內容工作。每個 skill 都是獨立目錄，可單獨安裝，不必一次載入整包。
 
-本 repo 只保留：
+> 適合：想快速建立可重複工作流的新手，以及需要 evidence、safety gate、handoff 與長任務協作的進階使用者。
 
-- 常見 coding、debug、review、research、writing 與 frontend 工作。
-- 可重跑驗證、風險預檢、handoff 與狀態判斷。
-- 不依賴私人帳號、特定公司、ERP、commerce 平台或本機固定路徑的流程。
+## 快速開始
 
-不包含 Odoo、Shopify、私人 bridge、客戶流程、舊相容 alias、重複微技能與敏感 browser domain recipes。
+```powershell
+git clone https://github.com/z5918808/codex-skills-pack-shuo.git
+Set-Location .\codex-skills-pack-shuo
 
-## 新手先裝這 10 個
+$skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
+New-Item -ItemType Directory -Force -Path $skillsRoot | Out-Null
+Copy-Item -LiteralPath ".\diagnose" -Destination $skillsRoot -Recurse -Force
+```
 
-| Skill | 用途 |
+重新開啟 Codex task，直接在 prompt 點名：
+
+```text
+請使用 $diagnose，找出這個測試失敗的 root cause；先重現，再提出最小修復。
+```
+
+macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](./docs/GETTING_STARTED.md)。
+
+## 為什麼是這一包
+
+- **Outcome first**：skill 必須導向可觀察成果，不只提供抽象建議。
+- **Evidence based**：完成、進度與 root cause 都需要可重跑證據。
+- **Safety aware**：production、database、secret、bulk 與 destructive action 有明確邊界。
+- **Portable**：不綁私人帳號、客戶資料、固定使用者路徑或私有 runtime。
+- **Progressive disclosure**：需要哪個才讀哪個，避免把整包塞進 context。
+
+## 新手推薦的 10 個
+
+| Skill | 何時使用 |
 |---|---|
-| `go` | 從目前狀態繼續做下一個可驗證步驟 |
-| `check` | 判斷什麼已完成、什麼只是 claim |
-| `diagnose` | 用 evidence 找 bug root cause |
-| `find-some-shit-to-do` | 不知道做什麼時，找出最值得做的一件事 |
-| `step-back-and-think` | 避免一直補洞，重新找真正瓶頸 |
-| `coding-standards` | 改善命名、邊界、錯誤處理與測試品質 |
-| `security-review` | 做 evidence-based security review |
-| `risk-preflight` | production、secret、bulk、destructive 前先預檢 |
-| `handoff` | 把目前狀態交給下一個 agent |
-| `skill-cleaner` | 檢查 skill descriptions、重複與索引成本 |
+| [`check`](./check/) | 判斷目前真的完成了什麼，以及下一個最小驗證步驟 |
+| [`diagnose`](./diagnose/) | Bug、測試失敗或不穩定行為，需要找 root cause |
+| [`explain`](./explain/) | 想把複雜狀態整理成短而清楚的說明 |
+| [`step-back-and-think`](./step-back-and-think/) | 一直補洞、方向混亂或需要重新找主戰場 |
+| [`repo-bootstrap`](./repo-bootstrap/) | 新 repo 要建立最小可用的 Codex 工作約定 |
+| [`security-review`](./security-review/) | 做 evidence-based threat model 與 security review |
+| [`risk-preflight`](./risk-preflight/) | Production、secret、bulk、delete 或不可逆操作前 |
+| [`handoff`](./handoff/) | 把可接續的狀態交給下一個 agent 或 task |
+| [`duo-long-running`](./duo-long-running/) | Runner 執行長任務、Reviewer 只處理事件與技術救援 |
+| [`question-eli10`](./question-eli10/) | 想用繁體中文、先結論、白話方式理解複雜問題 |
 
-## 完整分類
+## Skill 目錄
 
-### 執行與狀態
+### 執行、狀態與長任務
 
-`go`、`smart-go`、`check`、`explain`、`resume`、`handoff`、`long-running-agent`、`prompt-for-goal`、`project-context-compactor`
+[`check`](./check/) ·
+[`checkpoint`](./checkpoint/) ·
+[`duo-long-running`](./duo-long-running/) ·
+[`durable-authority-resume`](./durable-authority-resume/) ·
+[`explain`](./explain/) ·
+[`handoff`](./handoff/) ·
+[`history-matters`](./history-matters/) ·
+[`long-running-agent`](./long-running-agent/) ·
+[`pause-and-reflect`](./pause-and-reflect/) ·
+[`project-context-compactor`](./project-context-compactor/) ·
+[`project-memory-gate`](./project-memory-gate/) ·
+[`prompt-for-goal`](./prompt-for-goal/) ·
+[`question-eli10`](./question-eli10/) ·
+[`recenter`](./recenter/) ·
+[`reconcile-project-state`](./reconcile-project-state/) ·
+[`resume`](./resume/) ·
+[`save`](./save/) ·
+[`step-back-and-think`](./step-back-and-think/)
 
-### 找問題與做決策
+### 工程、架構與品質
 
-`find-some-shit-to-do`、`step-back-and-think`、`diagnose`、`autoresearch`、`grill-me`、`repeat-review`、`ask-like-human-user-prompt`、`report-for-outsourcing`、`step-by-step-report`
+[`agents.md-compact`](./agents.md-compact/) ·
+[`api-design`](./api-design/) ·
+[`backend-patterns`](./backend-patterns/) ·
+[`codebase-design`](./codebase-design/) ·
+[`complexity-optimizer`](./complexity-optimizer/) ·
+[`diagnose`](./diagnose/) ·
+[`domain-modeling`](./domain-modeling/) ·
+[`e2e-testing`](./e2e-testing/) ·
+[`eval-harness`](./eval-harness/) ·
+[`factory-output`](./factory-output/) ·
+[`frontend-patterns`](./frontend-patterns/) ·
+[`improve-codebase-architecture`](./improve-codebase-architecture/) ·
+[`repo-bootstrap`](./repo-bootstrap/) ·
+[`repo-cleanup-judge`](./repo-cleanup-judge/) ·
+[`serious-project-cleanup`](./serious-project-cleanup/) ·
+[`skill-cleaner`](./skill-cleaner/) ·
+[`system-instruction-craft`](./system-instruction-craft/) ·
+[`tdd`](./tdd/) ·
+[`trim-repo-agents-md`](./trim-repo-agents-md/) ·
+[`windows-encoding-safety`](./windows-encoding-safety/)
 
-### Coding 與 repo
+### 研究、Review、協作與安全
 
-`coding-standards`、`api-design`、`backend-patterns`、`frontend-patterns`、`complexity-optimizer`、`improve-codebase-architecture`、`e2e-testing`、`playwright`、`repo-bootstrap`、`repo-cleanup-judge`、`trim-repo-agents-md`
+[`agent-db-safety`](./agent-db-safety/) ·
+[`ask-like-human-user-prompt`](./ask-like-human-user-prompt/) ·
+[`audit`](./audit/) ·
+[`autoresearch`](./autoresearch/) ·
+[`bigbots-deploy`](./bigbots-deploy/) ·
+[`find-some-shit-to-do`](./find-some-shit-to-do/) ·
+[`grilling`](./grilling/) ·
+[`market-research`](./market-research/) ·
+[`report-for-outsourcing`](./report-for-outsourcing/) ·
+[`research`](./research/) ·
+[`risk-preflight`](./risk-preflight/) ·
+[`security-review`](./security-review/) ·
+[`self-reflect`](./self-reflect/) ·
+[`streaming-dag-execution`](./streaming-dag-execution/) ·
+[`super-report`](./super-report/)
 
-### Safety
+### Frontend、UX 與視覺設計
 
-`risk-preflight`、`agent-db-safety`、`security-review`、`windows-encoding-safety`
+[`adapt`](./adapt/) ·
+[`animate`](./animate/) ·
+[`bolder`](./bolder/) ·
+[`clarify`](./clarify/) ·
+[`colorize`](./colorize/) ·
+[`critique`](./critique/) ·
+[`delight`](./delight/) ·
+[`design-audit`](./design-audit/) ·
+[`design3steps`](./design3steps/) ·
+[`distill`](./distill/) ·
+[`frontend-art-direction`](./frontend-art-direction/) ·
+[`frontend-design`](./frontend-design/) ·
+[`image-taste-frontend`](./image-taste-frontend/) ·
+[`impeccable`](./impeccable/) ·
+[`layout`](./layout/) ·
+[`optimize`](./optimize/) ·
+[`overdrive`](./overdrive/) ·
+[`playwright`](./playwright/) ·
+[`polish`](./polish/) ·
+[`prototype`](./prototype/) ·
+[`quieter`](./quieter/) ·
+[`shape`](./shape/) ·
+[`typeset`](./typeset/)
 
-### Frontend 與設計
+### 寫作、簡報與商業內容
 
-`frontend-design`、`design3steps`、`impeccable`、`shape`、`critique`、`audit`、`adapt`、`polish`、`images-taste-skill`
+[`ai-layer-first`](./ai-layer-first/) ·
+[`article-writing`](./article-writing/) ·
+[`content-engine`](./content-engine/) ·
+[`frontend-slides`](./frontend-slides/) ·
+[`investor-materials`](./investor-materials/) ·
+[`investor-outreach`](./investor-outreach/) ·
+[`step-by-step-report`](./step-by-step-report/) ·
+[`writing-great-skills`](./writing-great-skills/)
 
-### 協作、研究與寫作
+## 收錄邊界
 
-`bigbots-deploy`、`duo`、`article-writing`、`market-research`
+本 repo 收錄可公開、可攜、可獨立理解的通用 workflow。
 
-## 安裝
+不收錄：
 
-建議先挑需要的 skill：
+- 需要私人 API key、`.env`、cookie、登入態或客戶資料才能成立的 workflow。
+- Odoo、Shopify 或其他單一 vendor 的執行型 recipes。
+- 私人 bridge、本機固定磁碟、公司內部路徑與特定客戶流程。
+- 已失效 alias、重複 trigger 或只有目前作者環境才能使用的工具包。
 
-```powershell
-Copy-Item -Recurse -Force .\diagnose "$env:USERPROFILE\.codex\skills\diagnose"
-```
+`api-design` 是不需連外執行的 REST interface 設計知識，因此保留；平台寫入型 API workflow 則不在本包內。
 
-也可以整包同步：
+## 安全與權限
 
-```powershell
-robocopy . "$env:USERPROFILE\.codex\skills" /E /XD .git /XF AGENTS.md README.md
-```
+Skill 是工作規則，不是額外權限。它不會替你取得 production、database、GitHub 或其他外部系統的授權。
 
-`AGENTS.md` 是可選的新手預設，不會因複製 skills 自動安裝。需要時請自行審閱後放到合適 scope。
+在執行 write、upload、delete、bulk 或 production action 前，仍應確認：
+
+1. 目標與影響範圍。
+2. Preview 或 dry-run。
+3. Rollback 方法。
+4. 當次明確授權。
 
 ## 驗證
+
+從 repo root 執行：
 
 ```powershell
 node --experimental-strip-types .\skill-cleaner\scripts\validate-skill-index.ts --root .
 node --experimental-strip-types --test .\skill-cleaner\scripts\validate-skill-index.test.ts
 ```
 
-公開版完成條件：
+公開版的基本完成條件：
 
-- 每個 `SKILL.md` 有一個 `name` 與一個短 `description`。
-- protected slash triggers 可見。
-- 沒有私人絕對路徑、credential-like literals 或斷掉的相對引用。
-- platform-specific workflow 不混進通用包。
+- 每個 skill 目錄都有可解析的 `SKILL.md`。
+- Frontmatter 含單一 `name` 與 `description`。
+- README 列出的 skill 與實際目錄一致。
+- 沒有 credential-like literal、私人絕對路徑或斷掉的相對引用。
+- UTF-8 中文內容可正確讀取。
+
+## Repository 結構
+
+```text
+.
+├── <skill-name>/
+│   ├── SKILL.md
+│   ├── agents/          # optional
+│   ├── references/      # optional
+│   └── scripts/         # optional
+├── docs/
+│   └── GETTING_STARTED.md
+├── AGENTS.md            # optional starter contract
+└── README.md
+```
+
+`AGENTS.md` 是給新 repo 參考的最小預設，不會因安裝 skills 自動生效。請先審閱，再放到合適的 project scope；不要直接覆蓋既有規則。
+
+## 更新策略
+
+這個 repository 是經過公開化審查的 snapshot，不是使用者本機 skills 目錄的無條件 mirror。更新時會先同步候選版本，再排除私人依賴、vendor workflow、固定路徑與重複技能，最後才通過驗證。
+
+各 skill 內原有的 LICENSE 或 attribution 會隨目錄保留。Repository-wide 授權請以根目錄實際提供的授權檔為準。

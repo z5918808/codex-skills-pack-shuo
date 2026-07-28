@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Layer First"
+  short_description: "Design semantic AI-first data workflows"
+  default_prompt: "Use $ai-layer-first to design a semantic data-processing workflow."

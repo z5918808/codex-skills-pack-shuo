@@ -1,0 +1,4 @@
+interface:
+  display_name: "Find Some Shit To Do"
+  short_description: "Find one evidence-backed repo fix"
+  default_prompt: "Use $find-some-shit-to-do to inspect the current repo and recommend one evidence-backed next action without editing files."

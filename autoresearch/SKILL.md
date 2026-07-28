@@ -183,7 +183,7 @@ Preferred:
 
 - experiment ledger: `results.tsv`, `experiments.tsv`, or repo-native path
 - durable research: `reports/autoresearch-YYYYMMDD-<topic>.md`
-- project memory: use the repo's existing status or handoff convention
+- project memory: only through `$project-memory-gate`
 
 Do not create `_ctx` unless long-run/project-memory rules are already active.
 

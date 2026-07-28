@@ -18,7 +18,7 @@ description: "/longrun, /goal, /resume"
 - 任務必須跨 session 延續，且不寫 durable state 會讓下一手無法安全接續。
 - 任務已被拆成 3 個以上可獨立驗證 milestone，且使用者接受長跑模式。
 
-不要因為「多檔案」、「看起來複雜」、「debug」、「部署」就自動啟用。高風險任務先走 `$risk-preflight`；需要延續狀態時沿用 repo status，或用 `handoff` 建最小交接。
+不要因為「多檔案」、「看起來複雜」、「debug」、「部署」就自動啟用。高風險任務先走 `$risk-preflight`；需要 project memory 時才走 `$project-memory-gate`。
 
 ## Outcome Contract
 
@@ -33,11 +33,13 @@ description: "/longrun, /goal, /resume"
 - `Safety / recovery`: guard、rollback、no-write zone、確認點。
 - `Stop / handoff`: 何時停、交棒檔在哪、下一手做什麼。
 
+時鐘、早上、晨報或預定驗收時間不是 goal stop condition，除非使用者明確要求時間邊界。預設 stop 只允許：acceptance criteria 完成、真 blocker、safety/permission boundary、或使用者干預。
+
 若 `Evidence`、`Constraint`、`Verification` 填不出來，下一步是補證據，不是開始實作。
 
 ## Memory
 
-需要 durable state 時，優先沿用 repo 已有 status／handoff 位置；沒有既有慣例時只建立最小 handoff pack。
+需要讀或寫 durable memory 時使用 `$project-memory-gate`。
 
 原則：
 
@@ -59,6 +61,8 @@ description: "/longrun, /goal, /resume"
 5. 更新 delta checkpoint。
 6. 決定繼續、縮 scope、repair、handoff、或停止。
 
+只要 acceptance criteria 未完成、仍有安全且已授權的下一步、也沒有使用者干預，就自動進入下一個 milestone；不要為了等早晨驗收而提早 closeout。
+
 Allowed status：
 
 - `Verified`
@@ -68,6 +72,12 @@ Allowed status：
 - `Out of scope`
 
 不要用努力程度標記完成。
+
+## Scheduling
+
+- `/goal` 預設在目前執行鏈持續到完成或使用者干預，不建立 cron、reminder、晨間驗收或定時 closeout。
+- 只有使用者明確要求某個時間點或 recurring schedule 時才建立 automation；取消後不得用 goal 文字暗藏同一排程。
+- 狀態報告可以在 milestone 產生，但 report time 不得成為停止主線的理由。
 
 ## Checkpoints
 
@@ -81,7 +91,7 @@ checkpoint 只更新 delta，最多三行：
 
 ## Factory Output
 
-只有在以下情況建立可重用的 script、test、rule、debug route 或 handoff：
+只有在以下情況使用 `$factory-output`：
 
 - 使用者要求沉澱。
 - 同類問題第二次出現。

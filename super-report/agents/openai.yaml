@@ -1,0 +1,4 @@
+interface:
+  display_name: "Super Report"
+  short_description: "三鏡頭工程診斷：合約、路由、狀態、證據與盲點對撞報告"
+  default_prompt: "Use $super-report to diagnose this engineering topic with contract, routing, and state lenses."

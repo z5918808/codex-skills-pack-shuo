@@ -1,0 +1,4 @@
+interface:
+  display_name: "Durable Authority Resume"
+  short_description: "跨 session 驗證權威狀態、處理矛盾並安全接續各類專案"
+  default_prompt: "Use $durable-authority-resume to recover the authoritative project state and identify the only safe next action."

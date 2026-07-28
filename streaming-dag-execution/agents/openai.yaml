@@ -1,0 +1,7 @@
+interface:
+  display_name: "Streaming DAG Execution"
+  short_description: "讓多個獨立工作項目跨階段流動並維持共享寫入單線安全"
+  default_prompt: "Use $streaming-dag-execution to remove unnecessary batch barriers while keeping shared writes serialized."
+
+policy:
+  allow_implicit_invocation: true

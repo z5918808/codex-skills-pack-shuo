@@ -1,0 +1,4 @@
+interface:
+  display_name: "Risk Preflight"
+  short_description: "Preview risky operations before writes."
+  default_prompt: "Use $risk-preflight before any destructive, production, database, financial, customer-data, or bulk operation."

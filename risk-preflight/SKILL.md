@@ -36,7 +36,7 @@ description: "Preflight destructive, production, database, financial, secret, bu
 ## Routing
 
 - Database / migration / bulk data：優先用 `$agent-db-safety` 或 repo guard。
-- Shopify / orders / inventory / live theme：用 Shopify 對應 skill，寫入前 preview / diff / plan。
+- Vendor commerce / orders / inventory / live storefront：使用對應平台 skill，寫入前先做 preview / diff / plan。
 - Browser / UI critical flow：用 browser skill 或專案既有驗證流程。
 - Codex CLI sidecar 或 automation：確認不繞過 production、金錢、客戶資料、destructive 限制。
 - Git destructive：除非使用者明確要求且風險已說清，否則不要執行。

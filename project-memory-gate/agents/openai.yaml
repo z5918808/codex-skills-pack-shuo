@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Memory Gate"
+  short_description: "Scoped _ctx reading and handoff control."
+  default_prompt: "Use $project-memory-gate to resume or hand off this project without over-reading project memory."

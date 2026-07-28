@@ -1,0 +1,4 @@
+interface:
+  display_name: "system-instruction-craft"
+  short_description: "Analyze and safely merge new rules into AGENTS.md"
+  default_prompt: "Analyze the current workaround or instruction idea, decide whether it belongs in the global AGENTS.md, the current repo AGENTS.md, both, or reject it, identify the right section, ask for approval, and only then edit."

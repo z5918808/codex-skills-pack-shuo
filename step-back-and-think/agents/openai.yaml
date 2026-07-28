@@ -1,4 +1,4 @@
 interface:
   display_name: "Step Back and Think"
-  short_description: "賽局排序、延後低槓桿可見問題，設計最低可用大工廠路徑"
-  default_prompt: "Use $step-back-and-think to 先判斷賽局優先序，再找出最低可用的大工廠突破點。"
+  short_description: "跳脫短期 ctx、找盲點，重排賽局與突破點"
+  default_prompt: "Use $step-back-and-think to step back from the current ctx, identify blind spots and context traps, reframe the real bottleneck, ask better questions, and decide the next high-leverage move or minimum viable factory."

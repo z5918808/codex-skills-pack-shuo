@@ -1,7 +1,7 @@
 interface:
   display_name: "Report For Outsourcing"
-  short_description: "Package project design, progress, risks, and evidence for outside analysis"
-  default_prompt: "Use $report-for-outsourcing to write a detailed Markdown report for an external AI or human analyst that cannot access my machine. Include sanitized local repo context, project preferences, program design, architecture map, implementation record, current progress, planned but unfinished work, risks, evidence, constraints, and precise questions."
+  short_description: "Package operator baselines or architecture briefs for outside analysis"
+  default_prompt: "Use $report-for-outsourcing to produce a report-out packet for an external 0-context agent: gather enough local context, evidence, hypotheses, blockers, and questions so the outside reviewer can re-reason from scratch. First choose report kind: default to Operator Control-Room Baseline for live/no-live, permission, active writer, GF2, handoff, or state-boundary tasks; use architecture/project analysis only when explicitly requested."
 
 policy:
   allow_implicit_invocation: false

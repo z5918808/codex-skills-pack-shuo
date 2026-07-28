@@ -1,0 +1,4 @@
+interface:
+  display_name: "Step-by-step Report"
+  short_description: "Write review-ready arrow process reports"
+  default_prompt: "Use step-by-step-report to explain this process from raw input to final outcome with quality gates."

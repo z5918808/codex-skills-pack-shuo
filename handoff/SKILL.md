@@ -1,56 +1,16 @@
 ---
 name: handoff
-description: Use when the user asks to save, transfer, or prepare a paste-ready handoff so a fresh agent can continue safely.
+description: Compact the current conversation into a handoff document for another agent to pick up.
+argument-hint: "What will the next session be used for?"
+disable-model-invocation: true
 ---
 
-# Handoff
+Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace.
 
-## Modes
+Include a "suggested skills" section in the document, which suggests skills that the agent should invoke.
 
-- `Durable` (default): update the project’s existing status or handoff route when another session must resume later.
-- `Paste-only`: when the user says no file, code block, cb, or wants a prompt for another agent, return one copy-ready prompt and do not write a handoff file.
+Do not duplicate content already captured in other artifacts (specs, plans, ADRs, issues, commits, diffs). Reference them by path or URL instead.
 
-Use `report-for-outsourcing` instead when the recipient is an outside reviewer who must re-reason from zero context.
+Redact any sensitive information, such as API keys, passwords, or personally identifiable information.
 
-## Build From Live Truth
-
-Inspect current files, status, git diff, tests, logs, processes, and artifacts before summarizing. Chat memory and prior closeouts are claims, not current truth.
-
-Include only:
-
-1. objective and acceptance criteria;
-2. current stage and last verified evidence;
-3. changed surface and important artifact coordinates;
-4. blockers, permission boundaries, and remaining risk;
-5. the next smallest executable action and how to verify it;
-6. frozen or unrelated surfaces the next agent must not touch.
-
-Reference existing plans, ADRs, issues, reports, and diffs instead of copying them. Redact secrets and customer data.
-
-## Durable Mode
-
-Use the project’s established memory route. If `_ctx` is explicitly in use, follow `project-memory-gate`; otherwise prefer the existing status or handoff file over creating a new system.
-
-Keep the update delta-sized. Record explicit path, run ID, or hash when artifact identity matters. Do not use a temporary file as the project’s source of truth.
-
-## Paste-Only Shape
-
-Return one fenced prompt containing:
-
-```text
-Mission:
-Current truth:
-Verified evidence:
-Changed surface:
-Blockers and boundaries:
-Do not touch:
-Next action:
-Verification:
-Relevant skills or routes:
-```
-
-Do not create or update files in paste-only mode.
-
-## Verification
-
-Before delivery, confirm the cited files or artifacts exist, the next action follows from the evidence, and no stale claim is presented as current truth. State any item that could not be verified.
+If the user passed arguments, treat them as a description of what the next session will focus on and tailor the doc accordingly.

@@ -5,7 +5,7 @@ description: Use for /critique when the user wants a design-director review of t
 
 # Critique
 
-Use `impeccable` for product and brand context. Critique is qualitative design judgment; use `audit` for technical checks.
+Use `impeccable` for product and brand context. Critique is qualitative design judgment; use `audit` for technical checks and `design-audit` for a formal scored baseline.
 
 ## Evidence
 
@@ -35,7 +35,7 @@ Lead with:
 2. two things worth preserving;
 3. three to five priority issues, each with evidence, user impact, and a concrete direction;
 4. one provocative question that could unlock a better concept;
-5. the smallest relevant follow-up skill: `adapt` for context changes, `polish` for final cleanup, or `impeccable` for broader redesign.
+5. the smallest relevant follow-up skill, such as `layout`, `clarify`, `bolder`, `quieter`, `typeset`, `adapt`, or `polish`.
 
 Use severity only when it helps triage. Do not invent numeric scores for subjective critique.
 

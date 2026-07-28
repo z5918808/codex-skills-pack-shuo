@@ -1,0 +1,4 @@
+interface:
+  display_name: "?"
+  short_description: "用白話快速說明目前狀況原因風險與下一步行動不要術語"
+  default_prompt: "Use $question-eli10 to explain the current situation in simple Traditional Chinese."

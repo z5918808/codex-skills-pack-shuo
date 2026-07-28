@@ -1,0 +1,4 @@
+interface:
+  display_name: "Duo Long Running"
+  short_description: "Event-driven runner/reviewer without polling or takeover"
+  default_prompt: "Use $duo-long-running to delegate a long task to an independent runner while the reviewer stays event-driven and never polls or takes over the runner work."

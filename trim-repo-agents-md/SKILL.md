@@ -10,7 +10,7 @@ description: Use when trimming a repo AGENTS.md while preserving entrypoints, be
 ## Scope
 
 1. 預設只改目前 repo 內最近的 `AGENTS.md`。
-2. 不改全域 `$env:USERPROFILE\.codex\AGENTS.md`，除非使用者明說全域。
+2. 不改全域 `%USERPROFILE%\.codex\AGENTS.md`，除非使用者明說全域。
 3. 若有多個 repo AGENTS，先列候選；能安全判斷時改離 cwd 最近者。
 
 ## Keep
