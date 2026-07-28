@@ -1,0 +1,7 @@
+interface:
+  display_name: "matt-flow"
+  short_description: "Light or heavy routing through Matt skill packs"
+  default_prompt: "Use $matt-flow at the lightest effective depth for this goal, unless I explicitly request heavy or reset mode."
+
+policy:
+  allow_implicit_invocation: false
