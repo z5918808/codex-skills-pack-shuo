@@ -1,8 +1,8 @@
 # Codex Skills Pack：通用技能包
 
-一套以「能直接完成工作」為標準整理的 Codex skills 精選集。
+一套以「能直接完成工作」為標準整理的 Codex skills 精選集，包含可單獨使用的通用技能，以及可按任務階段路由的完整工程工作流。
 
-目前收錄 **84 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。每個 skill 都是獨立目錄，可單獨安裝，不必一次載入整包。
+目前收錄 **96 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
 
 > 適合：想快速建立可重複工作流的新手，以及重視證據、風險檢查、工作交接與長任務協作的進階使用者。
 
@@ -24,6 +24,31 @@ Copy-Item -LiteralPath ".\diagnose" -Destination $skillsRoot -Recurse -Force
 ```
 
 macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](./docs/GETTING_STARTED.md)。
+
+## 完整工程工作流
+
+需要從需求釐清一路做到驗證交付時，可以安裝完整的 Matt 工程工作流。它不會強迫每次都跑完整流水線，而是由 `matt-flow` 依目前狀態選擇最近且足夠的階段。
+
+```text
+想法或問題
+  → setup-matt-pocock-skills
+  → matt-flow
+  → 釐清／規格／拆票／實作／審查／驗證
+```
+
+第一次在 repository 使用時，先執行：
+
+```text
+請使用 $setup-matt-pocock-skills，完成這個 repository 的工程工作流設定。
+```
+
+之後明確指定：
+
+```text
+請使用 $matt-flow，根據目前已有的規格與程式碼，完成這項功能並驗證。
+```
+
+完整安裝指令與各階段用途請看[新手使用指南的 Matt 工程工作流章節](./docs/GETTING_STARTED.md#6-安裝-matt-工程工作流)。
 
 ## 為什麼選這一包
 
@@ -94,6 +119,32 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 [`trim-repo-agents-md`](./trim-repo-agents-md/) ·
 [`windows-encoding-safety`](./windows-encoding-safety/)
 
+### Matt 工程工作流
+
+[`matt-flow`](./matt-flow/) ·
+[`ask-matt`](./ask-matt/) ·
+[`setup-matt-pocock-skills`](./setup-matt-pocock-skills/) ·
+[`grill-with-docs`](./grill-with-docs/) ·
+[`grill-me`](./grill-me/) ·
+[`to-spec`](./to-spec/) ·
+[`to-tickets`](./to-tickets/) ·
+[`implement`](./implement/) ·
+[`code-review`](./code-review/) ·
+[`triage`](./triage/) ·
+[`diagnosing-bugs`](./diagnosing-bugs/) ·
+[`wayfinder`](./wayfinder/)
+
+這組工作流也會按需使用本 repo 已收錄的
+[`prototype`](./prototype/)、
+[`tdd`](./tdd/)、
+[`improve-codebase-architecture`](./improve-codebase-architecture/)、
+[`domain-modeling`](./domain-modeling/)、
+[`codebase-design`](./codebase-design/)、
+[`research`](./research/)、
+[`grilling`](./grilling/)、
+[`handoff`](./handoff/) 與
+[`writing-great-skills`](./writing-great-skills/)。
+
 ### 研究、審查、協作與安全
 
 [`agent-db-safety`](./agent-db-safety/) ·
@@ -151,7 +202,7 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 
 ## 收錄原則
 
-本 repo 僅收錄可公開、方便移植、可獨立理解的通用工作流程。每個 skill 都必須能獨立使用，並通過結構、連結與敏感資訊掃描。
+本 repo 收錄可公開、方便移植且能清楚理解的通用工作流程。單一 skill 必須可直接安裝；跨 skill 的工作流必須明列完整相依集合與安裝方式。所有內容都需要通過結構、連結與敏感資訊掃描。
 
 ## 安全與權限
 
@@ -180,6 +231,7 @@ node --experimental-strip-types --test .\skill-cleaner\scripts\validate-skill-in
 - README 列出的 skill 與實際目錄一致。
 - 沒有疑似憑證字串、私人絕對路徑或失效的相對引用。
 - UTF-8 中文內容可正確讀取。
+- 第三方內容保留來源與授權聲明。
 
 ## Repository 結構
 
@@ -202,4 +254,4 @@ node --experimental-strip-types --test .\skill-cleaner\scripts\validate-skill-in
 
 這個 repository 是經過公開化審查的版本快照，不是使用者本機 skills 目錄的無條件鏡像。更新時會先同步候選版本，再依公開性、可攜性、通用性與重複性審查，最後才通過驗證。
 
-各 skill 內原有的 `LICENSE` 或來源標示會隨目錄保留。整個 repository 的授權方式，請以根目錄實際提供的授權檔為準。
+各 skill 內原有的 `LICENSE` 或來源標示會隨目錄保留；集中式來源與授權資訊列在 [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md)。整個 repository 的授權方式，請以根目錄實際提供的授權檔為準。

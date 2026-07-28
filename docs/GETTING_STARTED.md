@@ -44,7 +44,7 @@ cd codex-skills-pack-shuo
 
 ## 4. 安裝單一 skill
 
-新手建議先裝一到三個，不必整包複製。
+新手建議先裝一到三個，不必整包複製。若使用具有相依關係的完整工作流，請依對應章節一次安裝完整集合。
 
 ### Windows PowerShell
 
@@ -94,7 +94,94 @@ done
 
 安裝後重新開啟 Codex task，讓 skill index 重新載入。
 
-## 6. 第一次怎麼用
+## 6. 安裝 Matt 工程工作流
+
+Matt 工程工作流會依任務狀態選擇需求釐清、規格、拆票、實作、審查或驗證階段。因為這些 skills 彼此組合使用，請一次安裝完整集合。
+
+### Windows PowerShell
+
+```powershell
+$mattSkills = @(
+  "ask-matt",
+  "setup-matt-pocock-skills",
+  "grill-with-docs",
+  "domain-modeling",
+  "codebase-design",
+  "to-spec",
+  "to-tickets",
+  "implement",
+  "prototype",
+  "tdd",
+  "code-review",
+  "improve-codebase-architecture",
+  "triage",
+  "diagnosing-bugs",
+  "wayfinder",
+  "research",
+  "grill-me",
+  "grilling",
+  "handoff",
+  "writing-great-skills",
+  "matt-flow"
+)
+
+$skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
+New-Item -ItemType Directory -Force -Path $skillsRoot | Out-Null
+
+foreach ($name in $mattSkills) {
+  Copy-Item -LiteralPath (Join-Path $PWD $name) -Destination $skillsRoot -Recurse -Force
+}
+```
+
+### macOS / Linux
+
+```bash
+matt_skills=(
+  ask-matt
+  setup-matt-pocock-skills
+  grill-with-docs
+  domain-modeling
+  codebase-design
+  to-spec
+  to-tickets
+  implement
+  prototype
+  tdd
+  code-review
+  improve-codebase-architecture
+  triage
+  diagnosing-bugs
+  wayfinder
+  research
+  grill-me
+  grilling
+  handoff
+  writing-great-skills
+  matt-flow
+)
+
+mkdir -p ~/.codex/skills
+
+for name in "${matt_skills[@]}"; do
+  cp -R "./$name" ~/.codex/skills/
+done
+```
+
+重新開啟 Codex task 後，在每個 repository 第一次使用時先完成設定：
+
+```text
+請使用 $setup-matt-pocock-skills，設定 issue tracker、triage labels 與 domain docs。
+```
+
+之後用 `matt-flow` 從目前已有的證據進入最近的必要階段：
+
+```text
+請使用 $matt-flow，根據目前已有的規格和程式碼完成這項功能，並做到驗證通過。
+```
+
+`matt-flow` 只會在你明確指定時啟用。預設會重用已完成的階段；只有你明確要求完整、從頭或重建流程時，才會跑較重的路線。
+
+## 7. 第一次怎麼用
 
 最穩定的格式是：
 
@@ -126,7 +213,7 @@ done
 規則短而可執行，並指出至少一個可重跑驗證命令。
 ```
 
-## 7. 不知道該選哪個
+## 8. 不知道該選哪個
 
 先從問題類型判斷：
 
@@ -142,10 +229,11 @@ done
 | 長任務要有獨立 Runner | [`duo-long-running`](../duo-long-running/) |
 | 想改善 UI | [`impeccable`](../impeccable/) 或 [`critique`](../critique/) |
 | 想用白話理解狀態 | [`question-eli10`](../question-eli10/) |
+| 想讓工程工作流自動選擇目前階段 | [`matt-flow`](../matt-flow/) |
 
 完整分類請看 [README 的 Skill 目錄](../README.md#skill-目錄)。
 
-## 8. 可以組合 skills 嗎
+## 9. 可以組合 skills 嗎
 
 可以，但不要一次指定太多。通常兩到三個已足夠。
 
@@ -163,7 +251,7 @@ done
 - 長任務：`prompt-for-goal` → `duo-long-running` → `handoff`
 - 高風險工作：`risk-preflight` → 對應領域 skill → `check`
 
-## 9. Skill 沒有被觸發
+## 10. Skill 沒有被觸發
 
 依序檢查：
 
@@ -185,7 +273,7 @@ done
 ~/.codex/skills/diagnose/SKILL.md
 ```
 
-## 10. 更新
+## 11. 更新
 
 先更新 repository：
 
@@ -195,7 +283,7 @@ git pull --ff-only
 
 再重新執行單一 skill 或整包安裝命令。複製前若你曾自行修改已安裝版本，請先做 diff 或備份；不要默默覆蓋自己的客製內容。
 
-## 11. 移除
+## 12. 移除
 
 移除只需刪除明確的 skill 目錄。
 
@@ -222,13 +310,13 @@ rm -r ~/.codex/skills/diagnose
 
 不要對整個 `~/.codex/skills` 執行遞迴刪除。
 
-## 12. `AGENTS.md` 要一起安裝嗎
+## 13. `AGENTS.md` 要一起安裝嗎
 
 不需要。
 
 Repository 根目錄的 `AGENTS.md` 是可選 starter contract，不是 skill。只有在新專案真的需要時才審閱並複製到 project root；不要覆蓋既有 `AGENTS.md`，也不要直接放到 global scope。
 
-## 13. 安全提醒
+## 14. 安全提醒
 
 - Skill 不會創造外部系統權限。
 - Dry-run 成功不代表已獲准執行 live action。
@@ -236,7 +324,7 @@ Repository 根目錄的 `AGENTS.md` 是可選 starter contract，不是 skill。
 - Production、database、金錢、bulk write、upload、delete 前，先用 `risk-preflight`。
 - 第一次使用會寫檔或呼叫外部系統的 skill 時，先讀它的 `SKILL.md`。
 
-## 14. 驗證這份 skill pack
+## 15. 驗證這份 skill pack
 
 從 repository root 執行：
 
