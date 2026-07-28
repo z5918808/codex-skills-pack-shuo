@@ -26,7 +26,7 @@ Claim、AI output、HTTP 200、status file 與工具成功訊息都不等於 tru
 
 ## Routing
 
-- 繼續執行：`go` 或 `smart-go`。
+- 已有清楚目標：直接執行最小可驗證增量；長任務先用 `prompt-for-goal` 收斂目標。
 - 驗證目前狀態：`check`。
 - Bug / root cause：`diagnose`。
 - Security：`security-review`。
@@ -35,7 +35,7 @@ Claim、AI output、HTTP 200、status file 與工具成功訊息都不等於 tru
 - Repo 初始化：`repo-bootstrap`。
 - Repo 清理判斷：`repo-cleanup-judge`。
 - Frontend：`frontend-design`；需要設計系統時用 `impeccable`。
-- 長線目標：`prompt-for-goal`、`long-running-agent`、`resume`。
+- 長線目標：`prompt-for-goal`、`long-running-agent`、`duo-long-running`、`resume`。
 - 交接：`handoff`。
 
 只在任務命中時讀 skill；不要一次載入整包。

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ask Like Human"
+  short_description: "產出白話但命中要害的反問 prompt，逼 agent 檢查自己是否真的做到。"
+  default_prompt: "Use $ask-like-human-user-prompt to 幫我寫一段像真人使用者會問的 prompt，讓另一位 agent 回頭檢查自己剛剛是否真的做到。"

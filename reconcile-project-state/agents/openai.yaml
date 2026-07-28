@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reconcile Project State"
+  short_description: "Resolve conflicting long-project state before continuing work."
+  default_prompt: "Use this when long-running project notes, handoffs, lane labels, or manager/source boundaries conflict. Reconstruct the latest truthful state, preserve evidence, and choose the next action without prematurely stopping the project."

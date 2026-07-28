@@ -1,0 +1,4 @@
+interface:
+  display_name: "Factory Output"
+  short_description: "Turn repeated work into reusable assets."
+  default_prompt: "Use $factory-output to decide whether this work should become a reusable script, rule, skill, or handoff."

@@ -15,7 +15,7 @@ This skill is deliberately conservative:
 2. lock the structure
 3. refine the finish
 
-If the work needs deeper diagnosis or a fuller design system, switch to `impeccable`.
+If the work needs deeper diagnosis or command-level routing, switch to `impeccable-design-workflow`.
 
 ## Hard Rules
 
@@ -24,7 +24,7 @@ If the work needs deeper diagnosis or a fuller design system, switch to `impecca
 3. Treat `impeccable.style` as an anti-pattern reference, not as the target aesthetic.
 4. Give each section one job only.
 5. Do not jump to detailed polish before the layout skeleton is stable.
-6. Use this skill as the default baseline. Escalate to `impeccable` only when the problem needs a fuller design system.
+6. Use this skill as the default baseline. Escalate to `impeccable-design-workflow` only when the command choice is non-obvious or the problem is already diagnostic.
 
 ## The 3 Steps
 
@@ -104,7 +104,7 @@ Output for this step:
 
 ## Escalate to Impeccable Workflow When
 
-Switch to `impeccable` if any of these are true:
+Switch to `impeccable-design-workflow` if any of these are true:
 
 - you are not sure whether to use `/shape`, `/critique`, `/audit`, or a surgical Impeccable command
 - the UI already exists and the failure mode is unclear

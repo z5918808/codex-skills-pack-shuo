@@ -1,113 +1,80 @@
 ---
 name: prompt-for-goal
-description: Compile, audit, or revise /prompt for goal, /goal, terminal-ready goals, and LFD readiness packages.
+description: Use /prompt for goal to compile, audit, or rewrite a concise executable /goal prompt and readiness package.
 ---
 
 # Goal Compiler
 
-把意圖編成下一位 agent 可直接執行的目標契約。這個 skill 不執行目標；只定義 outcome、存在證據、路線、gate 與停止條件。
+把意圖壓成下一位 agent 可直接執行的短目標。只定義 outcome、current truth、路線、權限與停止條件；不重述施工史。
 
-## 先選模式
+## 模式
 
-- **design**：從需求編目標稿。
-- **audit**：找既有 goal 的測量、權限、作弊或停止缺口。
-- **revise**：依 run evidence 更新 target、gate 或策略，不重寫施工史。
-- **terminal-ready**：使用者明確要求時，只輸出一個 `/goal` block。
+- `design`：建立新 goal。
+- `audit`：只列會讓 goal 失效的缺口。
+- `revise`：預設只輸出必要 delta，不重寫全文。
+- `terminal-ready`：只輸出一個可貼上的 `/goal` block，無前言或解釋。
 
-模式不要混在同一份輸出。
+不要混用模式。使用者要求「prompt for goal／精簡 goal／直接貼」時，採 `terminal-ready`。
 
-## 選正確視野
+## 必留內容
 
-把使用者的 `next` 當第一個未驗證階段，不自動當總目標：
+每份 goal 只保留五件事：
 
-- **single**：單一明確修正。
-- **lane**：同類 defect 或一條流程。
-- **factory**：重複 defect、batch、verifier、repair 與 feedback。
-- **long-run**：需外部 supervisor、checkpoint 或可跨 session 執行。
+1. `Outcome`：一句話說明完成後多出什麼結果。
+2. `Existence`：2–4 個可觀察完成證據。
+3. `Current`：第一個 truth command，加最多 3 個必要 authority refs；有 durable reader 時不重抄歷史。
+4. `Roadmap`：預設 3 步，每步包含 action 與 exit evidence。
+5. `Rules`：state owner、live／destructive boundary、rollback、strategy-change、stop。
 
-選最高有證據支持的一層。重複 defect 應升到共同 contract／verifier／producer，但不能因一句「自動化」發明整套平台。
+缺少安全 gate 時，把它放在 Roadmap 第 1 步；dry-run green 不等於 live permission。
 
-## 必備契約
+## 壓縮規則
 
-每份 goal 至少定義：
+- 一般 goal 預設 8–18 行；factory／long-run 預設 15–30 行；超過 40 行須使用者明確要求。
+- 最多 5 個區塊、3 個 Roadmap steps；只有獨立 exit evidence 才能增加一步。
+- 一行只表達一個決策；刪除形容詞、理由重複、完整施工史與已完成 blocker。
+- Repo、release 或 checkpoint 已定義的 contract 只引用，不重抄。
+- Current truth 只寫目前 authority 與第一個未驗證階段；舊 generation、舊 release、舊失敗留在 artifact。
+- Model topology、KPI、checkpoint cadence、完整禁令清單只在會改變本 goal 執行時保留。
+- 不把同一 gate 同時寫進 Outcome、Roadmap、Rules。
+- 不附重複摘要、注意事項、解釋段或「為什麼這樣設計」。
+- `revise` 若只改 current truth 或下一步，輸出 replacement delta，不重印完整 goal。
 
-- **Outcome / Existence**：完成後世界多出什麼可觀察結果。
-- **Current truth**：接手者先讀哪個 live file、command、UI、log 或 artifact。
-- **Roadmap**：從第一個未驗證階段到完成，每段一個 exit evidence。
-- **State owner**：誰寫 authoritative state；誰只讀或 render。
-- **Safety / permission**：live、DB、金錢、secret、bulk、destructive 的授權與 rollback。
-- **Stop / strategy change**：何時完成、blocked、或因無新資訊換方法。
+## 有效性檢查
 
-Proof 必須可重跑。Dry-run green、scorer green、confirmation-ready 都不是 live permission。
+輸出前確認接手者能在 10 秒內回答：
 
-## Readiness 是執行 Gate，不是編譯 Gate
+- 要完成什麼？
+- 第一個 command／action 是什麼？
+- 什麼 evidence 才算過關？
+- 誰能寫 authoritative state？
+- 哪個邊界前必須停？
+- 何時換策略或結束？
 
-缺 eval、baseline、budget instrument 或 evaluator isolation 時，仍可產生 scaffolding goal；把補 gate 放在 Roadmap 第 1 階段，並明寫：gate 通過前不得進 repair、batch write、optimization 或 canary。
+回答不了才補字；回答得了就停止。短不是刪 safety，而是刪重複 context。
 
-只有連「怎樣算存在」或安全 scope 都無法合理定義時，才停止並輸出：
+## Terminal-ready 模板
+
+```text
+/goal <一句 outcome>
+Existence:
+- <可觀察成果>
+- <整合／安全證據>
+Current:
+- First: <truth command>
+- <最新 authority；若較新 reader 存在則採較新 truth>
+Roadmap:
+1. <第一個未驗證動作> -> evidence: <signal>
+2. <主線推進> -> evidence: <signal>
+3. <整合／canary／closeout> -> evidence: <signal>
+Rules:
+- <state owner；permission／rollback；strategy-change；stop>
+```
+
+只有連 Outcome 或安全 scope 都無法定義時輸出：
 
 ```text
 GOAL_READINESS: BLOCKED
-missing_proof_or_gate:
-- <會改變目標或安全性的缺口>
-minimal_safe_next:
-- <取得該決策的最小動作>
+missing_proof_or_gate: <決定性缺口>
+minimal_safe_next: <最小取證動作>
 ```
-
-Optimization／benchmark／distill 類 goal 另需：target、baseline、measurement command、budget counter、abort test、editable/frozen scope、獨立 evaluator 或 blind fixture、anti-gaming 與 strategy-change rule。
-
-## 預設中文目標稿
-
-```markdown
-目標：
-<一句 outcome>
-
-現況：
-<latest verified checkpoint + truth source>
-
-完成標準：
-- <observable existence>
-- <integrated proof>
-- <state / safety / recovery condition>
-
-路線圖：
-1. <first unverified phase> -> evidence: <signal>
-2. <core lane / factory> -> evidence: <signal>
-3. <integration / bounded canary> -> evidence: <signal>
-
-規則：
-- 先查 live truth；claim != truth。
-- Gate 未綠前不得進下一個有副作用階段。
-- 同類錯第二次，改共同 contract / verifier / producer，不補單點。
-- 無新資訊就換假設或停止。
-- 回報 delta：verified / changed / blocker / next。
-```
-
-刪除不適用的行，不留下 placeholder。
-
-## Terminal-ready `/goal`
-
-只輸出一個 block：
-
-```text
-/goal <outcome>.
-Existence: <observable result>.
-Current: <known state and first live truth source>.
-Roadmap:
-1. <first unverified phase> -> evidence: <signal>
-2. <core lane or factory> -> evidence: <signal>
-3. <integrated proof or bounded canary> -> evidence: <signal>
-Rules: <state owner; readiness gate; permission boundary; rollback; strategy-change; stop; delta report>.
-```
-
-若 readiness 缺口已知，第一階段就建立 harness／baseline／instrument；Rules 明寫 gate 綠前禁止後續副作用。
-
-## 篇幅
-
-- 一般 goal 預設 20–60 行；factory／long-run 60–100 行。
-- 路線圖通常 3–6 階段；不另附重複待辦。
-- 刪完成史、舊 blocker、schema 空欄與 repo 已可讀的規則全文。
-- 不為縮短刪 truth source、permission、rollback、exit evidence 或 stop condition。
-- 只有 long-run 才加 checkpoint、progress 與 durable handoff。
-
-完成於：接手者能在 30 秒找到 outcome、current truth、第一步、每段證據、安全 gate 與停止條件。

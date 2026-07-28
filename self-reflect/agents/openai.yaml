@@ -1,0 +1,4 @@
+interface:
+  display_name: "Self Reflect"
+  short_description: "Audit strategy loopholes before confidence."
+  default_prompt: "檢查目前策略是否真的可靠；若不是 100% 有證據支撐，找出所有決策相關漏洞、提出具體修正、驗證修正，重複到沒有未處理漏洞、明確 blocker，或下一輪低價值。不要奉承，不要假裝確定。"

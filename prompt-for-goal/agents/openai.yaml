@@ -1,4 +1,4 @@
 interface:
-  display_name: "Prompt for Goal"
-  short_description: "Shape goals into roadmap plus staged execution."
-  default_prompt: "Use /prompt for goal to output a copy-ready conversation brief with a forward-looking roadmap, compact active stages, verification, continuation, and stop gates; no extra explanation or terminal-ready /goal prompt unless explicitly requested."
+  display_name: "Goal Compiler"
+  short_description: "編譯精短、可貼、可執行的 goal prompt。"
+  default_prompt: "Use $prompt-for-goal to produce one concise executable goal block with the outcome, current authority, a three-step roadmap, and only essential safety and stop rules; omit construction history and repeated repository contracts."

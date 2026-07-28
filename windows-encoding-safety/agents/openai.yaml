@@ -1,0 +1,4 @@
+interface:
+  display_name: "Windows Encoding Safety"
+  short_description: "Prevent Windows UTF-8 and JSON stdout bugs"
+  default_prompt: "Use $windows-encoding-safety to harden a Windows PowerShell wrapper against UTF-8, stdout, stderr, and JSON parsing issues."

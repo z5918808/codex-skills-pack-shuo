@@ -1,179 +1,71 @@
 ---
 name: improve-codebase-architecture
-description: "Architecture"
+description: Scan for deep-module opportunities, report them visually, then refine the chosen improvement.
+disable-model-invocation: true
 ---
 
-# Improve System Architecture
+# Improve Codebase Architecture
 
-Use this skill to inspect any project as a system, not only a codebase.
+Surface architectural friction and propose **deepening opportunities** — refactors that turn shallow modules into deep ones. The aim is testability and AI-navigability.
 
-The goal is to find architecture friction and propose **deepening opportunities**: changes that put more useful behavior behind clearer interfaces, concentrate ownership, improve verification, and make the project easier for humans and agents to navigate.
+This command is _informed_ by the project's domain model and built on a shared design vocabulary:
 
-Do not jump straight to refactoring. First understand the system.
-
-## What Counts As A System
-
-A system can be:
-
-- source code and modules
-- a product workflow
-- a research or content pipeline
-- a business operation
-- a documentation set
-- an automation stack
-- an AI-agent workflow
-- a skill library
-- a dataset / reporting process
-- a team handoff process
-
-If it has inputs, outputs, decisions, states, ownership, failure modes, and verification, it has architecture.
-
-## Core Vocabulary
-
-Use these terms consistently:
-
-- **Module** — any unit with an interface and implementation: file, function, workflow step, document, report, automation, role, checklist, queue, dashboard, or handoff.
-- **Interface** — what another person, agent, process, or module must know to use it: inputs, outputs, assumptions, invariants, error modes, ordering, permissions, state, and expected evidence.
-- **Implementation** — the hidden work inside the module: code, human steps, scripts, prompts, data transforms, review rules, or operational procedure.
-- **Depth** — how much useful behavior sits behind a small, stable interface.
-- **Shallow module** — a module whose interface is nearly as complex as its implementation, or whose callers must understand too much internal detail.
-- **Ownership** — who or what is responsible for keeping the module correct.
-- **Locality** — whether related knowledge, change, bugs, and verification live close together.
-- **Leverage** — what the system gains when this module becomes deeper or clearer.
-- **Verification surface** — the smallest evidence needed to prove the module still works.
-
-## Architecture Smells
-
-Look for:
-
-- understanding one concept requires bouncing across many files, docs, prompts, people, or tools
-- a step exists only as pass-through ceremony
-- important state lives only in chat, memory, or tribal knowledge
-- the same decision is repeated in multiple places
-- a workflow cannot be verified except by manually replaying everything
-- agents need too much context before they can act
-- ownership is split in a way that creates blame gaps
-- a document says one thing but tools or live outputs say another
-- exception handling dominates the mainline
-- the system has no clear stop gate, recovery path, or done evidence
-- small changes require touching many unrelated places
-
-## Deletion Test
-
-For any suspected shallow module, ask:
-
-- If this module disappeared, would complexity disappear?
-- Or would the same complexity reappear across many callers, docs, prompts, or human steps?
-
-If deleting it just removes ceremony, it is probably shallow.
-
-If deleting it spreads complexity everywhere, it may deserve to become deeper, clearer, or more explicitly owned.
+- Run the `/codebase-design` skill for the architecture vocabulary (**module**, **interface**, **depth**, **seam**, **adapter**, **leverage**, **locality**) and its principles (the deletion test, "the interface is the test surface", "one adapter = hypothetical seam, two = real"). Use these terms exactly in every suggestion — don't drift into "component," "service," "API," or "boundary."
+- The domain language in `CONTEXT.md` gives names to good seams; ADRs in `docs/adr/` record decisions this command should not re-litigate.
 
 ## Process
 
-### 1. Map The System
+### 1. Explore
 
-Start from live truth:
+**Scope before you scan — YAGNI.** Deepening a module pays off by making future changes to it easier, so put extra weight on the parts of the codebase that have recently changed. Decide *where* to look before you look:
 
-- repo files, docs, scripts, logs, dashboards, reports, prompts, checklists, tickets, diagrams, or terminal output
-- existing `CONTEXT.md`, ADRs, `_ctx`, status files, handoffs, project memory, or user-provided constraints
-- current user goal and what "done" means
+- If the user named a direction — a module, a subsystem, a pain point — take it, and skip the inference below.
+- Otherwise, walk back a good stretch of the commit history (`git log --oneline`) to find the codebase's hot spots — the files and areas that keep coming up — and let those paths pull your attention first. If the changes are scattered with no clear hot spot, widen the net.
 
-Create a compact mental map:
+Read the project's domain glossary (`CONTEXT.md`) and any ADRs in the area you're touching first.
 
-- inputs
-- outputs
-- mainline flow
-- decision points
-- state ownership
-- module boundaries
-- verification points
-- failure / recovery points
+Then use the Agent tool with `subagent_type=Explore` to walk the codebase. Don't follow rigid heuristics — explore organically and note where you experience friction:
 
-Do not treat old summaries as truth if live artifacts contradict them.
+- Where does understanding one concept require bouncing between many small modules?
+- Where are modules **shallow** — interface nearly as complex as the implementation?
+- Where have pure functions been extracted just for testability, but the real bugs hide in how they're called (no **locality**)?
+- Where do tightly-coupled modules leak across their seams?
+- Which parts of the codebase are untested, or hard to test through their current interface?
 
-### 2. Find Deepening Opportunities
+Apply the **deletion test** to anything you suspect is shallow: would deleting it concentrate complexity, or just move it? A "yes, concentrates" is the signal you want.
 
-Surface a numbered list of opportunities. For each:
+### 2. Present candidates as an HTML report
 
-- **Area** — files, docs, workflow steps, artifacts, prompts, roles, or tools involved
-- **Friction** — what currently makes the system hard to understand, change, verify, or hand off
-- **Current interface** — what users, agents, or callers must know today
-- **Deepening move** — what would be concentrated, renamed, extracted, documented, automated, or given a clearer interface
-- **Benefit** — locality, leverage, testability, auditability, agent navigability, reduced handoff cost, or clearer recovery
-- **Verification** — how to prove the improvement worked
-- **Risk** — what could be broken, oversimplified, or moved to the wrong place
+Write a self-contained HTML file to the OS temp directory so nothing lands in the repo. Resolve the temp dir from `$TMPDIR`, falling back to `/tmp` (or `%TEMP%` on Windows), and write to `<tmpdir>/architecture-review-<timestamp>.html` so each run gets a fresh file. Open it for the user — `xdg-open <path>` on Linux, `open <path>` on macOS, `start <path>` on Windows — and tell them the absolute path.
 
-Do not propose every theoretical improvement. Pick the highest-leverage 3-7 candidates.
+The report uses **Tailwind via CDN** for layout and styling, and **Mermaid via CDN** for diagrams where a graph/flow/sequence reliably communicates the structure. Mix Mermaid with hand-crafted CSS/SVG visuals — use Mermaid when relationships are graph-shaped (call graphs, dependencies, sequences), and hand-built divs/SVG when you want something more editorial (mass diagrams, cross-sections, collapse animations). Each candidate gets a **before/after visualisation**. Be visual.
 
-### 3. Respect Existing Decisions
+For each candidate, render a card with:
 
-Before proposing change, check whether the project already has:
+- **Files** — which files/modules are involved
+- **Problem** — why the current architecture is causing friction
+- **Solution** — plain English description of what would change
+- **Benefits** — explained in terms of locality and leverage, and how tests would improve
+- **Before / After diagram** — side-by-side, custom-drawn, illustrating the shallowness and the deepening
+- **Recommendation strength** — one of `Strong`, `Worth exploring`, `Speculative`, rendered as a badge
 
-- ADRs
-- standards
-- design docs
-- workflow docs
-- `_ctx` memory
-- `CONTEXT.md`
-- user-stated constraints
+End the report with a **Top recommendation** section: which candidate you'd tackle first and why.
 
-If a candidate contradicts an existing decision, surface it only when the friction is real enough to revisit the decision. Mark the conflict clearly.
+**Use CONTEXT.md vocabulary for the domain, and the `/codebase-design` vocabulary for the architecture.** If `CONTEXT.md` defines "Order," talk about "the Order intake module" — not "the FooBarHandler," and not "the Order service."
 
-### 4. Choose Before Designing
+**ADR conflicts**: if a candidate contradicts an existing ADR, only surface it when the friction is real enough to warrant revisiting the ADR. Mark it clearly in the card (e.g. a warning callout: _"contradicts ADR-0007 — but worth reopening because…"_). Don't list every theoretical refactor an ADR forbids.
 
-After presenting candidates, ask which one to explore first.
+See [HTML-REPORT.md](HTML-REPORT.md) for the full HTML scaffold, diagram patterns, and styling guidance.
 
-Do not jump into full implementation design unless the user asks. The first output should make the architectural options visible.
+Do NOT propose interfaces yet. After the file is written, ask the user: "Which of these would you like to explore?"
 
-When the user picks one candidate, walk the design tree:
+### 3. Grilling loop
 
-- what interface should exist?
-- what should be hidden behind it?
-- who or what owns it?
-- what state and invariants matter?
-- what verification proves it?
-- what migration path avoids breaking the mainline?
-- what should be documented or archived so the system stays understandable?
+Once the user picks a candidate, run the `/grilling` skill to walk the decision tree with them — constraints, dependencies, the shape of the deepened module, what sits behind the seam, what tests survive.
 
-## Output Shape
+Side effects happen inline as decisions crystallize — run the `/domain-modeling` skill to keep the domain model current as you go:
 
-Use Traditional Chinese unless the project vocabulary is already English.
-
-```text
-目前判斷：
-[系統主線與最大架構摩擦。進度 X%。]
-
-系統地圖：
-- Inputs:
-- Outputs:
-- Mainline:
-- Ownership / state:
-- Verification:
-
-Deepening opportunities：
-1. [候選名稱]
-   Area:
-   Friction:
-   Current interface:
-   Deepening move:
-   Benefit:
-   Verification:
-   Risk:
-
-建議先探索：
-[一個最高槓桿候選與理由。]
-
-下一步：
-[問使用者要探索哪個候選，或在使用者已指定時進入設計樹。]
-```
-
-## Hard Rules
-
-- Do not assume architecture means code.
-- Do not rename every problem into "module" if the project already has better domain vocabulary.
-- Do not propose broad reorgs without explaining verification and migration.
-- Do not optimize for elegance over mainline progress.
-- Do not bury the user in theory; show concrete friction and concrete leverage.
-- Do not edit project files unless the user asks to implement, document, or record a decision.
-- If the task touches production, database, money, orders, inventory, customer data, credentials, or destructive operations, switch to the relevant safety workflow first.
+- **Naming a deepened module after a concept not in `CONTEXT.md`?** Add the term to `CONTEXT.md`. Create the file lazily if it doesn't exist.
+- **Sharpening a fuzzy term during the conversation?** Update `CONTEXT.md` right there.
+- **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the reason would actually be needed by a future explorer to avoid re-suggesting the same thing — skip ephemeral reasons ("not worth it right now") and self-evident ones.
+- **Want to explore alternative interfaces for the deepened module?** Run the `/codebase-design` skill and use its design-it-twice parallel sub-agent pattern.

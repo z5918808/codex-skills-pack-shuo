@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trim Repo AGENTS.md"
+  short_description: "修剪 repo AGENTS.md，只保留會改變行為的短規則。"
+  default_prompt: "/trim-repo-agents-md 修剪目前 repo 的 AGENTS.md，保留主線、安全、入口與驗證，刪掉百科式細節。"

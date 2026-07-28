@@ -1,0 +1,4 @@
+interface:
+  display_name: "HISTORY MATTERS"
+  short_description: "用歷史證據校正最新 context，找回專案主線。"
+  default_prompt: "Use $history-matters to 回顧專案歷史，不完全相信最新 context，校正主線後產出可接 /goal 的下一步。"
