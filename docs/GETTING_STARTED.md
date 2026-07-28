@@ -9,9 +9,9 @@ Skill 是一份可重用的工作流程。它通常放在一個同名目錄中�
 ```text
 diagnose/
 ├── SKILL.md
-├── agents/       # optional
-├── references/   # optional
-└── scripts/      # optional
+├── agents/       # 選用
+├── references/   # 選用
+└── scripts/      # 選用
 ```
 
 你不需要先讀完整內容。安裝後，只要在 prompt 明確點名，Codex 會在任務需要時讀取。
@@ -133,11 +133,11 @@ done
 | 你的情況 | 建議 skill |
 |---|---|
 | 不知道目前是否真的完成 | [`check`](../check/) |
-| 有 bug 或 failing test | [`diagnose`](../diagnose/) |
+| 有 Bug 或測試失敗 | [`diagnose`](../diagnose/) |
 | 一直修小問題但沒有前進 | [`step-back-and-think`](../step-back-and-think/) |
 | 新 repo 沒有工作規則 | [`repo-bootstrap`](../repo-bootstrap/) |
 | 要做高風險操作 | [`risk-preflight`](../risk-preflight/) |
-| 要做 security review | [`security-review`](../security-review/) |
+| 要做安全審查 | [`security-review`](../security-review/) |
 | 要跨 task 保存狀態 | [`handoff`](../handoff/) 或 [`resume`](../resume/) |
 | 長任務要有獨立 Runner | [`duo-long-running`](../duo-long-running/) |
 | 想改善 UI | [`impeccable`](../impeccable/) 或 [`critique`](../critique/) |
@@ -157,17 +157,17 @@ done
 
 常見組合：
 
-- Bug fix：`diagnose` → `tdd` → `check`
+- 修復 Bug：`diagnose` → `tdd` → `check`
 - 新 repo：`repo-bootstrap` → `security-review`
-- UI improvement：`critique` → `shape` → `polish`
+- 改善 UI：`critique` → `shape` → `polish`
 - 長任務：`prompt-for-goal` → `duo-long-running` → `handoff`
-- 高風險工作：`risk-preflight` → domain skill → `check`
+- 高風險工作：`risk-preflight` → 對應領域 skill → `check`
 
 ## 9. Skill 沒有被觸發
 
 依序檢查：
 
-1. 目錄是否位於正確的 `skills` root。
+1. 目錄是否位於正確的 `skills` 根目錄。
 2. 目錄內是否直接存在 `SKILL.md`，而不是多包一層同名目錄。
 3. `SKILL.md` 是否有 YAML frontmatter、`name` 與 `description`。
 4. 是否重新開啟 Codex task。

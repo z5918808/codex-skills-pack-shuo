@@ -1,10 +1,10 @@
-# Codex Skills Pack · Shuo
+# Codex Skills Pack：繁中通用技能包
 
-一套以「能直接完成工作」為標準整理的繁體中文 Codex skills collection。
+一套以「能直接完成工作」為標準整理的繁體中文 Codex skills 精選集。
 
-目前收錄 **84 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、Frontend 設計與內容工作。每個 skill 都是獨立目錄，可單獨安裝，不必一次載入整包。
+目前收錄 **84 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。每個 skill 都是獨立目錄，可單獨安裝，不必一次載入整包。
 
-> 適合：想快速建立可重複工作流的新手，以及需要 evidence、safety gate、handoff 與長任務協作的進階使用者。
+> 適合：想快速建立可重複工作流的新手，以及重視證據、風險檢查、工作交接與長任務協作的進階使用者。
 
 ## 快速開始
 
@@ -25,24 +25,24 @@ Copy-Item -LiteralPath ".\diagnose" -Destination $skillsRoot -Recurse -Force
 
 macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](./docs/GETTING_STARTED.md)。
 
-## 為什麼是這一包
+## 為什麼選這一包
 
-- **Outcome first**：skill 必須導向可觀察成果，不只提供抽象建議。
-- **Evidence based**：完成、進度與 root cause 都需要可重跑證據。
-- **Safety aware**：production、database、secret、bulk 與 destructive action 有明確邊界。
-- **Portable**：不綁私人帳號、客戶資料、固定使用者路徑或私有 runtime。
-- **Progressive disclosure**：需要哪個才讀哪個，避免把整包塞進 context。
+- **結果優先**：skill 必須導向可觀察成果，不只提供抽象建議。
+- **證據導向**：完成、進度與根因都需要可重跑的證據。
+- **安全邊界**：production、database、secret、批次處理與破壞性操作都有明確限制。
+- **方便移植**：不綁私人帳號、客戶資料、固定使用者路徑或私有執行環境。
+- **按需載入**：需要哪個才讀哪個，避免一次載入整包內容。
 
 ## 新手推薦的 10 個
 
 | Skill | 何時使用 |
 |---|---|
 | [`check`](./check/) | 判斷目前真的完成了什麼，以及下一個最小驗證步驟 |
-| [`diagnose`](./diagnose/) | Bug、測試失敗或不穩定行為，需要找 root cause |
+| [`diagnose`](./diagnose/) | Bug、測試失敗或不穩定行為，需要找出根因 |
 | [`explain`](./explain/) | 想把複雜狀態整理成短而清楚的說明 |
 | [`step-back-and-think`](./step-back-and-think/) | 一直補洞、方向混亂或需要重新找主戰場 |
 | [`repo-bootstrap`](./repo-bootstrap/) | 新 repo 要建立最小可用的 Codex 工作約定 |
-| [`security-review`](./security-review/) | 做 evidence-based threat model 與 security review |
+| [`security-review`](./security-review/) | 以證據建立威脅模型並進行安全審查 |
 | [`risk-preflight`](./risk-preflight/) | Production、secret、bulk、delete 或不可逆操作前 |
 | [`handoff`](./handoff/) | 把可接續的狀態交給下一個 agent 或 task |
 | [`duo-long-running`](./duo-long-running/) | Runner 執行長任務、Reviewer 只處理事件與技術救援 |
@@ -94,7 +94,7 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 [`trim-repo-agents-md`](./trim-repo-agents-md/) ·
 [`windows-encoding-safety`](./windows-encoding-safety/)
 
-### 研究、Review、協作與安全
+### 研究、審查、協作與安全
 
 [`agent-db-safety`](./agent-db-safety/) ·
 [`ask-like-human-user-prompt`](./ask-like-human-user-prompt/) ·
@@ -112,7 +112,7 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 [`streaming-dag-execution`](./streaming-dag-execution/) ·
 [`super-report`](./super-report/)
 
-### Frontend、UX 與視覺設計
+### 前端、UX 與視覺設計
 
 [`adapt`](./adapt/) ·
 [`animate`](./animate/) ·
@@ -151,26 +151,26 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 
 ## 收錄邊界
 
-本 repo 收錄可公開、可攜、可獨立理解的通用 workflow。
+本 repo 收錄可公開、方便移植、可獨立理解的通用工作流程。
 
 不收錄：
 
-- 需要私人 API key、`.env`、cookie、登入態或客戶資料才能成立的 workflow。
-- 特定 ERP、commerce 平台或其他單一 vendor 的執行型 recipes。
-- 私人 bridge、本機固定磁碟、公司內部路徑與特定客戶流程。
-- 已失效 alias、重複 trigger 或只有目前作者環境才能使用的工具包。
+- 需要私人 API key、`.env`、cookie、登入狀態或客戶資料才能成立的工作流程。
+- 特定 ERP、電商平台或其他單一供應商的執行流程。
+- 私人橋接工具、本機固定磁碟、公司內部路徑與特定客戶流程。
+- 已失效的相容名稱、重複觸發詞，或只有作者環境才能使用的工具包。
 
-`api-design` 是不需連外執行的 REST interface 設計知識，因此保留；平台寫入型 API workflow 則不在本包內。
+`api-design` 是不需連外執行的 REST 介面設計知識，因此保留；平台寫入型 API 工作流程則不在本包內。
 
 ## 安全與權限
 
 Skill 是工作規則，不是額外權限。它不會替你取得 production、database、GitHub 或其他外部系統的授權。
 
-在執行 write、upload、delete、bulk 或 production action 前，仍應確認：
+在執行寫入、上傳、刪除、批次處理或 production 操作前，仍應確認：
 
 1. 目標與影響範圍。
-2. Preview 或 dry-run。
-3. Rollback 方法。
+2. 預覽或 dry-run。
+3. 回復方法。
 4. 當次明確授權。
 
 ## 驗證
@@ -187,7 +187,7 @@ node --experimental-strip-types --test .\skill-cleaner\scripts\validate-skill-in
 - 每個 skill 目錄都有可解析的 `SKILL.md`。
 - Frontmatter 含單一 `name` 與 `description`。
 - README 列出的 skill 與實際目錄一致。
-- 沒有 credential-like literal、私人絕對路徑或斷掉的相對引用。
+- 沒有疑似憑證字串、私人絕對路徑或失效的相對引用。
 - UTF-8 中文內容可正確讀取。
 
 ## Repository 結構
@@ -196,19 +196,19 @@ node --experimental-strip-types --test .\skill-cleaner\scripts\validate-skill-in
 .
 ├── <skill-name>/
 │   ├── SKILL.md
-│   ├── agents/          # optional
-│   ├── references/      # optional
-│   └── scripts/         # optional
+│   ├── agents/          # 選用
+│   ├── references/      # 選用
+│   └── scripts/         # 選用
 ├── docs/
 │   └── GETTING_STARTED.md
-├── AGENTS.md            # optional starter contract
+├── AGENTS.md            # 選用的起始規則
 └── README.md
 ```
 
-`AGENTS.md` 是給新 repo 參考的最小預設，不會因安裝 skills 自動生效。請先審閱，再放到合適的 project scope；不要直接覆蓋既有規則。
+`AGENTS.md` 是給新 repo 參考的最小預設，不會因安裝 skills 自動生效。請先審閱，再放到合適的專案範圍；不要直接覆蓋既有規則。
 
 ## 更新策略
 
-這個 repository 是經過公開化審查的 snapshot，不是使用者本機 skills 目錄的無條件 mirror。更新時會先同步候選版本，再排除私人依賴、vendor workflow、固定路徑與重複技能，最後才通過驗證。
+這個 repository 是經過公開化審查的版本快照，不是使用者本機 skills 目錄的無條件鏡像。更新時會先同步候選版本，再排除私人依賴、單一供應商流程、固定路徑與重複技能，最後才通過驗證。
 
-各 skill 內原有的 LICENSE 或 attribution 會隨目錄保留。Repository-wide 授權請以根目錄實際提供的授權檔為準。
+各 skill 內原有的 `LICENSE` 或來源標示會隨目錄保留。整個 repository 的授權方式，請以根目錄實際提供的授權檔為準。
