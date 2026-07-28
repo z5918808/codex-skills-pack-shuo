@@ -1,6 +1,6 @@
-# Codex Skills Pack：繁中通用技能包
+# Codex Skills Pack：通用技能包
 
-一套以「能直接完成工作」為標準整理的繁體中文 Codex skills 精選集。
+一套以「能直接完成工作」為標準整理的 Codex skills 精選集。
 
 目前收錄 **84 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。每個 skill 都是獨立目錄，可單獨安裝，不必一次載入整包。
 
@@ -46,7 +46,7 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 | [`risk-preflight`](./risk-preflight/) | Production、secret、bulk、delete 或不可逆操作前 |
 | [`handoff`](./handoff/) | 把可接續的狀態交給下一個 agent 或 task |
 | [`duo-long-running`](./duo-long-running/) | Runner 執行長任務、Reviewer 只處理事件與技術救援 |
-| [`question-eli10`](./question-eli10/) | 想用繁體中文、先結論、白話方式理解複雜問題 |
+| [`question-eli10`](./question-eli10/) | 想用先結論、白話方式理解複雜問題 |
 
 ## Skill 目錄
 
@@ -149,18 +149,9 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 [`step-by-step-report`](./step-by-step-report/) ·
 [`writing-great-skills`](./writing-great-skills/)
 
-## 收錄邊界
+## 收錄原則
 
-本 repo 收錄可公開、方便移植、可獨立理解的通用工作流程。
-
-不收錄：
-
-- 需要私人 API key、`.env`、cookie、登入狀態或客戶資料才能成立的工作流程。
-- 特定 ERP、電商平台或其他單一供應商的執行流程。
-- 私人橋接工具、本機固定磁碟、公司內部路徑與特定客戶流程。
-- 已失效的相容名稱、重複觸發詞，或只有作者環境才能使用的工具包。
-
-`api-design` 是不需連外執行的 REST 介面設計知識，因此保留；平台寫入型 API 工作流程則不在本包內。
+本 repo 僅收錄可公開、方便移植、可獨立理解的通用工作流程。每個 skill 都必須能獨立使用，並通過結構、連結與敏感資訊掃描。
 
 ## 安全與權限
 
@@ -209,6 +200,6 @@ node --experimental-strip-types --test .\skill-cleaner\scripts\validate-skill-in
 
 ## 更新策略
 
-這個 repository 是經過公開化審查的版本快照，不是使用者本機 skills 目錄的無條件鏡像。更新時會先同步候選版本，再排除私人依賴、單一供應商流程、固定路徑與重複技能，最後才通過驗證。
+這個 repository 是經過公開化審查的版本快照，不是使用者本機 skills 目錄的無條件鏡像。更新時會先同步候選版本，再依公開性、可攜性、通用性與重複性審查，最後才通過驗證。
 
 各 skill 內原有的 `LICENSE` 或來源標示會隨目錄保留。整個 repository 的授權方式，請以根目錄實際提供的授權檔為準。
