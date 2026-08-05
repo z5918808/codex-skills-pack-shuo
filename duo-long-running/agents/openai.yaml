@@ -1,4 +1,4 @@
 interface:
   display_name: "Duo Long Running"
-  short_description: "Event-driven runner/reviewer without polling or takeover"
-  default_prompt: "Use $duo-long-running to delegate a long task to an independent runner while the reviewer stays event-driven and never polls or takes over the runner work."
+  short_description: "Worker/Reviewer with evidence-gated acceptance"
+  default_prompt: "Use $duo-long-running with this chat as [Reviewer] and a separate [Worker], require an evidence packet plus a ship, fix-first, or rethink verdict for acceptance, and never use cross-task waits or polling."
