@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project State Steward"
+  short_description: "維護長期專案的唯一最新狀態、決策變更、交棒與收尾驗證"
+  default_prompt: "Use $project-state-steward to reconcile this project's current state and preserve one executable next action."

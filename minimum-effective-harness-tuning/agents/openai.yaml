@@ -1,0 +1,4 @@
+interface:
+  display_name: "Minimum Effective Harness Tuning"
+  short_description: "Prune agent guidance while preserving authority and quality"
+  default_prompt: "Use $minimum-effective-harness-tuning to review the supplied agent instructions and identify what to retain, remove, rewrite, or move."

@@ -4,6 +4,12 @@ Worker: read before the first production action. Follow the entrypoint role and 
 
 ## Event Protocol
 
+### Re-entry and stop precedence
+
+Before the first production action of every turn, after a compaction/resume, and before each new batch or external mutation, read the pinned generation's stop record and the Worker's own terminal state. This is a local permission check, not cross-task monitoring. Follow [lifecycle cancellation](lifecycle.md) if either revokes execution. An automatic `continue`, active native goal, older goal text, or successful handoff delivery does not clear a stop. Do not repeat production, verification, handoff delivery, or goal creation after a terminal event merely because a scheduler starts another turn. Only safe reconciliation of an already-started action and a missing stop receipt remain authorized.
+
+Check `goal_mode` before any goal API call. With `file-contract`, never create a native goal. With native mode, unavailable cancellation/readback capability blocks native goal creation; use the dispatch capability procedure, not an invented terminate API or `update_goal` misuse.
+
 Normal production events are:
 
 - `milestone_complete`
@@ -24,6 +30,8 @@ For every terminal event:
 4. Call the recorded direct-message tool with the exact Reviewer task and host IDs.
 5. Treat only a successful tool result as delivery.
 6. End the Worker turn immediately. Its local final may only say the event was delivered.
+
+The terminal state persists across turns. For user/Reviewer stops, persist revocation before attempting delivery or native cancellation. Native goal deletion, safe process stop, and receipt delivery are separate facts; use lifecycle cancellation evidence, not an idle/final status, to claim automatic continuation was removed.
 
 If delivery fails, do not retry blindly, wait, poll, or claim completion. Preserve work and end locally with:
 

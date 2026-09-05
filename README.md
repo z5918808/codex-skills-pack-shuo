@@ -2,7 +2,7 @@
 
 一套以「能直接完成工作」為標準整理的 Codex skills 精選集，包含可單獨使用的通用技能，以及可按任務階段路由的完整工程工作流。
 
-目前收錄 **96 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
+目前收錄 **107 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
 
 > 適合：想快速建立可重複工作流的新手，以及重視證據、風險檢查、工作交接與長任務協作的進階使用者。
 
@@ -70,7 +70,7 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 | [`security-review`](./security-review/) | 以證據建立威脅模型並進行安全審查 |
 | [`risk-preflight`](./risk-preflight/) | Production、secret、bulk、delete 或不可逆操作前 |
 | [`handoff`](./handoff/) | 把可接續的狀態交給下一個 agent 或 task |
-| [`duo-long-running`](./duo-long-running/) | Runner 執行長任務、Reviewer 只處理事件與技術救援 |
+| [`duo-long-running`](./duo-long-running/) | Worker 執行長任務，Reviewer 負責技術救援與獨立驗收；停止指令跨回合保留 |
 | [`question-eli10`](./question-eli10/) | 想用先結論、白話方式理解複雜問題 |
 
 ## Skill 目錄
@@ -82,18 +82,23 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 [`duo-long-running`](./duo-long-running/) ·
 [`durable-authority-resume`](./durable-authority-resume/) ·
 [`explain`](./explain/) ·
+[`find-my-safe-work-island`](./find-my-safe-work-island/) ·
 [`handoff`](./handoff/) ·
 [`history-matters`](./history-matters/) ·
 [`long-running-agent`](./long-running-agent/) ·
 [`pause-and-reflect`](./pause-and-reflect/) ·
 [`project-context-compactor`](./project-context-compactor/) ·
 [`project-memory-gate`](./project-memory-gate/) ·
+[`project-state-steward`](./project-state-steward/) ·
 [`prompt-for-goal`](./prompt-for-goal/) ·
 [`question-eli10`](./question-eli10/) ·
 [`recenter`](./recenter/) ·
 [`reconcile-project-state`](./reconcile-project-state/) ·
+[`relay`](./relay/) ·
 [`resume`](./resume/) ·
+[`run`](./run/) ·
 [`save`](./save/) ·
+[`staging`](./staging/) ·
 [`step-back-and-think`](./step-back-and-think/)
 
 ### 工程、架構與品質
@@ -110,8 +115,10 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 [`factory-output`](./factory-output/) ·
 [`frontend-patterns`](./frontend-patterns/) ·
 [`improve-codebase-architecture`](./improve-codebase-architecture/) ·
+[`minimum-effective-harness-tuning`](./minimum-effective-harness-tuning/) ·
 [`repo-bootstrap`](./repo-bootstrap/) ·
 [`repo-cleanup-judge`](./repo-cleanup-judge/) ·
+[`repo-granny`](./repo-granny/) ·
 [`serious-project-cleanup`](./serious-project-cleanup/) ·
 [`skill-cleaner`](./skill-cleaner/) ·
 [`system-instruction-craft`](./system-instruction-craft/) ·
@@ -147,6 +154,7 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 
 ### 研究、審查、協作與安全
 
+[`ai-council-operator`](./ai-council-operator/) ·
 [`agent-db-safety`](./agent-db-safety/) ·
 [`ask-like-human-user-prompt`](./ask-like-human-user-prompt/) ·
 [`audit`](./audit/) ·
@@ -160,8 +168,11 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 [`risk-preflight`](./risk-preflight/) ·
 [`security-review`](./security-review/) ·
 [`self-reflect`](./self-reflect/) ·
+[`strategic-autoresearch`](./strategic-autoresearch/) ·
 [`streaming-dag-execution`](./streaming-dag-execution/) ·
-[`super-report`](./super-report/)
+[`super-report`](./super-report/) ·
+[`thermo-nuclear-agent-harness-feedback-loop`](./thermo-nuclear-agent-harness-feedback-loop/) ·
+[`thermo-nuclear-work-quality-review`](./thermo-nuclear-work-quality-review/)
 
 ### 前端、UX 與視覺設計
 
@@ -203,6 +214,8 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 ## 收錄原則
 
 本 repo 收錄可公開、方便移植且能清楚理解的通用工作流程。單一 skill 必須可直接安裝；跨 skill 的工作流必須明列完整相依集合與安裝方式。所有內容都需要通過結構、連結與敏感資訊掃描。
+
+新增候選以通用工程能力為主；特定軟體操作、私人專案、固定磁碟、未隨包提供的本機腳本或登入環境不納入。用途已被現有技能涵蓋的別名與重複包裝，也不因本機存在就自動收錄。
 
 ## 安全與權限
 

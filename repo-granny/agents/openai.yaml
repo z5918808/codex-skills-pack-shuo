@@ -1,0 +1,7 @@
+interface:
+  display_name: "Repo Granny"
+  short_description: "Audit workspace truth and preserve unique work"
+  default_prompt: "Use $repo-granny to audit this workspace without modifying files."
+
+policy:
+  allow_implicit_invocation: false

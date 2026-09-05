@@ -24,9 +24,14 @@ Before dispatch, record:
 - scope, permissions, safety boundary, and acceptance criteria;
 - a Reviewer-derived acceptance checklist pinned to the authoritative contract revision/hash, with criterion IDs, thresholds, and required evidence;
 - exact direct-message tool;
+- `goal_mode` (`file-contract` by default), a unique `run_id`/`generation`, and absolute `stop_record_path` outside the immutable goal/rules files; see [lifecycle cancellation](lifecycle.md);
 - a dedup key from `Reviewer task ID + authority generation/action + normalized Worker goal`.
 
 Use the entrypoint authority rules for the checklist. Read [Worker execution](worker.md) to define the progress boundaries, event delivery, and local process contract before constructing the goal. Pin the entrypoint and applicable reference files by absolute path and SHA256, including the Worker's later acceptance and pause procedures. Each role reads a reference only when its workflow is needed, verifying the pinned hash before the governed action. A missing or mismatched reference stops that action for handoff, not silent use of a newer file.
+
+Before choosing `goal_mode=native`, verify that the actual Worker route exposes creation, termination/deletion, and fresh state readback proving the automatic goal absent. `get_goal`/`create_goal`/`update_goal(complete|blocked)` alone do not meet this requirement; neither do an archive action nor a promise to delete later. If capability differs on Worker entry, do not create a native goal. Use `file-contract` unless the user explicitly requires native scheduling, in which case report the missing cancellation capability. Do not start a disposable native goal merely to test deletion.
+
+In `file-contract` mode the persistent Worker executes the complete task normally until a terminal event. The file records its objective and acceptance, not a scheduler. Do not put a literal `/goal` trigger in the initial prompt or call `create_goal`. Do not introduce another scheduler as a workaround. Pin the stop-record location and generation in the initial prompt.
 
 Then:
 
@@ -43,7 +48,7 @@ Then:
 
 If ownership cannot be mapped, freeze new claims, refills, and writes and send a Reviewer incident. Never guess.
 
-Do not pass `token_budget` to the Worker's durable goal unless the user explicitly requested a numeric token budget. Counts such as “one Worker” or “30 items” are not token budgets. If an inferred tiny budget causes `budget_limited` before substantive work, stop live work and use the normal replacement path after repairing the contract.
+Only in verified native mode, omit `token_budget` unless the user explicitly requested a numeric token budget. Counts such as “one Worker” or “30 items” are not token budgets. If an inferred tiny budget causes `budget_limited` before substantive work, stop live work and use the normal replacement path after repairing the contract.
 
 ## Worker Goal Shape
 
@@ -52,7 +57,8 @@ Use this compact shape in the fresh Worker's initial prompt or, only after `acti
 ```text
 ROLE: Worker
 
-/goal
+goal_mode: file-contract
+run_id / generation / absolute stop_record_path
 
 Workspace and authoritative resume entrypoint.
 Fresh state and last successful evidence.

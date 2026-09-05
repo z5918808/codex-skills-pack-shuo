@@ -95,5 +95,5 @@ After a successful resume on substantial work, leave a short durable note or fin
 
 - Use `staging` first when the final goal itself is unclear.
 - Use `handoff` when the goal is to create a transfer document for another agent.
-- Use `go` or project-specific execution skills after resume has identified the next safe action.
+- Use `run` or project-specific execution skills after resume has identified the next safe action.
 - Use database or production safety skills before resuming risky write operations.

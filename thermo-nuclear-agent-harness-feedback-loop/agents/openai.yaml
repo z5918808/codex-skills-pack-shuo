@@ -1,0 +1,4 @@
+interface:
+  display_name: "Thermo Nuclear Agent Harness Feedback Loop"
+  short_description: "Optional harness-based debugging philosophy"
+  default_prompt: "Use this skill as an optional diagnostic philosophy for verifiable engineering problems. First decide whether a harness and feedback loop are appropriate. Do not automatically change the project main line, roadmap, scope, or risk posture; report evidence and ask for confirmation before major direction changes."

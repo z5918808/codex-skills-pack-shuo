@@ -1,0 +1,7 @@
+interface:
+  display_name: "find my safe work-island"
+  short_description: "Build a bounded safe island inside a dirty repo"
+  default_prompt: "Use $find-my-safe-work-island to isolate this goal inside the dirty repo, preserve existing work, and route it through the minimum Matt workflow needed."
+
+policy:
+  allow_implicit_invocation: false

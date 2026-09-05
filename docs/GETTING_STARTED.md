@@ -94,6 +94,35 @@ done
 
 安裝後重新開啟 Codex task，讓 skill index 重新載入。
 
+### 選擇規劃、執行與審查工作流
+
+- `run`：先做足以決定方向的研究，再執行到可驗證結果。這是原 `smart-go` 的新名稱；請使用 `$run`，本包不提供 `go` 或 `smart-go` 別名。它不會自行建立原生 Goal。一般執行可單獨安裝；多輪研究、跨回合接續或高風險操作時，分別按需安裝本包的 `autoresearch`、`project-memory-gate`、`long-running-agent` 或 `risk-preflight`。
+- `minimum-effective-harness-tuning`：精簡 skills、AGENTS.md 與提示詞，同時保留權限和驗收標準。安裝整個同名目錄，包含 `references/`。實際修改 skill 格式時會使用 Codex 內建的 `skill-creator`；若環境沒有它，需先提供相應的格式驗證能力。
+- `duo-long-running`：預設由獨立持續任務執行檔案中的目標契約；只有確認平台能取消原生 Goal 並讀回不存在的證據，才允許使用原生排程。Worker 每次進入都檢查停止紀錄，已停止的工作不因自動續跑而重啟。這是代理協作規則，不能取代平台取消功能，也不會刪掉更新前已存在的 Goal。
+
+```text
+請使用 $run，先確認目前證據，再完成下一個最小可驗證增量。
+請使用 $minimum-effective-harness-tuning，精簡這份 skill，保留權限與驗收邊界。
+```
+
+更新採用覆寫同名目錄的方式，不會自動移除你以前另外安裝的 `go` 或 `smart-go`；要移除舊技能時，先確認安裝位置並備份，再依本指南的移除方式處理。
+
+其他可按需求安裝的通用技能：
+
+| Skill | 適合的工作 | 相依條件 |
+|---|---|---|
+| `staging` | 把模糊目標拆成可驗證階段 | 可單獨使用，規劃不會自行啟動實作 |
+| `find-my-safe-work-island` | 在大型或有未提交變更的 repo 中界定本次工作範圍 | 僅建立範圍可單獨使用；要繼續規格或實作，需下節的完整 Matt 工作流 |
+| `strategic-autoresearch` | 用少量實驗判斷真正瓶頸與第一個修正 | 可單獨使用；高風險操作依本包 `risk-preflight` |
+| `ai-council-operator` | 在同一回覆中綜合操作、架構、風險與驗證觀點 | 預設不啟動其他模型；內部觀點不等於獨立外部審查 |
+| `thermo-nuclear-agent-harness-feedback-loop` | 為反覆故障建立可觀察、可重跑的診斷迴圈 | 使用專案既有命令和證據，依任務取得執行權限 |
+| `thermo-nuclear-work-quality-review` | 審查文件、提示詞與工作流程的複雜度及交接成本 | 可單獨使用，預設先審查 |
+| `project-state-steward` | 維護跨回合的唯一專案狀態與下一步 | 使用 repo 已宣告的狀態契約；沒有標記時不自行建立整套治理 |
+| `repo-granny` | 保護獨有工作，盤點舊資料並提出整理決策 | 隨包附 Python 掃描器、驗證器與測試；公開版以 Python 3.11+ 為基準，Git 證據需 Git |
+| `relay` | 分別安排規劃、執行與獨立審查 | 需主機提供可選擇並驗證模型身分的原生派工工具；完整複製所有 Markdown 參考檔 |
+
+上述技能不需要私人路徑、固定 E 槽、特定商店或登入 session。模型、外部寫入及子任務的權限仍依使用者和所在環境的實際規則。
+
 ## 6. 安裝 Matt 工程工作流
 
 Matt 工程工作流會依任務狀態選擇需求釐清、規格、拆票、實作、審查或驗證階段。因為這些 skills 彼此組合使用，請一次安裝完整集合。

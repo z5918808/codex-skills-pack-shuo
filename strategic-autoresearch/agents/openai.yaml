@@ -1,0 +1,4 @@
+interface:
+  display_name: "Strategic Autoresearch"
+  short_description: "Reframe, verify, and simplify complex systems"
+  default_prompt: "Use $strategic-autoresearch to find the real bottleneck, prove it with bounded evidence, and recommend one minimal repair."

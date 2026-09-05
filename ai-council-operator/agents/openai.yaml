@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Council Operator"
+  short_description: "Five-role review gate for stronger Codex runs"
+  default_prompt: "Use $ai-council-operator to review this Codex run and give the next safest action."

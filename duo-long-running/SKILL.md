@@ -22,6 +22,7 @@ Use this skill for a persistent Reviewer/Worker run. Reviewing or editing the sk
 6. A Worker acceptance claim is not completion. Only the Reviewer may return `ship` after current evidence review.
 7. Never layer a new goal over an unfinished Worker goal.
 8. Never expand scope, permission, credentials, or safety boundaries without the required user gate.
+9. A stop from the user or Reviewer revokes the current generation. Persist and check its stop record on every Worker entry, including automatic continuation; an active native goal is not permission to resume.
 
 If persistent task lifecycle or direct task messaging is unavailable, fail closed. Do not emulate DUO with a subagent. If DUO mistakenly used a subagent, stop only that subagent before its next action, keep read-only observations as non-authoritative, and restart with one persistent Worker.
 
@@ -46,7 +47,7 @@ Read the applicable reference before its action. Do not preload every reference 
 
 After any cross-task goal, handoff, repair result, decision, or event message, the sender ends its turn. The next direct message resumes the receiver; neither side waits for a reply. Delivery failure preserves the undelivered packet and stops locally, never silently becoming completion.
 
-An explicit user pause stops new actions at the safe boundary and uses lifecycle goal deletion; it never creates a replacement. Resume needs a later explicit user instruction and a new complete goal.
+An explicit user pause or Reviewer stop uses [lifecycle cancellation](references/lifecycle.md); it never creates a replacement. Native automatic goals require a verified cancellation capability before creation. Otherwise use the ordinary persistent task with a file-backed goal contract and no native `/goal` or `create_goal`. Resume needs fresh authority and a new generation; a scheduler continuation supplies neither.
 
 ## Status Reads
 

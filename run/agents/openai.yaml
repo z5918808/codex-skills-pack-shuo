@@ -1,0 +1,6 @@
+interface:
+  display_name: "Run"
+  short_description: "Research first, then drive verified progress."
+  default_prompt: "Use $run to check the current evidence, choose the next bounded execution segment, and carry it through to verifiable results."
+policy:
+  allow_implicit_invocation: true
