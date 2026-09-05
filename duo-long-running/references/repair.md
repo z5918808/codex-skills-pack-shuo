@@ -1,6 +1,6 @@
 # Bounded Reviewer Repair
 
-Reviewer: read on a delivered technical handoff. The packet is defined in [Worker execution](worker.md); authority and permission interpretation stay in the entrypoint.
+Reviewer: read when pre-run evidence exposes a shared defect or on a delivered technical handoff. The packet is defined in [Worker execution](worker.md); authority and permission interpretation stay in the entrypoint.
 
 Establish the cause from current evidence, make the smallest authorized correction, and provide evidence that the affected contract behavior is restored. Choose diagnosis depth and tools for the uncertainty; no fixed reflection template or number of hypotheses is required.
 
@@ -9,6 +9,6 @@ Establish the cause from current evidence, make the smallest authorized correcti
 - A shared-code change still needs a bounded RED→GREEN regression at the real call seam and the narrowest relevant suite. Prefer an existing fixture; keep verification proportional to the affected contract. For non-code corrections, use decisive before/after state evidence. Reuse sufficient current proof rather than rerunning identical checks.
 - Leave the full production traversal, batch, migration, and full acceptance command to the Worker. Update canonical authority only when its contract requires it.
 
-Once repair is verified, use [lifecycle](lifecycle.md) for the prior goal, then [dispatch](dispatch.md) for exactly one fresh goal. End the turn after dispatch. If the old action already completed, the new goal consumes its evidence and forbids duplicate execution.
+Once repair is verified, use [lifecycle](lifecycle.md) for a prior goal when one exists, then [dispatch](dispatch.md) for exactly one fresh goal. Recheck the affected readiness evidence and acceptance discriminator; a patch-local green result does not establish that the dispatch route works. End the turn after dispatch. If the old action already completed, the new goal consumes its evidence and forbids duplicate execution.
 
 Final acceptance uses [acceptance](acceptance.md), including independent contract evidence for Reviewer-authored repairs. An unresolved permission or external gate stops only the affected action while authorized safe work remains.

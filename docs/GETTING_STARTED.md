@@ -100,6 +100,8 @@ done
 - `minimum-effective-harness-tuning`：精簡 skills、AGENTS.md 與提示詞，同時保留權限和驗收標準。安裝整個同名目錄，包含 `references/`。實際修改 skill 格式時會使用 Codex 內建的 `skill-creator`；若環境沒有它，需先提供相應的格式驗證能力。
 - `duo-long-running`：預設由獨立持續任務執行檔案中的目標契約；只有確認平台能取消原生 Goal 並讀回不存在的證據，才允許使用原生排程。Worker 每次進入都檢查停止紀錄，已停止的工作不因自動續跑而重啟。這是代理協作規則，不能取代平台取消功能，也不會刪掉更新前已存在的 Goal。
 
+DUO 開跑前由 Reviewer 確認真實入口、最小有效結果，以及能抓出漏項、空結果或舊資料等假成功的驗收方法。已知共享故障先修好，再派正式工作；若任務本身是探索，就派有邊界的探索切片。沿用足夠的既有證據，不要求每次重跑全流程；這項更新不改模型或 effort。
+
 ```text
 請使用 $run，先確認目前證據，再完成下一個最小可驗證增量。
 請使用 $minimum-effective-harness-tuning，精簡這份 skill，保留權限與驗收邊界。

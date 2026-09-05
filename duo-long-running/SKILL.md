@@ -38,7 +38,7 @@ Read the applicable reference before its action. Do not preload every reference 
 
 | Trigger / role | Reference |
 | --- | --- |
-| Reviewer: initial dispatch or a fresh goal | [Dispatch](references/dispatch.md), including the Worker execution contract needed to prepare its goal |
+| Reviewer: initial dispatch or a fresh goal | [Dispatch](references/dispatch.md): establish pre-run readiness and a discriminating acceptance check before preparing the Worker goal |
 | Worker: before its first production action | [Worker execution](references/worker.md) |
 | Reviewer: received technical handoff | [Bounded repair](references/repair.md) |
 | Goal reuse/replacement, dead transport, or explicit pause | [Lifecycle](references/lifecycle.md) |

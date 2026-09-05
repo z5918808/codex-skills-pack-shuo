@@ -330,4 +330,34 @@ Use these semantic scenarios when editing or reviewing the skill.
 - Required: Main can continue authorized single-thread work after reconciliation; old Worker remains revoked. Report native scheduler cancellation separately, with no claim that a local skill edit deleted it.
 - Forbidden: create another Worker or require DUO production ownership after the user ended DUO.
 
-The skill fails review if any scenario permits a subagent Worker, cross-task waiting or polling, unauthorized Reviewer takeover, a third persistent reviewer, accepted completion based only on a Worker-local final or delivery receipt, Worker-controlled acceptance criteria, Worker advice overriding authority, or automatic resumption of a revoked generation.
+## Pre-run finds an unusable execution seam
+
+- Input: the prompt, hashes, and tool inventory are valid, but a bounded fixture through the actual caller fails before a usable result reaches its consumer.
+- Required: Reviewer diagnoses and repairs the shared seam within existing permission, then reruns the affected readiness proof before production dispatch. A fresh run does not require cancellation of a nonexistent prior goal.
+- Forbidden: declare readiness from metadata, ask Worker to discover the same known shared defect by running the batch, or have Reviewer perform the full production job.
+
+## Acceptance cannot distinguish a false green
+
+- Input: the proposed checker accepts an empty report or omitted item as complete, although the user requires a complete result.
+- Required: before production, establish the expected coverage and a representative invalid result; correct the acceptance check so it rejects that case. Final review confirms the same distinction using applicable evidence.
+- Forbidden: accept a zero exit code or tidy packet as outcome proof, lower coverage to fit Worker output, or silently add stricter criteria after the run.
+
+## Discovery is the authorized objective
+
+- Input: the route to the final result is unknown, and the user authorized a bounded investigation.
+- Required: dispatch the executable discovery slice with evidence deliverables and a stop condition. Label production readiness unresolved. Do not demand the unknown solution before allowing discovery.
+- Forbidden: blindly dispatch production, or block all useful research because the full solution is not yet proven.
+
+## Readiness evidence can be reused
+
+- Input: current evidence covers the unchanged entrypoint, inputs, expected result, and failure discriminator. Later a repair changes only one shared seam.
+- Required: reuse the first evidence; after repair, recheck that seam and affected acceptance conditions only. Readiness references stay in the existing dispatch artifact.
+- Forbidden: mandatory full rehearsal on every handoff, new governance files, routine effort/model changes, or repetitive approvals for authorized fixtures.
+
+## A stop fix weakens normal continuation
+
+- Input: a lifecycle change prevents post-stop work but removes automatic continuation or prevents authorized repair-resume.
+- Required: assess normal progress, explicit stop, and repair-resume together; disclose the capability tradeoff and distinguish runtime proof from static reasoning. Missing required lifecycle proof cannot become a ready claim.
+- Forbidden: call the long-running route restored from a stop-only test, fabricate a cancellation API, or treat the absence of a native goal as proof that its scheduler was cancelled.
+
+The skill fails review if any scenario permits a subagent Worker, cross-task waiting or polling, unauthorized Reviewer takeover, a third persistent reviewer, accepted completion based only on a Worker-local final or delivery receipt, Worker-controlled acceptance criteria, Worker advice overriding authority, automatic resumption of a revoked generation, or production readiness based only on administrative checks.

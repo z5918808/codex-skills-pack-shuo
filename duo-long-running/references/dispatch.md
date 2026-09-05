@@ -13,6 +13,21 @@ Remove one existing role prefix before adding the correct one. Never stack or sw
 
 Take one immediate inventory/title snapshot to verify task IDs and titles. This is lifecycle verification, not Worker monitoring. If title control is unavailable, do not block valid work; put `ROLE: Reviewer` or `ROLE: Worker` first in the next packet and report the missing title capability once.
 
+## Reviewer Pre-run Readiness
+
+Before assigning production, the Reviewer establishes that the proposed route can produce the user's result and that acceptance can reject a plausible wrong result. A complete prompt, valid hashes, installed tools, or a healthy process alone do not prove readiness.
+
+Use the cheapest decisive evidence for the actual uncertainty:
+
+- **Outcome and boundary:** derive the deliverable, coverage, tolerances, and relevant failure cases from the user/project contract. Identify protected state and what must remain functional. Do not add quality requirements after seeing the Worker's result or substitute an easier proxy for the outcome.
+- **Executable seam:** inspect the actual entrypoint, inputs, required capabilities, and output consumer. Establish a baseline with current applicable evidence or a bounded read-only probe/reversible fixture through that seam. A helper-only success does not prove its caller works. Reviewer runs only this bounded readiness check; the Worker retains the production traversal.
+- **Acceptance discrimination:** identify a representative valid result and the most consequential plausible false-green result, such as omitted items, stale output, a no-op, or a report unsupported by the artifact. Show that the available check distinguishes them. Use known expected output or an existing negative fixture when sufficient; do not build a new test framework or run every imaginable edge case.
+- **Continuity when affected:** if dispatch changes scheduling, handoff, stop, or resume, assess normal progress, explicit cancellation, and authorized repair-resume together. A stop check alone cannot establish long-run readiness. Distinguish observed runtime behavior from static reasoning and state any lost capability before dispatch.
+
+Record the readiness conclusion and exact evidence references in the existing dispatch artifact beside the acceptance checklist; do not create another state system. Use `ready` only for the bounded route actually supported. If existing evidence already covers unchanged inputs, interface, and relevant revision, reuse it. A redispatch checks the repaired seam and affected acceptance conditions, not the entire pre-run again.
+
+A deterministic shared defect belongs to [Reviewer repair](repair.md) before production dispatch. If discovery itself is the work, dispatch a bounded discovery objective with an executable probe, an observable finding, and a stopping condition; do not pretend the production route is ready or require the unknown solution in advance. Missing live permission blocks that live probe, while authorized local readiness work continues. When no safe evidence can establish a required capability, name that specific gap instead of dispatching a blind production run or inventing another approval gate.
+
 ## Start and Exactly-Once Dispatch
 
 Before dispatch, record:
@@ -23,6 +38,7 @@ Before dispatch, record:
 - workspace and authoritative resume entrypoint;
 - scope, permissions, safety boundary, and acceptance criteria;
 - a Reviewer-derived acceptance checklist pinned to the authoritative contract revision/hash, with criterion IDs, thresholds, and required evidence;
+- the pre-run readiness conclusion, baseline/representative-result evidence, and the false-green case the acceptance check rejects;
 - exact direct-message tool;
 - `goal_mode` (`file-contract` by default), a unique `run_id`/`generation`, and absolute `stop_record_path` outside the immutable goal/rules files; see [lifecycle cancellation](lifecycle.md);
 - a dedup key from `Reviewer task ID + authority generation/action + normalized Worker goal`.
@@ -52,7 +68,7 @@ Only in verified native mode, omit `token_budget` unless the user explicitly req
 
 ## Worker Goal Shape
 
-Use this compact shape in the fresh Worker's initial prompt or, only after `active_goal_none`, in one follow-up to an existing Worker:
+Use this compact shape in the fresh Worker's initial prompt or, after the applicable goal-mode checks in [lifecycle](lifecycle.md), in one follow-up to an existing Worker. Native mode requires `active_goal_none`; file-contract mode requires the prior generation's stopped state and no in-flight side effects, not deletion of a nonexistent native goal:
 
 ```text
 ROLE: Worker
