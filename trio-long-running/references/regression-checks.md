@@ -197,7 +197,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 
 ## Work changes after an acceptance verdict
 
-- Input: code, artifact, authority, or acceptance state changes after an `acceptance_review` verdict.
+- Input: code, artifact, authority, or acceptance state changes after a `closing_review` verdict.
 - Required: invalidate the old verdict and require a new generation/revision plus a complete new packet.
 - Forbidden: patch, append to, or reuse the old packet or verdict.
 
@@ -396,12 +396,12 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 The skill fails review if any scenario permits a subagent Worker, cross-task waiting or polling, unauthorized Reviewer takeover, a third persistent reviewer, accepted completion based only on a Worker-local final or delivery receipt, Worker-controlled acceptance criteria, Worker advice overriding authority, automatic resumption of a revoked generation, production readiness based only on administrative checks, per-generation goal files, unsafe goal overwrite/deletion, or native goal creation for new TRIO work.
 
 
-## Adaptive brainstorming at acceptance
+## Mandatory Astra closing review
 
-- Input: Main receives a validly identified acceptance packet with a substantive unresolved research question.
-- Required: optionally use the linked duo-brainer workflow with one independent complementary Thinker, relevant pinned evidence and task-bound model approval; end the dispatch turn. Main resumes on its direct result, verifies consequential claims, and owns the verdict and any shared repair.
-- Forbidden: subagent or CLI substitute, another production Worker/Reviewer, polling, thinker-issued ship, production takeover, or relaxed independent proof. The bounded Thinker is the explicit exception to the two-task count only.
-- Negative cases: decisive evidence needs no extra call; a Main model outside Astra/Sol blocks this dispatch route without a silent switch. An unavailable analysis route cannot be claimed as executed.
+- Input: Main receives a validly identified complete acceptance packet, with or without an unresolved research question.
+- Required: Sol Main sends the full evidence packet to the same independent Astra chat used at opening and ends the turn. Astra directly verifies artifacts and tests against the pinned criteria, then returns closing_review. Main handles shared repair and delivery but cannot upgrade Astra fix-first/rethink to ship.
+- Forbidden: subagent or CLI substitute, another production Worker/Reviewer, polling, Sol-only ship, production takeover, or relaxed independent proof. The bounded Thinker is the explicit exception to the two-task count only.
+- Negative cases: decisive evidence still requires Astra closing review; a Main model outside Astra/Sol blocks this dispatch route without a silent switch. An unavailable analysis route cannot be claimed as executed.
 
 ## Main model changes between assignments
 
@@ -433,7 +433,7 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 ## Default Sol-high Main and Astra-medium advisor
 
 - Input: user requests the default TRIO setup with Sol-high as the actual Main and no Thinker effort override.
-- Required: recommend Sol-high Main, explicitly assign Astra-medium Thinker only for a useful bounded question, and retain Luna-max Worker. Main owns decisions and final acceptance; Thinker remains advisory. SKILL.md and the interface default prompt agree.
+- Required: recommend Sol-high Main, assign a separate Astra-medium chat for mandatory opening and closing, and retain a separate Luna-max Worker chat. Main owns execution decisions and delivery; Astra owns opening clarification and closing verification. SKILL.md and the interface default prompt agree.
 - Override: preserve an existing supported Main model/effort; Astra Main still pairs with Sol-high. A user-selected supported Thinker effort overrides medium. Editing this skill never changes the app model or starts tasks.
 - Forbidden: inherit duo-brainer's Astra-Main recommendation or question-based Astra effort over the TRIO default, silently switch Main, or require advisor approval for every Main decision.
 
@@ -444,6 +444,14 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 - Material architecture fork with sufficient facts: consult the single Thinker before dependent implementation, using the five-item decision packet; do not complete and then delegate the same analysis.
 - Hard-to-reverse choice with an unresolved assumption: pause dependent work, consult on the assumption, preserve all user and live-action gates; independent authorized work may continue.
 - Second failure with an inadequate explanation: compare evidence and change strategy; consult if a different perspective is needed. Never retry unchanged or use advice to bypass the third-failure stop.
-- Conflicting acceptance evidence: consult on the specific discrepancy before verdict; decisive evidence requires no routine sign-off.
-- Advisor response: Main explicitly adopts, rejects, or verifies with a reason; advisor cannot approve production or issue ship. Follow-up requires new evidence or a remaining substantive gap and prior terminal reconciliation.
+- Conflicting acceptance evidence: consult on the specific discrepancy before verdict; decisive evidence still requires the mandatory closing review.
+- Advisor response: Main explicitly adopts, rejects, or verifies with a reason; mid-run advice cannot authorize production; Astra closing ship is required for completion. Mandatory closing and correction assignments use prior terminal reconciliation; other follow-ups require new evidence or a substantive gap.
 - All cases preserve one Thinker, the Sol-high/Astra-medium/Luna-max defaults, direct-result delivery, no polling, no duplicate analysis, and no new decision-log requirement. These are static semantic scenarios, not runtime dispatch proof.
+## Mandatory opening, closing, and separate chats
+
+- Sol Main starts one independent Astra-medium chat for opening clarification; Astra reads the request and current evidence, returns readiness, unknowns, and proposed acceptance criteria. No dependent production before readiness; bounded discovery may resolve named unknowns.
+- Main pins in-scope criteria and dispatches a separate Luna Worker chat. All three roles use persistent user-visible chats and direct messaging, never spawn_agent or other subagent substitutes.
+- At closure, the same Astra chat directly reads artifacts and actual test evidence even when Sol believes the result is obvious. A Sol summary alone cannot pass.
+- Astra fix-first/rethink blocks completion. Sol arranges correction; the same Astra chat rechecks affected criteria and dependencies using a complete revised packet. No parallel replacement advisor, silent verdict upgrade, or automatic full-job rerun.
+- Astra ship must match current packet/hash and generation and arrive by direct message before Sol delivery. Stale ship, missing required proof, or absent opening/closing cannot count as complete.
+- An explicitly selected Astra Main remains supported and performs the Astra stages directly; do not silently switch it or emulate another role with subagents. The default remains three independent Sol/Astra/Luna chats.

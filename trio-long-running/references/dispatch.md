@@ -13,6 +13,10 @@ Remove one existing role prefix before adding the correct one. Never stack or sw
 
 Take one immediate inventory/title snapshot to verify task IDs and titles. This is lifecycle verification, not Worker monitoring. If title control is unavailable, do not block valid work; put `ROLE: Reviewer` or `ROLE: Worker` first in the next packet and report the missing title capability once.
 
+## Mandatory Astra opening
+
+Before dependent production, use the SKILL.md mandatory opening stage. With Sol Main, dispatch the original request, relevant current evidence, boundaries, and the five-item decision packet to the single Astra Thinker through duo-brainer, then end the turn. Resume from its direct opening_review result. Record Astra task identity, result receipt, readiness, proposed criteria, and unresolved gaps in the existing goal/dispatch artifact. Main pins the in-scope checklist; resolve discovery-needed with bounded evidence and Astra follow-up before dependent production. A prompt or Sol-only readiness judgment cannot substitute for this stage. Preserve the same Astra task for closing review. With Astra Main, perform this stage directly.
+
 ## Reviewer Pre-run Readiness
 
 Before assigning production, the Reviewer establishes that the proposed route can produce the user's result and that acceptance can reject a plausible wrong result. A complete prompt, valid hashes, installed tools, or a healthy process alone do not prove readiness.
@@ -38,7 +42,7 @@ Before dispatch, record:
 - Worker model and effort;
 - workspace and authoritative resume entrypoint;
 - scope, permissions, safety boundary, and acceptance criteria;
-- a Reviewer-derived acceptance checklist pinned to the authoritative contract revision/hash, with criterion IDs, thresholds, and required evidence;
+- an Astra-opening-derived, Main-pinned acceptance checklist pinned to the authoritative contract revision/hash, with criterion IDs, thresholds, and required evidence;
 - the pre-run readiness conclusion, baseline/representative-result evidence, and the false-green case the acceptance check rejects;
 - exact direct-message tool;
 - `goal_mode=file-contract`, the fixed absolute `TRIO_GOAL.md` path, its SHA256, a unique `run_id`/`generation`, and absolute `stop_record_path` outside the goal/rules files; see [lifecycle cancellation](lifecycle.md);

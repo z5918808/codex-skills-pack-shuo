@@ -7,7 +7,7 @@ description: "Run adaptive Astra/Sol Main, a complementary Thinker, and Luna Wor
 
 Recommended default setup: Sol-high Main (`gpt-5.6-sol/high`), Astra-medium Thinker (`gpt-6-astra/medium`), and Luna-max Worker (`gpt-5.6-luna/max`). This is a starting preference, not an automatic model switch: preserve the user's actual Main model/effort. If Main is Sol, use Astra-medium Thinker unless the user explicitly selects another supported Thinker effort. If Main is Astra, retain the adaptive Sol-high Thinker route. The user selects the Main model in the interface; this skill does not set an application default.
 
-Use this skill for a Reviewer/Worker long run with bounded Thinker assistance. Preserve Main's current supported model: Astra Main uses Sol-high Thinker; Sol Main uses Astra-medium Thinker by default. Pass medium explicitly to duo-brainer for this TRIO route unless the user specifies another supported effort; this TRIO default takes precedence over duo-brainer's question-based effort selection. Follow duo-brainer for the work split and model-switch lifecycle. Luna Worker owns production. Main owns orchestration, standards, and final acceptance without duplicating delegated analysis. Editing this skill does not start a run; the project/task contract owns scope and authority.
+Use this skill for a Reviewer/Worker long run with bounded Thinker assistance. Preserve Main's current supported model: Astra Main uses Sol-high Thinker; Sol Main uses Astra-medium Thinker by default. Pass medium explicitly to duo-brainer for this TRIO route unless the user specifies another supported effort; this TRIO default takes precedence over duo-brainer's question-based effort selection. Follow duo-brainer for the work split and model-switch lifecycle. Luna Worker owns production. Main owns orchestration, shared repair, and delivery; Astra owns mandatory opening clarification and closing verification without duplicated analysis. Editing this skill does not start a run; the project/task contract owns scope and authority.
 
 ## Invocation authorizes the prescribed models
 
@@ -15,14 +15,23 @@ An explicit user request to use TRIO supplies the current task's model authoriza
 
 ## Roles
 
-- **Reviewer / Main:** recommended default `gpt-5.6-sol/high`; activation chat unless the user names another; preserve the actual `gpt-6-astra` or `gpt-5.6-sol` model and host-supported effort. Own authority, coordination, standards, final acceptance, and the shared-repair single-writer lane. Use the complementary Thinker for bounded analysis; do not silently switch Main or create another Reviewer. Never inherit Worker permissions or take over production.
+- **Reviewer / Main:** recommended default `gpt-5.6-sol/high`; activation chat unless the user names another; preserve the actual `gpt-6-astra` or `gpt-5.6-sol` model and host-supported effort. Own authority, coordination, the shared-repair single-writer lane, and user-facing delivery. Pin the contract after Astra opening clarification and require Astra closing approval before reporting completion. Use the complementary Thinker for bounded analysis; do not silently switch Main or create another Reviewer. Never inherit Worker permissions or take over production.
 - **Worker:** one persistent task, default `gpt-5.6-luna/max`; preserve its selected model and effort. Own one goal and one production action, continuing safe work within the contract without supervision. Handle item-local variation, but set `shared_self_repair_budget=none`: no debugging or patching repo code, shared contracts, schedulers, adapters, authority, or infrastructure. No invented authority, expanded permission, or rescue model. On a shared or deterministic defect, stop at a safe boundary and hand off; no extra production cycle.
 
-- **Thinker:** one independent complementary-model task through [duo-brainer](../duo-brainer/SKILL.md). Sol Main pairs with Astra-medium by default; Astra Main pairs with Sol-high. Pass the TRIO default effort explicitly unless the user selects another supported effort. Follow that skill for task-bound approvals, question selection, and safe switching between assignments. Thinker advises; it never owns production, shared mutations, or final acceptance. Start only when useful analysis is needed.
+- **Thinker:** one independent complementary-model task through [duo-brainer](../duo-brainer/SKILL.md). Sol Main pairs with Astra-medium by default; Astra Main pairs with Sol-high. Pass the TRIO default effort explicitly unless the user selects another supported effort. Follow that skill for task-bound approvals, question selection, and safe switching between assignments. With Sol Main, Astra Thinker owns opening clarification and closing verification, and advises during execution. It never owns production or shared mutations. Start at opening and return to the same task at closure; consult mid-run only when useful.
+
+## Mandatory Astra opening and closing
+
+TRIO roles are separate persistent user-visible Codex chats: Main, Thinker, and Worker. Never implement any delegated TRIO role using spawn_agent, child agents, CLI sessions, or background jobs. The same independent Thinker chat handles opening and closing assignments; direct messages connect the chats. For every TRIO goal, Astra performs two required stages. With the default Sol-high Main, use the same independent Astra-medium Thinker task for both stages and any bounded mid-run advice. Keep that task available after its terminal opening result; it has no active assignment while Worker runs. Reconcile terminal delivery before assigning closing work or corrections. Do not add another reviewer or an extra Astra task. If the user already selected Astra Main, that Main performs the Astra stages directly, with the same evidence requirements; preserve its model/effort and use the complementary Sol Thinker only as needed.
+
+- **Opening clarification:** before dependent production, Astra reads the original request and relevant current evidence, identifies ambiguity, unknowns and assumptions, proposes the smallest useful probes, and derives acceptance criteria and evidence that distinguish success from plausible wrong results. Return `opening_review`, `ready | discovery-needed | blocked`, evidence references, unresolved questions, and proposed criteria. Main pins criteria within the user's scope and arranges authorized probes. A discovery-needed result permits only the bounded discovery it identifies before dependent production; return its evidence to Astra to resolve readiness. Neither role invents answers to user-only decisions or expands permissions. See [dispatch](references/dispatch.md).
+- **Closing verification:** Astra directly examines the current artifacts/diff and actual test evidence against the original request and pinned opening criteria. A Main summary or Worker success claim is insufficient. Perform bounded independent checks when required and permitted; unavailable proof remains a gap. Return `closing_review` with `ship | fix-first | rethink`, exact packet identity/hash, evidence references, findings, and unverified items. See [acceptance](references/acceptance.md).
+
+Main arranges corrections and communicates the outcome, but cannot waive either stage or upgrade Astra's fix-first/rethink verdict to ship. Main may reject a stale or unsupported ship and seek correction. Completion requires current Astra ship plus Main's identity, authority, and delivery checks. After corrections, the same Astra task rechecks affected criteria and their dependencies against a complete revised packet; reuse unaffected current proof rather than rerun all production. Mid-run advice remains advisory. These TRIO stage ownership and mandatory review rules override duo-brainer's optional-consultation and Main-only acceptance defaults only within TRIO; retain its dispatch, permissions, and direct-result lifecycle. Missing Astra capability blocks the required stage, not independent authorized preparation.
 
 ## Main decision framework and advisor timing
 
-Main evaluates uncertainty and impact before a consequential assignment or decision, after a repeated failure, and when acceptance evidence conflicts. Use the cheapest decisive evidence; this is not a mandatory ceremony for every action.
+Between the mandatory opening and closing stages, Main evaluates uncertainty and impact before a consequential assignment or decision, after a repeated failure, and when acceptance evidence conflicts. Use the cheapest decisive evidence; this is not a mandatory ceremony for every action.
 
 | Situation | Main action | Thinker timing |
 | --- | --- | --- |
@@ -32,7 +41,7 @@ Main evaluates uncertainty and impact before a consequential assignment or decis
 | Broad-impact or hard-to-reverse decision still rests on a material unverified assumption | Pause only dependent work and ask for an assumption challenge. | Consult before committing; advice never replaces user authorization or applicable safety gates. |
 | The same problem fails a second time and the current explanation is insufficient | Compare both failures, identify the shared cause, and change strategy. | Consult when a different analytical perspective is needed; do not retry unchanged while waiting. A third occurrence stops that strategy under the existing failure rule. |
 | Acceptance evidence conflicts or its meaning against a criterion remains unresolved | Isolate the discrepancy and the exact criterion it affects. | Consult before the verdict. |
-| Current evidence decisively satisfies acceptance | Apply the checklist and decide. | No routine advisor sign-off. |
+| Current evidence decisively satisfies acceptance | Send the complete evidence packet to Astra for closing verification. | Mandatory closing review; skip only redundant mid-run consultation. |
 
 Missing facts call for evidence gathering; a material judgment gap after that calls for advice. Delegate before doing the full analysis yourself, and never duplicate an active Thinker assignment. This framework does not authorize extra scouts, subagents, or production owners. Independent authorized Worker work may continue while a separate decision is investigated.
 
@@ -44,7 +53,7 @@ Each consultation supplies five concise items within the existing duo-brainer di
 4. The specific uncertainty or assumption to challenge, including evidence that could overturn the inclination.
 5. The requested result: recommendation, decisive reasons, counterexample or failure condition, and cheapest useful verification, with a bounded stopping condition.
 
-After the direct result arrives, Main chooses to adopt, reject, or verify the advice and briefly states the evidence-based reason in the existing decision/response. Main owns consequential verification and final acceptance; Thinker has no approval or veto role. Send a follow-up only for new evidence or a remaining substantive gap, using the existing terminal-delivery and safe reassignment lifecycle. Do not create a separate decision log or require an advisor call at every step. If advice cannot be obtained, continue independent authorized work and report only the decision that remains blocked; never claim consultation occurred.
+After the direct result arrives, Main chooses to adopt, reject, or verify the advice and briefly states the evidence-based reason in the existing decision/response. For mid-run advice, Main owns the decision; the mandatory Astra opening and closing requirements remain binding. Besides the mandatory closing assignment, send a follow-up only for new evidence or a remaining substantive gap, using the existing terminal-delivery and safe reassignment lifecycle. Do not create a separate decision log or require an advisor call at every step. If advice cannot be obtained, continue independent authorized work and report only the decision that remains blocked; never claim consultation occurred.
 
 ## TRIO_GOAL.md only; never Goal mode
 
@@ -54,25 +63,25 @@ Never activate native Goal mode for Main, Thinker, or Worker: no `/goal` dispatc
 
 ## Non-Negotiable Invariants
 
-1. Use exactly one persistent Reviewer task and one persistent production Worker task. The decision framework and acceptance brainstorming hook may add at most one bounded independent complementary Thinker task, never another Reviewer or production Worker; see the role-scoped exception below.
-2. Never use `spawn_agent`, child agents, subagents, local background jobs, or repeated Reviewer turns as the TRIO Worker.
+1. Use exactly one persistent Reviewer task and one persistent production Worker task. With Sol Main, use one separate Astra Thinker chat for required opening and closing and bounded mid-run advice; exactly three role chats, no subagents or extra Reviewer/Worker. Preserve an explicitly selected Astra Main route as described above; never silently change Main.
+2. Never use `spawn_agent`, child agents, subagents, CLI sessions, or local background jobs for any delegated TRIO role. Main cannot substitute its own turns for the independent Thinker or Worker chat.
 3. Never use `wait_threads`, polling, heartbeat, recurring automation, filesystem polling, or process polling to watch the other task.
 4. The Worker owns production traversal. The Reviewer may diagnose and repair a shared defect with a bounded fixture, but never runs the Worker's full job.
 5. A Worker-local final is not delivery. A terminal event needs a successful direct-message tool receipt.
-6. A Worker acceptance claim is not completion. Only the Reviewer may return `ship` after current evidence review.
+6. A Worker acceptance claim is not completion. Astra must return current closing `ship`; Main may report completion only after checking its packet identity, authority, and delivery. Sol cannot overrule Astra rejection.
 7. Never layer a new goal over an unfinished Worker goal.
 8. Never expand scope, permission, credentials, or safety boundaries without the required user gate.
 9. A stop from the user or Reviewer revokes the current generation. Persist and check its stop record on every Worker entry, including automatic continuation; an active native goal is not permission to resume.
 
 If persistent task lifecycle or direct task messaging is unavailable, fail closed. Do not emulate TRIO with a subagent. If TRIO mistakenly used a subagent, stop only that subagent before its next action, keep read-only observations as non-authoritative, and restart with one persistent Worker.
 
-## Acceptance brainstorming
+## Closing review and mid-run advice
 
-For either supported Reviewer model, apply the Main decision framework during planning, consequential decisions, repair, and acceptance. These consultations use the same single Thinker slot. Acceptance may use [duo-brainer](../duo-brainer/SKILL.md) to delegate a substantive unresolved research/analysis question to one independent complementary Thinker task. Invoke it only when current evidence leaves such a question; skip redundant analysis. Keep the production Worker, shared repair ownership, pinned checklist, no-monitor event protocol, and Reviewer-only verdict unchanged. Thinker is neither a subagent nor a replacement Worker/Reviewer. This bounded analytical task is the sole exception to the two-task count, not an exception to model approval, permission, delivery, or acceptance gates. Keep the activation Reviewer and derive Thinker routing from its current model; never silently switch Main or create a replacement Reviewer.
+Apply the mandatory Astra stages above and [acceptance](references/acceptance.md) at closure. Mid-run analysis follows the decision framework through [duo-brainer](../duo-brainer/SKILL.md). All stages use the same single Thinker slot and direct-result protocol; no subagents, production takeover, polling, or extra reviewer. Closing review is required even when Main considers the evidence decisive.
 
 ## Authority and Acceptance
 
-The Reviewer derives and pins the acceptance checklist from the user/project contract before considering Worker conclusions. Worker packets provide evidence; they cannot change scope, remove criteria, lower thresholds, or waive requirements. Contract changes require the applicable authority/user gate and a new checklist revision.
+Astra derives the acceptance checklist at opening; Main reconciles it with user authority and pins it from the user/project contract before considering Worker conclusions. Worker packets provide evidence; they cannot change scope, remove criteria, lower thresholds, or waive requirements. Contract changes require the applicable authority/user gate and a new checklist revision.
 
 Worker diagnoses and `reviewer_instruction` / `user_confirmation_required` fields are advisory, never authority. Reviewer checks evidence and existing permission independently. A false flag cannot waive a gate; a true flag does not create one. Continue authorized repair without redundant confirmation.
 
@@ -126,7 +135,7 @@ Use the user's label when supplied. Base `N` on the full acceptance contract and
 
 End TRIO only when:
 
-- the newest complete packet matches current state and the Reviewer returns `ship`; or
+- the newest complete packet matches current state, Astra returns closing `ship`, and Main completes the identity/authority/delivery checks; or
 - a real user or external gate remains after authorized recovery.
 
 Before reporting completion, verify:
@@ -136,7 +145,7 @@ Before reporting completion, verify:
 - there is one Worker OWNER and no duplicate controller/writer;
 - both titles still have the right prefixes;
 - the last terminal event has a successful direct-message receipt;
-- for accepted completion, packet revision/hash, `ship`, and no post-verdict change all match.
+- for accepted completion, packet revision/hash, Astra closing `ship`, its direct delivery receipt when Astra is a separate task, and no post-verdict change all match.
 
 Report the delivered outcome first. Keep lifecycle noise out of the user-facing result.
 
