@@ -460,3 +460,15 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 
 - Apply [Reviewer], [Thinker], and [Worker] to their separate chats as each ID becomes available. Preserve the meaningful base title and never stack prefixes.
 - Astra remains [Thinker] during opening, advice, closing, and correction review; review ownership does not make it a second [Reviewer]. Verify all existing role titles at closeout without polling.
+
+## Complete return and continuation protocol
+
+- Worker finishes or becomes blocked: a local final without an actual Reviewer-directed tool receipt fails. The same rule applies to Thinker opening, advice, closing, and correction outcomes.
+- Initial dispatch has no actual Reviewer ID/tool or omits reporting.md: reject dependent dispatch; do not rely on inherited context or automatic result forwarding.
+- Sender tries to end early: finish safe assigned work or send the concrete incomplete/blocker result before final. Do not promise a later report.
+- Tool explicitly rejects a correctable route field: one corrected retry with the same event identity is allowed. Repeated unchanged calls are forbidden.
+- Ambiguous timeout without real idempotency or proof of non-delivery: preserve unknown delivery and report the transport blocker; event_id alone cannot justify resend.
+- Resume with pending return: recover delivery only, never rerun completed work. Resume with sent receipt: no duplicate return. User messaging revocation overrides recovery.
+- Reviewer receives Worker acceptance_complete: dispatch mandatory Astra closing review. Reviewer receives Astra fix-first: arrange correction and later recheck. Reviewer receives opening ready: dispatch eligible work. Acknowledgement-only final while authorized successor work is ready fails.
+- Duplicate or stale event: no duplicate successor. Current ship requires normal identity/authority checks. Successful send is not proof of consumption or platform wake-up.
+- No new subagents, polling, heartbeat, extra chats, transcript dumps, or acknowledgement ping-pong. These are static semantic checks, not runtime delivery enforcement.

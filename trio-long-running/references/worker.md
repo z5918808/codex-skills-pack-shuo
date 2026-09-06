@@ -14,9 +14,11 @@ A goal may include several phases. Phase transitions already covered by that goa
 
 ## Event Protocol
 
+Read and follow [Required return delivery](reporting.md) before work and before any assignment-ending final. It owns the shared return route, event identity, receipt, transport recovery, and Reviewer continuation rules. All terminal outcomes, including incomplete work and blockers, require an actual direct-message call; a local answer is never sufficient.
+
 ### Re-entry and stop precedence
 
-Before the first production action of every turn, after a compaction/resume, and before each new batch or external mutation, read the pinned generation's stop record and the Worker's own terminal state. This is a local permission check, not cross-task monitoring. Follow [lifecycle cancellation](lifecycle.md) if either revokes execution. An automatic `continue`, active native goal, older goal text, or successful handoff delivery does not clear a stop. Do not repeat production, verification, handoff delivery, or goal creation after a terminal event merely because a scheduler starts another turn. Only safe reconciliation of an already-started action and a missing stop receipt remain authorized.
+Before the first production action of every turn, after a compaction/resume, and before each new batch or external mutation, read the pinned generation's stop record and the Worker's own terminal state. This is a local permission check, not cross-task monitoring. Follow [lifecycle cancellation](lifecycle.md) if either revokes execution. An automatic `continue`, active native goal, older goal text, or successful handoff delivery does not clear a stop. Do not repeat production, verification, handoff delivery, or goal creation after a terminal event merely because a scheduler starts another turn. Only safe reconciliation of an already-started action and recovery of a pending/unknown return under reporting.md remain authorized; never resend an event with a successful receipt.
 
 After the stop/terminal check, verify the fixed `TRIO_GOAL.md` path against the dispatched run/generation and SHA256 at these same action boundaries. A missing or changed goal stops dependent work for handoff; never recreate it, edit it, or adopt a later generation without a fresh authorized dispatch. Reviewer alone writes, deletes, or reuses this file.
 
@@ -45,7 +47,7 @@ For every terminal event:
 
 The terminal state persists across turns. For user/Reviewer stops, persist revocation before attempting delivery or native cancellation. Native goal deletion, safe process stop, and receipt delivery are separate facts; use lifecycle cancellation evidence, not an idle/final status, to claim automatic continuation was removed.
 
-If delivery fails, do not retry blindly, wait, poll, or claim completion. Preserve work and end locally with:
+If delivery fails, apply the bounded recovery in reporting.md. Never retry blindly, wait, poll, or claim completion. If recovery cannot establish delivery, preserve work and end locally with:
 
 ```text
 delivery_failed

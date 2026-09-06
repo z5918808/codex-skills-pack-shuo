@@ -34,6 +34,10 @@ Record the readiness conclusion and exact evidence references in the existing di
 
 A deterministic shared defect belongs to [Reviewer repair](repair.md) before production dispatch. If discovery itself is the work, dispatch a bounded discovery objective with an executable probe, an observable finding, and a stopping condition; do not pretend the production route is ready or require the unknown solution in advance. Missing live permission blocks that live probe, while authorized local readiness work continues. When no safe evidence can establish a required capability, name that specific gap instead of dispatching a blind production run or inventing another approval gate.
 
+## Required return route for both delegated roles
+
+Read [reporting](reporting.md) and pin its path/hash in every Worker and Thinker assignment. Include actual Reviewer destination, callable tool, assignment/generation, and compact receipt location in the initial message. Require direct result delivery before local final for all outcomes. Opening, closing, advice, and corrections use the same rule; no reliance on automatic forwarding. Missing return route blocks the dependent dispatch.
+
 ## Start and Exactly-Once Dispatch
 
 Before dispatch, record:

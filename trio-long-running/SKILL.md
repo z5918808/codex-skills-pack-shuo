@@ -92,6 +92,7 @@ Read the applicable reference before its action. Do not preload every reference 
 | Trigger / role | Reference |
 | --- | --- |
 | Reviewer: initial dispatch or a fresh goal | [Dispatch](references/dispatch.md): establish pre-run readiness and a discriminating acceptance check before preparing the Worker goal |
+| Worker or Thinker: assignment entry, resume, and before final; Reviewer: dispatch/result | [Required reporting](references/reporting.md) |
 | Worker: before its first production action | [Worker execution](references/worker.md) |
 | Reviewer: received technical handoff | [Bounded repair](references/repair.md) |
 | Goal reuse/replacement, dead transport, or explicit pause | [Lifecycle](references/lifecycle.md) |
@@ -101,6 +102,10 @@ Read the applicable reference before its action. Do not preload every reference 
 After any cross-task goal, handoff, repair result, decision, or event message, the sender ends its turn. The next direct message resumes the receiver; neither side waits for a reply. Delivery failure preserves the undelivered packet and stops locally, never silently becoming completion.
 
 An explicit user pause or Reviewer stop uses [lifecycle cancellation](references/lifecycle.md); it never creates a replacement. TRIO uses one reusable `TRIO_GOAL.md` at a fixed workspace path, with no native `/goal` or `create_goal`. The Reviewer may overwrite or delete it only after the prior Worker is safely stopped and required review is resolved; see [goal file lifecycle](references/lifecycle.md). Do not create a separate goal file per run or generation. Native-mode procedures cover already-existing native goals, not new TRIO dispatches. Resume needs fresh authority and a new generation; a scheduler continuation supplies neither.
+
+## Required return delivery
+
+Both Worker -> Reviewer and Thinker -> Reviewer must follow [Required return delivery and Reviewer continuation](references/reporting.md). Pin that reference and the actual return route in every assignment. Before ending an assignment, send the result/blocker with the direct-message tool and preserve its receipt; local final text alone is a protocol failure. Reviewer must process each valid actionable result into an authorized successor, exact blocker, or accepted completion. Delivery failures use the bounded recovery in that reference; do not silently stop, blindly retry, or claim guaranteed runtime wake-up.
 
 ## Main yields while delegated work runs
 

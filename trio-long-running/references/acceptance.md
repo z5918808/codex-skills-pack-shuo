@@ -28,6 +28,8 @@ For high-risk changes, conflicting/unreliable evidence, or a shared repair made 
 
 With Sol Main, before any completion claim, Main sends the original request, pinned opening checklist, current complete packet, and accessible artifact/test references to Astra through [duo-brainer](../../duo-brainer/SKILL.md), then ends the turn. This closing assignment is mandatory even if evidence appears decisive. Astra directly reads the artifacts and actual test results, performs required bounded corroboration within permissions, and returns the review by direct message. A Main summary alone is insufficient. Missing access or proof requires fix-first or rethink, not inferred success. No polling, extra reviewer, or full production rerun.
 
+Astra must send the following result directly to Reviewer under [reporting](reporting.md), preserve the tool receipt, and only then end its turn. A local closing_review is not a delivered verdict. Reviewer must consume it into correction, a real blocker, or accepted delivery.
+
 Return exactly one:
 
 ```text
