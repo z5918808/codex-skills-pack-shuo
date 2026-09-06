@@ -16,7 +16,24 @@ Take one immediate inventory/title snapshot to verify task IDs and titles. This 
 
 ## Mandatory Astra opening
 
-Before dependent production, use the SKILL.md mandatory opening stage. With Sol Main, dispatch the original request, relevant current evidence, boundaries, and the five-item decision packet to the single Astra Thinker through duo-brainer, then end the turn. Resume from its direct opening_review result. Record Astra task identity, result receipt, readiness, proposed criteria, and unresolved gaps in the existing goal/dispatch artifact. Main pins the in-scope checklist; resolve discovery-needed with bounded evidence and Astra follow-up before dependent production. A prompt or Sol-only readiness judgment cannot substitute for this stage. Preserve the same Astra task for closing review. With Astra Main, perform this stage directly.
+Before dependent production, use the SKILL.md mandatory opening stage. With Sol Main, dispatch the draft Worker brief, original request, relevant current evidence, boundaries, and the five-item decision packet to the single Astra Thinker through duo-brainer, then end the turn. Resume from its direct opening_review result. Record Astra task identity, result receipt, readiness, proposed criteria, and unresolved gaps in the existing goal/dispatch artifact. Main pins the in-scope checklist; resolve discovery-needed with bounded evidence and Astra follow-up before dependent production. A prompt or Sol-only readiness judgment cannot substitute for this stage. Preserve the same Astra task for closing review. With Astra Main, perform this stage directly.
+
+## Worker brief for sustained execution
+
+Sol prepares this compact brief in the existing goal/dispatch artifact and includes the draft or its accessible reference in Astra's mandatory opening assignment. When key facts are still unknown, mark the corresponding part unresolved; Astra frames the smallest discovery needed instead of inventing an executable plan. Astra's opening result checks the brief and proposes targeted corrections; Sol incorporates them before dispatch. The brief is required content, not a new schema or an instruction to fill empty boilerplate.
+
+| Brief content | What Luna must be able to determine |
+| --- | --- |
+| Outcome and acceptance | Concrete deliverable, coverage, criterion IDs, required proof, and a plausible wrong result the check must reject. |
+| Relevant context | Confirmed decisions, inputs, current baseline, supported entrypoint/fixture, known failed approach and cause if relevant, and only the needed paths/pinned references. |
+| Coherent work segment | What to finish autonomously, dependency order, natural action boundaries, useful progress signals, and where completion or a decision ends this assignment. Multiple authorized phases may stay in one assignment. |
+| Judgment and permission | Routine choices Luna may make; protected state, allowed operations, and decisions that require handoff. Never delegate shared code repair or imply live permission. |
+| Verification and recovery | Appropriate checks, expected results/tolerances, evidence to retain, how to avoid repeating completed effects, and the existing stop/shared-defect escalation conditions. |
+| Return contract | Reviewer chat/tool, assignment/generation, pinned reporting.md, required result/blocker payload, and direct delivery before local final. |
+
+During opening, Astra asks: Can Luna start without repeating broad investigation or guessing a consequential decision? Can it tell success from a false green? Is the segment large enough to complete useful work without per-step approvals, yet bounded by known dependencies and permission? Are ordinary execution choices distinguished from shared defects and authority changes? Is the return route explicit? Report concrete gaps and the cheapest decisive evidence, not a full duplicate implementation or a rewrite for style.
+
+Before dispatch, Sol resolves material gaps and confirms the final brief preserves Astra's reviewed assumptions and criteria. Bundle independent or sequential work only when the same authorized contract and safe boundaries cover it; do not enlarge a live/bulk action merely to reduce messages. Do not issue “continue” with no executable objective. On correction, supply the specific delta plus the current complete contract reference, not a replacement transcript. A complete revised acceptance packet is still required at closing, even when the correction prompt is concise.
 
 ## Reviewer Pre-run Readiness
 

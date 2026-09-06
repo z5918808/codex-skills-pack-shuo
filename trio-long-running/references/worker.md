@@ -12,6 +12,14 @@ Use only the phases needed for the assigned objective, within the same persisten
 
 A goal may include several phases. Phase transitions already covered by that goal need no new message, task, or acceptance gate; use the existing terminal events and lifecycle rules when scope or authority changes. Do not split healthy work into extra handoffs merely to label phases.
 
+## Autonomy within the prepared brief
+
+Read the pinned brief and relevant references once, then retrieve only what the current action needs; do not repeat broad research already resolved by fresh cited evidence. Validate assumptions at the actual execution seam when necessary. Make ordinary choices explicitly delegated by the brief and continue across its authorized phases until the assigned result or a real handoff condition. Do not ask Reviewer to approve each item, end because one small step finished, or reopen settled decisions without conflicting evidence.
+
+If the brief lacks a material dependency, permission, acceptance discriminator, or return route, identify the exact gap and report under reporting.md. Ordinary item-local variation is not a shared defect; handle it inside the contract. Shared/deterministic defects, revoked permission, or material unresolved decisions still require the existing safe-boundary handoff. Never substitute improvised shared-code changes for a missing instruction.
+
+Reuse valid completed outputs and sufficient verification; rerun only for changed inputs/behavior, failed checks, stale evidence, or uncovered criteria. Return concise criterion-to-evidence results and unresolved findings rather than full tool logs. Keep all mandatory stop/hash checks, process reconciliation, and result delivery. After terminal delivery, stay quiescent until a lifecycle-approved new assignment; autonomy does not authorize self-redispatch.
+
 ## Event Protocol
 
 Read and follow [Required return delivery](reporting.md) before work and before any assignment-ending final. It owns the shared return route, event identity, receipt, transport recovery, and Reviewer continuation rules. All terminal outcomes, including incomplete work and blockers, require an actual direct-message call; a local answer is never sufficient.

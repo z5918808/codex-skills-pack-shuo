@@ -20,6 +20,16 @@ An explicit user request to use TRIO supplies the current task's model authoriza
 
 - **Thinker:** one independent complementary-model task through [duo-brainer](../duo-brainer/SKILL.md). Sol Main pairs with Astra-medium by default; Astra Main pairs with Sol-high. Pass the TRIO default effort explicitly unless the user selects another supported effort. Follow that skill for task-bound approvals, question selection, and safe switching between assignments. With Sol Main, Astra Thinker owns opening clarification and closing verification, and advises during execution. It never owns production or shared mutations. Start at opening and return to the same task at closure; consult mid-run only when useful.
 
+## Long-run efficiency and Worker assignment quality
+
+Use Sol and Astra to make the assignment executable, then let Luna-max carry sustained authorized work. Sol drafts the Worker brief; Astra reviews its material assumptions, executable scope, and acceptance evidence during mandatory opening. Sol incorporates the findings and owns the final pinned assignment. Do not spend another advisor turn reviewing clerical incorporation; a material change to the reviewed scope, method, assumptions, or acceptance goes back to Astra before dependent execution. Neither a good prompt nor Astra approval substitutes for actual readiness evidence or user authority.
+
+Use [dispatch's Worker brief](references/dispatch.md#worker-brief-for-sustained-execution) inside the existing TRIO_GOAL.md, not a new prompt document or tracking system. Prefer the largest coherent work segment whose dependencies, permissions, recovery boundaries, and acceptance are understood. No arbitrary one-item assignments, blanket “do everything,” or fixed token/time budget. Broader assignments do not relax production or shared-repair boundaries.
+
+Preserve the same independent Luna chat across lifecycle-approved assignments and the same Astra chat across reviews. Pass relevant facts and pinned references, not whole histories or copied skill bodies. Luna owns ordinary in-scope execution choices; Sol does not shadow its traversal and Astra does not approve every step. Main ends its turn after dispatch; no monitoring, duplicate analysis, or filler coordination. Internal progress does not require a handoff unless the contract defines a decision/terminal boundary. Required blocker/result delivery and mandatory Astra closing review are never reduced to save usage.
+
+Corrections reference the complete current contract and add only changed facts, affected findings, evidence, and the next action; preserve verified unaffected results. Recheck only affected criteria and their dependencies unless broader concerns justify more work. Do not lower evidence standards, switch models, or restart successful production to save or measure usage. Use the existing lightweight cost record to compare similar accepted work; unavailable usage remains unavailable and savings are never assumed. Long-running means progress through authorized assignments and direct results, not native Goal mode or a scheduler.
+
 ## Repair ownership does not transfer execution
 
 Before a command with side effects, identify its actual target, effect, assigned role, and current authorization. Judge the operation by what it does, not its label (preview, verification, recovery, test, or repair).

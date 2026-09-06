@@ -482,3 +482,13 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 - Worker is unavailable or old effects are uncertain: reconcile lifecycle and evidence; do not take over, create duplicate execution, or replay a completed rollback.
 - User-facing plan names Reviewer preparation, Worker execution, and Astra verification separately. Evidence of a corrected explanation alone never proves earlier operations respected ownership.
 - Fixture, permission, role, and handoff scenarios are static checks; no claim of runtime interception or actual live execution testing.
+
+## Long-run assignment quality without redundant coordination
+
+- Sol drafts a coherent Worker brief; Astra reviews it during opening for material ambiguity, runnable scope, success discrimination, delegated judgment, and return route. Sol incorporates findings and pins the final contract; no second call merely to approve wording.
+- Missing material facts yield bounded discovery and an explicit unresolved plan; no invented assumptions or blind production. Material changes to reviewed assumptions/criteria return to Astra before dependent execution.
+- Many routine items share one authorized contract: Luna executes across natural boundaries without per-item approvals or duplicated Sol traversal. Unknown dependencies or live scope cannot be bundled away for efficiency.
+- Small completed step inside an unfinished authorized assignment: Luna continues; at a real blocker or terminal result it still sends the mandatory direct return. Lower usage never justifies silent final or skipping Astra closing.
+- Routine item-local choice is delegated; shared defect remains Reviewer repair. A vague continue prompt, full-history dump, or improvised shared patch cannot replace a usable brief.
+- Correction sends changed facts/findings plus a complete current contract reference; reuse unaffected verified work and supply a complete revised closing packet. No unnecessary new chats, repeated successful production, or per-step advisor sign-off.
+- Compare efficiency only from existing comparable outcome/cost evidence; unknown token usage is unavailable, not zero. No new telemetry, model switch, scheduler, arbitrary token budget, or claim of measured savings from static scenarios.
