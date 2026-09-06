@@ -472,3 +472,13 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 - Reviewer receives Worker acceptance_complete: dispatch mandatory Astra closing review. Reviewer receives Astra fix-first: arrange correction and later recheck. Reviewer receives opening ready: dispatch eligible work. Acknowledgement-only final while authorized successor work is ready fails.
 - Duplicate or stale event: no duplicate successor. Current ship requires normal identity/authority checks. Successful send is not proof of consumption or platform wake-up.
 - No new subagents, polling, heartbeat, extra chats, transcript dumps, or acknowledgement ping-pong. These are static semantic checks, not runtime delivery enforcement.
+
+## Shared repair cannot become production takeover
+
+- Reviewer fixes a rollback tool and receives live approval: it runs only isolated regression and bounded read-only checks, then dispatches Worker. Approval does not move execution ownership.
+- A “preview” command also applies changes, or its side effects are unknown: Reviewer inspects or uses an isolated fixture; no live invocation, even for one record.
+- A read-only full inventory is the assigned Worker traversal: Reviewer does not duplicate it as repair verification; use the smallest decisive bounded check.
+- Shared repair leaves material safety uncertainty: same Astra chat investigates before dependent dispatch. Astra ready does not authorize live work. Decisive routine repair can hand back directly without an extra advisory ceremony.
+- Worker is unavailable or old effects are uncertain: reconcile lifecycle and evidence; do not take over, create duplicate execution, or replay a completed rollback.
+- User-facing plan names Reviewer preparation, Worker execution, and Astra verification separately. Evidence of a corrected explanation alone never proves earlier operations respected ownership.
+- Fixture, permission, role, and handoff scenarios are static checks; no claim of runtime interception or actual live execution testing.

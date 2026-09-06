@@ -38,6 +38,10 @@ A deterministic shared defect belongs to [Reviewer repair](repair.md) before pro
 
 Read [reporting](reporting.md) and pin its path/hash in every Worker and Thinker assignment. Include actual Reviewer destination, callable tool, assignment/generation, and compact receipt location in the initial message. Require direct result delivery before local final for all outcomes. Opening, closing, advice, and corrections use the same rule; no reliance on automatic forwarding. Missing return route blocks the dependent dispatch.
 
+## Execution owner before dispatch
+
+For production or recovery, identify executor=Worker in the existing assignment alongside the exact action, target, no-write preview evidence when required, and actual permission reference. Reviewer preparing or approving the packet does not execute it. A combined preview/apply command must be separated or proven in an isolated fixture before Reviewer use. Follow the SKILL.md repair/execution boundary and repair.md handback for repaired routes. Astra readiness and user authorization are separate checks.
+
 ## Start and Exactly-Once Dispatch
 
 Before dispatch, record:
