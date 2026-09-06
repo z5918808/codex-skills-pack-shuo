@@ -53,7 +53,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 
 - Input: the invocation task uses `gpt-6-astra`, once for each supported effort: `low`, `medium`, `high`, `xhigh`, `max`, and `ultra`.
 - Required: accept each host-supported combination as the Reviewer, preserve its model and effort, and record both before dispatch. Keep the invocation task as the user-facing Reviewer.
-- Compatibility: `gpt-5.6-sol` is also an allowed Main/Reviewer with Astra Thinker; Astra Main uses Sol-high Thinker; the Worker default remains `gpt-5.6-luna/max`.
+- Compatibility: `gpt-5.6-sol/high` is the recommended default Main/Reviewer with Astra-medium Thinker; Astra Main uses Sol-high Thinker; the Worker default remains `gpt-5.6-luna/max`.
 - Negative cases: any other Reviewer model, or a combination unsupported by the actual host, blocks dispatch until corrected.
 - Forbidden: force Astra to Sol, require only high/max/ultra effort, silently change effort, or create a third task to obtain another Reviewer.
 
@@ -405,7 +405,7 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 
 ## Main model changes between assignments
 
-- Astra Main selects Sol-high; Sol Main selects Astra with supported question-appropriate effort. Main retains acceptance.
+- Astra Main selects Sol-high; Sol Main selects Astra-medium by default and passes medium explicitly to duo-brainer; an explicit user effort override wins. Main retains acceptance.
 - If Main changes while Thinker works, reconcile terminal delivery/cancellation before any replacement or model change. No duplicate Thinker, lost evidence, or inherited model approval.
 
 
@@ -429,3 +429,21 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 - Input: user says to verify an outcome with trio-long-running; Main is Astra and the prescribed Thinker is Sol/high.
 - Required: bind the user's actual invocation text/date to the Thinker assignment and run the existing gate; do not ask whether Sol/high is approved. The same rule covers Sol Main selecting the prescribed Astra Thinker and in-scope follow-ups.
 - Forbidden: fabricate an approval receipt, bypass a failed gate, expand role count/scope or live permissions, or treat skill editing/implicit discovery as invocation. A gate mismatch needs diagnosis, not repeated requests for identical consent.
+
+## Default Sol-high Main and Astra-medium advisor
+
+- Input: user requests the default TRIO setup with Sol-high as the actual Main and no Thinker effort override.
+- Required: recommend Sol-high Main, explicitly assign Astra-medium Thinker only for a useful bounded question, and retain Luna-max Worker. Main owns decisions and final acceptance; Thinker remains advisory. SKILL.md and the interface default prompt agree.
+- Override: preserve an existing supported Main model/effort; Astra Main still pairs with Sol-high. A user-selected supported Thinker effort overrides medium. Editing this skill never changes the app model or starts tasks.
+- Forbidden: inherit duo-brainer's Astra-Main recommendation or question-based Astra effort over the TRIO default, silently switch Main, or require advisor approval for every Main decision.
+
+## Advisor timing follows uncertainty and impact
+
+- Clear reversible implementation: Main decides and Worker executes; no mandatory consultation.
+- Missing file/test/current-state facts: gather bounded read-only evidence first, without adding a scout or transferring production to Main.
+- Material architecture fork with sufficient facts: consult the single Thinker before dependent implementation, using the five-item decision packet; do not complete and then delegate the same analysis.
+- Hard-to-reverse choice with an unresolved assumption: pause dependent work, consult on the assumption, preserve all user and live-action gates; independent authorized work may continue.
+- Second failure with an inadequate explanation: compare evidence and change strategy; consult if a different perspective is needed. Never retry unchanged or use advice to bypass the third-failure stop.
+- Conflicting acceptance evidence: consult on the specific discrepancy before verdict; decisive evidence requires no routine sign-off.
+- Advisor response: Main explicitly adopts, rejects, or verifies with a reason; advisor cannot approve production or issue ship. Follow-up requires new evidence or a remaining substantive gap and prior terminal reconciliation.
+- All cases preserve one Thinker, the Sol-high/Astra-medium/Luna-max defaults, direct-result delivery, no polling, no duplicate analysis, and no new decision-log requirement. These are static semantic scenarios, not runtime dispatch proof.

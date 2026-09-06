@@ -5,9 +5,9 @@ description: "Run adaptive Astra/Sol Main, a complementary Thinker, and Luna Wor
 
 # Trio Long Running
 
-Recommended default setup: Astra Main with Sol-high Thinker. This is a starting preference, not an automatic model switch: preserve the user's actual Main model/effort. If Main is Sol, use Astra Thinker through the adaptive route. The user selects the Main model in the interface; this skill does not set an application default.
+Recommended default setup: Sol-high Main (`gpt-5.6-sol/high`), Astra-medium Thinker (`gpt-6-astra/medium`), and Luna-max Worker (`gpt-5.6-luna/max`). This is a starting preference, not an automatic model switch: preserve the user's actual Main model/effort. If Main is Sol, use Astra-medium Thinker unless the user explicitly selects another supported Thinker effort. If Main is Astra, retain the adaptive Sol-high Thinker route. The user selects the Main model in the interface; this skill does not set an application default.
 
-Use this skill for a Reviewer/Worker long run with bounded Thinker assistance. Preserve Main's current supported model: Astra Main uses Sol-high Thinker; Sol Main uses Astra Thinker. Follow duo-brainer for the canonical effort selection, work split, and model-switch lifecycle. Luna Worker owns production. Main owns orchestration, standards, and final acceptance without duplicating delegated analysis. Editing this skill does not start a run; the project/task contract owns scope and authority.
+Use this skill for a Reviewer/Worker long run with bounded Thinker assistance. Preserve Main's current supported model: Astra Main uses Sol-high Thinker; Sol Main uses Astra-medium Thinker by default. Pass medium explicitly to duo-brainer for this TRIO route unless the user specifies another supported effort; this TRIO default takes precedence over duo-brainer's question-based effort selection. Follow duo-brainer for the work split and model-switch lifecycle. Luna Worker owns production. Main owns orchestration, standards, and final acceptance without duplicating delegated analysis. Editing this skill does not start a run; the project/task contract owns scope and authority.
 
 ## Invocation authorizes the prescribed models
 
@@ -15,10 +15,36 @@ An explicit user request to use TRIO supplies the current task's model authoriza
 
 ## Roles
 
-- **Reviewer / Main:** activation chat unless the user names another; preserve the actual `gpt-6-astra` or `gpt-5.6-sol` model and host-supported effort. Own authority, coordination, standards, final acceptance, and the shared-repair single-writer lane. Use the complementary Thinker for bounded analysis; do not silently switch Main or create another Reviewer. Never inherit Worker permissions or take over production.
+- **Reviewer / Main:** recommended default `gpt-5.6-sol/high`; activation chat unless the user names another; preserve the actual `gpt-6-astra` or `gpt-5.6-sol` model and host-supported effort. Own authority, coordination, standards, final acceptance, and the shared-repair single-writer lane. Use the complementary Thinker for bounded analysis; do not silently switch Main or create another Reviewer. Never inherit Worker permissions or take over production.
 - **Worker:** one persistent task, default `gpt-5.6-luna/max`; preserve its selected model and effort. Own one goal and one production action, continuing safe work within the contract without supervision. Handle item-local variation, but set `shared_self_repair_budget=none`: no debugging or patching repo code, shared contracts, schedulers, adapters, authority, or infrastructure. No invented authority, expanded permission, or rescue model. On a shared or deterministic defect, stop at a safe boundary and hand off; no extra production cycle.
 
-- **Thinker:** one independent complementary-model task through [duo-brainer](../duo-brainer/SKILL.md). Astra Main pairs with Sol-high; Sol Main pairs with Astra. Follow that skill for effort, task-bound approvals, question selection, and safe switching between assignments. Thinker advises; it never owns production, shared mutations, or final acceptance. Start only when useful analysis is needed.
+- **Thinker:** one independent complementary-model task through [duo-brainer](../duo-brainer/SKILL.md). Sol Main pairs with Astra-medium by default; Astra Main pairs with Sol-high. Pass the TRIO default effort explicitly unless the user selects another supported effort. Follow that skill for task-bound approvals, question selection, and safe switching between assignments. Thinker advises; it never owns production, shared mutations, or final acceptance. Start only when useful analysis is needed.
+
+## Main decision framework and advisor timing
+
+Main evaluates uncertainty and impact before a consequential assignment or decision, after a repeated failure, and when acceptance evidence conflicts. Use the cheapest decisive evidence; this is not a mandatory ceremony for every action.
+
+| Situation | Main action | Thinker timing |
+| --- | --- | --- |
+| Clear goal, familiar method, reversible action | Decide directly and assign scoped production to Worker. | Skip consultation. |
+| Missing facts such as file locations, current behavior, or test results | Obtain bounded read-only evidence within existing role permissions. | Gather facts first; do not use the advisor for routine lookup. |
+| Necessary facts are available, but architecture or competing approaches materially affect downstream work | Frame the options, tradeoffs, and unresolved decision. | Consult before dependent implementation. |
+| Broad-impact or hard-to-reverse decision still rests on a material unverified assumption | Pause only dependent work and ask for an assumption challenge. | Consult before committing; advice never replaces user authorization or applicable safety gates. |
+| The same problem fails a second time and the current explanation is insufficient | Compare both failures, identify the shared cause, and change strategy. | Consult when a different analytical perspective is needed; do not retry unchanged while waiting. A third occurrence stops that strategy under the existing failure rule. |
+| Acceptance evidence conflicts or its meaning against a criterion remains unresolved | Isolate the discrepancy and the exact criterion it affects. | Consult before the verdict. |
+| Current evidence decisively satisfies acceptance | Apply the checklist and decide. | No routine advisor sign-off. |
+
+Missing facts call for evidence gathering; a material judgment gap after that calls for advice. Delegate before doing the full analysis yourself, and never duplicate an active Thinker assignment. This framework does not authorize extra scouts, subagents, or production owners. Independent authorized Worker work may continue while a separate decision is investigated.
+
+Each consultation supplies five concise items within the existing duo-brainer dispatch packet:
+
+1. The decision to make and when it is needed.
+2. Relevant evidence references, constraints, and permission boundaries.
+3. Candidate options and Main's provisional inclination, if any, without a full duplicate analysis.
+4. The specific uncertainty or assumption to challenge, including evidence that could overturn the inclination.
+5. The requested result: recommendation, decisive reasons, counterexample or failure condition, and cheapest useful verification, with a bounded stopping condition.
+
+After the direct result arrives, Main chooses to adopt, reject, or verify the advice and briefly states the evidence-based reason in the existing decision/response. Main owns consequential verification and final acceptance; Thinker has no approval or veto role. Send a follow-up only for new evidence or a remaining substantive gap, using the existing terminal-delivery and safe reassignment lifecycle. Do not create a separate decision log or require an advisor call at every step. If advice cannot be obtained, continue independent authorized work and report only the decision that remains blocked; never claim consultation occurred.
 
 ## TRIO_GOAL.md only; never Goal mode
 
@@ -28,7 +54,7 @@ Never activate native Goal mode for Main, Thinker, or Worker: no `/goal` dispatc
 
 ## Non-Negotiable Invariants
 
-1. Use exactly one persistent Reviewer task and one persistent production Worker task. The acceptance brainstorming hook may add at most one bounded independent complementary Thinker task, never another Reviewer or production Worker; see the role-scoped exception below.
+1. Use exactly one persistent Reviewer task and one persistent production Worker task. The decision framework and acceptance brainstorming hook may add at most one bounded independent complementary Thinker task, never another Reviewer or production Worker; see the role-scoped exception below.
 2. Never use `spawn_agent`, child agents, subagents, local background jobs, or repeated Reviewer turns as the TRIO Worker.
 3. Never use `wait_threads`, polling, heartbeat, recurring automation, filesystem polling, or process polling to watch the other task.
 4. The Worker owns production traversal. The Reviewer may diagnose and repair a shared defect with a bounded fixture, but never runs the Worker's full job.
@@ -42,7 +68,7 @@ If persistent task lifecycle or direct task messaging is unavailable, fail close
 
 ## Acceptance brainstorming
 
-For either supported Reviewer model, acceptance may use [duo-brainer](../duo-brainer/SKILL.md) to delegate a substantive unresolved research/analysis question to one independent complementary Thinker task. Invoke it only when current evidence leaves such a question; skip redundant analysis. Keep the production Worker, shared repair ownership, pinned checklist, no-monitor event protocol, and Reviewer-only verdict unchanged. Thinker is neither a subagent nor a replacement Worker/Reviewer. This bounded analytical task is the sole exception to the two-task count, not an exception to model approval, permission, delivery, or acceptance gates. Keep the activation Reviewer and derive Thinker routing from its current model; never silently switch Main or create a replacement Reviewer.
+For either supported Reviewer model, apply the Main decision framework during planning, consequential decisions, repair, and acceptance. These consultations use the same single Thinker slot. Acceptance may use [duo-brainer](../duo-brainer/SKILL.md) to delegate a substantive unresolved research/analysis question to one independent complementary Thinker task. Invoke it only when current evidence leaves such a question; skip redundant analysis. Keep the production Worker, shared repair ownership, pinned checklist, no-monitor event protocol, and Reviewer-only verdict unchanged. Thinker is neither a subagent nor a replacement Worker/Reviewer. This bounded analytical task is the sole exception to the two-task count, not an exception to model approval, permission, delivery, or acceptance gates. Keep the activation Reviewer and derive Thinker routing from its current model; never silently switch Main or create a replacement Reviewer.
 
 ## Authority and Acceptance
 

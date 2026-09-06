@@ -1,4 +1,4 @@
 interface:
   display_name: "Trio Long Running"
-  short_description: "依主對話自動搭配：Astra 配 Sol-high Thinker，Sol 配 Astra Thinker"
-  default_prompt: "使用 $trio-long-running，建議預設 Astra 主對話，但保留目前所選模型；Astra 主對話配 Sol-high Thinker，Sol 主對話配 Astra Thinker，獨立 task 回報，主對話負責最終驗收。"
+  short_description: "預設 Sol high 主持、Astra medium 顧問、Luna max 執行"
+  default_prompt: "使用 $trio-long-running，建議預設 Sol high 主對話、Astra medium Thinker、Luna max Worker，但保留目前所選主對話模型與推理強度；Sol 主對話預設配 Astra medium，Astra 主對話配 Sol high。顧問推理強度可由使用者明確指定，獨立 task 回報，主對話負責最終驗收。"
