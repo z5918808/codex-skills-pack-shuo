@@ -455,3 +455,8 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 - Astra fix-first/rethink blocks completion. Sol arranges correction; the same Astra chat rechecks affected criteria and dependencies using a complete revised packet. No parallel replacement advisor, silent verdict upgrade, or automatic full-job rerun.
 - Astra ship must match current packet/hash and generation and arrive by direct message before Sol delivery. Stale ship, missing required proof, or absent opening/closing cannot count as complete.
 - An explicitly selected Astra Main remains supported and performs the Astra stages directly; do not silently switch it or emulate another role with subagents. The default remains three independent Sol/Astra/Luna chats.
+
+## Three visible role prefixes
+
+- Apply [Reviewer], [Thinker], and [Worker] to their separate chats as each ID becomes available. Preserve the meaningful base title and never stack prefixes.
+- Astra remains [Thinker] during opening, advice, closing, and correction review; review ownership does not make it a second [Reviewer]. Verify all existing role titles at closeout without polling.
