@@ -2,7 +2,7 @@
 
 一套以「能直接完成工作」為標準整理的 Codex skills 精選集，包含可單獨使用的通用技能，以及可按任務階段路由的完整工程工作流。
 
-目前收錄 **107 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
+目前收錄 **109 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
 
 > 適合：想快速建立可重複工作流的新手，以及重視證據、風險檢查、工作交接與長任務協作的進階使用者。
 
@@ -24,6 +24,13 @@ Copy-Item -LiteralPath ".\diagnose" -Destination $skillsRoot -Recurse -Force
 ```
 
 macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](./docs/GETTING_STARTED.md)。
+
+TRIO 長跑需要一起安裝 `trio-long-running`、`duo-brainer` 與 `duo-long-running`：
+
+```powershell
+$skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
+Copy-Item -LiteralPath ".\trio-long-running", ".\duo-brainer", ".\duo-long-running" -Destination $skillsRoot -Recurse -Force
+```
 
 ## 完整工程工作流
 
@@ -98,6 +105,7 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 [`resume`](./resume/) ·
 [`run`](./run/) ·
 [`save`](./save/) ·
+[`trio-long-running`](./trio-long-running/) ·
 [`staging`](./staging/) ·
 [`step-back-and-think`](./step-back-and-think/)
 
@@ -160,6 +168,7 @@ macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](
 [`audit`](./audit/) ·
 [`autoresearch`](./autoresearch/) ·
 [`bigbots-deploy`](./bigbots-deploy/) ·
+[`duo-brainer`](./duo-brainer/) ·
 [`find-some-shit-to-do`](./find-some-shit-to-do/) ·
 [`grilling`](./grilling/) ·
 [`market-research`](./market-research/) ·

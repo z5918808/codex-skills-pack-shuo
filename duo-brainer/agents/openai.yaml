@@ -1,0 +1,4 @@
+interface:
+  display_name: "Duo Brainer"
+  short_description: "依主對話自動搭配：Astra 配 Sol-high Thinker，Sol 配 Astra Thinker"
+  default_prompt: "使用 $duo-brainer，建議預設 Astra 主對話，但保留目前所選模型；Astra 主對話配 Sol-high Thinker，Sol 主對話配 Astra Thinker，獨立 task 回報，主對話負責最終驗收。"
