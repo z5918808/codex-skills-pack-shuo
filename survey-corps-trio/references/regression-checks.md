@@ -26,3 +26,5 @@ Review these as static behavioral scenarios; tool/index checks do not prove live
 - AOT rename: [Erwin]/[Hange]/[Levi] are labels for Astra/Sol medium/Luna max, not changed permissions or roleplay. Preserve existing chat IDs and the old fixed contract path during safe migration; fresh runs use SURVEY_CORPS_TRIO_GOAL.md. Never rewrite a live pinned contract or stack old/new title prefixes.
 
 - Bare trio or /trio selects the economy Sol-captain trio-long-running route, never this experiment. Explicit survey-corps-trio / Survey Corps / 調查兵團 / AOT variant selects this skill. UI policy disables implicit invocation; an Astra mention alone does not opt in or authorize a Main switch.
+
+- Natural-language dispatch: 讓調查兵團去處理 / 交給調查兵團 / 用調查兵團 explicitly selects survey-corps-trio without a slash command. A naming discussion alone does not start chats; bare trio still routes to Sol-led trio-long-running.

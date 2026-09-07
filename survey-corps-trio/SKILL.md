@@ -5,6 +5,8 @@ description: "Experimental AOT TRIO, explicitly selected: Astra captain, Sol med
 
 # Survey Corps Trio
 
+Natural-language task requests such as「讓調查兵團去處理」「交給調查兵團」「用調查兵團」are explicit invocation of this Astra-led workflow; no slash command is required. Merely discussing these aliases or editing the skill does not start a run.
+
 Experimental and explicit-only: select this skill only when the user names survey-corps-trio, the Survey Corps/調查兵團 variant, or the AOT variant. Bare trio or /trio means the normal Sol-captain trio-long-running workflow. Mentioning Astra alone never selects this experiment. Do not silently change the current Main model or migrate an active run.
 
 An independent conversation-entry variant: the user speaks to Astra while Sol medium carries most substantive thinking and Luna max executes. This changes the user-facing entrypoint, not the economy-oriented allocation of detailed analysis to Sol and execution to Luna. It does not replace, activate, or change trio-long-running. Ordinary economy TRIO requests keep their existing route. Creating/editing this skill does not start a run or change the app model. Use this variant when the user chooses Astra as captain.
