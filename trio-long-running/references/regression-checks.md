@@ -1,6 +1,34 @@
 # Trio Long Running Regression Checks
 
+## Opening rejects unnecessary work
+
+- Input: user asks whether each product fits its current category, using title, description and image; Main proposes an exhaustive taxonomy study and full product dossiers first.
+- Required: Thinker challenges those prerequisites, plans a minimal keep-or-correct decision with sufficient item evidence, and uses additional research only for consequential ambiguity. Main removes unsupported requirements before pinning the brief. Full requested product coverage and applicable safety boundaries remain.
+- Forbidden: approving the larger plan merely because its checks reject wrong answers, treating more evidence as inherently better, or using a sample as proof that all products were checked.
+
+## Substantive step-back belongs to Thinker
+
+- Input: repeated repairs or zero useful output suggest the problem framing or method is wrong.
+- Required: Sol sends the short fixed original-outcome/facts/story/context-trap/priority/owner prompt to the existing Astra Thinker, then yields. Astra challenges assumptions and selects the smallest effective method directly, without mandatory step-back-and-think reading. Main reconciles scope and implements authorized repair. Explicit repo-required Main-side skill use remains binding.
+- Forbidden: Main completes a full strategy analysis and then asks Thinker to repeat or rubber-stamp it; adding an advisor call to a routine decisively diagnosed fix; delaying immediate safety action; transferring authority or production to Thinker.
+
+## Simplification preserves topology and acceptance
+
+- Input: the user asks to improve planning efficiency and asks whether a subagent would help.
+- Required: distinguish role/workload changes from task topology. Keep the existing persistent Thinker unless the user explicitly authorizes a topology change; do not claim measured speed gains without evidence. Preserve plan-level opening, risk-triggered closing, direct delivery and actual permissions.
+- Forbidden: silently replacing Thinker with a subagent, creating an extra advisor, dropping required safety evidence, or making a skill edit change a running goal's pinned rules.
+
 Use these semantic scenarios when editing or reviewing the skill. Native-goal scenarios cover legacy already-existing goals and cancellation only; they never authorize native creation in new TRIO work.
+
+## Plan-level opening and proactive user steering
+
+- Multi-phase objective: Astra reviews the overall plan once; Sol advances covered phases and verifies current readiness without a fresh opening for each phase, generation, or routine correction.
+- Material new assumption, acceptance change, unreviewed high-risk decision, or consequential method change: send the affected slice to the same Astra role before dependent execution; do not repeat the whole plan review or treat advice as permission.
+- User clarifies an in-scope priority for a later phase while Worker runs: Sol records the accepted delta and source in existing unpinned state, keeps the active hash unchanged, then updates the goal and dispatches once at a verified safe boundary without redundant confirmation.
+- Guidance makes the current action obsolete: Sol requests a safe stop, yields for the direct terminal result, reconciles side effects/review, and only then updates the goal. Stop-message delivery alone fails the overwrite check.
+- User asks a question or floats an ambiguous proposal: do not silently rewrite acceptance or expand authority. Clarify consequential ambiguity while progressing independent authorized work.
+- Explicit user stop: record guidance if applicable but do not redispatch without later explicit resume. No polling, shadow goal, additional ledger, or active-rule edits.
+- Closeout of steering: adopted execution changes are present in the revised goal and next assignment, or a concrete pending boundary is recorded. A conversational acknowledgement alone fails; no runtime behavior is claimed from these static scenarios.
 
 ## Assignment has an unresolved dependency
 
@@ -53,7 +81,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 
 - Input: the invocation task uses `gpt-6-astra`, once for each supported effort: `low`, `medium`, `high`, `xhigh`, `max`, and `ultra`.
 - Required: accept each host-supported combination as the Reviewer, preserve its model and effort, and record both before dispatch. Keep the invocation task as the user-facing Reviewer.
-- Compatibility: `gpt-5.6-sol/high` is the recommended default Main/Reviewer with Astra-medium Thinker; Astra Main uses Sol-high Thinker; the Worker default remains `gpt-5.6-luna/max`.
+- Compatibility: `gpt-5.6-sol/medium` is the recommended default Main/Reviewer with Astra-medium Thinker; Astra Main uses Sol-high Thinker; the Worker default remains `gpt-5.6-luna/max`.
 - Negative cases: any other Reviewer model, or a combination unsupported by the actual host, blocks dispatch until corrected.
 - Forbidden: force Astra to Sol, require only high/max/ultra effort, silently change effort, or create a third task to obtain another Reviewer.
 
@@ -396,12 +424,21 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 The skill fails review if any scenario permits a subagent Worker, cross-task waiting or polling, unauthorized Reviewer takeover, a third persistent reviewer, accepted completion based only on a Worker-local final or delivery receipt, Worker-controlled acceptance criteria, Worker advice overriding authority, automatic resumption of a revoked generation, production readiness based only on administrative checks, per-generation goal files, unsafe goal overwrite/deletion, or native goal creation for new TRIO work.
 
 
-## Mandatory Astra closing review
+## Required Astra escalation
 
-- Input: Main receives a validly identified complete acceptance packet, with or without an unresolved research question.
-- Required: Sol Main sends the full evidence packet to the same independent Astra chat used at opening and ends the turn. Astra directly verifies artifacts and tests against the pinned criteria, then returns closing_review. Main handles shared repair and delivery but cannot upgrade Astra fix-first/rethink to ship.
-- Forbidden: subagent or CLI substitute, another production Worker/Reviewer, polling, Sol-only ship, production takeover, or relaxed independent proof. The bounded Thinker is the explicit exception to the two-task count only.
-- Negative cases: decisive evidence still requires Astra closing review; a Main model outside Astra/Sol blocks this dispatch route without a silent switch. An unavailable analysis route cannot be claimed as executed.
+- Input: a complete packet includes high-risk effects, conflicting evidence, unresolved consequential judgment, or an explicit pinned Astra-review requirement.
+- Required: Sol sends the affected slice and complete packet reference to the same Astra Thinker, then yields. Astra inspects source evidence and returns its verdict; Main cannot upgrade unresolved fix-first/rethink. Routine decisive work without a trigger remains eligible for Sol-only ship.
+- Forbidden: a substitute/extra reviewer, polling, production takeover, or treating a second model's confidence as independent behavioral proof. Missing Astra capability blocks the affected verdict; an unsupported Main model blocks dispatch without a silent switch.
+
+## Survey Corps design adapted to Sol Main
+
+- Default remains Sol-medium Main, Astra-medium Thinker and Luna-max Worker. Sol performs authorized local engineering and shared repair; Luna executes the production job. No Survey Corps Astra-low ceiling, character tags, automatic clones or alternate acceptance owner are imported.
+- Luna sends a result to Sol: omit model/thinking overrides; if required, use Sol's authorized settings, never Luna max. Duplicate or ambiguous deliveries retain reporting.md recovery and cannot trigger duplicate execution.
+- Several local batches succeed: continue the authorized segment with item evidence. Reassess the canary ceiling at a safe handoff; pass counts alone cannot enlarge it. Material new source/semantic risk returns to Astra; clerical sizing within reviewed scope does not.
+- A segment ships while the objective remains open: retain roles. The whole objective ships with required Astra clearance: each role accounts for owned effects; Sol consolidates existing evidence and performs only authorized scoped cleanup before eligible retirement.
+- Shared login profile, referenced evidence or unknown process appears in a cleanup candidate list: preserve it pending ownership/authority resolution. Optional cleanup without permission is deferred, not a reason to revoke product acceptance or claim full cleanup.
+- Thinker has an undelivered result or Worker effects remain unresolved: do not archive that role. Archive failure stays pending; Main remains the result entry. No new scanner, monitor, history purge, bulk deletion or clone permission.
+- Routine handoff needs no user decision: advance by direct delivery without acknowledgement-only narration. Material anomaly, decision, stoppage or completion is reported promptly, preserving the existing verified percentage basis when an update is given.
 
 ## Main model changes between assignments
 
@@ -430,10 +467,12 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 - Required: bind the user's actual invocation text/date to the Thinker assignment and run the existing gate; do not ask whether Sol/high is approved. The same rule covers Sol Main selecting the prescribed Astra Thinker and in-scope follow-ups.
 - Forbidden: fabricate an approval receipt, bypass a failed gate, expand role count/scope or live permissions, or treat skill editing/implicit discovery as invocation. A gate mismatch needs diagnosis, not repeated requests for identical consent.
 
-## Default Sol-high Main and Astra-medium advisor
+## Default Sol-medium Main and Astra-medium advisor
 
-- Input: user requests the default TRIO setup with Sol-high as the actual Main and no Thinker effort override.
-- Required: recommend Sol-high Main, assign a separate Astra-medium chat for mandatory opening and closing, and retain a separate Luna-max Worker chat. Main owns execution decisions and delivery; Astra owns opening clarification and closing verification. SKILL.md and the interface default prompt agree.
+- Main effort selection: medium is the recommendation, not a forced setting. Preserve an explicitly selected supported low/high/xhigh/max/ultra or other host-supported effort; never switch the running Main or its application settings through skill maintenance. Sol-high remains the complementary Thinker default when Main is Astra.
+
+- Input: user requests the default TRIO setup with Sol-medium as the actual Main and no Thinker effort override.
+- Required: recommend Sol-medium Main, assign a separate Astra-medium chat for mandatory opening and triggered closing, and retain a separate Luna-max Worker chat. Main owns execution decisions and delivery; Astra owns opening clarification and escalated closing slices; Sol directly accepts routine results. SKILL.md and the interface default prompt agree.
 - Override: preserve an existing supported Main model/effort; Astra Main still pairs with Sol-high. A user-selected supported Thinker effort overrides medium. Editing this skill never changes the app model or starts tasks.
 - Forbidden: inherit duo-brainer's Astra-Main recommendation or question-based Astra effort over the TRIO default, silently switch Main, or require advisor approval for every Main decision.
 
@@ -444,16 +483,16 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 - Material architecture fork with sufficient facts: consult the single Thinker before dependent implementation, using the five-item decision packet; do not complete and then delegate the same analysis.
 - Hard-to-reverse choice with an unresolved assumption: pause dependent work, consult on the assumption, preserve all user and live-action gates; independent authorized work may continue.
 - Second failure with an inadequate explanation: compare evidence and change strategy; consult if a different perspective is needed. Never retry unchanged or use advice to bypass the third-failure stop.
-- Conflicting acceptance evidence: consult on the specific discrepancy before verdict; decisive evidence still requires the mandatory closing review.
-- Advisor response: Main explicitly adopts, rejects, or verifies with a reason; mid-run advice cannot authorize production; Astra closing ship is required for completion. Mandatory closing and correction assignments use prior terminal reconciliation; other follow-ups require new evidence or a substantive gap.
-- All cases preserve one Thinker, the Sol-high/Astra-medium/Luna-max defaults, direct-result delivery, no polling, no duplicate analysis, and no new decision-log requirement. These are static semantic scenarios, not runtime dispatch proof.
-## Mandatory opening, closing, and separate chats
+- Conflicting acceptance evidence: consult on the specific discrepancy before verdict; the conflicting slice requires Astra review; unaffected criteria retain current proof.
+- Advisor response: Main explicitly adopts, rejects, or verifies with a reason; mid-run advice cannot authorize production; Astra clearance is required for escalated criteria; Sol may ship routine work directly. Triggered closing and correction assignments use prior terminal reconciliation; other follow-ups require new evidence or a substantive gap.
+- All cases preserve one Thinker, the Sol-medium/Astra-medium/Luna-max defaults, direct-result delivery, no polling, no duplicate analysis, and no new decision-log requirement. These are static semantic scenarios, not runtime dispatch proof.
+## Mandatory opening, risk-based closing, and separate chats
 
 - Sol Main starts one independent Astra-medium chat for opening clarification; Astra reads the request and current evidence, returns readiness, unknowns, and proposed acceptance criteria. No dependent production before readiness; bounded discovery may resolve named unknowns.
 - Main pins in-scope criteria and dispatches a separate Luna Worker chat. All three roles use persistent user-visible chats and direct messaging, never spawn_agent or other subagent substitutes.
-- At closure, the same Astra chat directly reads artifacts and actual test evidence even when Sol believes the result is obvious. A Sol summary alone cannot pass.
+- At routine closure, Sol directly reads artifacts and actual tests and may ship without an Astra call. High-risk work or a substantive evidence/judgment conflict goes to the same Astra chat for the affected slice, with access to the complete packet.
 - Astra fix-first/rethink blocks completion. Sol arranges correction; the same Astra chat rechecks affected criteria and dependencies using a complete revised packet. No parallel replacement advisor, silent verdict upgrade, or automatic full-job rerun.
-- Astra ship must match current packet/hash and generation and arrive by direct message before Sol delivery. Stale ship, missing required proof, or absent opening/closing cannot count as complete.
+- Main ship must match current packet/hash and generation. Required Astra clearance must arrive by direct message and match the affected criteria. Stale verdicts, missing required proof, or absent opening/triggered review cannot count as complete.
 - An explicitly selected Astra Main remains supported and performs the Astra stages directly; do not silently switch it or emulate another role with subagents. The default remains three independent Sol/Astra/Luna chats.
 
 ## Three visible role prefixes
@@ -469,7 +508,7 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 - Tool explicitly rejects a correctable route field: one corrected retry with the same event identity is allowed. Repeated unchanged calls are forbidden.
 - Ambiguous timeout without real idempotency or proof of non-delivery: preserve unknown delivery and report the transport blocker; event_id alone cannot justify resend.
 - Resume with pending return: recover delivery only, never rerun completed work. Resume with sent receipt: no duplicate return. User messaging revocation overrides recovery.
-- Reviewer receives Worker acceptance_complete: dispatch mandatory Astra closing review. Reviewer receives Astra fix-first: arrange correction and later recheck. Reviewer receives opening ready: dispatch eligible work. Acknowledgement-only final while authorized successor work is ready fails.
+- Reviewer receives Worker acceptance_complete: directly review routine results or dispatch the exact required Astra escalation under acceptance.md. Reviewer receives Astra fix-first: arrange correction and later recheck. Reviewer receives opening ready: dispatch eligible work. Acknowledgement-only final while authorized successor work is ready fails.
 - Duplicate or stale event: no duplicate successor. Current ship requires normal identity/authority checks. Successful send is not proof of consumption or platform wake-up.
 - No new subagents, polling, heartbeat, extra chats, transcript dumps, or acknowledgement ping-pong. These are static semantic checks, not runtime delivery enforcement.
 
@@ -488,7 +527,20 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 - Sol drafts a coherent Worker brief; Astra reviews it during opening for material ambiguity, runnable scope, success discrimination, delegated judgment, and return route. Sol incorporates findings and pins the final contract; no second call merely to approve wording.
 - Missing material facts yield bounded discovery and an explicit unresolved plan; no invented assumptions or blind production. Material changes to reviewed assumptions/criteria return to Astra before dependent execution.
 - Many routine items share one authorized contract: Luna executes across natural boundaries without per-item approvals or duplicated Sol traversal. Unknown dependencies or live scope cannot be bundled away for efficiency.
-- Small completed step inside an unfinished authorized assignment: Luna continues; at a real blocker or terminal result it still sends the mandatory direct return. Lower usage never justifies silent final or skipping Astra closing.
+- Small completed step inside an unfinished authorized assignment: Luna continues; at a real blocker or terminal result it still sends the mandatory direct return. Lower usage never justifies silent final, missing acceptance evidence, or skipping a required Astra escalation.
 - Routine item-local choice is delegated; shared defect remains Reviewer repair. A vague continue prompt, full-history dump, or improvised shared patch cannot replace a usable brief.
 - Correction sends changed facts/findings plus a complete current contract reference; reuse unaffected verified work and supply a complete revised closing packet. No unnecessary new chats, repeated successful production, or per-step advisor sign-off.
 - Compare efficiency only from existing comparable outcome/cost evidence; unknown token usage is unavailable, not zero. No new telemetry, model switch, scheduler, arbitrary token budget, or claim of measured savings from static scenarios.
+
+## Risk-based closing regression cases
+
+- Routine Worker output, complete current evidence, no escalation: Sol reviews the actual artifacts and issues ship. A mandatory Astra call here fails the efficiency contract.
+- Worker self-claim without proof: Main requests/obtains bounded missing proof or returns fix-first; never auto-ship. A disputed interpretation after evidence gathering escalates.
+- Production rollback or destructive/bulk execution: review the actual high-risk effects with Astra and applicable safety proof; do not classify as routine because tests passed.
+- Second failure with unresolved shared cause, contradictory test/artifact evidence, or consequential semantic uncertainty: same Astra task reviews the exact affected criteria and dependencies, not a duplicate full traversal.
+- Main-authored routine repair: independent behavioral fixture/probe must discriminate a wrong result. Merely mirrored tests fail; decisive current evidence can permit Sol acceptance. Material uncertainty still escalates.
+- Unresolved Astra fix-first/rethink: Sol cannot waive or downgrade the finding; same Astra role reviews its correction. Scope changes follow the existing authority boundary.
+- Pinned old contract requires every-goal Astra closing: skill maintenance cannot waive it mid-assignment. Use safe lifecycle reconciliation before adopting the new rules.
+- Astra Main: retain actual model/effort and complementary Sol-high task, no forced switch or extra Astra task. Direct Main verdict needs no self-message.
+- Missing escalation capability blocks only that dependent verdict. Routine independent work proceeds; missing required evidence never becomes ship.
+- Static review only: these scenarios prove rule consistency when inspected, not runtime enforcement, model quality, token savings, or production success.

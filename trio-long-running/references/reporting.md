@@ -8,6 +8,8 @@ Before assigning substantive work, Reviewer records the actual Reviewer chat ID,
 
 ## Sender must finish the return before local final
 
+Return calls omit model/thinking overrides so the destination retains its own settings. If the tool requires them, use only the destination's explicit authorized contract settings, never the sender's effort. Luna max must not turn Sol Main or Astra Thinker to max; skill editing and result delivery never change the running app setting.
+
 A finished bounded result, blocker, request for a decision, inability to complete the assignment, or voluntary early stop always requires a direct return to Reviewer. This applies equally to Worker results and Thinker opening_review, advice, closing_review, and correction results. A user stop still requires a safe-boundary status return unless the user explicitly forbids further messaging. Do not end with only a local summary, say that Reviewer can read this chat, or promise to report later. Do not manufacture a blocker to abandon safe assigned work. Routine commentary while continuing a task does not require extra messages.
 
 Use this sequence for every return:
@@ -34,9 +36,9 @@ On a direct result, verify destination, role, assignment/generation, event_id, e
 For every valid actionable result, Reviewer performs or dispatches the next authorized step in the same handling turn, or records the exact blocker/terminal outcome. Do not reply only “received” and leave ready work unassigned. Route as follows:
 
 - Thinker opening ready: pin the authorized criteria and dispatch the eligible Worker assignment. discovery-needed: arrange the bounded discovery and return evidence to the same Thinker. blocked: resolve authorized preparation or identify the missing user/dependency decision.
-- Worker acceptance_complete: send the complete current packet to the same Thinker for mandatory closing verification.
+- Worker acceptance_complete: apply acceptance.md routing in this turn. Main directly accepts routine results from actual evidence; send required escalation slices to the same Astra role with the complete packet reference. Never dispatch a blanket advisor review solely because the Worker finished.
 - Worker technical handoff: perform bounded Reviewer-owned repair and verification, then use the existing lifecycle for correction/redispatch. A user gate is checked against actual authority, not accepted blindly from the packet.
 - Thinker advice: adopt, reject, or verify with evidence and issue any now-ready dependent assignment.
-- Thinker closing fix-first: assign in-scope correction to its proper owner, then return revised evidence to the same Thinker. rethink: resolve the substantive contract issue within authority or report the exact gate. ship: check current packet, authority, and delivery and deliver the accepted outcome.
+- Thinker closing fix-first: assign in-scope correction to its proper owner, then return revised evidence to the same Thinker. rethink: resolve the substantive contract issue within authority or report the exact gate. ship: check the reviewed slice and current packet, reconcile all remaining criteria, authority, and delivery, then deliver only the fully accepted outcome.
 
 End after the substantive successor dispatch receipt. No automatic acknowledgement response is required from its recipient. If no successor is authorized, explicitly name the blocker or completion. A successfully sent event does not prove Reviewer processed it; this receipt distinction must remain visible in any later status diagnosis. Do not introduce monitoring to claim a perfect loop.

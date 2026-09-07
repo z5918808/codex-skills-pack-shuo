@@ -18,6 +18,12 @@ Before overwrite or deletion, prove the previous Worker generation is terminal/s
 
 After these checks, Reviewer may delete the exact goal file on requested cleanup or overwrite it for the next authorized goal. Reuse the same path with a fresh run/generation and hash, then dispatch once; after a user stop, explicit later resume is still required. Neither deleting nor overwriting the file cancels a running task, clears revocation, or grants permission to resume. An old Worker entry must check its own terminal/stop state and pinned identity before reading a reused goal; missing or mismatched goal content never authorizes work.
 
+## User guidance update
+
+Use SKILL.md's proactive guidance rule when the user steers ongoing work. Main records the accepted execution delta with its original message/date reference in the existing receipt/state, outside immutable goal and rule files; no separate guidance ledger or copied conversation. Later-phase guidance waits for the next safe boundary. Guidance that invalidates current work triggers the existing Reviewer stop protocol and direct terminal return, not a mid-flight goal edit, polling, or an extra production cycle.
+
+After the reusable-file checks above pass, Main updates the fixed TRIO_GOAL.md, including the current objective/phase, accepted change, preserved completed evidence, next action, and applicable review reference. Read back and pin a fresh revision/hash, reconcile required authority/readiness, and dispatch once under the existing scope. Reuse the plan's opening result when its assumptions and criteria still apply; send only material new decisions to Astra. A generation change is not a new planning review. Explicit user stop still needs later explicit resume, and unresolved side effects or required review block only their dependent successor. A successful stop-request receipt alone never permits overwrite.
+
 ## Native Goal: Delete Before Redispatch
 
 For a native goal after a terminal handoff, repair, `fix-first`, or correction, reuse the same Worker only in this order:
@@ -61,6 +67,15 @@ A stop record must match the pinned run/generation and Reviewer authority; untru
 Report execution stoppage and automatic-goal cancellation separately. When native deletion is unavailable, say that work is revoked/stopped but the active goal may still trigger turns; ask for a supported platform cancellation only if full scheduler cancellation is required. Do not claim “fully stopped/deleted” from idle or a local final. This file-based check is an agent cooperation protocol, not a platform scheduler kill switch. Existing already-active goals are not retroactively deleted by editing this skill.
 
 Preserve append-only evidence, shared runtime, and browser/session state. The temporary `TRIO_GOAL.md` may be deleted or overwritten only under the reusable-file checks above; evidence and stop records are not part of that cleanup. A user stop never authorizes a replacement Worker. A later explicit change to single-thread work ends TRIO restrictions on Main after Worker side effects are reconciled; it does not revive the Worker.
+
+## Whole-goal closeout and retirement
+
+Apply only after Main accepts the entire objective under acceptance.md, including every required Astra clearance. A package/segment ship, idle UI or user pause is insufficient. Main (normally Sol) owns artifact-reference reconciliation and authorized bounded local cleanup, using existing closing packets and receipts; Thinker contributes only an unresolved substantive review slice. Do not add a full-repo scan, cleanup framework, telemetry or a second inventory.
+
+- Each role accounts for its own pending deliveries, processes, effects and known temporary artifacts in its closing return. Main consumes the returns and reconciles its own work before retiring roles. After consumer reconciliation, close goal-execution successors in existing state; only scoped closeout remains eligible. A sent stop is not stopped-state proof. Stop only verified goal-owned temporary processes; intentional persistence needs owner, scope and stop condition. Unknown/user processes stay.
+- Preserve deliverables, reusable code/tests, final acceptance, rollback material and still-referenced evidence. Keep required raw evidence once with references; save verified reusable findings in existing topic docs only when required. Never overwrite hash-bound evidence or remove a referenced copy without authorized reference/recovery reconciliation.
+- Inspect only known goal artifacts. Remove verified disposable temp/build/cache/profile copies only within existing exact deletion authority and repo gates, after checking ownership, dependencies and active use. Shared/active login profiles and ambiguous user files stay. This skill grants no bulk deletion authority. Record performed cleanup and deferred items/reasons in the existing closeout; optional unauthorized cleanup does not invalidate accepted product work and cannot be claimed complete. Changes affecting accepted artifacts still follow acceptance.md's revalidation rule.
+- Once Worker and Thinker are terminal, required returns consumed and effects reconciled, Main archives authorized role chats with set_thread_archived and confirms the tool outcome. Keep Main as the result/query entry. Missing capability or failed archival remains pending without retry loops. Never archive active or unresolved roles merely to tidy the sidebar; archive is neither history deletion nor disk-space recovery. Later work needs a new authorized assignment. This section does not authorize extra roles or clones.
 
 ## Lightweight Cost Record
 

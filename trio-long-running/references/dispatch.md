@@ -6,7 +6,7 @@ Reviewer: read before dispatch. For reuse or replacement, first satisfy [lifecyc
 
 Apply each title when its independent chat ID exists; do not wait for all three chats to be created:
 
-- `[Reviewer] <base title>` — Main / coordinator (default Sol high)
+- `[Reviewer] <base title>` — Main / coordinator (default Sol medium)
 - `[Thinker] <base title>` — opening clarification, advice, and closing verification (default Astra medium)
 - `[Worker] <base title>` — production (default Luna max)
 
@@ -16,9 +16,15 @@ Take one immediate inventory/title snapshot to verify task IDs and titles. This 
 
 ## Mandatory Astra opening
 
-Before dependent production, use the SKILL.md mandatory opening stage. With Sol Main, dispatch the draft Worker brief, original request, relevant current evidence, boundaries, and the five-item decision packet to the single Astra Thinker through duo-brainer, then end the turn. Resume from its direct opening_review result. Record Astra task identity, result receipt, readiness, proposed criteria, and unresolved gaps in the existing goal/dispatch artifact. Main pins the in-scope checklist; resolve discovery-needed with bounded evidence and Astra follow-up before dependent production. A prompt or Sol-only readiness judgment cannot substitute for this stage. Preserve the same Astra task for closing review. With Astra Main, perform this stage directly.
+Apply SKILL.md's plan-level opening rule: normal phases and new assignment generations within the reviewed plan reuse the locatable opening result. Check its coverage and current readiness; a new generation alone never requires a new advisor call. The opening procedure below applies to an unreviewed plan or a materially changed slice. Sol maintains the Worker brief for ordinary transitions directly; only the relevant new assumptions or decisions return to Astra.
+
+Before dependent production, use the SKILL.md mandatory opening stage. With Sol Main, dispatch the draft Worker brief, original request, relevant current evidence, boundaries, and the short fixed reframing prompt in SKILL.md to the single Astra Thinker through duo-brainer, then end the turn. Resume from its direct opening_review result. Record Astra task identity, result receipt, readiness, proposed criteria, and unresolved gaps in the existing goal/dispatch artifact. Main pins the in-scope checklist; resolve discovery-needed with bounded evidence and Astra follow-up before dependent production. A prompt or Sol-only readiness judgment cannot substitute for this stage. Preserve the same Astra task for any risk-triggered closing review; routine closure belongs to Main under acceptance.md. With Astra Main, perform this stage directly.
 
 ## Worker brief for sustained execution
+
+Before refining the brief, Thinker challenges its necessity: state the user's actual outcome, delete unsupported prerequisites, identify the minimum sufficient inputs, and separate consequential uncertainties from details the Worker can decide. Do not inherit Main's proposed traversal or evidence burden as a user requirement. Name the concrete user outcome or safety invariant protected by each additional prerequisite; omit unsupported additions. Main checks this scope boundary before pinning acceptance.
+
+When current placement or content may already be suitable, use a keep-or-correct route if it meets the request. Retrieve additional data or alternatives only when they can change that item's decision. Do not make a full taxonomy study, complete product dossier, or unrelated-field audit a default prerequisite. Use a few representative cases to prove the method rejects meaningful errors, then let Worker complete the required coverage. Sampling proves the method, not completion of unreviewed items.
 
 Sol prepares this compact brief in the existing goal/dispatch artifact and includes the draft or its accessible reference in Astra's mandatory opening assignment. When key facts are still unknown, mark the corresponding part unresolved; Astra frames the smallest discovery needed instead of inventing an executable plan. Astra's opening result checks the brief and proposes targeted corrections; Sol incorporates them before dispatch. The brief is required content, not a new schema or an instruction to fill empty boilerplate.
 
@@ -36,6 +42,8 @@ During opening, Astra asks: Can Luna start without repeating broad investigation
 Before dispatch, Sol resolves material gaps and confirms the final brief preserves Astra's reviewed assumptions and criteria. Bundle independent or sequential work only when the same authorized contract and safe boundaries cover it; do not enlarge a live/bulk action merely to reduce messages. Do not issue “continue” with no executable objective. On correction, supply the specific delta plus the current complete contract reference, not a replacement transcript. A complete revised acceptance packet is still required at closing, even when the correction prompt is concise.
 
 ## Reviewer Pre-run Readiness
+
+The brief names why its segment must return, what current evidence would permit a larger successor, and the authorized ceiling. Local checkpoints alone do not end an assignment. Preserve small execution batches, per-item proof and required independent semantic review while avoiding unnecessary terminal handoffs. At the next eligible handoff, reassess a temporary canary ceiling instead of copying it forever. Enlarge only when relevant failure modes are controlled and coverage, dependencies, recovery and authority remain adequate; high pass counts alone, automatic doubling, or a universal batch count are insufficient. New source shapes, unresolved semantic patterns or contradictory evidence require reassessing the affected scope. Main pins any larger segment through a reconciled successor contract, never across an active cap; only material unreviewed decisions return to Astra, without a sizing-only review round.
 
 Before assigning production, the Reviewer establishes that the proposed route can produce the user's result and that acceptance can reject a plausible wrong result. A complete prompt, valid hashes, installed tools, or a healthy process alone do not prove readiness.
 
