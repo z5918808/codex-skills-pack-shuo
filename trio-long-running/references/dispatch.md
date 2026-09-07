@@ -7,7 +7,7 @@ Reviewer: read before dispatch. For reuse or replacement, first satisfy [lifecyc
 Apply each title when its independent chat ID exists; do not wait for all three chats to be created:
 
 - `[Reviewer] <base title>` — Main / coordinator (default Sol medium)
-- `[Thinker] <base title>` — opening clarification, advice, and closing verification (default Astra medium)
+- `[Thinker] <base title>` — opening clarification, advice, and closing verification (default Astra low)
 - `[Worker] <base title>` — production (default Luna max)
 
 Remove one existing role prefix before adding the correct one. Never stack or swap prefixes. Astra keeps [Thinker] during closing verification; its review responsibility does not rename it [Reviewer]. Keep the same Thinker chat and prefix across opening, advice, and closing. Keep the meaningful base title. For a new Worker, put `ROLE: Worker` first in its initial prompt, create it once, then title it.

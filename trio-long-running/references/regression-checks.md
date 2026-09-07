@@ -81,7 +81,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 
 - Input: the invocation task uses `gpt-6-astra`, once for each supported effort: `low`, `medium`, `high`, `xhigh`, `max`, and `ultra`.
 - Required: accept each host-supported combination as the Reviewer, preserve its model and effort, and record both before dispatch. Keep the invocation task as the user-facing Reviewer.
-- Compatibility: `gpt-5.6-sol/medium` is the recommended default Main/Reviewer with Astra-medium Thinker; Astra Main uses Sol-high Thinker; the Worker default remains `gpt-5.6-luna/max`.
+- Compatibility: `gpt-5.6-sol/medium` is the recommended default Main/Reviewer with Astra-low Thinker; Astra Main uses Sol-high Thinker; the Worker default remains `gpt-5.6-luna/max`.
 - Negative cases: any other Reviewer model, or a combination unsupported by the actual host, blocks dispatch until corrected.
 - Forbidden: force Astra to Sol, require only high/max/ultra effort, silently change effort, or create a third task to obtain another Reviewer.
 
@@ -432,7 +432,7 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 
 ## Survey Corps design adapted to Sol Main
 
-- Default remains Sol-medium Main, Astra-medium Thinker and Luna-max Worker. Sol performs authorized local engineering and shared repair; Luna executes the production job. No Survey Corps Astra-low ceiling, character tags, automatic clones or alternate acceptance owner are imported.
+- Default remains Sol-medium Main, Astra-low Thinker and Luna-max Worker. Sol performs authorized local engineering and shared repair; Luna executes the production job. No Survey Corps Main effort ceiling, character tags, automatic clones or alternate acceptance owner are imported.
 - Luna sends a result to Sol: omit model/thinking overrides; if required, use Sol's authorized settings, never Luna max. Duplicate or ambiguous deliveries retain reporting.md recovery and cannot trigger duplicate execution.
 - Several local batches succeed: continue the authorized segment with item evidence. Reassess the canary ceiling at a safe handoff; pass counts alone cannot enlarge it. Material new source/semantic risk returns to Astra; clerical sizing within reviewed scope does not.
 - A segment ships while the objective remains open: retain roles. The whole objective ships with required Astra clearance: each role accounts for owned effects; Sol consolidates existing evidence and performs only authorized scoped cleanup before eligible retirement.
@@ -442,7 +442,7 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 
 ## Main model changes between assignments
 
-- Astra Main selects Sol-high; Sol Main selects Astra-medium by default and passes medium explicitly to duo-brainer; an explicit user effort override wins. Main retains acceptance.
+- Astra Main selects Sol-high; Sol Main selects Astra-low by default and passes low explicitly to duo-brainer; an explicit user effort override wins. Main retains acceptance.
 - If Main changes while Thinker works, reconcile terminal delivery/cancellation before any replacement or model change. No duplicate Thinker, lost evidence, or inherited model approval.
 
 
@@ -467,12 +467,12 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 - Required: bind the user's actual invocation text/date to the Thinker assignment and run the existing gate; do not ask whether Sol/high is approved. The same rule covers Sol Main selecting the prescribed Astra Thinker and in-scope follow-ups.
 - Forbidden: fabricate an approval receipt, bypass a failed gate, expand role count/scope or live permissions, or treat skill editing/implicit discovery as invocation. A gate mismatch needs diagnosis, not repeated requests for identical consent.
 
-## Default Sol-medium Main and Astra-medium advisor
+## Default Sol-medium Main and Astra-low advisor
 
 - Main effort selection: medium is the recommendation, not a forced setting. Preserve an explicitly selected supported low/high/xhigh/max/ultra or other host-supported effort; never switch the running Main or its application settings through skill maintenance. Sol-high remains the complementary Thinker default when Main is Astra.
 
 - Input: user requests the default TRIO setup with Sol-medium as the actual Main and no Thinker effort override.
-- Required: recommend Sol-medium Main, assign a separate Astra-medium chat for mandatory opening and triggered closing, and retain a separate Luna-max Worker chat. Main owns execution decisions and delivery; Astra owns opening clarification and escalated closing slices; Sol directly accepts routine results. SKILL.md and the interface default prompt agree.
+- Required: recommend Sol-medium Main, assign a separate Astra-low chat for mandatory opening and triggered closing, and retain a separate Luna-max Worker chat. Main owns execution decisions and delivery; Astra owns opening clarification and escalated closing slices; Sol directly accepts routine results. SKILL.md and the interface default prompt agree.
 - Override: preserve an existing supported Main model/effort; Astra Main still pairs with Sol-high. A user-selected supported Thinker effort overrides medium. Editing this skill never changes the app model or starts tasks.
 - Forbidden: inherit duo-brainer's Astra-Main recommendation or question-based Astra effort over the TRIO default, silently switch Main, or require advisor approval for every Main decision.
 
@@ -485,10 +485,10 @@ The skill fails review if any scenario permits a subagent Worker, cross-task wai
 - Second failure with an inadequate explanation: compare evidence and change strategy; consult if a different perspective is needed. Never retry unchanged or use advice to bypass the third-failure stop.
 - Conflicting acceptance evidence: consult on the specific discrepancy before verdict; the conflicting slice requires Astra review; unaffected criteria retain current proof.
 - Advisor response: Main explicitly adopts, rejects, or verifies with a reason; mid-run advice cannot authorize production; Astra clearance is required for escalated criteria; Sol may ship routine work directly. Triggered closing and correction assignments use prior terminal reconciliation; other follow-ups require new evidence or a substantive gap.
-- All cases preserve one Thinker, the Sol-medium/Astra-medium/Luna-max defaults, direct-result delivery, no polling, no duplicate analysis, and no new decision-log requirement. These are static semantic scenarios, not runtime dispatch proof.
+- All cases preserve one Thinker, the Sol-medium/Astra-low/Luna-max defaults, direct-result delivery, no polling, no duplicate analysis, and no new decision-log requirement. These are static semantic scenarios, not runtime dispatch proof.
 ## Mandatory opening, risk-based closing, and separate chats
 
-- Sol Main starts one independent Astra-medium chat for opening clarification; Astra reads the request and current evidence, returns readiness, unknowns, and proposed acceptance criteria. No dependent production before readiness; bounded discovery may resolve named unknowns.
+- Sol Main starts one independent Astra-low chat for opening clarification; Astra reads the request and current evidence, returns readiness, unknowns, and proposed acceptance criteria. No dependent production before readiness; bounded discovery may resolve named unknowns.
 - Main pins in-scope criteria and dispatches a separate Luna Worker chat. All three roles use persistent user-visible chats and direct messaging, never spawn_agent or other subagent substitutes.
 - At routine closure, Sol directly reads artifacts and actual tests and may ship without an Astra call. High-risk work or a substantive evidence/judgment conflict goes to the same Astra chat for the affected slice, with access to the complete packet.
 - Astra fix-first/rethink blocks completion. Sol arranges correction; the same Astra chat rechecks affected criteria and dependencies using a complete revised packet. No parallel replacement advisor, silent verdict upgrade, or automatic full-job rerun.
