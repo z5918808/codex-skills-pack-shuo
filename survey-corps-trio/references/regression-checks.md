@@ -1,5 +1,7 @@
 # Regression scenarios
 
+- Segment sizing: with an authorized multi-batch segment, healthy local checkpoints save evidence and continue without terminal handoffs. A legacy exact 100-item cap still stops at 100; only a safely reconciled successor may enlarge it. Sol proposes the reason, expansion evidence and ceiling in the normal brief, without another sizing-only round. Recent semantic corrections or an all-keep segment do not prove readiness to double. Preserve required independent semantic review and per-item evidence; corrections reuse unaffected results. A justified small canary may remain small, but its ceiling is not copied indefinitely without reassessment.
+
 - Routine reporting: a Worker result awaiting Sol review and an unchanged accepted count still receive required internal delivery and handling, without an extra Astra “checking” update. Multiple small successful batches may share one meaningful verified progress update; execution never waits for that update. A user decision, material anomaly, actual stoppage, completion or direct progress question must still receive a timely factual response. App-visible direct messages are not claimed to be hidden; acceptance and evidence requirements remain intact.
 
 - Astra captain request: retain the invoking Astra chat and its selected effort as [Erwin]; use independent [Hange] Sol medium and [Levi] Luna max chats. No subagents, extra Reviewer, forced effort or silent Main switch.
