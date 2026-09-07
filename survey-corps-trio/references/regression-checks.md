@@ -1,5 +1,7 @@
 # Regression scenarios
 
+- Routine reporting: a Worker result awaiting Sol review and an unchanged accepted count still receive required internal delivery and handling, without an extra Astra “checking” update. Multiple small successful batches may share one meaningful verified progress update; execution never waits for that update. A user decision, material anomaly, actual stoppage, completion or direct progress question must still receive a timely factual response. App-visible direct messages are not claimed to be hidden; acceptance and evidence requirements remain intact.
+
 - Astra captain request: retain the invoking Astra chat and its selected effort as [Erwin]; use independent [Hange] Sol medium and [Levi] Luna max chats. No subagents, extra Reviewer, forced effort or silent Main switch.
 - Economy TRIO request: this variant does not replace the original route or modify its files/defaults. A non-Astra invocation cannot silently start a Sol-led captain run.
 - Opening ambiguity: Astra captures user intent; Sol does the substantive opening analysis, planning and executable brief; Astra resolves consequential choices and pins authorized criteria. Astra does not produce a competing full plan. Missing material evidence blocks dependent production, not safe discovery.

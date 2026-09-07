@@ -1,5 +1,13 @@
 # Return delivery
 
+## User-facing progress
+
+- Required Sol/Luna -> Astra delivery, evidence, acceptance and continuation remain unchanged. Astra advances routine handoffs without extra narration such as “received”, “checking” or “preparing to continue”. This governs Astra-authored updates; the app may still display required cross-chat messages.
+- Combine routine progress into meaningful verified milestones, not every small batch or role transition. Use existing receipts; do not delay execution, add a reporting-only turn, timer or monitor, or repeat unchanged counts and safety status. Follow an explicitly requested reporting cadence and applicable active-turn communication requirements.
+- Promptly report a required user decision, material anomaly, actual work stoppage or completion, with its impact and any needed action. Answer direct progress questions from current evidence. Reduced narration must never conceal these events or weaken internal delivery or verification.
+
+## Internal delivery
+
 Applies to Sol Thinker and Luna Worker before their first assignment, after resume, and before any assignment-ending final. Astra Reviewer reads this before dispatch and when consuming results.
 
 The initial assignment must identify actual Reviewer chat/host, callable direct-message tool, task/run/generation, assignment ID, this reference/hash and existing compact receipt location. No inferred destination from titles or history. Missing return capability blocks dispatch; never emulate it with subagents or assume automatic forwarding.
