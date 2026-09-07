@@ -8,6 +8,8 @@
 
 ## Internal delivery
 
+Return messages omit model/thinking overrides so the destination keeps its own settings. If a tool requires them, use only the destination's explicit user-authorized contract settings, never the sender's effort. Luna max must not turn Astra to max; Astra defaults to low under the skill's effort policy.
+
 Applies to Sol Thinker and Luna Worker before their first assignment, after resume, and before any assignment-ending final. Astra Reviewer reads this before dispatch and when consuming results.
 
 The initial assignment must identify actual Reviewer chat/host, callable direct-message tool, task/run/generation, assignment ID, this reference/hash and existing compact receipt location. No inferred destination from titles or history. Missing return capability blocks dispatch; never emulate it with subagents or assume automatic forwarding.

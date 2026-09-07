@@ -1,7 +1,7 @@
 interface:
   display_name: "Survey Corps Trio (Experimental)"
   short_description: "調查兵團：Erwin 掌舵、Hange 分析修復、Levi 執行"
-  default_prompt: "使用 $survey-corps-trio：以 Astra [Erwin] 作為對話入口與最終把關者，保留其推理強度；Sol medium [Hange] 負責大部分分析、規劃、共用程式修復、隔離測試、Worker 派工草稿與收尾證據分析，Luna max [Levi] 執行。三個獨立對話直接回報，Astra 不重做 Sol 的分析、修復或測試建置，保留原版 TRIO。"
+  default_prompt: "使用 $survey-corps-trio：以 Astra [Erwin] 作為對話入口與最終把關者，推理強度預設 low，只有使用者明確要求才可升至 medium，上限 medium；不因回報、難度或驗收自行升級；先核對實際設定，不把文字規則當成已套用。Sol medium [Hange] 負責大部分分析、規劃、共用程式修復、隔離測試、Worker 派工草稿與收尾證據分析，Luna max [Levi] 執行。三個獨立對話直接回報，Astra 不重做 Sol 的分析、修復或測試建置，保留原版 TRIO。"
 
 policy:
   allow_implicit_invocation: false
