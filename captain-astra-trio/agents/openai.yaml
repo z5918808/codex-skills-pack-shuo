@@ -1,4 +1,4 @@
 interface:
   display_name: "Captain Astra Trio"
-  short_description: "Astra 對話與把關，Sol medium 主力思考，Luna max 執行"
-  default_prompt: "使用 $captain-astra-trio：以 Astra [Reviewer] 作為對話入口與最終把關者，保留其推理強度；Sol medium [Thinker] 負責大部分分析、規劃、Worker 派工草稿與收尾證據分析，Luna max [Worker] 執行。三個獨立對話直接回報，Astra 不重做 Sol 的分析，保留原版 TRIO。"
+  short_description: "Astra 對話與把關，Sol medium 分析修復，Luna max 執行"
+  default_prompt: "使用 $captain-astra-trio：以 Astra [Reviewer] 作為對話入口與最終把關者，保留其推理強度；Sol medium [Thinker] 負責大部分分析、規劃、共用程式修復、隔離測試、Worker 派工草稿與收尾證據分析，Luna max [Worker] 執行。三個獨立對話直接回報，Astra 不重做 Sol 的分析、修復或測試建置，保留原版 TRIO。"
