@@ -24,3 +24,5 @@ Review these as static behavioral scenarios; tool/index checks do not prove live
 - Production rollback and full traversal still belong to Luna; no live canary by Sol disguised as a repair test. All return receipts, stop/hash checks and final Astra judgment remain required.
 
 - AOT rename: [Erwin]/[Hange]/[Levi] are labels for Astra/Sol medium/Luna max, not changed permissions or roleplay. Preserve existing chat IDs and the old fixed contract path during safe migration; fresh runs use SURVEY_CORPS_TRIO_GOAL.md. Never rewrite a live pinned contract or stack old/new title prefixes.
+
+- Bare trio or /trio selects the economy Sol-captain trio-long-running route, never this experiment. Explicit survey-corps-trio / Survey Corps / 調查兵團 / AOT variant selects this skill. UI policy disables implicit invocation; an Astra mention alone does not opt in or authorize a Main switch.
