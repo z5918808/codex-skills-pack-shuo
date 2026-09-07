@@ -1,0 +1,73 @@
+---
+name: captain-astra-trio
+description: "Use Astra as the user-facing TRIO captain, Sol medium for most thinking, and Luna max for execution."
+---
+
+# Captain Astra Trio
+
+An independent conversation-entry variant: the user speaks to Astra while Sol medium carries most substantive thinking and Luna max executes. This changes the user-facing entrypoint, not the economy-oriented allocation of detailed analysis to Sol and execution to Luna. It does not replace, activate, or change trio-long-running. Ordinary economy TRIO requests keep their existing route. Creating/editing this skill does not start a run or change the app model. Use this variant when the user chooses Astra as captain.
+
+## Three independent chats
+
+| Title prefix | Model / effort | Ownership |
+| --- | --- | --- |
+| [Reviewer] | gpt-6-astra; preserve the user's current host-supported effort | User-facing Main: capture intent, frame and route decisions, control authority, synthesize Sol findings, final judgment and delivery; own bounded shared repair. |
+| [Thinker] | gpt-5.6-sol/medium by default | Primary analytical owner: opening discovery, detailed reasoning, alternatives, plans, Worker brief drafting, failure diagnosis, and closing evidence analysis. No production, shared writes, or final approval. |
+| [Worker] | gpt-5.6-luna/max by default | Sustained execution and verification within the authorized contract. No shared-code or infrastructure repair. |
+
+Use exactly these three persistent user-visible Codex chats over the run, never spawn_agent, subagents, CLI agents, background substitutes, or a second Reviewer. Keep each role's meaningful title and one prefix throughout. The invocation chat is Reviewer unless the user explicitly names another. If that chat is not Astra, do independent read-only preparation and ask the user to select Astra or identify the intended Astra Reviewer; do not silently switch, create another Main, or fall back to Sol Main. No forced Astra effort or inference of ultra/max from task difficulty.
+
+Keep the same Thinker and Worker for subsequent terminal-reconciled assignments. Explicit model overrides require applicable task-bound authority; changing the captain model changes this experiment's contract, not the economy skill. Before actual dispatch, run applicable model/task gates with the real models, effort and current user evidence. Record the actual invocation text/date for prescribed Sol/Luna assignments; never fabricate gate records or treat merely editing this skill as model approval. If a gate rejects the evidence, diagnose the exact mismatch; it blocks dispatch only, not safe preparation.
+
+## Opening and a useful Worker brief
+
+Astra captures the user's intended outcome and authority and sends Sol a focused opening assignment with the relevant original request and current evidence. Sol owns the substantive opening work: unknowns, assumptions, exploration, alternatives, plan, plausible false-green result, proposed acceptance criteria, and Worker brief. Astra resolves user-only questions, reviews the decisive reasoning and pins the authorized result; it does not first derive a full parallel plan or repeat Sol's analysis. If basic facts are missing, Sol can perform bounded read-only discovery; unresolved user decisions remain explicit.
+
+Sol returns a concise proposed brief containing:
+
+- Deliverable, coverage, criterion-to-evidence requirements, and a wrong result the check must reject.
+- Confirmed decisions, necessary inputs, entrypoint/fixtures, baseline, relevant failed approaches, and pinned references rather than full history.
+- A coherent segment Luna can finish autonomously, dependencies, natural action boundaries, and actual objective-progress signals.
+- Ordinary choices Luna may make, allowed actions/paths, protected state, and precise shared-defect/permission/decision handoff conditions.
+- Verification, expected results, recovery boundaries, and how to reuse completed effects without repeating production.
+- Reviewer destination, exact direct-message tool, assignment/generation, and result/blocker return requirements.
+
+Astra checks Sol's decisive evidence and unresolved assumptions, resolves consequential choices with the user when needed, and pins the final in-scope brief. Sol performs the detailed readiness investigation and prepares its evidence; Astra verifies material claims with the cheapest targeted check rather than repeating that investigation. No extra Sol round merely for wording. A prompt, tool availability, or reviewer confidence is not proof the route works: use existing decisive evidence or the smallest isolated fixture/read-only probe through the actual seam. Live permission and technical readiness remain separate. Discovery-needed permits only the bounded discovery before dependent production. Astra makes the opening decision; Sol supplies analysis, not opening approval.
+
+## Sustained execution without duplicated work
+
+Luna receives the largest coherent segment supported by known dependencies, authority and recovery boundaries; no arbitrary one-item assignments or blanket unbounded mission. Multiple already-authorized phases may run without a handoff. Luna decides ordinary in-scope details, verifies the result, and keeps working until the assigned outcome or a real terminal/handoff condition. It does not end after a trivial step or ask for per-item approvals.
+
+For substantive decisions, investigations, replanning, and evidence analysis, route the detailed thinking to Sol by default. Astra handles trivial clarification, routing, authority and user dialogue directly; it does not delegate every sentence or ask Sol to rubber-stamp an already-completed analysis. Astra delegates and yields after the dispatch receipt; Sol also yields after direct result delivery. No cross-chat polling, wait_threads, heartbeat, recurring scheduler, filler progress turns, shadow execution, or duplicated active analysis. Necessary waiting on the Worker's own synchronous action is permitted with a bounded timeout and exact owned-process reconciliation. Do not confuse model effort with measured efficiency.
+
+A shared or deterministic defect stops Worker successors at a safe boundary and returns to Astra. Sol owns substantive shared-defect diagnosis and the proposed correction/verification plan. Astra implements the smallest authorized shared repair and targeted fixture checks as the single writer, without repeating Sol's analysis; Luna does not acquire shared-code repair authority. Every live rollback, recovery write, canary, batch, migration and full production traversal belongs to Luna. Calling a live write preview/test, urgency, tool authorship or existing approval never transfers execution to Astra. Inspect uncertain side effects before live invocation. After verified repair Astra dispatches execution back to the existing Worker under the reconciled lifecycle; do not run it while preparing the handoff.
+
+Judge progress at the declared natural boundaries using deliverables or shrinking acceptance gaps, not calls, elapsed time or process liveness. Two completed boundaries without objective progress require a technical handoff. The same failure a second time requires a changed strategy; a third stops that strategy. Ordinary item-local variation remains Luna's work within the brief. Do not weaken reporting, scope, or acceptance to save usage.
+
+## Contract and lifecycle
+
+Use one reusable CAPTAIN_ASTRA_TRIO_GOAL.md in the task workspace; Astra is its only writer. This file is the assignment contract, never native Goal mode. Do not call create_goal, send /goal, or add a scheduler. Do not modify or adopt an active economy TRIO_GOAL.md. Switching an existing run requires safe terminal/cancellation reconciliation, preserved results, and a fresh authorized generation, never a parallel replacement controller.
+
+The contract contains task/run/generation and assignment identities, actual role chat IDs/models/efforts, user authority reference, scope and acceptance, executable brief, immutable rules paths/hashes, Reviewer return tool/address, stop-record path, and event/evidence receipt location. Keep compact receipts and temporary evidence outside the repo unless explicitly required there; no transcript dumps or additional boards. Pin this skill and its applicable reference. Do not mutate the active contract or rules underneath its consumers; read back/hash before dispatch and verify on action entry/resume and before external mutation. A mismatch stops dependent actions, not silent adoption of newer rules.
+
+Prepare the complete contract before creating Worker. The initial message must contain role, mission, boundaries, contract path/hash, generation, return route, and read-before-action instructions. Use actual persistent chat creation/direct messaging tools. On ambiguous creation, take one immediate inventory to reconcile IDs and ownership before any retry. Never blindly create duplicates. Preserve user changes and obtain explicit worktree approval if a worktree is needed. A verified duplicate cannot consume work; reconcile its owned effects before retirement.
+
+A new assignment is permitted only after the prior assignment is terminal and delivered/consumed, or safely cancelled with unresolved effects accounted for. Corrections use the same chat and a complete current contract reference plus only the changed findings/evidence/action. Reuse unaffected verified results; do not replay completed production. Preserve the contract until prior owned work is terminal and review resolved or explicitly cancelled. No fixed token/time budget unless requested.
+
+On user stop, Astra records revocation for the generation in the existing stop record and sends a direct stop. Each delegated role checks stop state before actions and at safe boundaries, stops successors, reconciles only its own in-flight effects, and returns the stop evidence. Revocation stays latched; a later continuation, missing file or idle status is not permission to resume. Fresh user authority is required after user stop. Do not terminate unknown processes. Receipt of the stop request is not proof that work has stopped.
+
+## Required return and continuation
+
+Both Worker -> Reviewer and Thinker -> Reviewer follow [Return delivery](references/reporting.md). Include that pinned reference in their initial and follow-up assignments. Local finals never substitute for actual direct tool delivery. No acknowledgement-only ping loops. Astra consumes valid events into a substantive authorized next action, exact blocker, or accepted completion in that handling turn; it never ends with only “received” while a successor is ready.
+
+## Astra closing acceptance
+
+At closure, send the complete Worker packet to the same Sol medium Thinker for detailed artifact/diff inspection and criterion-by-criterion evidence analysis against the original request and pinned opening criteria. Sol reports pass/fix-first/rethink as a recommendation, evidence references, contradictions and unverified items directly to Astra. Astra makes the final acceptance judgment from that evidence and performs targeted checks of consequential claims; it does not redo the complete analysis. A Worker/Sol summary without inspectable evidence cannot pass. Check packet/generation/hash freshness and whether evidence rejects the declared plausible false green. For high-risk changes, conflicting evidence or Astra-authored repair, use the cheapest independent corroboration: a discriminating fixture/read-only probe or Sol's independently evidenced check of the affected slice. A second model's confidence is not corroboration. Missing required proof remains weak verification and cannot ship.
+
+Sol owns substantive closing analysis; reuse its current, already-complete closing assessment when it covers the same packet and criteria rather than issuing a duplicate review. Astra owns final acceptance and can reject unsupported recommendations. Simple clerical receipt/identity checks stay with Astra; they do not become extra Thinker assignments. Never route mandatory closure back to an Astra Thinker or apply economy TRIO's Sol-reviewer acceptance path. Return ship, fix-first, or rethink with criterion evidence, unresolved findings and residual risk. Only Astra may issue the final ship; advice grants no user authorization. fix-first goes to the proper correction owner and returns for affected-criteria recheck using a complete revised packet. rethink requires resolution of the substantive contract issue within current authority or an exact user gate.
+
+Completion requires current ship, actual return receipts, no unrecorded owned processes/side effects, and no post-verdict change. A sent result is not a consumed or accepted result. Report the outcome first; if showing a percentage, use verified criteria and cap below 100 until ship. Use existing receipts for optional comparable usage/elapsed-time/repair observations; mark absent metrics unavailable. Do not invent savings or add telemetry/monitoring.
+
+## Maintenance
+
+Read [Regression scenarios](references/regression-checks.md) when changing this variant. Verify base trio-long-running hashes are unchanged. These are instruction-level contracts, not installed runtime interception or guaranteed platform wake-up. Skill creation is not a runtime multi-chat test.

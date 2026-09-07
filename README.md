@@ -105,6 +105,7 @@ Copy-Item -LiteralPath ".\trio-long-running", ".\duo-brainer", ".\duo-long-runni
 [`resume`](./resume/) ·
 [`run`](./run/) ·
 [`save`](./save/) ·
+[`captain-astra-trio`](./captain-astra-trio/) ·
 [`trio-long-running`](./trio-long-running/) ·
 [`staging`](./staging/) ·
 [`step-back-and-think`](./step-back-and-think/)

@@ -1,0 +1,15 @@
+# Return delivery
+
+Applies to Sol Thinker and Luna Worker before their first assignment, after resume, and before any assignment-ending final. Astra Reviewer reads this before dispatch and when consuming results.
+
+The initial assignment must identify actual Reviewer chat/host, callable direct-message tool, task/run/generation, assignment ID, this reference/hash and existing compact receipt location. No inferred destination from titles or history. Missing return capability blocks dispatch; never emulate it with subagents or assume automatic forwarding.
+
+1. For completed work, blockers, a decision request or voluntary early stop, reach the safe role boundary and preserve a compact pending packet in the existing external receipt. Include stable event_id, sender/destination, assignment/generation, event/status, evidence references/hashes, unresolved findings, owned-action state and next_action_needed. User revocation of further messaging overrides reporting.
+2. Actually call the recorded direct-message tool to Astra Reviewer. Message includes the usable result or accessible evidence packet; a promise to report later is insufficient.
+3. Inspect the result and record explicit successful receipt/message identity or its locatable tool result before marking sent. Then end the turn. Never finish only in the local chat or manufacture a blocker to abandon authorized work.
+4. A definitively rejected, correctable send allows one corrected retry with the same event and packet. An ambiguous timeout/exception stays unknown; do not resend without supported idempotency or evidence of non-delivery. An event_id alone does not provide idempotency. No invented receipt API, polling, or alternate relay role.
+5. If bounded recovery cannot establish delivery, preserve packet and redacted exact error and end visibly with delivery_failed, destination/event/assignment, packet reference and missing recovery action. This is a transport blocker, not handoff completion. On the next authorized entry recover pending delivery only, not completed production/analysis. A successful sent receipt forbids duplicate sending; messaging revocation remains binding.
+
+Before voluntary final, the sender checks and completes any required pending return. Forced interruption may prevent this check; reconcile later and never claim it ran. Sent does not prove processed or wake-up.
+
+Astra validates event identity, role, generation, evidence and stop state and records consumed event_id before an effectful successor. Duplicate/stale events cannot cause duplicate work. Sol analysis/brief leads to Astra decision and eligible Worker dispatch; Sol closing recommendation leads to Astra targeted evidence checks and final verdict; Worker technical handoff leads to bounded repair or an exact blocker; Worker completion leads to Sol detailed closing analysis, then Astra acceptance; fix-first leads to correction; ship leads to delivery. Continue authorized steps in the same handling turn until successor dispatch or a real blocker/completion, then yield. No acknowledgement-only response loop, watcher or heartbeat.
