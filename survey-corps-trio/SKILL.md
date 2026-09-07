@@ -1,25 +1,29 @@
 ---
-name: captain-astra-trio
+name: survey-corps-trio
 description: "Use Astra as the user-facing TRIO captain, Sol medium for most thinking, and Luna max for execution."
 ---
 
-# Captain Astra Trio
+# Survey Corps Trio
 
 An independent conversation-entry variant: the user speaks to Astra while Sol medium carries most substantive thinking and Luna max executes. This changes the user-facing entrypoint, not the economy-oriented allocation of detailed analysis to Sol and execution to Luna. It does not replace, activate, or change trio-long-running. Ordinary economy TRIO requests keep their existing route. Creating/editing this skill does not start a run or change the app model. Use this variant when the user chooses Astra as captain.
 
 ## Three independent chats
 
+The Attack on Titan names are visible chat labels only: [Erwin] = Astra / Reviewer, [Hange] = Sol / Thinker and Engineer, [Levi] = Luna / Worker. Keep canonical role fields, model/effort, ownership and permission checks intact; no character roleplay or personality instructions. The skill was renamed from captain-astra-trio. Existing running chats and pinned contracts are not automatically migrated: adopt the renamed rules at a safe terminal handoff with refreshed references/hashes, preserve task IDs and valid evidence, and replace old title prefixes rather than stacking them.
+
 | Title prefix | Model / effort | Ownership |
 | --- | --- | --- |
-| [Reviewer] | gpt-6-astra; preserve the user's current host-supported effort | User-facing Main: capture intent, frame and route decisions, control authority, synthesize Sol findings, final judgment and delivery. No routine shared-code implementation or test construction. |
-| [Thinker] | gpt-5.6-sol/medium by default | Primary analytical owner: opening discovery, detailed reasoning, alternatives, plans, Worker brief drafting, failure diagnosis, bounded authorized shared-code repair, isolated regression tests, and closing evidence analysis. Single writer for assigned shared repairs; no live production, authority-contract writes, or final approval. |
-| [Worker] | gpt-5.6-luna/max by default | Sustained execution and verification within the authorized contract. No shared-code or infrastructure repair. |
+| [Erwin] | gpt-6-astra; preserve the user's current host-supported effort | User-facing Main: capture intent, frame and route decisions, control authority, synthesize Sol findings, final judgment and delivery. No routine shared-code implementation or test construction. |
+| [Hange] | gpt-5.6-sol/medium by default | Primary analytical owner: opening discovery, detailed reasoning, alternatives, plans, Worker brief drafting, failure diagnosis, bounded authorized shared-code repair, isolated regression tests, and closing evidence analysis. Single writer for assigned shared repairs; no live production, authority-contract writes, or final approval. |
+| [Levi] | gpt-5.6-luna/max by default | Sustained execution and verification within the authorized contract. No shared-code or infrastructure repair. |
 
 Use exactly these three persistent user-visible Codex chats over the run, never spawn_agent, subagents, CLI agents, background substitutes, or a second Reviewer. Keep each role's meaningful title and one prefix throughout. The invocation chat is Reviewer unless the user explicitly names another. If that chat is not Astra, do independent read-only preparation and ask the user to select Astra or identify the intended Astra Reviewer; do not silently switch, create another Main, or fall back to Sol Main. No forced Astra effort or inference of ultra/max from task difficulty.
 
 Keep the same Thinker and Worker for subsequent terminal-reconciled assignments. Explicit model overrides require applicable task-bound authority; changing the captain model changes this experiment's contract, not the economy skill. Before actual dispatch, run applicable model/task gates with the real models, effort and current user evidence. Record the actual invocation text/date for prescribed Sol/Luna assignments; never fabricate gate records or treat merely editing this skill as model approval. If a gate rejects the evidence, diagnose the exact mismatch; it blocks dispatch only, not safe preparation.
 
 ## Opening and a useful Worker brief
+
+Before proposing Worker work, Sol applies the global reuse-before-compute principle to identify reusable results and residual gaps; Astra reviews consequential judgments and Luna executes the necessary work. Share evidence references so roles do not repeat the same search.
 
 Astra captures the user's intended outcome and authority and sends Sol a focused opening assignment with the relevant original request and current evidence. Sol owns the substantive opening work: unknowns, assumptions, exploration, alternatives, plan, plausible false-green result, proposed acceptance criteria, and Worker brief. Astra resolves user-only questions, reviews the decisive reasoning and pins the authorized result; it does not first derive a full parallel plan or repeat Sol's analysis. If basic facts are missing, Sol can perform bounded read-only discovery; unresolved user decisions remain explicit.
 
@@ -46,7 +50,7 @@ Judge progress at the declared natural boundaries using deliverables or shrinkin
 
 ## Contract and lifecycle
 
-Use one reusable CAPTAIN_ASTRA_TRIO_GOAL.md in the task workspace; Astra is its only writer. This file is the assignment contract, never native Goal mode. Do not call create_goal, send /goal, or add a scheduler. Do not modify or adopt an active economy TRIO_GOAL.md. Switching an existing run requires safe terminal/cancellation reconciliation, preserved results, and a fresh authorized generation, never a parallel replacement controller.
+Use one reusable SURVEY_CORPS_TRIO_GOAL.md for a fresh run; preserve the existing fixed CAPTAIN_ASTRA_TRIO_GOAL.md path when continuing an already-established contract, without copying or renaming its active file; Astra is its only writer. This file is the assignment contract, never native Goal mode. Do not call create_goal, send /goal, or add a scheduler. Do not modify or adopt an active economy TRIO_GOAL.md. Switching an existing run requires safe terminal/cancellation reconciliation, preserved results, and a fresh authorized generation, never a parallel replacement controller.
 
 The contract contains task/run/generation and assignment identities, actual role chat IDs/models/efforts, user authority reference, scope and acceptance, executable brief, immutable rules paths/hashes, Reviewer return tool/address, stop-record path, and event/evidence receipt location. Keep compact receipts and temporary evidence outside the repo unless explicitly required there; no transcript dumps or additional boards. Pin this skill and its applicable reference. Do not mutate the active contract or rules underneath its consumers; read back/hash before dispatch and verify on action entry/resume and before external mutation. A mismatch stops dependent actions, not silent adoption of newer rules.
 

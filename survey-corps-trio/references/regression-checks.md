@@ -1,6 +1,6 @@
 # Regression scenarios
 
-- Astra captain request: retain the invoking Astra chat and its selected effort as [Reviewer]; use independent [Thinker] Sol medium and [Worker] Luna max chats. No subagents, extra Reviewer, forced effort or silent Main switch.
+- Astra captain request: retain the invoking Astra chat and its selected effort as [Erwin]; use independent [Hange] Sol medium and [Levi] Luna max chats. No subagents, extra Reviewer, forced effort or silent Main switch.
 - Economy TRIO request: this variant does not replace the original route or modify its files/defaults. A non-Astra invocation cannot silently start a Sol-led captain run.
 - Opening ambiguity: Astra captures user intent; Sol does the substantive opening analysis, planning and executable brief; Astra resolves consequential choices and pins authorized criteria. Astra does not produce a competing full plan. Missing material evidence blocks dependent production, not safe discovery.
 - Many routine items: Luna continues across authorized phases without per-item approval; Astra yields and does not shadow traversal. Shared defects return to Astra for a Sol repair assignment; repair is not authority for Sol or Astra to execute live rollback.
@@ -22,3 +22,5 @@ Review these as static behavioral scenarios; tool/index checks do not prove live
 - Sol returns repair evidence: Astra reviews the decisive claims and dispatches Luna when ready, or sends a concrete unresolved gap. No mandatory step-by-step approval between reproduction, patch and isolated verification.
 - Sol later analyzes closure of its own patch: its recommendation alone cannot satisfy independent corroboration. Use discriminating existing evidence, bounded Luna verification, or a minimal Astra read-only check; no automatic full diagnosis or suite construction by Astra.
 - Production rollback and full traversal still belong to Luna; no live canary by Sol disguised as a repair test. All return receipts, stop/hash checks and final Astra judgment remain required.
+
+- AOT rename: [Erwin]/[Hange]/[Levi] are labels for Astra/Sol medium/Luna max, not changed permissions or roleplay. Preserve existing chat IDs and the old fixed contract path during safe migration; fresh runs use SURVEY_CORPS_TRIO_GOAL.md. Never rewrite a live pinned contract or stack old/new title prefixes.
