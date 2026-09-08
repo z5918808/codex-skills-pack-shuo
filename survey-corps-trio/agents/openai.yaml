@@ -1,7 +1,7 @@
 interface:
   display_name: "Survey Corps Trio"
-  short_description: "調查兵團：Erwin 主導與自審、Hange 按需協作、Levi 執行"
-  default_prompt: "使用 $survey-corps-trio：Astra 主導方向，一般協作預設 low、可用 medium；單幹、實作及自審只能 low，先核對設定。可執行工作優先交 Levi；同類工作經 Astra 實質調整指令後，連續三次正常執行仍無明顯品質改善，才把問題部分交 Hange／Sol medium；改善即重算，不為湊次數重試或加測。DUO 不召喚 Hange。正常驗收中順便辨別指令、工具／資料或角色適配問題，再調整派工；不打分、不另開校準流程、不拖慢無關工作。Luna max 只執行明確步驟與預定檢查，不管理、腦力激盪、除錯、規劃或自行修正；出錯交 Astra。Astra 成果只由同一 Astra 自審並完成必要測試。維持單一寫入者與 live 邊界。Sol／Levi 回報結尾加「依整體目標與目前進度，我下一步應完成哪個具體成果？」。"
+  short_description: "調查兵團：Erwin 定方向、Hange 調度修復、Levi 執行"
+  default_prompt: "使用 $survey-corps-trio：Astra／Erwin 先研究並定框架、權限與驗收；Hange／Sol medium 負責日常規劃、派工、審查與修復，Levi／Luna max 只執行明確步驟，成果和錯誤回 Hange。Hange 與 Levi 自行接力，方向問題、反覆卡關、真正阻擋或整體驗收才交 Erwin；已知研究或除錯直接由 Hange 做，不等三次試錯。Astra 帶隊可 medium，實作及自審僅 low；自己的成果自己審。正常工作順便校準，不加評分回合。回報末尾向實際接收者問「依整體目標與目前進度，我下一步應完成哪個具體成果？」。保留單一寫入者、live 權限及停止規則；DUO 不套用此三角色流程。"
 
 policy:
   allow_implicit_invocation: false

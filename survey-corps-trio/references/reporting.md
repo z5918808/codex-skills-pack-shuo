@@ -4,11 +4,11 @@ Read before dispatch, on resume and before an assignment-ending final. Pin this 
 
 ## Route and packet
 
-Hange/Sol and Levi/Luna report directly to the recorded Erwin destination. End every return with「依整體目標與目前進度，我下一步應完成哪個具體成果？」; Include this one closing question with the result, not as a separate nudge. Erwin supplies the whole-goal context and chooses the next action; Luna gains no planning responsibility. Local finals or promises to send later do not count.
+Levi/Luna sends normal results and errors only to Hange/Sol. Hange consumes them, reviews and dispatches the next in-scope assignment without relaying every batch to Erwin. Hange sends Erwin only direction/authority questions, repeated unresolved gaps, genuine blockers or whole-goal acceptance. Bind both routes explicitly. Every return ends with「依整體目標與目前進度，我下一步應完成哪個具體成果？」addressed to its receiver, included with the result rather than a separate nudge. Luna gains no planning responsibility; local finals are not delivery.
 
 Bind actual destination chat/host, callable direct-message tool, task/run/generation/assignment, rules/hash and compact receipt location. Never infer addresses from titles. Missing return capability blocks dispatch.
 
-Separately authorized clones report only to their original role owner, which reconciles results and forwards one role-level packet to Erwin. Escalate blocking findings promptly through that parent; missing delivery does not authorize bypassing it. No duplicate forwards, cross-role relay or cloned authority. Stop and hash rules apply throughout.
+Separately authorized clones report only to their original role owner, which reconciles results and follows the primary route: Levi clones -> Levi -> Hange; Hange clones -> Hange -> Erwin only when escalation or closure is due. Escalate blocking findings promptly through that parent; missing delivery does not authorize bypassing it. No duplicate forwards, alternate relays outside these routes or cloned authority. Stop and hash rules apply throughout.
 
 Return calls omit model/thinking overrides. If required by the tool, use the receiver's applicable contract settings, never the sender's effort. Apply the main skill's team-medium/solo-low distinction.
 
@@ -21,9 +21,9 @@ Return calls omit model/thinking overrides. If required by the tool, use the rec
 
 Before voluntary final, complete pending returns. After forced interruption, reconcile rather than claiming delivery occurred. Sent does not prove consumed or platform wake-up.
 
-## Erwin handling and user updates
+## Receiver handling and user updates
 
-Validate event identity, generation, role, evidence and stop state; record consumption before an effectful successor. Duplicate/stale events cannot repeat work. Choose direct authorized work, useful delegation, eligible Worker dispatch, an exact blocker or evidence-backed completion in that turn. A takeover requires reconciled ownership and the solo-low rule. Follow the main skill's review ownership; never route Astra-authored work to another role for review.
+Validate event identity, generation, role, evidence and stop state; record consumption before an effectful successor. Duplicate/stale events cannot repeat work. Hange handles routine diagnosis, authorized repair, Levi redispatch and segment acceptance; Erwin handles the escalated decision or whole-goal verdict. On escalation include passed results, exact gap, attempted corrections/evidence, affected scope and the decision needed. Do not forward routine receipts merely to seek approval. A takeover requires reconciled ownership and the solo-low rule. Follow the main skill's review ownership; never route Astra-authored work to another role for review.
 
 Do not end with only an acknowledgement or promise while a next action is ready. Yield after dispatch; no watcher, polling, heartbeat or repeated nudges.
 
