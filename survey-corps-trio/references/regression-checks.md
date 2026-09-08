@@ -2,6 +2,8 @@
 
 Static checks for skill edits; they do not prove runtime delivery, effort switching or savings.
 
+- Enable execution: Levi misclassifies routine items. Hange supplies decision rules, positive/negative examples and exception handling, then returns executable work to Levi instead of classifying the entire batch itself. Necessary non-decomposable diagnosis or an understood local repair stays with Hange; no forced trial loop. Preserve accepted items and judge improvement from normal results, not a new scorecard.
+
 - Goal-grounded advice: Hange asks a local question that could distract from the overall outcome. Erwin checks the current contract version/hash, whole goal and remaining acceptance gaps before advising. Same-version valid context is reused; stale/missing context is refreshed only as needed. No blind local optimization, mandatory full reread or extra tracking artifact.
 
 - Incidental calibration: an ordinary batch passes and proceeds without a scoring gate. A failure informs Hange's next in-scope brief or batch size; escalated direction decisions belong to Astra using existing evidence; unknown cause stays unconfirmed. No calibration-only batch, extra reporting turn, replay of passed work or delay to independent authorized work. Luna remains execution-only; acceptance checks stay intact.

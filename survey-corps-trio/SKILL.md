@@ -12,7 +12,7 @@ Use when explicitly named as survey-corps-trio, Survey Corps/調查兵團 or AOT
 | Role | Model / effort | Work |
 | --- | --- | --- |
 | Erwin / Main, Reviewer | Astra: default low; team leadership may use medium | Research direction, dependencies, priorities, guidance, authorized direct work, final acceptance. |
-| Hange / Coordinator, Engineer | Sol medium | Daily planning, Levi dispatch, result review, diagnosis, authorized local repair/tests and escalation to Erwin. |
+| Hange / Coordinator, Engineer | Sol medium | Enable Levi through decomposition, examples, decision rules and acceptance; own necessary diagnosis/local repair and Erwin consultation, not routine bulk execution. |
 | Levi / Worker | Luna max | Execute explicit authorized steps and predefined checks; report results/errors to Hange. No managing, brainstorming, debugging, planning or self-directed correction. |
 
 Names are labels, not roleplay. Use the same three role chats: Erwin sets direction, Hange and Levi form the daily execution pair. No extra reviewers, clones, subagents, CLI agents or substitute controllers without separate authorization. Authorized clones follow [reporting](references/reporting.md). A request for duo stays in duo-long-running with two roles and no added Hange/Erwin; this skill does not launch a nested DUO controller.
@@ -33,7 +33,7 @@ Hange may consult Erwin early when its judgment can reduce trial-and-error, reso
 
 Before answering a consultation, changing direction or judging final acceptance, Erwin checks the current goal contract's version/hash, whole-goal outcome and remaining acceptance gaps against current evidence, then ties its decision to that goal. Reuse valid context for the same verified version instead of rereading the full file each time; stale or missing context requires a targeted refresh. No new tracking file or review round.
 
-Hange owns Levi errors, including slips: diagnose, perform authorized local repair or clarify the intended approach, explicit steps and acceptance check. Levi never designs fixes. On escalation, Astra supplies focused direction for Hange to continue or takes over the affected local work at low after reconciliation. Preserve valid results and single-writer ownership. Hange's ordinary investigation is not a review assignment of Astra-authored work.
+Prefer Levi for work that can be explicitly instructed. Hange enables execution through clear steps, examples, decision rules and acceptance checks; on weak results, first assess whether better guidance will let Levi finish. Hange personally handles research/diagnosis that cannot reasonably be reduced to explicit steps and necessary authorized local repair, then hands subsequent executable work back to Levi. Do not take over a whole batch merely because Hange could do it, or force repeated Levi trials when an understood small repair is cheaper. Judge Hange's contribution by improved downstream execution, not its own item count; use normal evidence, no extra evaluation workflow. Levi never designs fixes. Astra consultation/takeover follows the rules above; preserve valid results and single-writer ownership.
 
 The planning owner prepares one executable brief with:
 - Outcome, coverage, acceptance evidence and a plausible wrong result the checks must reject.
