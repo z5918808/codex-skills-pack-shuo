@@ -20,13 +20,14 @@ Before assigning production, the Reviewer establishes that the proposed route ca
 Use the cheapest decisive evidence for the actual uncertainty:
 
 - **Outcome and boundary:** derive the deliverable, coverage, tolerances, and relevant failure cases from the user/project contract. Identify protected state and what must remain functional. Do not add quality requirements after seeing the Worker's result or substitute an easier proxy for the outcome.
+- **Runnable assignment:** name the inputs, satisfied dependencies, allowed action or paths, and expected evidence for the current slice. Resolve architecture decisions that block execution before assigning production; an unresolved question stays with Reviewer; Worker may execute the explicit evidence-collection probes below. Reuse the goal's existing scope and readiness evidence, without a separate checklist or approval step.
 - **Executable seam:** inspect the actual entrypoint, inputs, required capabilities, and output consumer. Establish a baseline with current applicable evidence or a bounded read-only probe/reversible fixture through that seam. A helper-only success does not prove its caller works. Reviewer runs only this bounded readiness check; the Worker retains the production traversal.
 - **Acceptance discrimination:** identify a representative valid result and the most consequential plausible false-green result, such as omitted items, stale output, a no-op, or a report unsupported by the artifact. Show that the available check distinguishes them. Use known expected output or an existing negative fixture when sufficient; do not build a new test framework or run every imaginable edge case.
 - **Continuity when affected:** if dispatch changes scheduling, handoff, stop, or resume, assess normal progress, explicit cancellation, and authorized repair-resume together. A stop check alone cannot establish long-run readiness. Distinguish observed runtime behavior from static reasoning and state any lost capability before dispatch.
 
 Record the readiness conclusion and exact evidence references in the existing dispatch artifact beside the acceptance checklist; do not create another state system. Use `ready` only for the bounded route actually supported. If existing evidence already covers unchanged inputs, interface, and relevant revision, reuse it. A redispatch checks the repaired seam and affected acceptance conditions, not the entire pre-run again.
 
-A deterministic shared defect belongs to [Reviewer repair](repair.md) before production dispatch. If discovery itself is the work, dispatch a bounded discovery objective with an executable probe, an observable finding, and a stopping condition; do not pretend the production route is ready or require the unknown solution in advance. Missing live permission blocks that live probe, while authorized local readiness work continues. When no safe evidence can establish a required capability, name that specific gap instead of dispatching a blind production run or inventing another approval gate.
+A deterministic shared defect belongs to [Reviewer repair](repair.md) before production dispatch. If discovery itself is the work, Reviewer chooses the investigation and may dispatch explicit probes with observable findings and a stopping condition; do not pretend the production route is ready or require the unknown solution in advance. Missing live permission blocks that live probe, while authorized local readiness work continues. When no safe evidence can establish a required capability, name that specific gap instead of dispatching a blind production run or inventing another approval gate.
 
 ## Start and Exactly-Once Dispatch
 
@@ -34,26 +35,26 @@ Before dispatch, record:
 
 - Reviewer task ID and host ID when available;
 - actual Reviewer model and effort;
-- Worker model and effort;
+- Worker model and effort, verified exactly `gpt-5.6-luna/max` under the applicable model/task gates;
 - workspace and authoritative resume entrypoint;
 - scope, permissions, safety boundary, and acceptance criteria;
 - a Reviewer-derived acceptance checklist pinned to the authoritative contract revision/hash, with criterion IDs, thresholds, and required evidence;
 - the pre-run readiness conclusion, baseline/representative-result evidence, and the false-green case the acceptance check rejects;
 - exact direct-message tool;
-- `goal_mode` (`file-contract` by default), a unique `run_id`/`generation`, and absolute `stop_record_path` outside the immutable goal/rules files; see [lifecycle cancellation](lifecycle.md);
+- `goal_mode=file-contract`, the fixed absolute `DUO_GOAL.md` path, its SHA256, a unique `run_id`/`generation`, and absolute `stop_record_path` outside the goal/rules files; see [lifecycle cancellation](lifecycle.md);
 - a dedup key from `Reviewer task ID + authority generation/action + normalized Worker goal`.
 
 Use the entrypoint authority rules for the checklist. Read [Worker execution](worker.md) to define the progress boundaries, event delivery, and local process contract before constructing the goal. Pin the entrypoint and applicable reference files by absolute path and SHA256, including the Worker's later acceptance and pause procedures. Each role reads a reference only when its workflow is needed, verifying the pinned hash before the governed action. A missing or mismatched reference stops that action for handoff, not silent use of a newer file.
 
-Before choosing `goal_mode=native`, verify that the actual Worker route exposes creation, termination/deletion, and fresh state readback proving the automatic goal absent. `get_goal`/`create_goal`/`update_goal(complete|blocked)` alone do not meet this requirement; neither do an archive action nor a promise to delete later. If capability differs on Worker entry, do not create a native goal. Use `file-contract` unless the user explicitly requires native scheduling, in which case report the missing cancellation capability. Do not start a disposable native goal merely to test deletion.
+New DUO dispatches use `goal_mode=file-contract` only. Never create a native goal or test native creation. Existing native goals must be reconciled through [lifecycle](lifecycle.md); goal API availability does not change the new-dispatch mode.
 
 In `file-contract` mode the persistent Worker executes the complete task normally until a terminal event. The file records its objective and acceptance, not a scheduler. Do not put a literal `/goal` trigger in the initial prompt or call `create_goal`. Do not introduce another scheduler as a workaround. Pin the stop-record location and generation in the initial prompt.
 
 Then:
 
-1. Resolve or create one persistent Worker with `create_thread`, `fork_thread`, or an equivalent user-visible task operation.
-2. A fresh Worker's initial prompt must contain the complete executable goal: `ROLE: Worker`, mission, authority, scope, boundaries, acceptance, Reviewer address, and event contract. Never create a setup-only Worker that depends on a later goal message.
-3. If the complete goal is too large, save it once as an append-only UTF-8 artifact. Put its absolute path and SHA256 in the initial prompt with the mission, authority, hard boundary, and an instruction to verify and read it before acting.
+1. Resolve the existing persistent Worker or select one supported user-visible creation route. Prepare and hash the goal in steps 2–3 before calling creation in step 4.
+2. Before creation, write the complete executable goal to the fixed workspace `DUO_GOAL.md`: mission, authority, scope, permissions, acceptance checklist, stop conditions, Reviewer address, and event contract. Apply the lifecycle reuse checks before overwriting an existing goal. Reviewer is its only writer; read back and hash the final UTF-8 file.
+3. The initial prompt contains `ROLE: Worker`, mission, authority, hard boundary, goal path+SHA256, run/generation, and an instruction to verify and read the complete file before acting. This applies to goals of any size. Never create a setup-only Worker, depend on a later goal message, or create dated/per-generation goal copies.
 4. Call the creation primitive at most once for the dedup key.
 5. Treat timeout, exception, missing receipt, or `Unknown projectId` as ambiguous. Take exactly one immediate `list_threads` inventory. Match by Reviewer ID, dedup or prompt fingerprint, creation window, workspace, and authority.
 6. If a match exists, dispatch succeeded. Do not retry. Keep exactly one OWNER. Send each duplicate a `terminal_event_pending / duplicate_worker_retired` stop packet before it consumes an action. Archive it only after the receipt proves no controller or writer started.
@@ -64,21 +65,23 @@ Then:
 
 If ownership cannot be mapped, freeze new claims, refills, and writes and send a Reviewer incident. Never guess.
 
-Only in verified native mode, omit `token_budget` unless the user explicitly requested a numeric token budget. Counts such as “one Worker” or “30 items” are not token budgets. If an inferred tiny budget causes `budget_limited` before substantive work, stop live work and use the normal replacement path after repairing the contract.
+Do not call native goal APIs to assign a token budget. Counts such as “one Worker” or “30 items” are not token budgets.
 
 ## Worker Goal Shape
 
-Use this compact shape in the fresh Worker's initial prompt or, after the applicable goal-mode checks in [lifecycle](lifecycle.md), in one follow-up to an existing Worker. Native mode requires `active_goal_none`; file-contract mode requires the prior generation's stopped state and no in-flight side effects, not deletion of a nonexistent native goal:
+Use this compact shape in `DUO_GOAL.md`, referenced by the fresh Worker's initial prompt or one authorized follow-up to an existing Worker. Apply [lifecycle](lifecycle.md) first: file reuse requires the prior generation's stopped state, no in-flight side effects, and resolved review. If an old native goal exists, reconcile it before file-contract dispatch; do not require deletion of a nonexistent native goal:
 
 ```text
 ROLE: Worker
 
 goal_mode: file-contract
+goal_path: <fixed absolute workspace path to DUO_GOAL.md>
 run_id / generation / absolute stop_record_path
 
 Workspace and authoritative resume entrypoint.
 Fresh state and last successful evidence.
 One current interface or action.
+Applicable work phase(s) and evidence deliverable; use Worker execution's phase guidance.
 Scope, permission, and safety boundary.
 Applicable shared reference paths/hashes; verify and read when needed, before the governed action.
 shared_self_repair_budget=none; shared repair belongs to the Reviewer.
@@ -90,7 +93,7 @@ Terminal delivery requires a successful tool receipt; a local final is not deliv
 Only a defined event may stop the run.
 ```
 
-Preserve the selected Worker model and effort. Do not steer a healthy Worker repeatedly.
+Every new or reused Worker assignment uses exactly `gpt-5.6-luna/max`; unavailable or mismatched settings block dependent dispatch, not safe Reviewer preparation. Reconcile an active legacy assignment before changing its settings. Do not steer a healthy Worker repeatedly.
 
 ## Hash-Bound Authority
 
@@ -106,4 +109,4 @@ repair shared seam
 → do not change pinned canonical state until the Worker terminal event
 ```
 
-Put task IDs and creation/title/archive receipts in the external dispatch receipt. A post-goal change that breaks a pinned hash invalidates the goal. Preserve the failed goal and replace the Worker with a fresh checkpoint/goal pair; never weaken or edit the dispatched goal.
+Put task IDs and creation/title/archive receipts in the external dispatch receipt. Keep `DUO_GOAL.md` unchanged while its generation is active or awaiting acceptance. A missing file or changed hash stops dependent work for reconciliation; never adopt the new contents automatically. Record the failed identity/hash in the existing receipt, safely stop the old generation, and apply lifecycle reuse before writing a fresh goal at the same path. A file mismatch alone does not require replacing the Worker task or making an archival goal copy.

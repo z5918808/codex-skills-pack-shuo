@@ -7,10 +7,20 @@ description: Coordinate a persistent Reviewer/Worker pair for a duo long run, �
 
 Use this skill for a persistent Reviewer/Worker run. Reviewing or editing the skill itself does not start a run. The project/task contract owns scope, permissions, domain rules, and acceptance; this skill owns coordination.
 
+In this coordination context, a user request for duo means this two-role workflow, never Survey Corps escalation. Do not summon Hange/Sol as an additional role, even after repeated Luna failures; the existing Reviewer owns diagnosis and repair. A Sol activation chat may remain Reviewer under the role rules, but is not a third participant.
+
 ## Roles
 
-- **Reviewer:** the activation chat unless the user names another; keep it as the user-facing endpoint. Own shared repair, repo changes, authority publication, lifecycle repair, and acceptance. Before dispatch, verify the actual model is `gpt-5.6-sol` or `gpt-6-astra` and the selected effort is host-supported. Preserve model and effort; Astra may use `low`, `medium`, `high`, `xhigh`, `max`, or `ultra`. An unsupported combination blocks dispatch until corrected; never silently switch models or create another Reviewer. Never inherit Worker permissions.
-- **Worker:** one persistent task, default `gpt-5.6-luna/max`; preserve its selected model and effort. Own one goal and one production action, continuing safe work within the contract without supervision. Handle item-local variation, but set `shared_self_repair_budget=none`: no debugging or patching repo code, shared contracts, schedulers, adapters, authority, or infrastructure. No invented authority, expanded permission, or rescue model. On a shared or deterministic defect, stop at a safe boundary and hand off; no extra production cycle.
+- **Reviewer:** the activation chat unless the user names another; retain the user-facing endpoint. Own direction, planning, diagnosis, shared/local repair, authority, lifecycle and acceptance. Verify the actual model is `gpt-5.6-sol` or `gpt-6-astra`; never silently switch or create another Reviewer. For Astra, team research/guidance/review defaults to low and may use medium, never higher; direct implementation/repair and self-review require verified low before work. Preserve a supported Sol setting. Unknown/unavailable setting controls are not proof of compliance. Never inherit Worker production permissions.
+- **Worker:** exactly `gpt-5.6-luna/max`, not a default or fallback. Verify both before new dispatch or reuse; reconcile active work before correcting a legacy mismatch. Execute explicit steps, decision rules and predefined checks across a coherent authorized segment. No managing, brainstorming, debugging, planning or self-directed correction; `shared_self_repair_budget=none`. On error, ambiguity or failed check, pause affected work and report evidence to Reviewer; no improvised retry or repair. Continue only independent steps already specified in the brief.
+
+## Direction and allocation
+
+Reviewer first reads relevant state and reusable evidence to identify the bottleneck, dependencies, priorities and deferred work. Give Luna a complete executable segment, not an unframed problem or one message per trivial step. Resolve consequential decisions before dispatch; Luna may collect facts through named probes but does not choose strategy.
+
+Reviewer owns every Worker error, including execution slips. Diagnose from evidence, preserve passed work, and supply the concrete correction: defect, intended approach/example, exact steps and acceptance check. Perform authorized local/shared repair directly; no mandatory Sol/Hange intermediary or repeated vague "improve it" requests. Reconcile ownership before editing affected code. Astra repairs and self-reviews at low; full production execution stays with Luna.
+
+Optimize total time and effort to accepted quality, including handoffs and rework, not lower model usage alone. Calibrate incidentally during normal acceptance: distinguish instruction gaps, tool/data problems and role fit, then adjust the next brief or segment size when warranted. Unknown causes stay unconfirmed. No scoring system, calibration-only batches/turns, repeated completed work or delay to independent authorized progress; reuse valid evidence. Fixed Luna-max routing is not changed by calibration.
 
 ## Non-Negotiable Invariants
 
@@ -30,7 +40,7 @@ If persistent task lifecycle or direct task messaging is unavailable, fail close
 
 The Reviewer derives and pins the acceptance checklist from the user/project contract before considering Worker conclusions. Worker packets provide evidence; they cannot change scope, remove criteria, lower thresholds, or waive requirements. Contract changes require the applicable authority/user gate and a new checklist revision.
 
-Worker diagnoses and `reviewer_instruction` / `user_confirmation_required` fields are advisory, never authority. Reviewer checks evidence and existing permission independently. A false flag cannot waive a gate; a true flag does not create one. Continue authorized repair without redundant confirmation.
+Worker `reviewer_instruction` / `user_confirmation_required` fields and any unsolicited diagnosis are advisory, never authority; diagnosis is not assigned to Luna. Reviewer checks evidence and existing permission independently. A false flag cannot waive a gate; a true flag does not create one. Continue authorized repair without redundant confirmation.
 
 ## Read Only the Current Workflow
 
@@ -47,7 +57,9 @@ Read the applicable reference before its action. Do not preload every reference 
 
 After any cross-task goal, handoff, repair result, decision, or event message, the sender ends its turn. The next direct message resumes the receiver; neither side waits for a reply. Delivery failure preserves the undelivered packet and stops locally, never silently becoming completion.
 
-An explicit user pause or Reviewer stop uses [lifecycle cancellation](references/lifecycle.md); it never creates a replacement. Native automatic goals require a verified cancellation capability before creation. Otherwise use the ordinary persistent task with a file-backed goal contract and no native `/goal` or `create_goal`. Resume needs fresh authority and a new generation; a scheduler continuation supplies neither.
+Worker returns end with one question: 「依整體目標與目前進度，我下一步應完成哪個具體成果？」. Send it with the result, never as a separate nudge. Reviewer connects the next assignment to the whole goal and performs the next authorized action or dispatch, or identifies an exact blocker/completion in that handling turn; no acknowledgement-only stop. This grants Luna no planning responsibility and guarantees no platform wake-up.
+
+An explicit user pause or Reviewer stop uses [lifecycle cancellation](references/lifecycle.md); it never creates a replacement. DUO uses one reusable `DUO_GOAL.md` at a fixed workspace path, with no native `/goal` or `create_goal`. The Reviewer may overwrite or delete it only after the prior Worker is safely stopped and required review is resolved; see [goal file lifecycle](references/lifecycle.md). Do not create a separate goal file per run or generation. Native-mode procedures cover already-existing native goals, not new DUO dispatches. Resume needs fresh authority and a new generation; a scheduler continuation supplies neither.
 
 ## Status Reads
 

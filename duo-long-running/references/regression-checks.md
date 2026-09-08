@@ -1,6 +1,24 @@
 # Duo Long Running Regression Checks
 
-Use these semantic scenarios when editing or reviewing the skill.
+Use these semantic scenarios when editing or reviewing the skill. Native-goal scenarios cover legacy already-existing goals and cancellation only; they never authorize native creation in new DUO work.
+
+## Assignment has an unresolved dependency
+
+- Input: production needs an undecided interface, but a bounded read-only discovery can identify the options.
+- Required: Reviewer resolves the blocking decision or assigns explicit fact-collection probes with evidence and a stopping condition; reuse existing readiness fields.
+- Forbidden: blindly assign production, block independent discovery, or add a separate approval gate.
+
+## One Worker carries multiple authorized phases
+
+- Input: one goal authorizes discovery followed by execution; later acceptance identifies a bounded correction.
+- Required: keep the same Worker, tailor evidence to each applicable phase, and use lifecycle-approved redispatch for the correction after the terminal event. Shared-code repair remains Reviewer-owned.
+- Forbidden: mandatory phase handoffs, another Worker, automatic post-terminal continuation, or interpreting execution/correction as shared-repair permission.
+
+## Cost evidence is partial
+
+- Input: existing receipts show assignment size and two fix-first verdicts, but no token count or repair duration.
+- Required: record known values and unavailable metrics in the existing review record; complete acceptance without waiting for metrics. Compare only similar tasks before proposing a different assignment size.
+- Forbidden: invent zeros or savings, create telemetry files or monitors, change model routing, or add an acceptance test for metrics.
 
 ## Subagent API is available but persistent task API is missing
 
@@ -33,11 +51,18 @@ Use these semantic scenarios when editing or reviewing the skill.
 
 ## Reviewer model and effort support
 
-- Input: the invocation task uses `gpt-6-astra`, once for each supported effort: `low`, `medium`, `high`, `xhigh`, `max`, and `ultra`.
-- Required: accept each host-supported combination as the Reviewer, preserve its model and effort, and record both before dispatch. Keep the invocation task as the user-facing Reviewer.
-- Compatibility: `gpt-5.6-sol` remains an allowed Reviewer; the Worker default remains `gpt-5.6-luna/max`.
-- Negative cases: any other Reviewer model, or a combination unsupported by the actual host, blocks dispatch until corrected.
-- Forbidden: force Astra to Sol, require only high/max/ultra effort, silently change effort, or create a third task to obtain another Reviewer.
+- Required: Astra team research/guidance/review uses low or medium; local implementation/repair and self-review require verified low. High and above block dependent work until corrected through a supported setting control. Preserve the invoking Reviewer; Sol remains allowed with a supported setting.
+- Worker is exactly `gpt-5.6-luna/max` for creation and reuse, never merely a default. Reconcile active legacy work before correcting a mismatch. No alternate Worker model, silent setting change or third task.
+
+## Direction, execution-only work and incidental calibration
+
+- Reviewer grounds direction in current evidence and gives one coherent brief with explicit steps, predefined checks and boundaries. Luna collects facts through named probes but never plans, brainstorms, manages or debugs; even an execution slip returns evidence to Reviewer. Correction execution follows new explicit instructions after lifecycle reconciliation.
+- Existing acceptance may reveal an instruction, tool/data or role-fit issue; Reviewer adjusts the next brief or segment size without a scorecard, calibration batch, extra round or delay to unrelated authorized work. Insufficient evidence remains unconfirmed; Luna-max routing stays fixed. Even three failed corrected attempts never summon Hange or another role in DUO; Reviewer retains diagnosis/repair ownership.
+- Worker result messages end with one whole-goal next-outcome question. Reviewer handles the result with substantive authorized action, dispatch, exact blocker or completion; no acknowledgement-only stop, polling or separate nudges.
+
+## Astra reviews its own repair
+
+- The same Astra at low reviews its own implementation using relevant contract tests/readbacks. Do not send the repair to Luna, Sol or another Astra for review. Worker may execute a repaired route under explicit instructions, but does not assess repair design. Self-review is not independent model review, and missing evidence still blocks ship.
 
 ## Healthy runner; user says it will report
 
@@ -69,17 +94,14 @@ Use these semantic scenarios when editing or reviewing the skill.
 ## Fresh Worker goal delivery
 
 - Input: the user requests a fresh Worker and cross-thread follow-up delivery may be unreliable.
-- Required: put `ROLE: Worker` plus the complete executable goal in the single initial `create_thread`/`fork_thread` prompt; after the creation receipt, apply and verify the `[Worker]` title.
+- Required: save the complete executable goal at the fixed `DUO_GOAL.md` path before creation; put `ROLE: Worker`, mission, authority, hard boundary, path+SHA256, run/generation and read-before-action instructions in the single initial prompt; after the creation receipt, apply and verify the `[Worker]` title.
 - Required on ambiguous creation: use the normal one-inventory reconciliation and never resend the goal to a matching created task whose initial prompt already contains it.
 - Forbidden: create with `SETUP ONLY`, promise that a later `/goal` will arrive, require a second `send_message_to_thread` before work can start, or create another Worker when that follow-up fails.
 
-## Native goal budget is not inferred
+## Legacy native goal has an inferred budget
 
-- Input: native cancellation capability is verified and a fresh native-mode Worker receives wording such as `exactly one Worker`, `one
-  current goal`, 30 packets, or an operation count, while the user did not ask
-  for a numeric token budget.
-- Required: call the durable goal interface without `token_budget`; keep the
-  full normal runtime budget controlled by the platform/session.
+- Input: an already-existing native Worker goal used wording such as `exactly one Worker`, `one current goal`, 30 packets, or an operation count as a token budget without a user request.
+- Required: do not create another native goal or infer a budget. New dispatches use the reusable file contract.
 - Required failure behavior: if an old goal was created with an inferred tiny
   budget and becomes `budget_limited` before substantive work, stop live work,
   preserve the goal evidence, repair the shared goal contract, and use the
@@ -95,7 +117,7 @@ Use these semantic scenarios when editing or reviewing the skill.
 - Required same-Worker behavior: the Reviewer first terminates/deletes the old
   goal through lifecycle control, reads goal state again, and proves the old goal
   is absent plus `active_goal_none`; only then may it send exactly one fresh
-  `/goal` message to that Worker.
+  file-contract dispatch to that Worker, without a `/goal` trigger.
 - Required replacement behavior: if deletion control is unavailable, or fresh
   state after any success, error, or ambiguous timeout cannot prove absence, do
   not message the old Worker. Treat `duo-long-running` activation as standing authorization to prove
@@ -137,7 +159,7 @@ Use these semantic scenarios when editing or reviewing the skill.
 ## Large fresh Worker goal
 
 - Input: the complete Worker goal is too large or complex for a reliable thread-creation payload.
-- Required: save one append-only UTF-8 goal artifact, hash it, and create the Worker once with a compact initial prompt containing `ROLE: Worker`, mission, authority, hard boundary, artifact path+SHA256, and instruction to read it before acting.
+- Required: write the complete UTF-8 goal to the same reusable `DUO_GOAL.md` after lifecycle checks, hash it, and create the Worker once with a compact initial prompt containing `ROLE: Worker`, mission, authority, hard boundary, artifact path+SHA256, run/generation, and instruction to read it before acting. Do not create a per-run copy.
 - Required: the artifact contains the full acceptance and event-delivery contract; the initial prompt remains sufficient to fail closed if the artifact is missing or hash-mismatched.
 - Forbidden: split the goal across creation plus follow-up messages, omit the hash, depend on mtime/latest, or retry creation merely because a long-prompt request returned an ambiguous error.
 
@@ -297,7 +319,7 @@ Use these semantic scenarios when editing or reviewing the skill.
 ## Goal creation exists but cancellation does not
 
 - Input: Worker route exposes only get_goal, create_goal, and update_goal(complete|blocked), as observed in the failed audit run.
-- Required: default file-contract mode, no literal /goal trigger and no create_goal call. Continue the ordinary persistent task to its terminal event. If the user specifically requires native scheduling, report the missing cancellation capability before creating it.
+- Required: use the reusable file-contract mode, no literal /goal trigger and no create_goal call. Continue the ordinary persistent task to its terminal event. Native scheduling is outside this DUO workflow even if a cancellation API is available.
 - Forbidden: promise to delete later, invent delete_goal, mark incomplete work complete, or use blocked/archiving as cancellation.
 
 ## Reviewer stops Worker; scheduler resumes active goal
@@ -345,7 +367,7 @@ Use these semantic scenarios when editing or reviewing the skill.
 ## Discovery is the authorized objective
 
 - Input: the route to the final result is unknown, and the user authorized a bounded investigation.
-- Required: dispatch the executable discovery slice with evidence deliverables and a stop condition. Label production readiness unresolved. Do not demand the unknown solution before allowing discovery.
+- Required: Reviewer designs the investigation and may dispatch explicit fact-collection steps with evidence deliverables and a stop condition. Label production readiness unresolved. Do not demand the unknown solution before allowing discovery.
 - Forbidden: blindly dispatch production, or block all useful research because the full solution is not yet proven.
 
 ## Readiness evidence can be reused
@@ -360,4 +382,22 @@ Use these semantic scenarios when editing or reviewing the skill.
 - Required: assess normal progress, explicit stop, and repair-resume together; disclose the capability tradeoff and distinguish runtime proof from static reasoning. Missing required lifecycle proof cannot become a ready claim.
 - Forbidden: call the long-running route restored from a stop-only test, fabricate a cancellation API, or treat the absence of a native goal as proof that its scheduler was cancelled.
 
-The skill fails review if any scenario permits a subagent Worker, cross-task waiting or polling, unauthorized Reviewer takeover, a third persistent reviewer, accepted completion based only on a Worker-local final or delivery receipt, Worker-controlled acceptance criteria, Worker advice overriding authority, automatic resumption of a revoked generation, or production readiness based only on administrative checks.
+## Goal file is reused or deleted
+
+- Input: a DUO generation is completed or cancelled, with stopped Worker proof, no remaining task-owned effects, and resolved acceptance; the user requests cleanup or another authorized DUO goal.
+- Required: delete the exact `DUO_GOAL.md` on cleanup or overwrite the same path for the next goal with a fresh run/generation and hash. Keep existing outcome evidence and stop records separately. No historical goal copy is required.
+- Forbidden: create a new goal file/directory per generation, require a goal archive, call create_goal, or treat deletion as cancellation.
+
+## Reuse requested before safe closure
+
+- Input: Worker is still running, a mutation is unresolved, or acceptance still needs the current goal.
+- Required: preserve the current goal until the Worker is safely stopped and review is resolved or explicitly cancelled. Reconcile through the existing event protocol without polling.
+- Forbidden: overwrite/delete early, silently change acceptance, or mark incomplete work complete to enable reuse.
+
+## Old Worker sees the reused or missing file
+
+- Input: the same goal path now contains a new generation, is missing, or its hash differs from the old dispatch.
+- Required: first respect the old generation's stop/terminal state; do not adopt new contents or recreate the file. A nonterminal mismatch stops dependent work for reconciliation. Only a fresh authorized dispatch can activate a new generation.
+- Forbidden: infer resume permission from the filename, reuse an old hash, clear stop records, or start native scheduling.
+
+The skill fails review if any scenario permits a subagent Worker, cross-task waiting or polling, unauthorized Reviewer takeover, a third persistent reviewer, accepted completion based only on a Worker-local final or delivery receipt, Worker-controlled acceptance criteria, Worker advice overriding authority, automatic resumption of a revoked generation, production readiness based only on administrative checks, per-generation goal files, unsafe goal overwrite/deletion, or native goal creation for new DUO work.

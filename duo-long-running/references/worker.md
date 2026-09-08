@@ -1,6 +1,16 @@
 # Worker Execution
 
-Worker: read before the first production action. Follow the entrypoint role and authority boundaries. Reviewer reads this when preparing a goal; it does not authorize Reviewer production work.
+Worker: read before the first production action. Use exactly `gpt-5.6-luna/max` and follow the entrypoint execution-only boundary: no management, brainstorming, debugging, planning or self-directed fixes. Reviewer reads this when preparing a goal; it does not authorize Reviewer production work.
+
+## Evidence by Work Phase
+
+Use only the phases needed for the assigned objective, within the same persistent Worker and pinned scope:
+
+- Evidence collection: execute Reviewer-named probes/lookups and return observed facts and unresolved questions; do not design an investigation or choose a solution.
+- Execution: return the authorized artifact or change and its relevant verification results. This phase does not grant repo/shared-code repair authority; shared defects still belong to the Reviewer.
+- Correction execution: follow explicit Reviewer-provided correction steps within a fresh authorized goal and return predefined check results. Diagnosis, fix design and shared-code changes remain Reviewer-owned.
+
+A goal may include several phases. Phase transitions already covered by that goal need no new message, task, or acceptance gate; use the existing terminal events and lifecycle rules when scope or authority changes. Do not split healthy work into extra handoffs merely to label phases.
 
 ## Event Protocol
 
@@ -8,7 +18,9 @@ Worker: read before the first production action. Follow the entrypoint role and 
 
 Before the first production action of every turn, after a compaction/resume, and before each new batch or external mutation, read the pinned generation's stop record and the Worker's own terminal state. This is a local permission check, not cross-task monitoring. Follow [lifecycle cancellation](lifecycle.md) if either revokes execution. An automatic `continue`, active native goal, older goal text, or successful handoff delivery does not clear a stop. Do not repeat production, verification, handoff delivery, or goal creation after a terminal event merely because a scheduler starts another turn. Only safe reconciliation of an already-started action and a missing stop receipt remain authorized.
 
-Check `goal_mode` before any goal API call. With `file-contract`, never create a native goal. With native mode, unavailable cancellation/readback capability blocks native goal creation; use the dispatch capability procedure, not an invented terminate API or `update_goal` misuse.
+After the stop/terminal check, verify the fixed `DUO_GOAL.md` path against the dispatched run/generation and SHA256 at these same action boundaries. A missing or changed goal stops dependent work for handoff; never recreate it, edit it, or adopt a later generation without a fresh authorized dispatch. Reviewer alone writes, deletes, or reuses this file.
+
+New DUO work uses `file-contract` and never creates a native goal. An unexpected existing native goal must use lifecycle reconciliation, not an invented terminate API or `update_goal` misuse.
 
 Normal production events are:
 
@@ -20,14 +32,14 @@ Normal production events are:
 
 An explicit pause uses the deletion receipts defined in [lifecycle](lifecycle.md).
 
-Routine progress and subprocess noise do not create events unless the objective-progress lease expires or a shared signature contaminates two items.
+Routine progress and subprocess noise do not create events. An error, ambiguity or failed predefined check requires a safe technical handoff without waiting for a repeated failure; the progress lease also catches silent lack of progress.
 
 For every terminal event:
 
 1. Atomically enter `terminal_event_pending`. Stop new claims, refills, and actions.
 2. Let one already-started mutation reach only its required safe reconciliation boundary. Start no successor.
 3. Build the compact packet from that boundary and record process/action liveness and observed side effects.
-4. Call the recorded direct-message tool with the exact Reviewer task and host IDs.
+4. Call the recorded direct-message tool with the exact Reviewer task and host IDs. End the result message with 「依整體目標與目前進度，我下一步應完成哪個具體成果？」; do not send a separate follow-up question or choose the next task yourself.
 5. Treat only a successful tool result as delivery.
 6. End the Worker turn immediately. Its local final may only say the event was delivered.
 
@@ -79,7 +91,7 @@ objective_progress_snapshot:
 cross_item_signature_or_evidence_ref_counts:
 ```
 
-`attempted_recoveries` may contain only authorized item-local runtime actions, never repo edits, tests, publisher runs, or repair successors. Set `user_confirmation_required: true` only for new live permission, broader product scope, credentials, a changed safety boundary, an external dependency, or a real user decision.
+`attempted_recoveries` records only required reconciliation of an already-started action, otherwise none; it grants no trial fixes, debugging, retries or repair successors. Report the observed missing input/permission rather than inventing a diagnosis. Permission advice cannot override the Reviewer's check of actual authority.
 
 For `acceptance_complete`, use the packet in [acceptance](acceptance.md) and deliver it through the terminal event protocol above.
 

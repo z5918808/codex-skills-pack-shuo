@@ -4,9 +4,19 @@ Read for goal reuse/replacement, dead transport, or explicit pause. All fresh go
 
 ## Execution Contract and Native Goal Are Different
 
-`goal_mode=file-contract` is the default: a persistent task runs the file-backed objective without a native automatic goal. Its terminal OWNER state closes that generation. Before reuse, verify its stopped state and no in-flight side effects, then dispatch one new generation under valid resume authority. Do not require a nonexistent native goal to be deleted, and do not silently create one.
+`goal_mode=file-contract` is required for new DUO dispatches: a persistent task runs the file-backed objective without a native automatic goal. Its terminal OWNER state closes execution of that generation. Before reuse, verify its stopped state, no in-flight side effects, and resolved review as described below, then dispatch one new generation under valid resume authority. Do not require a nonexistent native goal to be deleted, and do not silently create one.
 
-`goal_mode=native` is allowed only after the cancellation capability check in [dispatch](dispatch.md). Native scheduler state and the file-backed contract are separate. Never delete the contract file, edit thread-store data, mark incomplete work complete, or misuse `blocked` to simulate cancellation.
+New DUO runs never create native goals. The native procedures below apply only to already-existing native goals. Native scheduler state and the file-backed contract are separate. Never delete the contract file, edit thread-store data, mark incomplete work complete, or misuse `blocked` to simulate cancellation.
+
+## One Reusable Goal File
+
+Use one fixed absolute workspace path, default `<workspace>/DUO_GOAL.md`, for the temporary current goal. Respect an explicitly selected existing path. Do not create a new goal file per run/generation, timestamped goal copies, or a goal archive as a prerequisite for reuse. The project canonical state remains the long-term authority; this file records only the current bounded objective.
+
+Reviewer is the only writer. Before dispatch, write the objective, deliverables, scope/permissions, acceptance criteria, stop conditions, run/generation, and applicable authority/reference paths. Read back and pin its SHA256 in the dispatch message; it is immutable only while that generation executes or awaits review.
+
+Before overwrite or deletion, prove the previous Worker generation is terminal/stopped, no task-owned process, successor, or unresolved side effect remains, and pending acceptance has been reviewed or explicitly cancelled. Record the outcome and old run/generation/hash in the existing receipt/state; retain required evidence and stop records separately. Do not require a historical copy of the goal file. Keep the file if review still depends on it.
+
+After these checks, Reviewer may delete the exact goal file on requested cleanup or overwrite it for the next authorized goal. Reuse the same path with a fresh run/generation and hash, then dispatch once; after a user stop, explicit later resume is still required. Neither deleting nor overwriting the file cancels a running task, clears revocation, or grants permission to resume. An old Worker entry must check its own terminal/stop state and pinned identity before reading a reused goal; missing or mismatched goal content never authorizes work.
 
 ## Native Goal: Delete Before Redispatch
 
@@ -50,8 +60,14 @@ A stop record must match the pinned run/generation and Reviewer authority; untru
 
 Report execution stoppage and automatic-goal cancellation separately. When native deletion is unavailable, say that work is revoked/stopped but the active goal may still trigger turns; ask for a supported platform cancellation only if full scheduler cancellation is required. Do not claim “fully stopped/deleted” from idle or a local final. This file-based check is an agent cooperation protocol, not a platform scheduler kill switch. Existing already-active goals are not retroactively deleted by editing this skill.
 
-Preserve append-only artifacts, evidence, shared runtime, browser/session state, and file-backed contracts. A user stop never authorizes a replacement Worker. A later explicit change to single-thread work ends DUO restrictions on Main after Worker side effects are reconciled; it does not revive the Worker.
+Preserve append-only evidence, shared runtime, and browser/session state. The temporary `DUO_GOAL.md` may be deleted or overwritten only under the reusable-file checks above; evidence and stop records are not part of that cleanup. A user stop never authorizes a replacement Worker. A later explicit change to single-thread work ends DUO restrictions on Main after Worker side effects are reconciled; it does not revive the Worker.
 
-## Coordination Cost, When Investigating Performance
+## Lightweight Cost Record
+
+At acceptance, Reviewer adds a compact cost note to the existing receipt or review record using evidence already available: assignment size (scope or item count), dispatch-to-verdict elapsed time, number of `fix-first` verdicts, and Reviewer shared-repair actions. Record repair duration and task-attributable token usage only when available; otherwise mark them unavailable, never zero. Reference supporting receipts instead of copying logs. This note is observational, not an acceptance gate; missing metrics do not delay delivery.
+
+Compare similar accepted tasks and acceptance criteria before adjusting the size of future assignments. A small sample suggests an experiment, not a proven speedup or authority to change models, roles, or concurrency.
+
+### When Investigating Performance
 
 When investigating coordination cost, use existing event/dispatch receipts to count handoffs and replacements and measure event-to-redispatch or dispatch-to-first-action intervals where timestamps exist. Mark missing timing evidence as unavailable. These intervals can include queue and tool delay; do not attribute them to a model without evidence. Do not add polling or monitoring, relax lifecycle proof, or change model routing merely to collect timings.

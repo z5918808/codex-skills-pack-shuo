@@ -4,6 +4,8 @@ Reviewer: read when pre-run evidence exposes a shared defect or on a delivered t
 
 Establish the cause from current evidence, make the smallest authorized correction, and provide evidence that the affected contract behavior is restored. Choose diagnosis depth and tools for the uncertainty; no fixed reflection template or number of hypotheses is required.
 
+For Astra, verify low before implementation and self-review. The same Astra reviews its own repair and checks contract evidence; do not delegate that review to Worker or another model. Instruction gaps may need a clearer brief rather than a code patch. Luna receives only the resulting explicit execution steps.
+
 - Use delivered artifacts and authoritative state. If needed, take the one event-triggered Worker snapshot allowed by the entrypoint. Confirm an apparently hung action has not already completed before killing or retrying it.
 - A low-risk cause already verified by deterministic evidence needs no elaborate diagnosis. Worker confidence is insufficient. For uncertainty, repeated failures, high risk, contradictory evidence, or a failed short repair, investigate the unresolved cause before another patch. Repeated symptoms belong at their earliest common owner, not product- or generation-specific branches.
 - A shared-code change still needs a bounded RED→GREEN regression at the real call seam and the narrowest relevant suite. Prefer an existing fixture; keep verification proportional to the affected contract. For non-code corrections, use decisive before/after state evidence. Reuse sufficient current proof rather than rerunning identical checks.
