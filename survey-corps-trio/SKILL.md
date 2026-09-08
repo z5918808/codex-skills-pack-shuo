@@ -1,96 +1,57 @@
 ---
 name: survey-corps-trio
-description: "Astra-led Survey Corps: quality-first allocation, Sol medium analysis/engineering, Luna max execution; explicitly selected."
+description: "Run the explicitly selected Survey Corps: Astra direction and acceptance, lightweight Sol coordination, sustained Luna execution."
 ---
 
 # Survey Corps Trio
 
-Use when explicitly named as survey-corps-trio, Survey Corps/調查兵團 or AOT, including「讓調查兵團去處理」「交給調查兵團」「用調查兵團」. Bare trio or /trio selects the ordinary Sol-led trio-long-running skill. Naming discussion or skill editing starts no run and changes no app setting. Leave economy TRIO files and active contracts unchanged.
+Explicit survey-corps-trio, Survey Corps/調查兵團 or AOT requests select this workflow, including「讓調查兵團去處理」「交給調查兵團」「用調查兵團」. Bare trio selects trio-long-running; DUO stays two-role. Discussing or editing the skill starts no run and changes no active contract or app setting.
 
-## Roles and effort
+## Roles
 
-| Role | Model / effort | Work |
+| Role | Model / effort | Responsibility |
 | --- | --- | --- |
-| Erwin / Main, Reviewer | Astra: default low; team leadership may use medium | Research direction, dependencies, priorities, guidance, authorized direct work, final acceptance. |
-| Hange / Coordinator, Engineer | Sol medium | Define executable segments and acceptance; review exceptions and boundary evidence, diagnose unresolved causes and consult Erwin. Delegate specified implementation and checks to Levi. |
-| Levi / Worker | Luna max | Execute explicit authorized steps and predefined checks; report results/errors to Hange. No managing, brainstorming, debugging, planning or self-directed correction. |
+| Erwin / Main | Astra low; team leadership may use medium | Overall framework, coupled planning, direction, authority and whole-goal acceptance. |
+| Hange / Coordinator | Sol medium | Executable briefs, unresolved diagnosis, boundary acceptance and useful consultation. |
+| Levi / Worker | Luna max | Specified implementation, predefined checks and evidence packaging; no managing, brainstorming, planning, debugging or self-directed fixes. |
 
-Names are labels, not roleplay. Use the same three role chats: Erwin sets direction, Hange and Levi form the daily execution pair. No extra reviewers, clones, subagents, CLI agents or substitute controllers without separate authorization. Authorized clones follow [reporting](references/reporting.md). A request for duo stays in duo-long-running with two roles and no added Hange/Erwin; this skill does not launch a nested DUO controller.
+Reuse these three role chats. Extra reviewers, clones, subagents, CLI agents or controllers need separate authorization. The invoking Astra is Main unless the user names another; a non-Astra invocation permits read-only preparation, then requires selection of the intended Astra Main, never a silent switch/replacement. Before dispatch, apply existing model/task gates using actual settings and original invocation evidence; rejection blocks dependent dispatch only.
 
-The invoking Astra chat is Main unless the user names another. If it is not Astra, do safe read-only preparation and ask the user to select the intended Astra Main; never silently switch models or create a replacement. Apply existing model/task gates with actual models, efforts and original invocation evidence before dispatch. A rejected gate blocks dependent dispatch, not independent preparation.
+Astra direct implementation, repair and self-review use **low only**; team direction, research and review may use medium, never higher. Before a medium Main takes over, reconcile ownership and verify a supported change to low in the existing assignment. Idle teammates do not make solo work team leadership; unknown settings are not compliance.
 
-**Solo Astra work uses low only**, including direct implementation, repair and self-review. Team direction-setting research, guidance and review may use medium; never higher. An idle Sol/Luna chat does not make solo work team leadership. Before a medium Main takes over a work segment, reconcile ownership and verify a supported change to low. Record mode/effort in the existing assignment. Unknown or unchangeable settings are not proof of compliance; report the specific limitation. Returns preserve the receiver's settings, never the sender's effort.
+## Allocate and execute
 
-## Choose work by total completion cost
+1. Erwin grounds framework, dependencies, priorities, authority and acceptance in current evidence. Cross-module, global-topology and cross-domain planning belongs here from the start; item count alone is not coupling. Hange deepens bounded parts without doing the entire analysis for Erwin to repeat.
+2. Hange briefs the largest coherent segment justified by evidence and pinned limits. Include outcome/coverage, inputs/baseline, allowed actions and protected state, explicit steps/decision rules, checks that reject a plausible wrong result, stop boundaries and pinned assignment/return identity. Reference reusable procedures; add only the delta and examples needed to remove ambiguity. Prove readiness from current evidence or a bounded probe; no Erwin approval round for routine in-scope briefs.
+3. Levi completes specified edits, adapters, fixtures, checks, readbacks and evidence packaging in that segment. Successful internal checkpoints continue under predefined rules unless the contract requires approval. Errors, ambiguity or failed checks pause affected steps and return evidence to Hange; no improvised diagnosis, retry or fix. Only clearly independent specified work may continue.
+4. Hange reviews boundary evidence and sends the next brief or requests Erwin's judgment using [Return delivery](references/reporting.md). Read that reference before dispatch, on resume and before an assignment-ending final; pin it with the assignment.
 
-Large coupled analysis is Erwin/Astra's planning responsibility from the start: interdependent modules, global topology, cross-domain tradeoffs or architecture-wide restructuring. Judge coupling, not item count. Astra sets the framework, priorities and decomposition before Hange deepens bounded parts and guides Levi execution; Hange does not first complete the whole analysis for Astra to redo. This allocation preference changes no effort ceiling, role identity or authority.
+Hange decides the approach and repair design, then delegates executable changes to Levi. It must not draft the entire implementation first or take over a module/batch. Direct repair is limited to an understood small fix whose briefing/handback would cost more; briefly record that reason in the existing receipt. For shared defects, pause affected successors, diagnose from existing evidence, reconcile ownership and dispatch prescribed reproduction/repair/checks; keep one writer and preserve user changes.
 
-Optimize time and effort to an accepted result, including briefing, review and rework. Low Sol usage with slow or incomplete output is not efficiency. Do not lower quality, force Sol participation or claim savings without comparable evidence.
+Use normal results to improve briefs and segment size; distinguish instruction gaps, tool/data failures and unresolved causes. No scorecards, calibration-only turns, arbitrary time/token quotas or forced retry loops. Two completed boundaries without shrinking acceptance gaps require technical handoff; a second identical failure changes strategy, a third stops that strategy. Optimize accepted completion including briefing/review/rework; claim savings only with comparable evidence.
 
-Calibrate through normal work. Hange uses existing result review to distinguish instruction gaps, tool/data problems and role fit, then adjusts its next brief or batch within the pinned scope. Erwin handles escalated direction/ownership decisions. Unknown causes stay unconfirmed. No scorecards, calibration batches/turns, replay of passed work or delay to independent authorized progress.
+## Authority and lifecycle
 
-Astra first grounds the overall direction, dependencies, priorities, authority and acceptance in current evidence, then gives Hange that framework and residual questions. Hange owns only the detail needed for executable briefs, boundary review and unresolved diagnosis; Levi performs specified implementation, checks and evidence packaging. Daily work flows Hange -> Levi -> Hange without Erwin approval for each batch. The former three-correction threshold for activating Hange is removed.
+Erwin alone writes the reusable SURVEY_CORPS_TRIO_GOAL.md; legacy runs keep CAPTAIN_ASTRA_TRIO_GOAL.md. No native Goal mode or create_goal. Before creating Worker, complete the contract: task/run/generation, role IDs/models/efforts, scope/acceptance, authority and Hange dispatch limits, immutable rules/hash, return routes, stop record and receipt location.
 
-Hange may consult Erwin early when its judgment can reduce trial-and-error, resolve an important uncertainty or materially improve the approach; no failure count or fixed consultation stage is required. Do not bypass Erwin merely to save tokens. Bring a concrete question, relevant evidence and the decision needed; Erwin gives focused direction and hands execution back, without repeating Hange's investigation or approving every batch. Escalate changed framework/authority, repeated unresolved gaps and genuine blockers; submit whole-goal acceptance to Erwin. Continue independent authorized work without duplicating the question under consultation.
+Hange writes immutable subordinate assignments in existing compact receipts, referencing the parent hash and unique assignment ID. Messages bind role, mission, boundaries, generation, contract/hash, return route and read-before-action requirements. Verify identity/hash on entry/resume and before external mutation; mismatch stops dependent work. No extra board/controller or continuity dumps in the repo.
 
-Before answering a consultation, changing direction or judging final acceptance, Erwin checks the current goal contract's version/hash, whole-goal outcome and remaining acceptance gaps against current evidence, then ties its decision to that goal. Reuse valid context for the same verified version instead of rereading the full file each time; stale or missing context requires a targeted refresh. No new tracking file or review round.
+Changed parent authority/rules require Erwin and a safe boundary: previous work terminal with delivery consumed, or safely cancelled with effects/pending review reconciled. Advice alone cannot rewrite an active brief. Preserve valid results, fixed legacy paths and existing chats. Ambiguous creation permits one immediate ID/ownership inventory, never blind duplicate creation. Worktrees require approval.
 
-Prefer Levi for specified code edits, adapters, fixtures, predefined tests, readbacks and evidence packaging as well as bulk execution. Hange defines the approach, exact change rules and acceptance; it does not implement a known solution merely because the work is engineering. Unknown causes and repair design stay with Hange; once resolved, send executable changes back to Levi. A direct Hange repair is a bounded exception only when briefing and handback would cost more than completing the understood small fix; state that reason briefly in the existing receipt. Do not expand the exception into a module, adapter or whole batch. Levi never diagnoses or designs fixes; preserve ownership and live-authority boundaries.
+Local repair grants no live authority: rollback, recovery writes, canaries, migrations and production traversal remain Levi's work under explicit authorization and fresh gates. Hange cannot rewrite parent authority, acceptance, stop records, credentials or permissions.
 
-Use the largest coherent segment justified by current evidence and pinned limits. One brief may cover specified implementation, predefined checks and evidence packaging without a Hange turn between each successful step. Internal checkpoints continue under explicit pass/stop rules unless the contract requires human/owner approval. Reuse pinned procedures and examples by reference; describe only the current delta, adding examples where ambiguity needs them. No per-item micromanagement, full solution drafted twice, or larger live scope to save turns.
+On user stop, Erwin latches generation revocation and directly sends stop to both roles; Hange halts successors. Check stop state before actions and at safe boundaries, reconcile effects and verify termination beyond idle UI/receipt. Resume requires fresh user authority and reconciled generation; missing files or scheduler messages grant none.
 
-The planning owner prepares one executable brief with:
-- Outcome, coverage, acceptance evidence and a plausible wrong result the checks must reject.
-- Inputs, baseline, reusable findings, dependencies, allowed actions/paths and protected state.
-- A coherent execution segment, explicit steps/decision rules, exact limits, predefined checks and error/stop boundaries.
-- Verification and the pinned assignment identity, contract/hash and direct return route.
+## Acceptance and retirement
 
-Astra pins the overall contract and Hange's dispatch authority. Hange prepares and sends in-scope executable briefs and proves readiness with current evidence or a bounded probe; no Erwin wording/approval round per brief. Changes to the pinned framework or authority return to Astra. Missing evidence blocks only dependent work.
+Hange verifies criterion coverage, artifact identity, decisive evidence and affected dependencies at segment/required boundaries. Review exceptions and changed behavior deeply enough for acceptance; do not replay passed work or reread all raw logs without a concrete gap. Compact summaries or sampling cannot replace required full-coverage proof. High-risk/conflicting evidence and Sol-authored repairs need discriminating behavioral proof; use existing checks or escalate missing proof.
 
-## Execution and repair
+**Only the same Astra reviews Astra-authored work, at low**, using actual artifacts and relevant tests/readbacks, including rejection of a plausible wrong result. No Sol/Luna/other-Astra review of those portions, including mixed packets. State gaps; self-review is not independent review.
 
-Luna follows Hange's brief through authorized phases and checkpoints. On error, ambiguity or failed check, pause affected work and return evidence to Hange; no diagnosis, improvised fixes, retries or replanning. Continue only clearly independent specified steps. Hange sizes segments and reassesses canary limits within the pinned ceiling; preserve proof, checks and caps.
+Only Erwin gives whole-goal ship, reusing valid segment evidence against every criterion and unresolved item. Corrections recheck affected criteria; a segment pass or missing proof cannot ship. Completion also requires consumed returns, reconciled owned processes/effects and no post-verdict change. Percentages, if used, follow verified criteria and remain below 100 until ship.
 
-A shared defect pauses affected Worker successors. Hange diagnoses from existing evidence and specifies the repair; Levi runs explicitly prescribed reproduction, edits and checks after lifecycle reconciliation. Hange performs only work requiring unresolved judgment or the bounded small-fix exception above. Keep affected Luna work quiescent until the reconciled repair assignment is dispatched; one writer, preserved user changes. Hange cannot edit overarching authority, acceptance, stop records, credentials or permissions. Escalate unresolved strategic/repeated problems; Astra-low takeover requires explicit ownership handback.
+After acceptance, existing Hange may reconcile retention and authorized cleanup; otherwise Astra does it at low without activating Hange. Each owner accounts for effects; administration is not review of Astra's work. Preserve deliverables, tests and referenced acceptance/rollback evidence; delete only verified disposable goal-owned artifacts within authority. Record deferred cleanup without revoking product acceptance. Archive authorized role chats with set_thread_archived only after terminal assignments, consumed returns and reconciled effects; confirm success or retain pending failure. Keep Astra as entrypoint; no history purge or unknown-process termination.
 
-Live rollback, recovery writes, canaries, migrations and production traversal remain Luna's responsibility under explicit authority and fresh gates. Local repair or self-review grants no live permission to Astra/Sol.
+## Skill maintenance only
 
-Use shrinking acceptance gaps at natural boundaries as progress. Two completed boundaries without progress require a technical handoff; a second identical failure changes strategy, a third stops that strategy. Do not invent time/token quotas.
-
-When retaining work, Astra continues it. After actual delegation, Astra yields; Sol yields after direct result delivery. No cross-chat polling, wait_threads, heartbeat, scheduler, filler turns or shadow execution. Bounded waiting for an owner's synchronous action requires owned-process reconciliation.
-
-## Contract, delivery and stop
-
-Use one reusable SURVEY_CORPS_TRIO_GOAL.md for fresh runs; continuing legacy runs keep their fixed CAPTAIN_ASTRA_TRIO_GOAL.md path. Astra is the sole contract writer. This is a document, not native Goal mode: no /goal or create_goal.
-
-The contract holds task/run/generation IDs, role IDs/models/efforts, authority, scope/acceptance, Hange's dispatch limits, immutable rules/hashes, return routes, stop record and receipt location. Astra alone writes it. Hange writes immutable subordinate assignment packets in the existing receipt location, referencing the unchanged parent contract/hash and unique assignment IDs. These carry explicit Levi steps without rewriting parent authority. Keep receipts compact and outside the repo unless required; no extra controller or board.
-
-Prepare the complete contract before creating Worker. Initial and follow-up messages bind role, mission, boundaries, current contract/hash, generation, return route and read-before-action requirements. Verify identity/hash on entry/resume and before external mutation. Mismatch stops dependent actions; do not silently adopt changed rules.
-
-Reassign or update pinned rules only after prior work is terminal and its delivery consumed, or safely cancelled with effects and pending review reconciled. Preserve valid results and reconcile ambiguous effects before retrying. An ambiguous creation permits one immediate ID/ownership inventory, never blind duplicate creation. Worktrees require approval. Legacy names migrate at this safe boundary without replacing chats, duplicating contracts or stacking prefixes.
-
-Follow pinned [Return delivery](references/reporting.md): Levi returns to Hange; Hange sends useful early consultations, escalations, blockers or whole-goal acceptance to Erwin. Use that reference's result-question and consultation/reply rules; consultation does not end or transfer the current assignment. Hange handles routine next steps; Erwin supplies requested direction and final decisions. Local finals are not delivery.
-
-On user stop, Astra latches generation revocation and sends a direct stop to both Hange and Levi; this safety control may bypass routine routing. Hange also halts successors. Roles check stop state before actions and at safe boundaries and reconcile their effects. A stop receipt/idle UI is not termination proof. Resume needs fresh user authority and reconciled generation; missing files or scheduler messages grant none.
-
-## Review and acceptance
-
-**Astra-authored work is reviewed only by the same Astra itself, at low.** Do not assign Sol, Luna, another Astra or a reviewer clone to review, approve or independently validate that work. In mixed packets, keep Astra-authored portions with Astra; optional Sol review is limited to non-Astra work.
-
-Self-review still requires actual artifacts and relevant tests/readbacks against the original acceptance criteria, including a check that rejects the plausible wrong result. Astra runs or inspects that evidence itself and states unresolved gaps. Self-review is not independent review, and model confidence alone is not evidence.
-
-At segment boundaries, Hange checks criterion coverage, artifact identity and decisive evidence, focusing on exceptions and changed behavior; Levi supplies compact pass/fail coverage plus exact artifact references and failure details. Inspect underlying evidence as needed for acceptance, conflict or risk; do not reread all raw logs, rerun passed checks or reproduce the implementation without a concrete gap. A summary or sample cannot replace required full-coverage proof. Hange then continues within the pinned criteria. Whole-goal acceptance goes to Astra with complete criterion evidence and unresolved items. High-risk/conflicting evidence or Sol-authored repair requires discriminating behavioral proof; use existing checks or escalate missing proof to Astra. Reuse valid analysis; Erwin does not repeat every batch review. Only Astra issues whole-goal ship.
-
-At assignment or contract-required boundaries, check identity/hash freshness, criterion coverage and affected dependencies. A segment pass is not whole-goal completion. Return ship, fix-first or rethink with evidence and unresolved items; corrections update the packet and recheck affected criteria. Missing required proof cannot ship.
-
-Completion requires whole-goal ship, consumed returns, no unrecorded owned processes/effects and no post-verdict change. Percentages, if used, derive from verified criteria and stay below 100 until ship.
-
-## Whole-goal retirement and maintenance
-
-After whole-goal acceptance, an already-activated Hange may reconcile retention receipts and authorized cleanup; otherwise Astra does this at low without activating Hange. Each owner accounts for its effects. Administrative reconciliation is not review of Astra's work. Keep participating roles until their returns are consumed; do not duplicate the inventory.
-
-Preserve deliverables, reusable tests, acceptance/rollback proof and referenced evidence. Remove only verified goal-owned disposable artifacts within existing deletion authority; leave ambiguous/user files and active/shared profiles. Record deferred cleanup; optional cleanup does not revoke product acceptance.
-
-Archive authorized role chats with set_thread_archived only after terminal assignments, consumed returns and reconciled effects. Keep Astra as the user entrypoint. Confirm archival results; failure remains pending. No history purge, unknown-process termination or new cleanup framework.
-
-When editing, review [Regression scenarios](references/regression-checks.md) and verify economy TRIO hashes are unchanged. These instructions do not install runtime enforcement or guarantee message wake-up; static validation is not a live multi-chat test.
+When editing, use [Regression scenarios](references/regression-checks.md), check reference reachability and verify ordinary TRIO/DUO are unchanged. Execution roles do not load regression scenarios. These are behavioral instructions, not installed enforcement or guaranteed platform wake-up; static checks do not prove live behavior or savings.

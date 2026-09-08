@@ -1,33 +1,25 @@
-# Regression scenarios
+# Regression scenarios — skill maintenance only
 
-- Large coupled planning: a cross-module redesign goes to the existing Astra planning owner before Sol develops the whole solution; Sol collects framing facts, then deepens bounded parts. A large fixed-rule item batch alone does not trigger this route. No wait-for-failure requirement, duplicate global analysis, new role, automatic effort increase or transfer of live authority.
+Review these against the main skill and reporting reference after edits. They are acceptance examples, not additional runtime instructions. Static review cannot prove model settings, delivery, wake-up or cost savings.
 
-Static checks for skill edits; they do not prove runtime delivery, effort switching or savings.
+| Scenario | Required outcome |
+| --- | --- |
+| Bare trio, DUO, or skill editing | Correct separate route; no accidental run, third DUO role or changed active contract. |
+| Coupled redesign versus large fixed-rule batch | Existing Erwin plans coupled work upfront; volume alone stays in ordinary execution. |
+| Frozen evidence followed by known adapter work | Hange defines behavior/checks; Levi implements and verifies a coherent segment. Hange does not write the complete solution first. |
+| Unknown failure or weak classification | Affected Levi steps stop; Hange diagnoses or clarifies rules, then returns executable work. Only justified small-fix exception allows direct repair. |
+| Successful internal checkpoint | Continue prescribed steps within caps; no per-step review or extra calibration turn. Required approval still holds. |
+| Segment acceptance | Complete criterion evidence, no unexplained replay; summaries/sampling cannot replace required coverage. |
+| Early consultation | Concrete goal-grounded advice, same assignment preserved, independent dispatched work continues; no wait-for-failure or acknowledgement loop. |
+| Old consultation reply | Validate question/version/stop state; no revival, pinned-brief rewrite or duplicate dispatch. |
+| Consumed return, interrupted before successor | Reconcile pending continuation and actual effects; finish only unfinished action. |
+| Hange finishes review with goal unfinished | Actual successor or delivered Erwin return before voluntary final; local summary fails. |
+| Rejected or ambiguous send | One correction for definite rejection; unknown transport has no blind resend. Sent is not wake-up proof. |
+| Astra medium takes over implementation | Reconciled ownership and verified low first; idle teammates are no exemption. |
+| Astra-authored or mixed work | Same Astra self-reviews its portions at low with real proof; no delegated review or independent-review claim. |
+| Sol repair / conflicting evidence | Discriminating behavioral proof or escalate the gap; no automatic duplicate review round. |
+| Changed contract, shared repair or ambiguous creation | Reconcile prior lifecycle, preserve single writer and valid results; no duplicate creation or silent hash adoption. |
+| User stop, live action or clone | Stop both roles with latched revocation; fresh resume/live authority required; separately authorized clones return through parent. |
+| Goal closure and retirement | Erwin whole-goal ship, consumed returns and reconciled effects; authorized cleanup/archive only, Astra retained, failed archival pending. |
 
-- Hange final after Levi return: the batch is reviewed but the whole goal is unfinished. With no valid dispatched successor or delivered return awaiting Erwin, Hange must continue eligible work or actually send the result/blocker to Erwin before ending; a local summary or planned dispatch fails. Existing sent consultation/result needs no duplicate send, ambiguous transport uses bounded recovery, and user revocation forbids new work or prohibited messages. No polling or promise of automatic wake-up.
-
-- Interrupted continuation: Hange records a consumed Levi event then stops before dispatch. On authorized re-entry, the existing pending continuation is reconciled and finished, not discarded as duplicate input. If dispatch actually succeeded before interruption, use its receipt and do not resend; unknown delivery requires bounded recovery. Stop/hash rules still apply; no new queue or automatic wake-up.
-- Consultation waiting: already-dispatched independent Levi work continues while Hange asks Erwin. Hange yields after sending and may wait for a real next entry; do not promise uninterrupted local work, violate yield to send another assignment, or add polling/scheduling to hide this limitation.
-
-- Enable execution: Levi misclassifies routine items. Hange supplies decision rules, positive/negative examples and exception handling, then returns executable work to Levi instead of classifying the entire batch itself. Unresolved diagnosis stays with Hange; a known repair returns to Levi unless the bounded small-fix exception is justified. No forced trial loop. Preserve accepted items and judge improvement from normal results, not a new scorecard.
-
-- Goal-grounded advice: Hange asks a local question that could distract from the overall outcome. Erwin checks the current contract version/hash, whole goal and remaining acceptance gaps before advising. Same-version valid context is reused; stale/missing context is refreshed only as needed. No blind local optimization, mandatory full reread or extra tracking artifact.
-
-- Incidental calibration: an ordinary batch passes and proceeds without a scoring gate. A failure informs Hange's next in-scope brief or batch size; escalated direction decisions belong to Astra using existing evidence; unknown cause stays unconfirmed. No calibration-only batch, extra reporting turn, replay of passed work or delay to independent authorized work. Luna remains execution-only; acceptance checks stay intact.
-
-- Routing: bare trio remains economy TRIO; explicit 調查兵團 selects this variant. Skill discussion/editing starts no chats. Legacy runs preserve IDs and contract paths until safe hash-pinned adoption.
-- Effort: Astra may lead/research/review team work at medium. Taking over a substantive segment requires verified low before work, including self-review. Idle teammates do not exempt solo work; unknown settings are not compliance.
-- Allocation: Astra sets the framework; Hange owns executable briefs, unresolved diagnosis and boundary review/dispatch. Known engineering changes go to Levi with explicit instructions; unresolved research or repair design goes to Hange without blind Levi trials. No three-attempt Hange activation threshold. Consult Erwin early when a concrete judgment can reduce trial-and-error or improve the approach; no prerequisite failure or routine approval round. Also escalate changed direction, repeated unresolved gaps, blockers and whole-goal acceptance with evidence and the decision needed. Duo remains a separate two-role workflow.
-- Ownership: no concurrent repair or duplicated active investigation. Sol cannot rewrite authority/acceptance/stop records. Local repair grants no live execution; Luna retains that boundary.
-- Astra self-review: Astra writes a fix, runs relevant checks and reviews it at low. Do not send it to Sol/Luna or create an Astra reviewer. Mixed packets keep Astra-authored portions out of delegated review. Self-review cannot be labelled independent; missing behavioral proof still prevents ship.
-- Other review: Sol-authored repair with conflicting evidence receives a discriminating check by Astra or an eligible non-author route. Reuse current proof; no automatic duplicate closing round.
-- Segments: a checkpoint is not assignment completion and segment ship is not whole-goal ship. Preserve per-item evidence and exact caps; reassess enlargement at safe handoffs using controlled failure modes, not pass counts alone.
-- Delivery: local final alone fails. Confirmed send ends the sender turn; one corrected retry only after definite rejection. Ambiguous delivery has no blind retry. Stale events cannot duplicate work. Result returns follow the closing-question rule in reporting; consultations ask only their concrete question.
-- Continuation: Levi returns to Hange, which reviews and redispatches routine work without an Erwin approval round. Hange returns useful early consultation, escalation/blocker/whole-goal acceptance to Erwin, which decides and hands back or accepts. No acknowledgement loop, invented hook or polling. Sent is not proof of wake-up.
-- Stop: Erwin may directly stop both roles despite routine Levi-to-Hange routing. Latched user revocation prevents successors; reconcile owned effects and require fresh resume authority. Hash mismatch blocks dependent work; no silent contract overwrite.
-- Clones: only separately authorized clones; report through the original parent. Parent reconciles coverage and follows the main route: Levi -> Hange, Hange -> Erwin at useful consultation/escalation/closure; no routine duplicate forwarding.
-- Retirement: Hange reconciles retention, not Astra's work quality. Preserve referenced evidence and user/shared artifacts; cleanup and archival need existing scope authority plus terminal ownership/consumed receipts. Failed archival stays pending, optional cleanup does not revoke accepted output.
-
-- Consultation lifecycle: Hange consults during an active assignment without completing or transferring it. Erwin replies to its question event_id, assignment and contract version with unchanged direction, guidance or a required contract change. Hange consumes a valid reply and resumes within authority without a confirmation round; stale/duplicate replies cannot revive, reassign or repeat work. Dependent work pauses; independent authorized work is not blocked by an artificial terminal gate. Actual ownership/contract changes still require reconciliation.
-
-- Light Hange / sustained Levi: after a frozen-evidence return, a known adapter implementation plus predefined tests and evidence packaging goes to Levi as one bounded segment. Hange specifies behavior and checks without implementing the adapter or drafting its full code first. Passing internal checkpoints need no extra Hange turn unless required by contract; an unknown failure stops affected steps for Hange diagnosis. Review verifies complete criterion evidence without replaying passed work or treating sampling as full coverage. Preserve live gates and the no-silent-final handoff rule.
+Verify linked files exist, UI prompt stays a short entrypoint, and ordinary TRIO/DUO hashes remain unchanged. Do not create live tasks to claim static checks passed.
