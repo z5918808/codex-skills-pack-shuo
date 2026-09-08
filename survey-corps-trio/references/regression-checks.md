@@ -2,6 +2,8 @@
 
 Static checks for skill edits; they do not prove runtime delivery, effort switching or savings.
 
+- Incidental calibration: an ordinary batch passes and proceeds without a scoring gate. A failure informs Astra's next brief, batch size or owner using existing evidence; unknown cause stays unconfirmed. No calibration-only batch, extra reporting turn, replay of passed work or delay to independent authorized work. Luna remains execution-only; acceptance checks stay intact.
+
 - Routing: bare trio remains economy TRIO; explicit 調查兵團 selects this variant. Skill discussion/editing starts no chats. Legacy runs preserve IDs and contract paths until safe hash-pinned adoption.
 - Effort: Astra may lead/research/review team work at medium. Taking over a substantive segment requires verified low before work, including self-review. Idle teammates do not exempt solo work; unknown settings are not compliance.
 - Allocation: Levi reports even an execution slip to Astra with evidence; no self-debugging, repair, planning, brainstorming or managing. Astra diagnoses and corrects at low or delegates useful Hange work, then supplies explicit Levi steps when needed. Hange is not mandatory. Preserve valid work, reconciled ownership and authority/acceptance boundaries.

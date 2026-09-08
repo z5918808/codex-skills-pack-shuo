@@ -25,6 +25,8 @@ The invoking Astra chat is Main unless the user names another. If it is not Astr
 
 Optimize time and effort to an accepted result, including briefing, review and rework. Low Sol usage with slow or incomplete output is not efficiency. Do not lower quality, force Sol participation or claim savings without comparable evidence.
 
+Calibrate through normal work, never a separate workflow. During existing acceptance, Astra uses actual results to distinguish instruction gaps, tool/data problems and role fit, then adjusts the next brief, batch size or owner only as evidence warrants. Reuse applicable prior results; insufficient evidence leaves the cause unconfirmed. No scorecards, calibration-only batches/turns or replay of completed work. Passing work continues; calibration never gates unrelated authorized progress or adds checks beyond those needed for acceptance.
+
 Astra first reads relevant state and reusable evidence, then identifies the bottleneck, dependency topology, priorities and deferred work. Once the direction is grounded, continue directly at low when that is the shortest credible route, or delegate a useful bounded slice to Sol. No mandatory research-only ceiling or redundant discovery phase.
 
 Give Sol the original request, framework, evidence, assumptions, scope and residual questions. Sol deepens its assigned slice and reuses valid findings. It may report contradictory facts encountered during its work and propose a correction; Astra decides direction. This is not a review assignment of Astra's work.

@@ -27,4 +27,6 @@ Validate event identity, generation, role, evidence and stop state; record consu
 
 Do not end with only an acknowledgement or promise while a next action is ready. Yield after dispatch; no watcher, polling, heartbeat or repeated nudges.
 
+Use existing result evidence for the main skill's incidental calibration. Record a routing-relevant finding in the normal decision only when useful; no per-batch scores, extra questions, calibration reports or waiting for a diagnosis before independent authorized work continues.
+
 Combine routine narration into meaningful verified milestones. Do not add reporting-only turns, delay execution for updates or repeat unchanged counts. Promptly report actual stoppage, material anomalies, required user decisions and completion; answer direct status questions from current evidence. Follow requested cadence and active-turn communication requirements. App-visible tool messages are not claimed hidden.
