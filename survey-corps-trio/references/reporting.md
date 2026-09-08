@@ -4,13 +4,19 @@ Read before dispatch, on resume and before an assignment-ending final. Pin this 
 
 ## Route and packet
 
-Levi/Luna sends normal results and errors only to Hange/Sol. Hange consumes them, reviews and dispatches the next in-scope assignment without relaying every batch to Erwin. Hange may ask Erwin a concrete question early when its judgment can save trial-and-error or improve direction, as well as sending escalations, blockers and whole-goal acceptance; do not wait for failure or bypass Erwin to save tokens. Bind both routes explicitly. Every return ends with「依整體目標與目前進度，我下一步應完成哪個具體成果？」addressed to its receiver, included with the result rather than a separate nudge. Luna gains no planning responsibility; local finals are not delivery.
+Levi/Luna sends normal results and errors only to Hange/Sol. Hange consumes them, reviews and dispatches the next in-scope assignment without relaying every batch to Erwin. Hange may ask Erwin a concrete question early when its judgment can save trial-and-error or improve direction, as well as sending escalations, blockers and whole-goal acceptance; do not wait for failure or bypass Erwin to save tokens. Bind both routes explicitly. Result returns end with「依整體目標與目前進度，我下一步應完成哪個具體成果？」to the receiver, in the same message. A consultation instead asks its one concrete decision question; do not append the generic question or send a separate nudge. Luna gains no planning responsibility; local finals are not delivery.
 
 Bind actual destination chat/host, callable direct-message tool, task/run/generation/assignment, rules/hash and compact receipt location. Never infer addresses from titles. Missing return capability blocks dispatch.
 
 Separately authorized clones report only to their original role owner, which reconciles results and follows the primary route: Levi clones -> Levi -> Hange; Hange clones -> Hange -> Erwin when useful consultation, escalation or closure is due. Escalate blocking findings promptly through that parent; missing delivery does not authorize bypassing it. No duplicate forwards, alternate relays outside these routes or cloned authority. Stop and hash rules apply throughout.
 
 Return calls omit model/thinking overrides. If required by the tool, use the receiver's applicable contract settings, never the sender's effort. Apply the main skill's team-medium/solo-low distinction.
+
+## Consultation versus handoff
+
+A consultation preserves the current assignment and owner. Identify the question event_id, assignment/generation and contract hash; pause only work dependent on the answer. It does not complete, cancel or replace the assignment. Independent already-authorized work may continue without duplicating the consulted investigation; dispatch/send still yields the current turn, with no polling or artificial wake-ups.
+
+Erwin replies to the question event_id and assignment/version, stating whether direction is unchanged, guidance is added, or a contract change is required. Hange validates the reply against current stop/assignment state, records consumption and continues within existing authority without an acknowledgement-only round. Late/stale replies cannot revive stopped work, alter a newer assignment or duplicate dispatch. Contract changes and actual ownership transfers still require safe lifecycle reconciliation; advice alone does not rewrite a pinned Levi brief.
 
 ## Send once, reconcile failures
 
