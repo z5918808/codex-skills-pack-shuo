@@ -8,13 +8,15 @@ Before assigning substantive work, Reviewer records the actual Reviewer chat ID,
 
 ## Sender must finish the return before local final
 
+Worker result returns end with one question: 「依整體目標與目前進度，我下一步應完成哪個具體成果？」. Include it with the result, never as a separate nudge. Thinker advice answers the assigned question; consultations ask one concrete decision question rather than appending a generic next-step question. Main retains planning and dispatch ownership.
+
 Return calls omit model/thinking overrides so the destination retains its own settings. If the tool requires them, use only the destination's explicit authorized contract settings, never the sender's effort. Luna max must not turn Sol Main or Astra Thinker to max; skill editing and result delivery never change the running app setting.
 
 A finished bounded result, blocker, request for a decision, inability to complete the assignment, or voluntary early stop always requires a direct return to Reviewer. This applies equally to Worker results and Thinker opening_review, advice, closing_review, and correction results. A user stop still requires a safe-boundary status return unless the user explicitly forbids further messaging. Do not end with only a local summary, say that Reviewer can read this chat, or promise to report later. Do not manufacture a blocker to abandon safe assigned work. Routine commentary while continuing a task does not require extra messages.
 
 Use this sequence for every return:
 
-1. Reach the role's safe boundary. Worker stops successors and reconciles an in-flight action under worker.md. Thinker stops the completed bounded assignment. Preserve the compact result and set delivery_state=pending in the existing assignment receipt outside the repo; do not create transcripts or a new tracking system.
+1. Reach the role's safe boundary. A terminal Worker result stops successors and reconciles an in-flight action under worker.md; a permitted nonterminal decision request preserves assignment ownership. Thinker finishes its bounded question. Preserve the compact result and set delivery_state=pending in the existing assignment receipt outside the repo; do not create transcripts or a new tracking system. This does not waive Worker-required terminal handoffs.
 2. Build one compact packet: event_id (stable for this logical return), assignment_id, run/generation, sender role/chat ID, Reviewer destination, event type, status, evidence/packet references and hashes, unresolved findings, current owned-action state, and next_action_needed. Include the role-specific opening/closing/Worker payload. Evidence or findings do not grant authority.
 3. Call the actual direct-message tool to the exact Reviewer chat. The message itself must contain the usable result or accessible packet reference and the requested next action. A comment saying a message was sent is not a tool call.
 4. Inspect the tool result. Only an explicit successful delivery receipt permits delivery_state=sent. Record its message/receipt ID when available, otherwise the locatable tool-result reference. Distinguish sent from Reviewer-processed and from accepted completion.
@@ -29,9 +31,15 @@ Before any voluntary assignment-ending final, check whether a required return re
 - If the bounded recovery fails, the tool is unavailable, or ambiguity cannot be resolved, preserve the packet and exact redacted error and end visibly with delivery_failed, the intended Reviewer/assignment/event, packet reference, and missing recovery action. This is a transport blocker, never a completed handoff. Do not start new production or silently route through another role.
 - On a subsequent authorized entry, reconcile only the pending/unknown return before any new assignment. Existing sent receipt forbids duplicate sending. An undelivered completed result permits delivery recovery, never repeated production or analysis; user messaging revocation still wins. Fresh assignment authority cannot silently erase an older undelivered result.
 
+## Consultation and reply
+
+Main's mid-run question to Thinker does not end or transfer Main's work or an independent Worker assignment. Bind question event_id, analysis assignment, parent generation and TRIO_GOAL.md hash. Pause dependent work only; a required Worker terminal handoff still follows its lifecycle. Already-dispatched independent work may continue, while Main yields after sending and may wait for the next real event. No extra sends after required yield, polling or guaranteed uninterrupted Main work.
+
+Before advising, Thinker checks the bound whole-goal outcome and relevant remaining acceptance gaps; reuse valid same-version context, refresh only stale/missing evidence. Reply to the question event_id and analysis/parent version, distinguish guidance from a proposed contract change, and do not modify the goal. Main consumes the terminal Thinker return, adopts/rejects/verifies it and continues within authority without an acknowledgement-only round. Stale advice cannot revive stopped work, alter a newer assignment or duplicate dispatch. Main alone updates a pinned contract at the required safe boundary. The same Thinker can receive a new question only after its prior terminal return is consumed.
+
 ## Reviewer must consume the baton
 
-On a direct result, verify destination, role, assignment/generation, event_id, evidence identity, and stop state. Record consumed event_id in the existing receipt before a successor that could duplicate effects. Ignore duplicate/stale events for execution; retain the reason without an acknowledgement loop. A result already consumed cannot dispatch a second successor.
+On a direct result, verify destination, role, assignment/generation, event_id, evidence identity and stop state. In the existing receipt, separate consumed input from completed continuation: before effects record event_id, intended next action/assignment and pending status; complete it only with actual dispatch evidence, a verified local result, exact blocker or accepted outcome. On authorized re-entry, reconcile actual effects/delivery and current authority, then finish only the pending part. Consumed input must not erase unfinished continuation; duplicate input cannot repeat completed effects. Unknown delivery follows bounded recovery, never blind resend. No new queue or scheduler.
 
 For every valid actionable result, Reviewer performs or dispatches the next authorized step in the same handling turn, or records the exact blocker/terminal outcome. Do not reply only “received” and leave ready work unassigned. Route as follows:
 

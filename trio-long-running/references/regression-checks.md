@@ -1,5 +1,12 @@
 # Trio Long Running Regression Checks
 
+## Efficient planning and communication recovery
+
+- Sol turns reviewed direction into explicit Luna steps, examples and checks; it handles necessary authorized shared repair but does not absorb production. Existing acceptance informs brief/segment changes without scoring, calibration batches or replay. Early useful Thinker advice preserves mandatory opening and risk-triggered review.
+- A mid-run consultation preserves parent ownership and independent Worker work. The Thinker question itself ends with its delivered answer; Main ties the answer to question/assignment/goal version and continues without an acknowledgement round. Advice cannot rewrite a pinned goal or revive stopped work. Main may wait after sending; no invented wake-up or polling.
+- Main is interrupted after consuming a result but before dispatch. Its existing pending continuation survives; on authorized re-entry it checks actual effects and finishes only the missing action. A confirmed send is not repeated; unknown delivery uses bounded recovery. No additional queue or controller.
+- Worker results use the reporting reference's closing question; Thinker answers its concrete question without another generic question. Default Sol-medium/Astra-low/Luna-max recommendations, adaptive route, authority and existing acceptance gates remain unchanged.
+
 ## Opening rejects unnecessary work
 
 - Input: user asks whether each product fits its current category, using title, description and image; Main proposes an exhaustive taxonomy study and full product dossiers first.
