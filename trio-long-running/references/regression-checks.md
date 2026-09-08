@@ -1,5 +1,7 @@
 # Trio Long Running Regression Checks
 
+- Large coupled planning: a cross-module redesign goes to the existing Astra planning owner before Sol develops the whole solution; Sol collects framing facts, then deepens bounded parts. A large fixed-rule item batch alone does not trigger this route. No wait-for-failure requirement, duplicate global analysis, new role, automatic effort increase or transfer of live authority.
+
 ## Efficient planning and communication recovery
 
 - Sol turns reviewed direction into explicit Luna steps, examples and checks; it handles necessary authorized shared repair but does not absorb production. Existing acceptance informs brief/segment changes without scoring, calibration batches or replay. Early useful Thinker advice preserves mandatory opening and risk-triggered review.

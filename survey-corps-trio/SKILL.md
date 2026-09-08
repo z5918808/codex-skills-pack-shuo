@@ -23,6 +23,8 @@ The invoking Astra chat is Main unless the user names another. If it is not Astr
 
 ## Choose work by total completion cost
 
+Large coupled analysis is Erwin/Astra's planning responsibility from the start: interdependent modules, global topology, cross-domain tradeoffs or architecture-wide restructuring. Judge coupling, not item count. Astra sets the framework, priorities and decomposition before Hange deepens bounded parts and guides Levi execution; Hange does not first complete the whole analysis for Astra to redo. This allocation preference changes no effort ceiling, role identity or authority.
+
 Optimize time and effort to an accepted result, including briefing, review and rework. Low Sol usage with slow or incomplete output is not efficiency. Do not lower quality, force Sol participation or claim savings without comparable evidence.
 
 Calibrate through normal work. Hange uses existing result review to distinguish instruction gaps, tool/data problems and role fit, then adjusts its next brief or batch within the pinned scope. Erwin handles escalated direction/ownership decisions. Unknown causes stay unconfirmed. No scorecards, calibration batches/turns, replay of passed work or delay to independent authorized progress.

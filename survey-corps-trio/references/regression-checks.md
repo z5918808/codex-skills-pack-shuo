@@ -1,5 +1,7 @@
 # Regression scenarios
 
+- Large coupled planning: a cross-module redesign goes to the existing Astra planning owner before Sol develops the whole solution; Sol collects framing facts, then deepens bounded parts. A large fixed-rule item batch alone does not trigger this route. No wait-for-failure requirement, duplicate global analysis, new role, automatic effort increase or transfer of live authority.
+
 Static checks for skill edits; they do not prove runtime delivery, effort switching or savings.
 
 - Interrupted continuation: Hange records a consumed Levi event then stops before dispatch. On authorized re-entry, the existing pending continuation is reconciled and finished, not discarded as duplicate input. If dispatch actually succeeded before interruption, use its receipt and do not resend; unknown delivery requires bounded recovery. Stop/hash rules still apply; no new queue or automatic wake-up.
