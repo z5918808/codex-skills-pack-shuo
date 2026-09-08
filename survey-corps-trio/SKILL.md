@@ -13,7 +13,7 @@ Use when explicitly named as survey-corps-trio, Survey Corps/調查兵團 or AOT
 | --- | --- | --- |
 | Erwin / Main, Reviewer | Astra: default low; team leadership may use medium | Research direction, dependencies, priorities, guidance, authorized direct work, final acceptance. |
 | Hange / Thinker, Engineer | Sol medium | Useful bounded research, detailed planning, local repair/tests and review of non-Astra work. |
-| Levi / Worker | Luna max | Sustained authorized execution and verification of assigned non-Astra work; no shared-code repair. |
+| Levi / Worker | Luna max | Execute explicit authorized steps and predefined checks; report results/errors to Astra. No managing, brainstorming, debugging, planning or self-directed correction. |
 
 Names are labels, not roleplay. Keep the same three primary chats; do not manufacture assignments to keep every role busy. No extra reviewers, clones, subagents, CLI agents or substitute controllers without separate authorization. Authorized clones follow the parent routing in [reporting](references/reporting.md).
 
@@ -29,19 +29,19 @@ Astra first reads relevant state and reusable evidence, then identifies the bott
 
 Give Sol the original request, framework, evidence, assumptions, scope and residual questions. Sol deepens its assigned slice and reuses valid findings. It may report contradictory facts encountered during its work and propose a correction; Astra decides direction. This is not a review assignment of Astra's work.
 
-Route corrections by the gap, not a fixed escalation ladder. Levi may fix execution slips; for reasoning or planning gaps, Erwin chooses Hange or direct Astra-low work without waiting for another failure. Hange is optional, never a mandatory intermediate step. On incomplete Sol work, either clarify the passed parts, defect, intended approach/example and acceptance check, or take over at low. Choose by expected quality and total completion cost; hand off only affected work after ownership reconciliation, preserving valid results, authority and acceptance standards.
+Astra owns correction of Levi errors, including execution slips: diagnose the gap, correct locally at low or assign useful Hange work, then give Levi explicit revised execution steps if needed. Levi reports evidence and does not debug or design its own fix. Hange is optional, never a mandatory intermediate step. On incomplete Sol work, clarify the defect, intended approach/example and acceptance check, or take over at low. Choose by total cost and quality; reconcile ownership and preserve valid results, authority and acceptance standards.
 
 The planning owner prepares one executable brief with:
 - Outcome, coverage, acceptance evidence and a plausible wrong result the checks must reject.
 - Inputs, baseline, reusable findings, dependencies, allowed actions/paths and protected state.
-- A coherent autonomous segment, exact limits, ordinary decisions, stop/repair boundaries and recovery.
+- A coherent execution segment, explicit steps/decision rules, exact limits, predefined checks and error/stop boundaries.
 - Verification and the pinned assignment identity, contract/hash and direct return route.
 
 Astra pins the authorized brief. Prove readiness with existing decisive evidence or the smallest isolated/read-only probe; confidence or tool availability alone is insufficient. Missing evidence blocks dependent work only. No extra review round merely for wording.
 
 ## Execution and repair
 
-Luna continues through authorized phases and local checkpoints until its assignment outcome or a real handoff boundary. Use the largest coherent segment supported by authority, evidence and recovery; preserve per-item proof and required semantic checks. Reassess temporary canary limits at eligible handoffs, but never cross an active cap or enlarge scope based only on high pass counts.
+Luna follows the brief through authorized phases and local checkpoints. On an error, ambiguity or failed check, pause affected work and return evidence to Astra; do not diagnose, improvise repairs, retry failed work or replan. Continue only clearly independent steps already specified in the brief. Astra sets segment size and reassesses canary limits at eligible handoffs; preserve per-item proof, predefined checks and exact caps.
 
 A shared defect pauses affected Worker successors. Astra repairs locally at low or assigns Sol one coherent reproduction, correction, regression check and updated brief. Record one writer and explicit scope; preserve user changes and keep affected Luna work quiescent until handback. Sol cannot edit authority, acceptance, stop records, credentials or permissions.
 
