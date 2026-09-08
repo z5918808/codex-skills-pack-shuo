@@ -2,6 +2,8 @@
 
 Static checks for skill edits; they do not prove runtime delivery, effort switching or savings.
 
+- Goal-grounded advice: Hange asks a local question that could distract from the overall outcome. Erwin checks the current contract version/hash, whole goal and remaining acceptance gaps before advising. Same-version valid context is reused; stale/missing context is refreshed only as needed. No blind local optimization, mandatory full reread or extra tracking artifact.
+
 - Incidental calibration: an ordinary batch passes and proceeds without a scoring gate. A failure informs Hange's next in-scope brief or batch size; escalated direction decisions belong to Astra using existing evidence; unknown cause stays unconfirmed. No calibration-only batch, extra reporting turn, replay of passed work or delay to independent authorized work. Luna remains execution-only; acceptance checks stay intact.
 
 - Routing: bare trio remains economy TRIO; explicit 調查兵團 selects this variant. Skill discussion/editing starts no chats. Legacy runs preserve IDs and contract paths until safe hash-pinned adoption.

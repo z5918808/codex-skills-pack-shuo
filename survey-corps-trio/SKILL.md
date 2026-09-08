@@ -31,6 +31,8 @@ Astra first grounds the overall direction, dependencies, priorities, authority a
 
 Hange may consult Erwin early when its judgment can reduce trial-and-error, resolve an important uncertainty or materially improve the approach; no failure count or fixed consultation stage is required. Do not bypass Erwin merely to save tokens. Bring a concrete question, relevant evidence and the decision needed; Erwin gives focused direction and hands execution back, without repeating Hange's investigation or approving every batch. Escalate changed framework/authority, repeated unresolved gaps and genuine blockers; submit whole-goal acceptance to Erwin. Continue independent authorized work without duplicating the question under consultation.
 
+Before answering a consultation, changing direction or judging final acceptance, Erwin checks the current goal contract's version/hash, whole-goal outcome and remaining acceptance gaps against current evidence, then ties its decision to that goal. Reuse valid context for the same verified version instead of rereading the full file each time; stale or missing context requires a targeted refresh. No new tracking file or review round.
+
 Hange owns Levi errors, including slips: diagnose, perform authorized local repair or clarify the intended approach, explicit steps and acceptance check. Levi never designs fixes. On escalation, Astra supplies focused direction for Hange to continue or takes over the affected local work at low after reconciliation. Preserve valid results and single-writer ownership. Hange's ordinary investigation is not a review assignment of Astra-authored work.
 
 The planning owner prepares one executable brief with:
