@@ -1,29 +1,30 @@
 # Return delivery
 
-## User-facing progress
+Read before dispatch, on resume and before an assignment-ending final. Pin this reference in initial and follow-up assignments.
 
-- Required Sol/Luna -> Astra delivery, evidence, acceptance and continuation remain unchanged. Astra advances routine handoffs without extra narration such as “received”, “checking” or “preparing to continue”. This governs Astra-authored updates; the app may still display required cross-chat messages.
-- Combine routine progress into meaningful verified milestones, not every small batch or role transition. Use existing receipts; do not delay execution, add a reporting-only turn, timer or monitor, or repeat unchanged counts and safety status. Follow an explicitly requested reporting cadence and applicable active-turn communication requirements.
-- Promptly report a required user decision, material anomaly, actual work stoppage or completion, with its impact and any needed action. Answer direct progress questions from current evidence. Reduced narration must never conceal these events or weaken internal delivery or verification.
+## Route and packet
 
-## Internal delivery
+Hange/Sol and Levi/Luna report directly to the recorded Erwin destination. End every return with「請指示下一步。」; Erwin chooses the next action. Local finals or promises to send later do not count.
 
-For separately authorized clones, preserve the original three-role input paths: Hange clones -> original Hange -> Erwin; Levi clones -> original Levi -> Erwin. Only the original Hange and Levi deliver their respective role's results to Erwin. Clones never send/copy routine results directly to Erwin or the other primary role, and do not replace their parent as dispatcher or acceptance owner.
+Bind actual destination chat/host, callable direct-message tool, task/run/generation/assignment, rules/hash and compact receipt location. Never infer addresses from titles. Missing return capability blocks dispatch.
 
-Bind each clone's exact parent chat, return tool, assignment and rules/hash before work. The delivery steps below use that parent as destination for clones; primary roles still use Astra. The parent consumes child receipts, reconciles coverage/conflicts and forwards one coherent role-level result with evidence references and unresolved items, not raw transcripts or duplicated analysis. Blocking safety/permission findings are escalated promptly by the parent without waiting for all siblings; partial results are labelled, never presented as complete. Missing parent delivery remains a visible delivery blocker, not permission to bypass the route. Stop/revocation applies to every clone; delivery deduplication, effort preservation, owned-effect reconciliation and original authority boundaries remain required.
+Separately authorized clones report only to their original role owner, which reconciles results and forwards one role-level packet to Erwin. Escalate blocking findings promptly through that parent; missing delivery does not authorize bypassing it. No duplicate forwards, cross-role relay or cloned authority. Stop and hash rules apply throughout.
 
-Return messages omit model/thinking overrides so the destination keeps its own settings. If a tool requires them, use only the destination's explicit user-authorized contract settings, never the sender's effort. Luna max must not turn Astra to max; Astra defaults to low under the skill's effort policy.
+Return calls omit model/thinking overrides. If required by the tool, use the receiver's applicable contract settings, never the sender's effort. Apply the main skill's team-medium/solo-low distinction.
 
-Applies to Sol Thinker and Luna Worker before their first assignment, after resume, and before any assignment-ending final. Astra Reviewer reads this before dispatch and when consuming results.
+## Send once, reconcile failures
 
-The initial assignment must identify the actual destination chat/host (Astra for primary roles, original role owner for clones), callable direct-message tool, task/run/generation, assignment ID, this reference/hash and existing compact receipt location. No inferred destination from titles or history. Missing return capability blocks dispatch; never emulate it with subagents or assume automatic forwarding.
+1. At a safe boundary, preserve the result/blocker/decision packet in the existing receipt: stable event_id, sender/destination, assignment/generation, status, evidence references/hashes, unresolved findings, owned-action state and next_action_needed. Messaging revocation overrides delivery.
+2. Call the assigned direct-message tool with usable results or the accessible packet. Record its explicit success identity or locatable tool result, then end the turn.
+3. A definitively rejected correctable send permits one corrected retry of the same packet. An ambiguous timeout remains unknown: no resend without supported idempotency or proof of non-delivery. event_id alone is not idempotency.
+4. If recovery fails, retain the packet and redacted exact error; finish visibly with delivery_failed, destination/event/assignment and missing recovery action. On the next authorized entry recover pending delivery only; do not repeat completed work or resend a confirmed sent event.
 
-1. For completed work, blockers, a decision request or voluntary early stop, reach the safe role boundary and preserve a compact pending packet in the existing external receipt. Include stable event_id, sender/destination, assignment/generation, event/status, evidence references/hashes, unresolved findings, owned-action state and next_action_needed. User revocation of further messaging overrides reporting.
-2. Actually call the recorded direct-message tool to the assigned destination. Message includes the usable result or accessible evidence packet; a promise to report later is insufficient.
-3. Inspect the result and record explicit successful receipt/message identity or its locatable tool result before marking sent. Then end the turn. Never finish only in the local chat or manufacture a blocker to abandon authorized work.
-4. A definitively rejected, correctable send allows one corrected retry with the same event and packet. An ambiguous timeout/exception stays unknown; do not resend without supported idempotency or evidence of non-delivery. An event_id alone does not provide idempotency. No invented receipt API, polling, or alternate relay role.
-5. If bounded recovery cannot establish delivery, preserve packet and redacted exact error and end visibly with delivery_failed, destination/event/assignment, packet reference and missing recovery action. This is a transport blocker, not handoff completion. On the next authorized entry recover pending delivery only, not completed production/analysis. A successful sent receipt forbids duplicate sending; messaging revocation remains binding.
+Before voluntary final, complete pending returns. After forced interruption, reconcile rather than claiming delivery occurred. Sent does not prove consumed or platform wake-up.
 
-Before voluntary final, the sender checks and completes any required pending return. Forced interruption may prevent this check; reconcile later and never claim it ran. Sent does not prove processed or wake-up.
+## Erwin handling and user updates
 
-Astra validates event identity, role, generation, evidence and stop state and records consumed event_id before an effectful successor. Duplicate/stale events cannot cause duplicate work. Sol analysis/brief leads to Astra decision and eligible Worker dispatch; Sol closing recommendation leads to Astra targeted evidence checks and final verdict; Worker technical handoff leads to a coherent Sol repair assignment or an exact blocker; Sol repair result leads to Astra evidence/authority checks and eligible Luna handback, not Astra reimplementation; Worker completion leads to Sol detailed closing analysis, then Astra acceptance; fix-first leads to correction; ship leads to delivery. Continue authorized steps in the same handling turn until successor dispatch or a real blocker/completion, then yield. No acknowledgement-only response loop, watcher or heartbeat.
+Validate event identity, generation, role, evidence and stop state; record consumption before an effectful successor. Duplicate/stale events cannot repeat work. Choose direct authorized work, useful delegation, eligible Worker dispatch, an exact blocker or evidence-backed completion in that turn. A takeover requires reconciled ownership and the solo-low rule. Follow the main skill's review ownership; never route Astra-authored work to another role for review.
+
+Do not end with only an acknowledgement or promise while a next action is ready. Yield after dispatch; no watcher, polling, heartbeat or repeated nudges.
+
+Combine routine narration into meaningful verified milestones. Do not add reporting-only turns, delay execution for updates or repeat unchanged counts. Promptly report actual stoppage, material anomalies, required user decisions and completion; answer direct status questions from current evidence. Follow requested cadence and active-turn communication requirements. App-visible tool messages are not claimed hidden.
