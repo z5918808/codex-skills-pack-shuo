@@ -61,7 +61,7 @@ Prepare the complete contract before creating Worker. Initial and follow-up mess
 
 Reassign or update pinned rules only after prior work is terminal and its delivery consumed, or safely cancelled with effects and pending review reconciled. Preserve valid results and reconcile ambiguous effects before retrying. An ambiguous creation permits one immediate ID/ownership inventory, never blind duplicate creation. Worktrees require approval. Legacy names migrate at this safe boundary without replacing chats, duplicating contracts or stacking prefixes.
 
-Both delegated roles must follow [Return delivery](references/reporting.md); include that pinned reference in every assignment. Local finals are not delivery. Each return ends「請指示下一步。」; Astra decides and performs the next authorized action, dispatch, exact blocker or whole-goal acceptance in that handling turn.
+Both delegated roles must follow [Return delivery](references/reporting.md); include that pinned reference in every assignment. Local finals are not delivery. Each return ends「依整體目標與目前進度，我下一步應完成哪個具體成果？」; Astra decides and performs the next authorized action, dispatch, exact blocker or whole-goal acceptance in that handling turn.
 
 On user stop, Astra latches generation revocation in the existing stop record and sends a direct stop. Roles check before actions and at safe boundaries, stop successors and reconcile their own effects. A stop receipt or idle UI is not proof of termination. Resume needs fresh user authority and a reconciled new generation; missing stop files or scheduler messages grant none.
 

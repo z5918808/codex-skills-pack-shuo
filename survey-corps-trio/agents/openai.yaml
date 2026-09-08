@@ -1,7 +1,7 @@
 interface:
   display_name: "Survey Corps Trio"
   short_description: "調查兵團：Erwin 主導與自審、Hange 按需協作、Levi 執行"
-  default_prompt: "使用 $survey-corps-trio：Astra 主導方向，一般協作預設 low、可用 medium；單幹、實作及自審只能 low，先核對設定。按完成品質與總成本分工，Sol medium 按需協作，不是必經關卡。Luna max 只執行明確步驟與預定檢查，不管理、腦力激盪、除錯、規劃或自行修正；出錯回報 Astra，由 Astra 診斷、修正或重新派工。Astra 成果只由同一 Astra 自審並完成必要測試。交接維持單一寫入者與 live 權限邊界。Sol／Levi 回報結尾加「請指示下一步。」。"
+  default_prompt: "使用 $survey-corps-trio：Astra 主導方向，一般協作預設 low、可用 medium；單幹、實作及自審只能 low，先核對設定。按完成品質與總成本分工，Sol medium 按需協作，不是必經關卡。Luna max 只執行明確步驟與預定檢查，不管理、腦力激盪、除錯、規劃或自行修正；出錯回報 Astra，由 Astra 診斷、修正或重新派工。Astra 成果只由同一 Astra 自審並完成必要測試。交接維持單一寫入者與 live 權限邊界。Sol／Levi 回報結尾加「依整體目標與目前進度，我下一步應完成哪個具體成果？」。"
 
 policy:
   allow_implicit_invocation: false

@@ -4,7 +4,7 @@ Read before dispatch, on resume and before an assignment-ending final. Pin this 
 
 ## Route and packet
 
-Hange/Sol and Levi/Luna report directly to the recorded Erwin destination. End every return with「請指示下一步。」; Erwin chooses the next action. Local finals or promises to send later do not count.
+Hange/Sol and Levi/Luna report directly to the recorded Erwin destination. End every return with「依整體目標與目前進度，我下一步應完成哪個具體成果？」; Include this one closing question with the result, not as a separate nudge. Erwin supplies the whole-goal context and chooses the next action; Luna gains no planning responsibility. Local finals or promises to send later do not count.
 
 Bind actual destination chat/host, callable direct-message tool, task/run/generation/assignment, rules/hash and compact receipt location. Never infer addresses from titles. Missing return capability blocks dispatch.
 
