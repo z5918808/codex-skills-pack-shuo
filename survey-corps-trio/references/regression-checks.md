@@ -2,6 +2,9 @@
 
 Static checks for skill edits; they do not prove runtime delivery, effort switching or savings.
 
+- Interrupted continuation: Hange records a consumed Levi event then stops before dispatch. On authorized re-entry, the existing pending continuation is reconciled and finished, not discarded as duplicate input. If dispatch actually succeeded before interruption, use its receipt and do not resend; unknown delivery requires bounded recovery. Stop/hash rules still apply; no new queue or automatic wake-up.
+- Consultation waiting: already-dispatched independent Levi work continues while Hange asks Erwin. Hange yields after sending and may wait for a real next entry; do not promise uninterrupted local work, violate yield to send another assignment, or add polling/scheduling to hide this limitation.
+
 - Enable execution: Levi misclassifies routine items. Hange supplies decision rules, positive/negative examples and exception handling, then returns executable work to Levi instead of classifying the entire batch itself. Necessary non-decomposable diagnosis or an understood local repair stays with Hange; no forced trial loop. Preserve accepted items and judge improvement from normal results, not a new scorecard.
 
 - Goal-grounded advice: Hange asks a local question that could distract from the overall outcome. Erwin checks the current contract version/hash, whole goal and remaining acceptance gaps before advising. Same-version valid context is reused; stale/missing context is refreshed only as needed. No blind local optimization, mandatory full reread or extra tracking artifact.

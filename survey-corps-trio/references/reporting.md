@@ -16,6 +16,8 @@ Return calls omit model/thinking overrides. If required by the tool, use the rec
 
 A consultation preserves the current assignment and owner. Identify the question event_id, assignment/generation and contract hash; pause only work dependent on the answer. It does not complete, cancel or replace the assignment. Independent already-authorized work may continue without duplicating the consulted investigation; dispatch/send still yields the current turn, with no polling or artificial wake-ups.
 
+Already-dispatched independent Levi work continues within its brief while Hange consults. Arrange ready independent execution at normal handoffs when feasible, but do not send extra messages after a required yield or delay a useful consultation solely to optimize scheduling. Hange's own independent work may wait for its next actual entry; no guaranteed uninterrupted progress, polling or invented wake-up.
+
 Erwin replies to the question event_id and assignment/version, stating whether direction is unchanged, guidance is added, or a contract change is required. Hange validates the reply against current stop/assignment state, records consumption and continues within existing authority without an acknowledgement-only round. Late/stale replies cannot revive stopped work, alter a newer assignment or duplicate dispatch. Contract changes and actual ownership transfers still require safe lifecycle reconciliation; advice alone does not rewrite a pinned Levi brief.
 
 ## Send once, reconcile failures
@@ -29,7 +31,9 @@ Before voluntary final, complete pending returns. After forced interruption, rec
 
 ## Receiver handling and user updates
 
-Validate event identity, generation, role, evidence and stop state; record consumption before an effectful successor. Duplicate/stale events cannot repeat work. Hange handles routine diagnosis, authorized repair, Levi redispatch and segment acceptance; Erwin gives focused direction for useful early consultations and handles escalated decisions or the whole-goal verdict. For consultation/escalation, include the concrete question, relevant evidence and decision needed; add failed approaches only when they exist. Do not forward routine receipts merely to seek approval. A takeover requires reconciled ownership and the solo-low rule. Follow the main skill's review ownership; never route Astra-authored work to another role for review.
+Validate event identity, generation, role, evidence and stop state. In the existing receipt, distinguish consumed input from completed continuation: record event_id, the intended next action/assignment and its pending status before effects; mark continuation complete only with the actual dispatch receipt, verified local result, exact blocker or accepted completion. On an authorized re-entry after interruption, check current authority and reconcile actual action/send evidence before resuming only unfinished work. A consumed event is not grounds to discard a pending continuation; duplicate input cannot repeat completed effects. An unknown send result follows the bounded delivery-recovery rule, never a blind resend. This uses existing receipts, not another queue or scheduler.
+
+Hange handles routine diagnosis, authorized repair, Levi redispatch and segment acceptance; Erwin gives focused direction for useful early consultations and handles escalated decisions or the whole-goal verdict. For consultation/escalation, include the concrete question, relevant evidence and decision needed; add failed approaches only when they exist. Do not forward routine receipts merely to seek approval. A takeover requires reconciled ownership and the solo-low rule. Follow the main skill's review ownership; never route Astra-authored work to another role for review.
 
 Do not end with only an acknowledgement or promise while a next action is ready. Yield after dispatch; no watcher, polling, heartbeat or repeated nudges.
 
