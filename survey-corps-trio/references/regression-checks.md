@@ -4,6 +4,8 @@
 
 Static checks for skill edits; they do not prove runtime delivery, effort switching or savings.
 
+- Hange final after Levi return: the batch is reviewed but the whole goal is unfinished. With no valid dispatched successor or delivered return awaiting Erwin, Hange must continue eligible work or actually send the result/blocker to Erwin before ending; a local summary or planned dispatch fails. Existing sent consultation/result needs no duplicate send, ambiguous transport uses bounded recovery, and user revocation forbids new work or prohibited messages. No polling or promise of automatic wake-up.
+
 - Interrupted continuation: Hange records a consumed Levi event then stops before dispatch. On authorized re-entry, the existing pending continuation is reconciled and finished, not discarded as duplicate input. If dispatch actually succeeded before interruption, use its receipt and do not resend; unknown delivery requires bounded recovery. Stop/hash rules still apply; no new queue or automatic wake-up.
 - Consultation waiting: already-dispatched independent Levi work continues while Hange asks Erwin. Hange yields after sending and may wait for a real next entry; do not promise uninterrupted local work, violate yield to send another assignment, or add polling/scheduling to hide this limitation.
 

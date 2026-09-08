@@ -1,7 +1,7 @@
 interface:
   display_name: "Survey Corps Trio"
   short_description: "調查兵團：Erwin 定方向、Hange 調度修復、Levi 執行"
-  default_prompt: "使用 $survey-corps-trio：Astra／Erwin 先研究並定框架、權限與驗收；大型跨模組、全局拓樸或跨領域分析先由 Astra 規劃，Hange 深化局部，不先做整體再重做，也不因此升推理強度；Hange／Sol medium 用拆解、示例、判斷規則與驗收引導 Levi，可明確交辦的工作優先由 Levi 完成，Levi／Luna max 只執行明確步驟，成果和錯誤回 Hange。Hange 與 Levi 自行接力，Erwin 的判斷能減少試錯、解開重要疑慮或改善方案時，可提早帶具體問題請教，不必等失敗，也不為省 token 刻意繞過；方向變更、反覆卡關、真正阻擋與整體驗收交 Erwin；Hange 只親自處理難以轉成明確步驟的研究、診斷與必要修復，解開後交回 Levi，不接管整批，也不強迫反覆試錯。Astra 帶隊可 medium，實作及自審僅 low；自己的成果自己審。正常工作順便校準，不加評分回合。回報問句依 reporting 規則；請教只問具體問題，不結束原任務，回覆綁定原問題與版本後直接接續。保留單一寫入者、live 權限及停止規則；DUO 不套用此三角色流程。"
+  default_prompt: "使用 $survey-corps-trio：Astra／Erwin 先研究並定框架、權限與驗收；大型跨模組、全局拓樸或跨領域分析先由 Astra 規劃，Hange 深化局部，不先做整體再重做，也不因此升推理強度；Hange／Sol medium 用拆解、示例、判斷規則與驗收引導 Levi，可明確交辦的工作優先由 Levi 完成，Levi／Luna max 只執行明確步驟，成果和錯誤回 Hange。Hange 與 Levi 自行接力，Erwin 的判斷能減少試錯、解開重要疑慮或改善方案時，可提早帶具體問題請教，不必等失敗，也不為省 token 刻意繞過；方向變更、反覆卡關、真正阻擋與整體驗收交 Erwin；Hange 只親自處理難以轉成明確步驟的研究、診斷與必要修復，解開後交回 Levi，不接管整批，也不強迫反覆試錯。Astra 帶隊可 medium，實作及自審僅 low；自己的成果自己審。正常工作順便校準，不加評分回合。Hange 結束前若整體目標未完、沒有已派出的後續工作或已送出待答回報，須實際回報 Erwin，不得無聲停止；已送出不重送，停止指示優先。回報問句依 reporting 規則；請教只問具體問題，不結束原任務，回覆綁定原問題與版本後直接接續。保留單一寫入者、live 權限及停止規則；DUO 不套用此三角色流程。"
 
 policy:
   allow_implicit_invocation: false
