@@ -19,3 +19,8 @@ Check links, UTF-8, frontmatter/UI fields and unchanged original workflows. Real
 
 - A healthy implementation/check/evidence segment stays in one assignment unless an actual decision, failure, authority change or required approval needs a handoff. Existing caps and stop checks still hold.
 - A successor references accessible current instructions and proof, supplying only deltas. Reuse valid evidence; changed inputs or expired conditions require affected checks, while unchanged accepted work is not replayed.
+
+- Helper tests pass but the real caller fails: readiness remains unproven; verify the actual seam and false-green discriminator without rerunning unchanged coverage.
+- Stop storage fails: direct stop still revokes work, Worker persists terminal state, missing record grants no resume. Stop records remain outside pinned goal/rules.
+- Two completed boundaries show only calls/queue churn: Luna returns prior/current progress evidence without debugging or redefining signals. A healthy bounded synchronous process is not restarted for silence.
+- Cost data is missing: mark unavailable and accept on product evidence; no polling, invented zero tokens, extra Worker report or claimed speedup.
