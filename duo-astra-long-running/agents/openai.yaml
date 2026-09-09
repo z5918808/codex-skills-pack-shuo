@@ -1,7 +1,0 @@
-interface:
-  display_name: "Duo Astra Long Running"
-  short_description: "Astra 定方向、整體檢討與驗收；Luna Max 承擔主要執行"
-  default_prompt: "使用 $duo-astra-long-running：由 Astra 負責方向、整體檢討與驗收，Luna Max 完成主要執行；依目前目標與權限啟動或安全接續雙人長跑。"
-
-policy:
-  allow_implicit_invocation: false

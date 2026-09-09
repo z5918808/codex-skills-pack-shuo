@@ -1,0 +1,4 @@
+interface:
+  display_name: "Duo Run"
+  short_description: "Reviewer-led direction and repair; Luna max execution"
+  default_prompt: "使用 $duo-run：本對話為 Reviewer，先研究方向、依賴與驗收，再交單一固定 Luna max Worker 執行完整明確步驟。Luna 不管理、腦力激盪、除錯或規劃，出錯交 Reviewer。Astra 帶隊預設 low、可用 medium；實作修復與自審只能 low，自己的成果只由同一 Astra 審查並檢驗。正常驗收順便調整派工，不另開校準流程。Worker 回報末尾問「依整體目標與目前進度，我下一步應完成哪個具體成果？」；Reviewer 實際接續，不輪詢、不加第三角色或召喚 Hange，即使 Luna 反覆失敗也由 Reviewer 處理，保留 DUO 生產與權限邊界。"

@@ -98,7 +98,7 @@ done
 
 - `run`：先做足以決定方向的研究，再執行到可驗證結果。這是原 `smart-go` 的新名稱；請使用 `$run`，本包不提供 `go` 或 `smart-go` 別名。它不會自行建立原生 Goal。一般執行可單獨安裝；多輪研究、跨回合接續或高風險操作時，分別按需安裝本包的 `autoresearch`、`project-memory-gate`、`long-running-agent` 或 `risk-preflight`。
 - `minimum-effective-harness-tuning`：精簡 skills、AGENTS.md 與提示詞，同時保留權限和驗收標準。安裝整個同名目錄，包含 `references/`。實際修改 skill 格式時會使用 Codex 內建的 `skill-creator`；若環境沒有它，需先提供相應的格式驗證能力。
-- `duo-long-running`：預設由獨立持續任務執行檔案中的目標契約；只有確認平台能取消原生 Goal 並讀回不存在的證據，才允許使用原生排程。Worker 每次進入都檢查停止紀錄，已停止的工作不因自動續跑而重啟。這是代理協作規則，不能取代平台取消功能，也不會刪掉更新前已存在的 Goal。
+- `duo-run`：預設由獨立持續任務執行檔案中的目標契約；只有確認平台能取消原生 Goal 並讀回不存在的證據，才允許使用原生排程。Worker 每次進入都檢查停止紀錄，已停止的工作不因自動續跑而重啟。這是代理協作規則，不能取代平台取消功能，也不會刪掉更新前已存在的 Goal。
 
 DUO 開跑前由 Reviewer 確認真實入口、最小有效結果，以及能抓出漏項、空結果或舊資料等假成功的驗收方法。已知共享故障先修好，再派正式工作；若任務本身是探索，就派有邊界的探索切片。沿用足夠的既有證據，不要求每次重跑全流程；這項更新不改模型或 effort。
 
@@ -257,7 +257,7 @@ done
 | 要做高風險操作 | [`risk-preflight`](../risk-preflight/) |
 | 要做安全審查 | [`security-review`](../security-review/) |
 | 要跨 task 保存狀態 | [`handoff`](../handoff/) 或 [`resume`](../resume/) |
-| 長任務要有獨立 Runner | [`duo-long-running`](../duo-long-running/) |
+| 長任務要有獨立 Runner | [`duo-run`](../duo-run/) |
 | 想改善 UI | [`impeccable`](../impeccable/) 或 [`critique`](../critique/) |
 | 想用白話理解狀態 | [`question-eli10`](../question-eli10/) |
 | 想讓工程工作流自動選擇目前階段 | [`matt-flow`](../matt-flow/) |
@@ -279,7 +279,7 @@ done
 - 修復 Bug：`diagnose` → `tdd` → `check`
 - 新 repo：`repo-bootstrap` → `security-review`
 - 改善 UI：`critique` → `shape` → `polish`
-- 長任務：`prompt-for-goal` → `duo-long-running` → `handoff`
+- 長任務：`prompt-for-goal` → `duo-run` → `handoff`
 - 高風險工作：`risk-preflight` → 對應領域 skill → `check`
 
 ## 10. Skill 沒有被觸發

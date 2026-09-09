@@ -1,4 +1,4 @@
-# Duo Long Running Regression Checks
+# Duo Run Regression Checks
 
 Use these semantic scenarios when editing or reviewing the skill. Native-goal scenarios cover legacy already-existing goals and cancellation only; they never authorize native creation in new DUO work.
 
@@ -22,7 +22,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 
 ## Subagent API is available but persistent task API is missing
 
-- Input: the user activates `duo-long-running`; `spawn_agent` or another
+- Input: the user activates `duo-run`; `spawn_agent` or another
   child-agent API is available, but persistent `create_thread` / `fork_thread`
   and direct task messaging are unavailable.
 - Required: fail closed and report that DUO cannot start until persistent
@@ -45,7 +45,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 
 ## Invocation chat owns the Reviewer role
 
-- Input: the user activates `duo-long-running` in task A without naming another Reviewer.
+- Input: the user activates `duo-run` in task A without naming another Reviewer.
 - Required: keep task A as the Reviewer and user-facing endpoint, label it `[Reviewer]`, and resolve or create a separate `[Worker]` task.
 - Forbidden: make task A the Worker, create a new Reviewer, or select another Reviewer from task recency or activity.
 
@@ -120,7 +120,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
   file-contract dispatch to that Worker, without a `/goal` trigger.
 - Required replacement behavior: if deletion control is unavailable, or fresh
   state after any success, error, or ambiguous timeout cannot prove absence, do
-  not message the old Worker. Treat `duo-long-running` activation as standing authorization to prove
+  not message the old Worker. Treat `duo-run` activation as standing authorization to prove
   no live controller/writer/mutation remains, create exactly one fresh Worker
   for the same objective, prove it is the sole OWNER, and then archive/retire the
   old Worker. Preserve permissions, safety boundary, workspace, runtime state,

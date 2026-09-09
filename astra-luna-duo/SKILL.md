@@ -1,11 +1,11 @@
 ---
-name: duo-astra-long-running
+name: astra-luna-duo
 description: "Run an explicitly requested Astra/Luna long-running pair: Astra direction, goal-grounded review and acceptance; Luna max performs sustained execution."
 ---
 
-# Duo Astra Long Running
+# Astra Luna Duo
 
-Use for explicit duo-astra-long-running, Astra + Luna Max 雙人長跑, or this named variant. Bare DUO remains duo-long-running; TRIO and Survey Corps keep their own routes. Discussing, creating or editing this skill starts no tasks. This is an independent two-role workflow, not a third-role escalation or a nested DUO controller.
+Use for explicit astra-luna-duo, Astra + Luna Max 雙人長跑, or this named variant. Bare DUO remains duo-run; TRIO and Survey Corps keep their own routes. Discussing, creating or editing this skill starts no tasks. This is an independent two-role workflow, not a third-role escalation or a nested DUO controller.
 
 ## Roles and work allocation
 

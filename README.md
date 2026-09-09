@@ -25,11 +25,11 @@ Copy-Item -LiteralPath ".\diagnose" -Destination $skillsRoot -Recurse -Force
 
 macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](./docs/GETTING_STARTED.md)。
 
-TRIO 長跑需要一起安裝 `trio-long-running`、`duo-brainer` 與 `duo-long-running`：
+TRIO 長跑需要一起安裝 `trio-long-running`、`duo-brainer` 與 `duo-run`：
 
 ```powershell
 $skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
-Copy-Item -LiteralPath ".\trio-long-running", ".\duo-brainer", ".\duo-long-running" -Destination $skillsRoot -Recurse -Force
+Copy-Item -LiteralPath ".\trio-long-running", ".\duo-brainer", ".\duo-run" -Destination $skillsRoot -Recurse -Force
 ```
 
 ## 完整工程工作流
@@ -77,7 +77,7 @@ Copy-Item -LiteralPath ".\trio-long-running", ".\duo-brainer", ".\duo-long-runni
 | [`security-review`](./security-review/) | 以證據建立威脅模型並進行安全審查 |
 | [`risk-preflight`](./risk-preflight/) | Production、secret、bulk、delete 或不可逆操作前 |
 | [`handoff`](./handoff/) | 把可接續的狀態交給下一個 agent 或 task |
-| [`duo-long-running`](./duo-long-running/) | Worker 執行長任務，Reviewer 負責技術救援與獨立驗收；停止指令跨回合保留 |
+| [`duo-run`](./duo-run/) | Worker 執行長任務，Reviewer 負責技術救援與獨立驗收；停止指令跨回合保留 |
 | [`question-eli10`](./question-eli10/) | 想用先結論、白話方式理解複雜問題 |
 
 ## Skill 目錄
@@ -86,7 +86,7 @@ Copy-Item -LiteralPath ".\trio-long-running", ".\duo-brainer", ".\duo-long-runni
 
 [`check`](./check/) ·
 [`checkpoint`](./checkpoint/) ·
-[`duo-long-running`](./duo-long-running/) ·
+[`duo-run`](./duo-run/) ·
 [`durable-authority-resume`](./durable-authority-resume/) ·
 [`explain`](./explain/) ·
 [`find-my-safe-work-island`](./find-my-safe-work-island/) ·

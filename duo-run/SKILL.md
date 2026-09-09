@@ -1,9 +1,9 @@
 ---
-name: duo-long-running
+name: duo-run
 description: Coordinate a persistent Reviewer/Worker pair for a duo long run, 雙 task 長跑, with event handoffs and Reviewer acceptance.
 ---
 
-# Duo Long Running
+# Duo Run
 
 Use this skill for a persistent Reviewer/Worker run. Reviewing or editing the skill itself does not start a run. The project/task contract owns scope, permissions, domain rules, and acceptance; this skill owns coordination.
 
