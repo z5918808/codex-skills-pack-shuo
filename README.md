@@ -32,7 +32,7 @@ $skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
 Copy-Item -LiteralPath ".\trio-long-running", ".\duo-brainer", ".\duo-run" -Destination $skillsRoot -Recurse -Force
 ```
 
-兩種 DUO 都由 Main 直接處理小任務；較大串行工作用一位 Luna max。只有值得並行時才提出 DAG 建議，取得本次任務同意後，最多使用五個 `[Worker A]`–`[Worker E]` 側欄 task。`astra-luna-duo` 使用共用派工契約，請與 `duo-run` 一起安裝：
+兩種 DUO 都由 Main 直接處理小任務；較大串行工作用一位 Luna max。只有值得並行時才提出 DAG 建議，取得本次任務同意後，最多使用五個側欄 task：`[Worker A]` 彙整與回報，`[Worker B]`–`[Worker E]` 執行。A 保留原始結果與逐項證據對照，Reviewer 負責驗收。`astra-luna-duo` 使用共用派工契約，請與 `duo-run` 一起安裝：
 
 ```powershell
 Copy-Item -LiteralPath ".\astra-luna-duo", ".\duo-run" -Destination $skillsRoot -Recurse -Force

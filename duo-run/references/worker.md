@@ -14,6 +14,8 @@ A goal may include several phases. Phase transitions already covered by that goa
 
 ## Event Protocol
 
+For approved parallel work, B–E use the [A reporting relay](dag-workers.md#worker-a-reporting-relay). A follows that reference's nonterminal intermediate-report lifecycle; execution-only production rules below apply to B–E and serial A.
+
 ### Re-entry and stop precedence
 
 Before the first production action of every turn, after a compaction/resume, and before each new batch or external mutation, read the pinned run-level and assignment-level stop records and the Worker's own terminal state. This is a local permission check, not cross-task monitoring. Follow [lifecycle cancellation](lifecycle.md) if either revokes execution. An automatic `continue`, active native goal, older goal text, or successful handoff delivery does not clear a stop. Do not repeat production, verification, handoff delivery, or goal creation after a terminal event merely because a scheduler starts another turn. Only safe reconciliation of an already-started action and a missing stop receipt remain authorized.
@@ -39,7 +41,7 @@ For every terminal event:
 1. Atomically enter `terminal_event_pending`. Stop new claims, refills, and actions.
 2. Let one already-started mutation reach only its required safe reconciliation boundary. Start no successor.
 3. Build the compact packet from that boundary and record process/action liveness and observed side effects.
-4. Call the recorded direct-message tool with the exact Reviewer task and host IDs. End the result message with 「依整體目標與目前進度，我下一步應完成哪個具體成果？」; do not send a separate follow-up question or choose the next task yourself.
+4. Call the recorded direct-message tool with the assigned return task/host IDs: A for parallel producers, Reviewer for serial A. Preserve the immutable source packet path/hash and identity. Only A-to-Reviewer reports or serial returns end with 「依整體目標與目前進度，我下一步應完成哪個具體成果？」. Urgent decisions, stop failures or relay transport failures use the defined direct Reviewer exception; do not choose the next task yourself.
 5. Treat only a successful tool result as delivery.
 6. End the Worker turn immediately. Its local final may only say the event was delivered.
 

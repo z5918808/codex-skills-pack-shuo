@@ -12,11 +12,11 @@ In this coordination context, a user request for duo means this two-role workflo
 ## Roles
 
 - **Reviewer:** the activation chat unless the user names another; retain the user-facing endpoint. Own direction, planning, diagnosis, shared/local repair, authority, lifecycle and acceptance. Verify the actual model is `gpt-5.6-sol` or `gpt-6-astra`; never silently switch or create another Reviewer. For Astra, team research/guidance/review defaults to low and may use medium, never higher; direct implementation/repair and self-review require verified low before work. Preserve a supported Sol setting. Unknown/unavailable setting controls are not proof of compliance. Never inherit Worker production permissions.
-- **Worker:** exactly `gpt-5.6-luna/max`, not a default or fallback. Verify both before new dispatch or reuse; reconcile active work before correcting a legacy mismatch. Execute explicit steps, decision rules and predefined checks across a coherent authorized segment. No managing, brainstorming, debugging, planning or self-directed correction; `shared_self_repair_budget=none`. On error, ambiguity or failed check, pause affected work and report evidence to Reviewer; no improvised retry or repair. Continue only independent steps already specified in the brief.
+- **Worker:** exactly `gpt-5.6-luna/max`, not a default or fallback. Verify both before new dispatch or reuse; reconcile active work before correcting a legacy mismatch. Execute explicit steps, decision rules and predefined checks across a coherent authorized segment. No managing, brainstorming, debugging, planning or self-directed correction; `shared_self_repair_budget=none`. On error, ambiguity or failed check, pause affected work and report evidence through the assigned A/Reviewer return route; no improvised retry or repair. Continue only independent steps already specified in the brief.
 
 ## Task sizing and DAG approval
 
-Before creating tasks, apply [Task sizing and opt-in DAG Workers](references/dag-workers.md): small work stays with Main; substantial serial work uses one Worker; worthwhile independent branches require user DAG approval before using up to five persistent Luna max tasks. This reference owns the shared sizing, slot identity, ready-set dispatch and cancellation contract for both DUO skills.
+Before creating tasks, apply [Task sizing and opt-in DAG Workers](references/dag-workers.md): small work stays with Main; substantial serial work uses one Worker; worthwhile independent branches require user DAG approval before using up to five persistent Luna max tasks. In parallel mode A aggregates original evidence from B–E and reports to Reviewer; A counts toward the five-Worker cap and has no review/dispatch authority. This reference owns shared sizing, evidence-preserving relay, slot identity, ready-set dispatch and cancellation for both DUO skills.
 
 ## Direction and allocation
 
@@ -32,7 +32,7 @@ Optimize total time and effort to accepted quality, including handoffs and rewor
 2. Never use `spawn_agent`, child agents, subagents, local background jobs, or repeated Reviewer turns as the DUO Worker.
 3. Never use `wait_threads`, polling, heartbeat, recurring automation, filesystem polling, or process polling to watch the other task.
 4. For assigned substantial work, the Worker owns production traversal. The Reviewer may diagnose and repair a shared defect with a bounded fixture, but never runs the Worker's full job. The small/direct mode is completed by Main without starting a Worker run.
-5. A Worker-local final is not delivery. A terminal event needs a successful direct-message tool receipt.
+5. A Worker-local final is not delivery. Source-to-A and A-to-Reviewer hops each need actual tool receipts; delivery to A is not Reviewer consumption.
 6. A Worker acceptance claim is not completion. Only the Reviewer may return `ship` after current evidence review.
 7. Never layer a new goal over an unfinished Worker goal.
 8. Never expand scope, permission, credentials, or safety boundaries without the required user gate.
@@ -59,9 +59,9 @@ Read the applicable reference before its action. Do not preload every reference 
 | Worker: prepare acceptance packet; Reviewer: judge it | [Acceptance](references/acceptance.md) |
 | Review/edit this skill only | [Semantic regression scenarios](references/regression-checks.md) |
 
-Worker ends its turn after a return message. Reviewer dispatches the current useful ready set or all required stop messages before yielding, as defined in the DAG contract; neither side waits for a reply. Direct-message delivery may resume the receiver but is not guaranteed wake-up. Delivery failure preserves the undelivered packet and stops locally, never silently becoming completion.
+Execution Workers return to A in parallel mode, or Reviewer in serial mode; A forwards evidence-preserving aggregates to Reviewer. Senders yield after reporting; intermediate A reports do not terminate its relay assignment. Reviewer dispatches the current useful ready set or all required stop messages before yielding, as defined in the DAG contract; neither side waits for a reply. Direct-message delivery may resume the receiver but is not guaranteed wake-up. Delivery failure preserves the undelivered packet and stops locally, never silently becoming completion.
 
-Worker returns end with one question: 「依整體目標與目前進度，我下一步應完成哪個具體成果？」. Send it with the result, never as a separate nudge. Reviewer connects the next assignment to the whole goal and performs the next authorized action or dispatch, or identifies an exact blocker/completion in that handling turn; no acknowledgement-only stop. This grants Luna no planning responsibility and guarantees no platform wake-up.
+A-to-Reviewer aggregates and serial Worker returns end with one question: 「依整體目標與目前進度，我下一步應完成哪個具體成果？」. Send it with the result, never as a separate nudge. Reviewer connects the next assignment to the whole goal and performs the next authorized action or dispatch, or identifies an exact blocker/completion in that handling turn; no acknowledgement-only stop. This grants Luna no planning responsibility and guarantees no platform wake-up.
 
 An explicit user pause or Reviewer stop uses [lifecycle cancellation](references/lifecycle.md); it never creates a replacement. DUO uses one fixed root `DUO_GOAL.md` and only the used fixed per-slot assignment files from the DAG contract, with no native `/goal` or `create_goal`. Root reuse requires all assigned Workers safely stopped and required review resolved; slot reuse reconciles that slot only; see [goal file lifecycle](references/lifecycle.md). Do not create a separate goal file per run or generation. Native-mode procedures cover already-existing native goals, not new DUO dispatches. Resume needs fresh authority and a new generation; a scheduler continuation supplies neither.
 

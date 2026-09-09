@@ -28,3 +28,5 @@ Check links, UTF-8, frontmatter/UI fields and unchanged original workflows. Real
 ## Task sizing and opt-in DAG coverage
 
 Run the eleven [DAG regression fixtures](../../duo-run/references/regression-checks.md#task-sizing-and-opt-in-dag-coverage) against the shared DAG contract, using the DUO_ASTRA root and slot paths. Small work creates zero tasks; substantial serial work uses one Luna max task; user-approved independent beneficial branches use at most five. Check slot-specific lifecycle plus whole-run revocation, event-driven refill and integrated acceptance. The same Astra remains sole Reviewer.
+
+Apply the shared [evidence-preserving relay fixtures](../../duo-run/references/regression-checks.md#evidence-preserving-relay-fixtures): parallel A is a Luna max reporting relay, B–E are producers, all original evidence remains mapped/recoverable, and Astra alone reviews/accepts. Intermediate A reports do not end its relay assignment; user stop reaches every slot directly.

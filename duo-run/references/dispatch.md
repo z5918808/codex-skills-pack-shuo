@@ -40,7 +40,7 @@ Before dispatch, record:
 - scope, permissions, safety boundary, and acceptance criteria;
 - a Reviewer-derived acceptance checklist pinned to the authoritative contract revision/hash, with criterion IDs, thresholds, and required evidence;
 - the pre-run readiness conclusion, baseline/representative-result evidence, and the false-green case the acceptance check rejects;
-- exact direct-message tool;
+- exact direct-message tool, source-to-A and A-to-Reviewer routes for parallel work, plus the direct Reviewer emergency address;
 - `goal_mode=file-contract`, root goal path/hash plus fixed slot `goal_path`/hash, `slot`/`node_id`, run and assignment generations, and separate run/assignment stop-record paths outside goal/rules files; see [lifecycle cancellation](lifecycle.md);
 - a dedup key from `Reviewer task ID + run + slot + node + assignment generation/action + normalized Worker goal`.
 
@@ -90,7 +90,7 @@ shared_self_repair_budget=none; shared repair belongs to the Reviewer.
 Reviewer-defined natural action boundaries, objective-progress signals, last renewed snapshot, and boundary stall window.
 Known false-block condition and bounded local process-wait rule.
 Acceptance checklist reference/hash and criterion IDs.
-Reviewer task ID, host ID, event types, and exact direct-message tool.
+Reviewer task/host IDs and emergency address; ordinary return task/host IDs (A for parallel producers); relay assignment/roster identity, event types and exact direct-message tool.
 Terminal delivery requires a successful tool receipt; a local final is not delivery.
 Only a defined event may stop the run.
 ```

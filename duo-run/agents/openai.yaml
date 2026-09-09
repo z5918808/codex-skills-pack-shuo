@@ -1,4 +1,4 @@
 interface:
   display_name: "Duo Run"
   short_description: "Main handles small work; opt-in DAG uses up to 5 Luna max tasks"
-  default_prompt: "使用 $duo-run：小任務由 Main 直接完成；較大串行工作用一位 Luna max，適合並行時先建議分工並詢問使用者，取得本次 DAG 同意後才自動派出最多五個 Luna max 側欄 Worker task，由現有 Reviewer 派工、處理問題與驗收。"
+  default_prompt: "使用 $duo-run：小任務由 Main 直接完成；較大串行工作用一位 Luna max，適合並行時先建議分工並詢問使用者，取得本次 DAG 同意後才自動派出最多五個 Luna max 側欄 Worker task，由現有 Reviewer 派工、處理問題與驗收。並行時由 Worker A 保留原始證據、統一彙整 B–E 的結果後回報 Reviewer，A 計入五位上限。"

@@ -4,6 +4,8 @@ Worker: read to build the acceptance packet; Reviewer: read when it arrives. Del
 
 Reviewer records the [lightweight cost note](lifecycle.md#lightweight-cost-record) alongside the existing review result; it does not alter acceptance criteria or require extra Worker reporting.
 
+Parallel results arrive through [A's evidence-preserving aggregate](dag-workers.md#worker-a-reporting-relay). Reviewer checks original-source coverage and consequential evidence; only the Reviewer decides acceptance. Source delivery to A is not consumption. Required raw packets and criterion mappings remain accessible; missing or contradictory input cannot be summarized into a pass. Reconcile A's final manifest and relay closure before whole-goal ship.
+
 ## Acceptance Review
 
 Apply [whole-goal DAG acceptance](dag-workers.md): a slot pass releases eligible successors but is not ship. Review all root criteria, integrated output and every slot's effects/receipts before whole-goal ship; one late or missing branch remains incomplete.

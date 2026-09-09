@@ -98,7 +98,7 @@ done
 
 - `run`：先做足以決定方向的研究，再執行到可驗證結果。這是原 `smart-go` 的新名稱；請使用 `$run`，本包不提供 `go` 或 `smart-go` 別名。它不會自行建立原生 Goal。一般執行可單獨安裝；多輪研究、跨回合接續或高風險操作時，分別按需安裝本包的 `autoresearch`、`project-memory-gate`、`long-running-agent` 或 `risk-preflight`。
 - `minimum-effective-harness-tuning`：精簡 skills、AGENTS.md 與提示詞，同時保留權限和驗收標準。安裝整個同名目錄，包含 `references/`。實際修改 skill 格式時會使用 Codex 內建的 `skill-creator`；若環境沒有它，需先提供相應的格式驗證能力。
-- `duo-run` / `astra-luna-duo`：小任務由 Main 直接完成；較大串行工作使用一位 Luna max。適合並行時先提出分工並詢問，取得本次 DAG 同意後才派出最多五個 Luna max 側欄 task，依前置成果驗收結果補位。`astra-luna-duo` 須與 `duo-run` 一起安裝以取得共用契約。新工作使用固定根目標與各 Worker 的可重用檔案契約，不建立原生 Goal。Worker 檢查整體與個別停止紀錄；這些協作規則不會取消更新前已存在的原生排程。
+- `duo-run` / `astra-luna-duo`：小任務由 Main 直接完成；較大串行工作使用一位 Luna max。適合並行時先提出分工並詢問，取得本次 DAG 同意後才派出最多五個 Luna max 側欄 task：A 彙整並保留原始證據，B–E 執行，Reviewer 驗收後依依賴補位。緊急決策、停止及彙整傳送失敗保留直接回報 Reviewer 的途徑。`astra-luna-duo` 須與 `duo-run` 一起安裝以取得共用契約。新工作使用固定根目標與各 Worker 的可重用檔案契約，不建立原生 Goal。Worker 檢查整體與個別停止紀錄；這些協作規則不會取消更新前已存在的原生排程。
 
 DUO 開跑前由 Reviewer 確認真實入口、最小有效結果，以及能抓出漏項、空結果或舊資料等假成功的驗收方法。已知共享故障先修好，再派正式工作；若任務本身是探索，就派有邊界的探索切片。沿用足夠的既有證據，不要求每次重跑全流程；這項更新不改模型或 effort。
 

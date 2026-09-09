@@ -410,8 +410,8 @@ These are static reasoning fixtures, not observed multi-task runs.
 
 1. A typo, a short answer or a localized config fix: zero tasks/contracts, Main completes proportionate verification.
 2. A substantial dependency chain or shared writer: one Worker, no artificial branches.
-3. Seven useful independent ready nodes after explicit DAG approval: only five reserved/assigned slots; the other two remain ready, including when a creation receipt is uncertain.
-4. A completes while B–E run and F depends only on A: after acceptance and safe slot reuse, dispatch F without a whole-wave barrier.
+3. Seven useful independent ready nodes after explicit DAG approval: A is reserved for aggregation, at most B–E execute four nodes, and three remain ready. Ambiguous creations still reserve their slots; never add F.
+4. B completes node X while C–E run and node Y depends only on X: A forwards the actionable evidence; after Reviewer acceptance and safe B reuse, dispatch Y on B without a whole-wave barrier. A stays the relay.
 5. A and B require the same mutable file/live resource: disjoint prep may run; conflicting writes and integration are serialized.
 6. A fails: Reviewer repairs/rebriefs A and its dependents; independent B continues. Duplicate A receipts cause no repeated effects.
 7. A assignment file is reused while B runs: B's root/assignment hashes remain unchanged; old A cannot adopt the new generation.
@@ -419,3 +419,13 @@ These are static reasoning fixtures, not observed multi-task runs.
 9. Whole-goal evidence misses one branch or integration: no ship despite green local Worker summaries.
 10. Parallel candidate without DAG approval: suggest the recommended split and ask; no parallel task creation. A bare skill invocation, silence or elapsed time is not approval. Existing goal-scoped DAG approval permits refills without repeated questions.
 11. Skill edit, unsupported task API or unavailable Luna max: no live maintenance dispatch, no subagent/model substitute; independent authorized preparation continues.
+
+## Evidence-preserving relay fixtures
+
+- B reports pass and C reports a contradictory failed result: A preserves both packets/hashes and criterion mappings, highlights the conflict, and cannot choose a winner or report overall pass.
+- B and C arrive while D remains running: A accounts for received events and marks D pending; actionable dependencies go to Reviewer without waiting for D or polling.
+- One source omits a test, includes an unresolved effect, or has an unreadable artifact: A marks that gap, never converts absence into pass, and retains its source identity. Reviewer cannot ship without required coverage.
+- Same event/hash arrives twice: preserve receipt history and include the source once. Same ID with a different hash or distinct sources with similar wording remain visible conflicts/distinct evidence.
+- A reports an intermediate aggregate and another source event arrives: A remains in its authorized relay assignment, handles only unconsumed events, and does not create a new goal or repeat acknowledged output.
+- A is unavailable or user stops the run: source Workers retain the direct Reviewer route for the stated exceptions; run revocation reaches A and B–E directly. Ambiguous delivery is reconciled by event identity, not blind replay.
+- Final sources are green but A has an unaccounted event or unflushed result: no ship. Reviewer's whole-goal criteria and source evidence remain the acceptance authority.
