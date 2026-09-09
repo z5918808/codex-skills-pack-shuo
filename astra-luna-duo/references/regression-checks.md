@@ -16,3 +16,6 @@ Static scenarios; no live dispatch, model compliance or savings claim follows fr
 Check links, UTF-8, frontmatter/UI fields and unchanged original workflows. Real multi-task behavior and usage remain unverified until an authorized run.
 
 - Latest handoff contradicts an earlier decision: locate original evidence, check present validity and resolve the conflict before dependent action. Review next-segment consequences and recurring cost without reviving old authority, rereading all history or inventing a new roadmap.
+
+- A healthy implementation/check/evidence segment stays in one assignment unless an actual decision, failure, authority change or required approval needs a handoff. Existing caps and stop checks still hold.
+- A successor references accessible current instructions and proof, supplying only deltas. Reuse valid evidence; changed inputs or expired conditions require affected checks, while unchanged accepted work is not replayed.
