@@ -1,18 +1,22 @@
 ---
 name: duo-run
-description: Coordinate a persistent Reviewer/Worker pair for a duo long run, 雙 task 長跑, with event handoffs and Reviewer acceptance.
+description: "DUO execution: Main handles small tasks; substantial work uses one Luna max task or up to five with user-approved DAG, with Reviewer acceptance."
 ---
 
 # Duo Run
 
-Use this skill for a persistent Reviewer/Worker run. Reviewing or editing the skill itself does not start a run. The project/task contract owns scope, permissions, domain rules, and acceptance; this skill owns coordination.
+Use this skill for Reviewer-led execution with appropriately sized Worker tasks with opt-in DAG. Reviewing or editing the skill itself does not start a run. The project/task contract owns scope, permissions, domain rules, and acceptance; this skill owns coordination.
 
-In this coordination context, a user request for duo means this two-role workflow, never Survey Corps escalation. Do not summon Hange/Sol as an additional role, even after repeated Luna failures; the existing Reviewer owns diagnosis and repair. A Sol activation chat may remain Reviewer under the role rules, but is not a third participant.
+In this coordination context, a user request for duo means this two-role workflow, never Survey Corps escalation. Do not summon Hange/Sol as an additional role, even after repeated Luna failures; the existing Reviewer owns diagnosis and repair. A Sol activation chat may remain Reviewer under the role rules, but is not an additional Reviewer.
 
 ## Roles
 
 - **Reviewer:** the activation chat unless the user names another; retain the user-facing endpoint. Own direction, planning, diagnosis, shared/local repair, authority, lifecycle and acceptance. Verify the actual model is `gpt-5.6-sol` or `gpt-6-astra`; never silently switch or create another Reviewer. For Astra, team research/guidance/review defaults to low and may use medium, never higher; direct implementation/repair and self-review require verified low before work. Preserve a supported Sol setting. Unknown/unavailable setting controls are not proof of compliance. Never inherit Worker production permissions.
 - **Worker:** exactly `gpt-5.6-luna/max`, not a default or fallback. Verify both before new dispatch or reuse; reconcile active work before correcting a legacy mismatch. Execute explicit steps, decision rules and predefined checks across a coherent authorized segment. No managing, brainstorming, debugging, planning or self-directed correction; `shared_self_repair_budget=none`. On error, ambiguity or failed check, pause affected work and report evidence to Reviewer; no improvised retry or repair. Continue only independent steps already specified in the brief.
+
+## Task sizing and DAG approval
+
+Before creating tasks, apply [Task sizing and opt-in DAG Workers](references/dag-workers.md): small work stays with Main; substantial serial work uses one Worker; worthwhile independent branches require user DAG approval before using up to five persistent Luna max tasks. This reference owns the shared sizing, slot identity, ready-set dispatch and cancellation contract for both DUO skills.
 
 ## Direction and allocation
 
@@ -24,17 +28,17 @@ Optimize total time and effort to accepted quality, including handoffs and rewor
 
 ## Non-Negotiable Invariants
 
-1. Use exactly one persistent Reviewer task and one persistent Worker task.
+1. Keep one Reviewer. Use zero Workers for small direct work, otherwise one to five persistent Luna max Worker slots under the linked allocation contract.
 2. Never use `spawn_agent`, child agents, subagents, local background jobs, or repeated Reviewer turns as the DUO Worker.
 3. Never use `wait_threads`, polling, heartbeat, recurring automation, filesystem polling, or process polling to watch the other task.
-4. The Worker owns production traversal. The Reviewer may diagnose and repair a shared defect with a bounded fixture, but never runs the Worker's full job.
+4. For assigned substantial work, the Worker owns production traversal. The Reviewer may diagnose and repair a shared defect with a bounded fixture, but never runs the Worker's full job. The small/direct mode is completed by Main without starting a Worker run.
 5. A Worker-local final is not delivery. A terminal event needs a successful direct-message tool receipt.
 6. A Worker acceptance claim is not completion. Only the Reviewer may return `ship` after current evidence review.
 7. Never layer a new goal over an unfinished Worker goal.
 8. Never expand scope, permission, credentials, or safety boundaries without the required user gate.
 9. A stop from the user or Reviewer revokes the current generation. Persist and check its stop record on every Worker entry, including automatic continuation; an active native goal is not permission to resume.
 
-If persistent task lifecycle or direct task messaging is unavailable, fail closed. Do not emulate DUO with a subagent. If DUO mistakenly used a subagent, stop only that subagent before its next action, keep read-only observations as non-authoritative, and restart with one persistent Worker.
+If required persistent task lifecycle or direct task messaging is unavailable, block Worker dispatch; small/direct work does not require those capabilities. Do not emulate DUO with a subagent. If DUO mistakenly used a subagent, stop only that subagent before its next action, keep read-only observations as non-authoritative, and restart the affected assignment with one persistent Worker slot.
 
 ## Authority and Acceptance
 
@@ -55,11 +59,11 @@ Read the applicable reference before its action. Do not preload every reference 
 | Worker: prepare acceptance packet; Reviewer: judge it | [Acceptance](references/acceptance.md) |
 | Review/edit this skill only | [Semantic regression scenarios](references/regression-checks.md) |
 
-After any cross-task goal, handoff, repair result, decision, or event message, the sender ends its turn. The next direct message resumes the receiver; neither side waits for a reply. Delivery failure preserves the undelivered packet and stops locally, never silently becoming completion.
+Worker ends its turn after a return message. Reviewer dispatches the current useful ready set or all required stop messages before yielding, as defined in the DAG contract; neither side waits for a reply. Direct-message delivery may resume the receiver but is not guaranteed wake-up. Delivery failure preserves the undelivered packet and stops locally, never silently becoming completion.
 
 Worker returns end with one question: 「依整體目標與目前進度，我下一步應完成哪個具體成果？」. Send it with the result, never as a separate nudge. Reviewer connects the next assignment to the whole goal and performs the next authorized action or dispatch, or identifies an exact blocker/completion in that handling turn; no acknowledgement-only stop. This grants Luna no planning responsibility and guarantees no platform wake-up.
 
-An explicit user pause or Reviewer stop uses [lifecycle cancellation](references/lifecycle.md); it never creates a replacement. DUO uses one reusable `DUO_GOAL.md` at a fixed workspace path, with no native `/goal` or `create_goal`. The Reviewer may overwrite or delete it only after the prior Worker is safely stopped and required review is resolved; see [goal file lifecycle](references/lifecycle.md). Do not create a separate goal file per run or generation. Native-mode procedures cover already-existing native goals, not new DUO dispatches. Resume needs fresh authority and a new generation; a scheduler continuation supplies neither.
+An explicit user pause or Reviewer stop uses [lifecycle cancellation](references/lifecycle.md); it never creates a replacement. DUO uses one fixed root `DUO_GOAL.md` and only the used fixed per-slot assignment files from the DAG contract, with no native `/goal` or `create_goal`. Root reuse requires all assigned Workers safely stopped and required review resolved; slot reuse reconciles that slot only; see [goal file lifecycle](references/lifecycle.md). Do not create a separate goal file per run or generation. Native-mode procedures cover already-existing native goals, not new DUO dispatches. Resume needs fresh authority and a new generation; a scheduler continuation supplies neither.
 
 ## Status Reads
 
@@ -91,11 +95,11 @@ End DUO only when:
 
 Before reporting completion, verify:
 
-- neither task owns a cross-task wait or monitor;
+- no participant owns a cross-task wait or monitor;
 - the Reviewer owns no duplicate Worker command;
-- there is one Worker OWNER and no duplicate controller/writer;
-- both titles still have the right prefixes;
-- the last terminal event has a successful direct-message receipt;
+- each assignment has one Worker OWNER, at most five slots are reserved/assigned, and no resource has conflicting writers;
+- Reviewer and all used Worker slot titles have the right prefixes;
+- every required terminal event has a successful direct-message receipt and has been consumed;
 - for accepted completion, packet revision/hash, `ship`, and no post-verdict change all match.
 
 Report the delivered outcome first. Keep lifecycle noise out of the user-facing result.

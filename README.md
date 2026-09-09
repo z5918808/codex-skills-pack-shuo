@@ -32,6 +32,12 @@ $skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
 Copy-Item -LiteralPath ".\trio-long-running", ".\duo-brainer", ".\duo-run" -Destination $skillsRoot -Recurse -Force
 ```
 
+兩種 DUO 都由 Main 直接處理小任務；較大串行工作用一位 Luna max。只有值得並行時才提出 DAG 建議，取得本次任務同意後，最多使用五個 `[Worker A]`–`[Worker E]` 側欄 task。`astra-luna-duo` 使用共用派工契約，請與 `duo-run` 一起安裝：
+
+```powershell
+Copy-Item -LiteralPath ".\astra-luna-duo", ".\duo-run" -Destination $skillsRoot -Recurse -Force
+```
+
 ## 完整工程工作流
 
 需要從需求釐清一路做到驗證交付時，可以安裝完整的 Matt 工程工作流。它不會強迫每次都跑完整流水線，而是由 `matt-flow` 依目前狀態選擇最近且足夠的階段。
@@ -77,7 +83,7 @@ Copy-Item -LiteralPath ".\trio-long-running", ".\duo-brainer", ".\duo-run" -Dest
 | [`security-review`](./security-review/) | 以證據建立威脅模型並進行安全審查 |
 | [`risk-preflight`](./risk-preflight/) | Production、secret、bulk、delete 或不可逆操作前 |
 | [`handoff`](./handoff/) | 把可接續的狀態交給下一個 agent 或 task |
-| [`duo-run`](./duo-run/) | Worker 執行長任務，Reviewer 負責技術救援與獨立驗收；停止指令跨回合保留 |
+| [`duo-run`](./duo-run/) | 小任務 Main 直接做；同意 DAG 後最多五位 Luna max，Reviewer 負責修正與整體驗收 |
 | [`question-eli10`](./question-eli10/) | 想用先結論、白話方式理解複雜問題 |
 
 ## Skill 目錄
@@ -86,6 +92,7 @@ Copy-Item -LiteralPath ".\trio-long-running", ".\duo-brainer", ".\duo-run" -Dest
 
 [`check`](./check/) ·
 [`checkpoint`](./checkpoint/) ·
+[`astra-luna-duo`](./astra-luna-duo/) ·
 [`duo-run`](./duo-run/) ·
 [`durable-authority-resume`](./durable-authority-resume/) ·
 [`explain`](./explain/) ·

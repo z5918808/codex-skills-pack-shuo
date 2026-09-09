@@ -8,9 +8,9 @@ Read for goal reuse/replacement, dead transport, or explicit pause. All fresh go
 
 New DUO runs never create native goals. The native procedures below apply only to already-existing native goals. Native scheduler state and the file-backed contract are separate. Never delete the contract file, edit thread-store data, mark incomplete work complete, or misuse `blocked` to simulate cancellation.
 
-## One Reusable Goal File
+## Reusable Root and Slot Goal Files
 
-Use one fixed absolute workspace path, default `<workspace>/DUO_GOAL.md`, for the temporary current goal. Respect an explicitly selected existing path. Do not create a new goal file per run/generation, timestamped goal copies, or a goal archive as a prerequisite for reuse. The project canonical state remains the long-term authority; this file records only the current bounded objective.
+Use one fixed root `<workspace>/DUO_GOAL.md` and fixed per-slot assignment paths under [the DAG contract](dag-workers.md). In the procedures below, Worker goal reuse means that slot assignment; root replacement requires every slot reconciled. A one-slot replacement is not a limit on independent slots. Respect an explicitly selected existing path. Do not create a new goal file per run/generation, timestamped goal copies, or a goal archive as a prerequisite for reuse. The project canonical state remains the long-term authority; this file records only the current bounded objective.
 
 Reviewer is the only writer. Before dispatch, write the objective, deliverables, scope/permissions, acceptance criteria, stop conditions, run/generation, and applicable authority/reference paths. Read back and pin its SHA256 in the dispatch message; it is immutable only while that generation executes or awaits review.
 
@@ -47,10 +47,10 @@ Use the same one-Worker replacement path only when the old Worker is terminal or
 
 ## Cancellation: User Pause or Reviewer Stop
 
-Applies to `stop`, `暫停`, `先停`, stop-DUO, or a Reviewer cancellation/retirement instruction. A temporary handoff is also quiescent through the Worker's terminal OWNER state; it cannot automatically restart production.
+Applies to `stop`, `暫停`, `先停`, stop-DUO, or a Reviewer cancellation/retirement instruction. User stop-DUO first revokes the run-level record and dispatch, then applies these steps to every nonterminal or uncertain slot before yielding. An explicitly targeted assignment stop affects only that assignment and dependents. Workers check both run and assignment revocation. A temporary handoff is also quiescent through the Worker's terminal OWNER state; it cannot automatically restart production.
 
 1. Before sending the stop packet, Reviewer writes a durable record to the generation's pinned `stop_record_path`: `run_id`, `generation`, `worker_thread_id`, `requested_by`, `requested_at`, `state=stop_requested`, and reason. Reviewer is its only writer; it is separate from immutable rules/goal hashes. Read it back. Never clear or reuse it for another generation. If writing fails, still send the stop packet and disclose the failure; missing storage does not permit continued work.
-2. Send exactly one stop packet naming this record and generation, then end without waiting or polling. Delivery is a request receipt, not stopped-goal proof.
+2. Send exactly one stop packet per targeted assignment naming its record and generation; finish the required stop set before yielding, without waiting or polling. Delivery is a request receipt, not stopped-goal proof.
 3. Worker persists `stopped_by_user` or `stopped_by_reviewer` in its own OWNER before cancellation/delivery attempts. Stop new claims/actions; reconcile or safely stop only already-started task-owned work. Preserve user/unknown processes. A direct stop is effective even if the Reviewer record cannot yet be read; Worker terminal state remains authoritative for its revoked work.
 4. In file-contract mode, verify no task-owned process or successor remains and report `worker_stopped`, `goal_mode=file-contract`, and `native_goal=not_created` only when actually known. An unexpected active native goal must use the next step; it cannot be hidden by the mode label.
 5. In native mode, call the actually available cancellation interface, then read native goal state fresh. Only cancellation plus explicit absence proof permits `worker_goal_deleted` / `active_goal_none`. Cancellation failure or unavailable API yields `worker_goal_delete_blocked`, current goal state and side effects. Keep the stop latched; do not mark complete/blocked, archive, or delete files as a substitute.

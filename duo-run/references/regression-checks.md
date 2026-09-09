@@ -12,7 +12,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 
 - Input: one goal authorizes discovery followed by execution; later acceptance identifies a bounded correction.
 - Required: keep the same Worker, tailor evidence to each applicable phase, and use lifecycle-approved redispatch for the correction after the terminal event. Shared-code repair remains Reviewer-owned.
-- Forbidden: mandatory phase handoffs, another Worker, automatic post-terminal continuation, or interpreting execution/correction as shared-repair permission.
+- Forbidden: mandatory phase handoffs, another Worker for the same serial segment, automatic post-terminal continuation, or interpreting execution/correction as shared-repair permission.
 
 ## Cost evidence is partial
 
@@ -52,7 +52,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 ## Reviewer model and effort support
 
 - Required: Astra team research/guidance/review uses low or medium; local implementation/repair and self-review require verified low. High and above block dependent work until corrected through a supported setting control. Preserve the invoking Reviewer; Sol remains allowed with a supported setting.
-- Worker is exactly `gpt-5.6-luna/max` for creation and reuse, never merely a default. Reconcile active legacy work before correcting a mismatch. No alternate Worker model, silent setting change or third task.
+- Worker is exactly `gpt-5.6-luna/max` for creation and reuse, never merely a default. Reconcile active legacy work before correcting a mismatch. No alternate Worker model, silent setting change or additional Reviewer; up to five qualified Worker slots are permitted.
 
 ## Direction, execution-only work and incidental calibration
 
@@ -199,7 +199,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 ## Acceptance evidence is incomplete or stale
 
 - Input: `acceptance_complete` omits a required field or hash, or its generation/revision conflicts with referenced state.
-- Required: return `fix-first` or `rethink`, name the failed evidence boundary, and end the Reviewer turn after any Worker message.
+- Required: return `fix-first` or `rethink`, name the failed evidence boundary, and finish the current ready dispatch set and then end the Reviewer turn.
 - Forbidden: return `ship`, infer proof from a summary, run the full Worker job, or create a third reviewer.
 
 ## Work changes after an acceptance verdict
@@ -401,3 +401,21 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 - Forbidden: infer resume permission from the filename, reuse an old hash, clear stop records, or start native scheduling.
 
 The skill fails review if any scenario permits a subagent Worker, cross-task waiting or polling, unauthorized Reviewer takeover, a third persistent reviewer, accepted completion based only on a Worker-local final or delivery receipt, Worker-controlled acceptance criteria, Worker advice overriding authority, automatic resumption of a revoked generation, production readiness based only on administrative checks, per-generation goal files, unsafe goal overwrite/deletion, or native goal creation for new DUO work.
+
+## Task sizing and opt-in DAG coverage
+
+Apply [the shared DAG contract](dag-workers.md) to the eleven static fixtures below. Earlier singular-Worker cases apply per slot; fixed goal paths refer to slot assignments plus the root contract, and `[Worker]` title expectations use the slot prefix. No whole-run single-Worker limit is implied. Verify that small maintenance creates zero tasks, dependent work stays serial, unapproved parallel work creates no parallel tasks, and approved ready work uses no more than five reservations, slot reuse preserves other hashes, and whole-run stop reaches all slots.
+
+These are static reasoning fixtures, not observed multi-task runs.
+
+1. A typo, a short answer or a localized config fix: zero tasks/contracts, Main completes proportionate verification.
+2. A substantial dependency chain or shared writer: one Worker, no artificial branches.
+3. Seven useful independent ready nodes after explicit DAG approval: only five reserved/assigned slots; the other two remain ready, including when a creation receipt is uncertain.
+4. A completes while B–E run and F depends only on A: after acceptance and safe slot reuse, dispatch F without a whole-wave barrier.
+5. A and B require the same mutable file/live resource: disjoint prep may run; conflicting writes and integration are serialized.
+6. A fails: Reviewer repairs/rebriefs A and its dependents; independent B continues. Duplicate A receipts cause no repeated effects.
+7. A assignment file is reused while B runs: B's root/assignment hashes remain unchanged; old A cannot adopt the new generation.
+8. User stops while slots are pending: run revocation prevents new dispatch and all entries, with unknown task effects reported, not declared stopped.
+9. Whole-goal evidence misses one branch or integration: no ship despite green local Worker summaries.
+10. Parallel candidate without DAG approval: suggest the recommended split and ask; no parallel task creation. A bare skill invocation, silence or elapsed time is not approval. Existing goal-scoped DAG approval permits refills without repeated questions.
+11. Skill edit, unsupported task API or unavailable Luna max: no live maintenance dispatch, no subagent/model substitute; independent authorized preparation continues.

@@ -6,6 +6,8 @@ Reviewer records the [lightweight cost note](lifecycle.md#lightweight-cost-recor
 
 ## Acceptance Review
 
+Apply [whole-goal DAG acceptance](dag-workers.md): a slot pass releases eligible successors but is not ship. Review all root criteria, integrated output and every slot's effects/receipts before whole-goal ship; one late or missing branch remains incomplete.
+
 Astra-authored work is reviewed only by the same Astra, at low. Do not send it to Luna, Sol or another Reviewer for review, approval or independent validation. Astra runs or inspects relevant tests and contract evidence itself; self-review is not independent model review. Worker may execute a repaired production route under a fresh explicit goal and return facts, but does not review the repair. Missing acceptance evidence still prevents ship.
 
 The Worker delivers:

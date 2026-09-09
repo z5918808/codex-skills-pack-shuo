@@ -1,7 +1,7 @@
 interface:
   display_name: "Astra Luna Duo"
-  short_description: "Astra 定方向、整體檢討與驗收；Luna Max 承擔主要執行"
-  default_prompt: "使用 $astra-luna-duo：由 Astra 負責方向、整體檢討與驗收，Luna Max 完成主要執行；依目前目標與權限啟動或安全接續雙人長跑。"
+  short_description: "Astra handles small work; opt-in DAG uses up to 5 Luna max tasks"
+  default_prompt: "使用 $astra-luna-duo：小任務由 Astra 直接完成；較大串行工作用一位 Luna max，適合並行時先建議分工並詢問使用者，取得本次 DAG 同意後才自動派出最多五個 Luna max 側欄 Worker task，Astra 負責方向、修正設計與整體驗收。"
 
 policy:
   allow_implicit_invocation: false
