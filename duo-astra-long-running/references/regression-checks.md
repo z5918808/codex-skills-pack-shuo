@@ -14,3 +14,5 @@ Static scenarios; no live dispatch, model compliance or savings claim follows fr
 - Acceptance needs whole-goal evidence and actual delivery/consumption/effect reconciliation; compact proof is not sampling away coverage.
 
 Check links, UTF-8, frontmatter/UI fields and unchanged original workflows. Real multi-task behavior and usage remain unverified until an authorized run.
+
+- Latest handoff contradicts an earlier decision: locate original evidence, check present validity and resolve the conflict before dependent action. Review next-segment consequences and recurring cost without reviving old authority, rereading all history or inventing a new roadmap.
