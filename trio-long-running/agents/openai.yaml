@@ -1,4 +1,4 @@
 interface:
   display_name: "Trio Long Running"
-  short_description: "預設 Sol medium 主持、Astra low 顧問、Luna max 執行"
-  default_prompt: "使用 $trio-long-running，建議預設 Sol medium 主對話、Astra low Thinker、Luna max Worker，但保留目前所選主對話模型與推理強度；Sol 主對話預設配 Astra low，Astra 主對話配 Sol high。顧問推理強度可由使用者明確指定，三個角色各用獨立 Codex 對話，禁止 subagents，以直接訊息回報，Sol 以原始目標、事實、假設、脈絡陷阱、優先事項與最早共同原因的短格式交棒；Astra 直接做開場釐清與重大重思，不必另讀 step-back-and-think；大型跨模組、全局拓樸或跨領域規劃先由現有 Astra 主導，Sol 只先收集定題事實再深化局部，不等失敗或做完再重做；不因此升推理強度。Sol 用明確步驟、示例與驗收引導 Luna，負責必要修復，不接管生產；正常驗收順便改善派工，不另開校準流程。請教不結束原任務，回覆綁定問題與目標版本；中斷後核對既有 receipt，只補未完成接續。高風險、證據衝突、重複失敗原因未解、重大判斷未解或明訂要求時，才交同一 Astra 審查相關範圍；保留必要證據，不得越過 Astra 未解決的否決或既有綁定要求。"
+  short_description: "Main 負責覆核，獨立 Astra Thinker 僅供支援"
+  default_prompt: "使用 $trio-long-running：保留目前 Main 模型與強度，無論 Main 是什麼都另起或重用 Astra medium 獨立 Thinker task，但 Thinker 僅提供分析支援，所有 readiness、修復與結案覆核由 Reviewer/Main 決定；Luna max 負責持續執行，TRIO 全面禁止 subagents。"

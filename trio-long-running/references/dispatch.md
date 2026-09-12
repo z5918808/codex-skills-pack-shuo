@@ -1,32 +1,40 @@
 # Dispatch
 
-Reviewer: read before dispatch. For reuse or replacement, first satisfy [lifecycle](lifecycle.md); a fresh task uses this document directly.
+Reviewer: read before dispatch. Establish Main's identity using [the entrypoint's identity rule](../SKILL.md#establish-mains-identity-without-changing-the-thinker), not its role title or historical route. Main identity is recorded but never selects or replaces the Thinker. For reuse or replacement, first satisfy [lifecycle](lifecycle.md); a fresh task uses this document directly.
 
 ## Visible Role Labels
 
-Apply each title when its independent chat ID exists; do not wait for all three chats to be created:
+Use `[Reviewer]`, `[Thinker]`, and `[Worker]` for the three independent tasks, preserving their base titles. Titles identify roles, never actual models. Missing title control is not a substitute for missing task identity.
 
-- `[Reviewer] <base title>` — Main / coordinator (default Sol medium)
-- `[Thinker] <base title>` — opening clarification, advice, and closing verification (default Astra low)
-- `[Worker] <base title>` — production (default Luna max)
+## Independent Thinker dispatch
 
-Remove one existing role prefix before adding the correct one. Never stack or swap prefixes. Astra keeps [Thinker] during closing verification; its review responsibility does not rename it [Reviewer]. Keep the same Thinker chat and prefix across opening, advice, and closing. Keep the meaningful base title. For a new Worker, put `ROLE: Worker` first in its initial prompt, create it once, then title it.
+Every Main pairs with one separate persistent user-visible `gpt-6-astra` Thinker task, default effort medium. Preserve explicit supported Astra effort overrides. Main cannot satisfy or replace this support role, even when Main is Astra. Thinker is never a Reviewer, readiness owner, acceptance owner, or clearance gate. Never use a subagent or CLI substitute for Thinker support.
 
-Take one immediate inventory/title snapshot to verify task IDs and titles. This is lifecycle verification, not Worker monitoring. If title control is unavailable, do not block valid work; put `ROLE: Reviewer`, `ROLE: Thinker`, or `ROLE: Worker` first in the next packet and report the missing title capability once.
+Before dispatch, require `python C:\Users\user\.codex\scripts\verify_subagents_disabled.py` to pass, then apply the actual model gate to the independent-task route and current task-bound invocation/approval evidence. A gate named `subagent_model_gate.py` does not authorize native child dispatch. The Thinker must have a stable task ID whose exact-ID read matches the expected role and workspace. A positive ordinary-list match can discover a task, but list omission cannot invalidate an exact-ID match. Missing supported task creation, direct messaging, exact-ID identity, or model capability blocks that dependent question; do not invent a fallback.
 
-## Mandatory Astra opening
+Reuse the existing Thinker after its previous assignment is terminal, delivered, ingested and effects reconciled. When creation is needed, use the supported task tool with explicit selected model/effort and a complete bounded initial assignment. Discover the project first; use the approved saved local project for read-only repo analysis, never an unapproved worktree. Reconcile ambiguous creation once; retain one Thinker OWNER and never retry from task-list omission alone.
 
-Apply SKILL.md's plan-level opening rule: normal phases and new assignment generations within the reviewed plan reuse the locatable opening result. Check its coverage and current readiness; a new generation alone never requires a new advisor call. The opening procedure below applies to an unreviewed plan or a materially changed slice. Sol maintains the Worker brief for ordinary transitions directly; only the relevant new assumptions or decisions return to Astra.
+Keep substantive support research in that independent Thinker task so Main need not load the research conversation. Reuse its relevant accumulated findings across planning, mid-run investigation, and zoomout; a new question or phase is not a reason to create a new Thinker. Main supplies the original outcome and constraints initially, then sends changed facts, failed attempts, current evidence references and the precise support question with the current complete contract reference. Do not copy either role's full transcript, repeat settled research, or use subagents to protect Main's context.
 
-Before dependent production, use the SKILL.md mandatory opening stage. With Sol Main, dispatch the draft Worker brief, original request, relevant current evidence, boundaries, and the short fixed reframing prompt in SKILL.md to the single Astra Thinker through duo-brainer, then end the turn. Resume from its direct opening_review result. Record Astra task identity, result receipt, readiness, proposed criteria, and unresolved gaps in the existing goal/dispatch artifact. Main pins the in-scope checklist; resolve discovery-needed with bounded evidence and Astra follow-up before dependent production. A prompt or Sol-only readiness judgment cannot substitute for this stage. Preserve the same Astra task for any risk-triggered closing review; routine closure belongs to Main under acceptance.md. With Astra Main, perform this stage directly.
+Thinker returns only decision-relevant advice, reasons, options, assumptions, unresolved uncertainty and locatable evidence under the existing compact reporting contract. It never returns `ready`, `ship`, `fix-first`, `rethink`, approval, clearance, or a review verdict. Main verifies the advice and owns every decision. Retain necessary reproducible research evidence once and reference it; avoid duplicating raw logs or scratch reasoning into Main or repo notes. Persistence is not unlimited memory: after compaction or changed evidence, recover the needed sources, recheck affected assumptions and explicitly supersede stale findings. Neither prior conversation nor model capability supplies missing facts or current authority.
+
+Include `task_id / role / scope / permissions / rules_ref / rules_hash / state_version / next_action`, original outcome, question ID, relevant evidence and unresolved findings, actual Main task/return tool, and stopping condition. Initial support binds the existing draft/dispatch revision; later work binds the current goal generation/hash. Thinker is read-only except required support artifacts and direct result delivery: no review verdict, shared repair, production, or further delegation.
+
+Ask for one coherent decision bundle: recommendation, reasons, material assumptions, what to omit, decomposition where needed, decisive verification and unresolved findings. Main ends its turn after dispatch. Thinker sends its result through [reporting](reporting.md) with a successful tool receipt before local final; reuse that task for later scoped questions.
+
+## Main-owned opening with Astra support
+
+Apply SKILL.md's Main-owned opening rule. Main reviews the plan, readiness, and acceptance evidence; normal phases and new assignment generations reuse that locatable Main review when it remains current. A new generation alone never requires a Thinker call. Main maintains the Worker brief for ordinary transitions directly and sends only a bounded unresolved support question to the independent Astra Thinker when useful.
+
+TRIO activation still launches or reuses the independent Astra Thinker task regardless of Main's model, but this never transfers review authority. If a bounded opening support question is assigned, send the original request, relevant evidence, boundaries, and the short reframing prompt; consume its advisory result and record its identity/receipt separately from Main's decision. Main may adopt, reject, or verify the advice, then records readiness and pins the checklist from its own review. Do not send a Thinker assignment merely to approve wording, a deterministic repair, or Main's completed review. Main-owned readiness and acceptance never require Astra clearance.
 
 ## Worker brief for sustained execution
 
-Before refining the brief, Thinker challenges its necessity: state the user's actual outcome, delete unsupported prerequisites, identify the minimum sufficient inputs, and separate consequential uncertainties from details the Worker can decide. Do not inherit Main's proposed traversal or evidence burden as a user requirement. Name the concrete user outcome or safety invariant protected by each additional prerequisite; omit unsupported additions. Main checks this scope boundary before pinning acceptance.
+Before refining the brief, Main challenges its necessity: state the user's actual outcome, delete unsupported prerequisites, identify the minimum sufficient inputs, and separate consequential uncertainties from details the Worker can decide. Thinker may support a genuinely unresolved judgment, but its advice does not establish the brief or acceptance. Do not inherit a proposed traversal or evidence burden as a user requirement. Name the concrete user outcome or safety invariant protected by each additional prerequisite; omit unsupported additions.
 
 When current placement or content may already be suitable, use a keep-or-correct route if it meets the request. Retrieve additional data or alternatives only when they can change that item's decision. Do not make a full taxonomy study, complete product dossier, or unrelated-field audit a default prerequisite. Use a few representative cases to prove the method rejects meaningful errors, then let Worker complete the required coverage. Sampling proves the method, not completion of unreviewed items.
 
-Sol prepares this compact brief in the existing goal/dispatch artifact and includes the draft or its accessible reference in Astra's mandatory opening assignment. When key facts are still unknown, mark the corresponding part unresolved; Astra frames the smallest discovery needed instead of inventing an executable plan. Astra's opening result checks the brief and proposes targeted corrections; Sol incorporates them before dispatch. The brief is required content, not a new schema or an instruction to fill empty boilerplate.
+Main prepares and reviews this compact brief in the existing goal/dispatch artifact. When key facts are still unknown, mark the corresponding part unresolved; Main may ask the Thinker to suggest the smallest discovery needed instead of inventing an executable plan. Main verifies any suggestions before dispatch. The brief is required content, not a new schema or an instruction to fill empty boilerplate.
 
 | Brief content | What Luna must be able to determine |
 | --- | --- |
@@ -37,13 +45,13 @@ Sol prepares this compact brief in the existing goal/dispatch artifact and inclu
 | Verification and recovery | Appropriate checks, expected results/tolerances, evidence to retain, how to avoid repeating completed effects, and the existing stop/shared-defect escalation conditions. |
 | Return contract | Reviewer chat/tool, assignment/generation, pinned reporting.md, required result/blocker payload, and direct delivery before local final. |
 
-During opening, Astra asks: Can Luna start without repeating broad investigation or guessing a consequential decision? Can it tell success from a false green? Is the segment large enough to complete useful work without per-step approvals, yet bounded by known dependencies and permission? Are ordinary execution choices distinguished from shared defects and authority changes? Is the return route explicit? Report concrete gaps and the cheapest decisive evidence, not a full duplicate implementation or a rewrite for style.
+During opening review, Main asks: Can Luna start without repeating broad investigation or guessing a consequential decision? Can it tell success from a false green? Is the segment large enough to complete useful work without per-step approvals, yet bounded by known dependencies and permission? Are ordinary execution choices distinguished from shared defects and authority changes? Is the return route explicit? If Astra support is used, request concrete gaps and the cheapest decisive evidence, not a verdict, full duplicate implementation, or rewrite for style.
 
-Before dispatch, Sol resolves material gaps and confirms the final brief preserves Astra's reviewed assumptions and criteria. Bundle independent or sequential work only when the same authorized contract and safe boundaries cover it; do not enlarge a live/bulk action merely to reduce messages. Do not issue “continue” with no executable objective. On correction, supply the specific delta plus the current complete contract reference, not a replacement transcript. A complete revised acceptance packet is still required at closing, even when the correction prompt is concise.
+Before dispatch, Main resolves material gaps and confirms the final brief and criteria with its own evidence-based review. Thinker advice may inform but never approve them. Bundle independent or sequential work only when the same authorized contract and safe boundaries cover it; do not enlarge a live/bulk action merely to reduce messages. Do not issue “continue” with no executable objective. On correction, supply the specific delta plus the current complete contract reference, not a replacement transcript. A complete revised acceptance packet is still required at closing, even when the correction prompt is concise.
 
 ## Reviewer Pre-run Readiness
 
-The brief names why its segment must return, what current evidence would permit a larger successor, and the authorized ceiling. Local checkpoints alone do not end an assignment. Preserve small execution batches, per-item proof and required independent semantic review while avoiding unnecessary terminal handoffs. At the next eligible handoff, reassess a temporary canary ceiling instead of copying it forever. Enlarge only when relevant failure modes are controlled and coverage, dependencies, recovery and authority remain adequate; high pass counts alone, automatic doubling, or a universal batch count are insufficient. New source shapes, unresolved semantic patterns or contradictory evidence require reassessing the affected scope. Main pins any larger segment through a reconciled successor contract, never across an active cap; only material unreviewed decisions return to Astra, without a sizing-only review round.
+The brief names why its segment must return, what current evidence would permit a larger successor, and the authorized ceiling. Local checkpoints alone do not end an assignment. Preserve small execution batches, per-item proof and proportionate semantic review while avoiding unnecessary terminal handoffs. At the next eligible handoff, reassess a temporary canary ceiling instead of copying it forever. Enlarge only when relevant failure modes are controlled and coverage, dependencies, recovery and authority remain adequate; high pass counts alone, automatic doubling, or a universal batch count are insufficient. New source shapes, unresolved semantic patterns or contradictory evidence require Main to reassess the affected scope. Main pins any larger segment through a reconciled successor contract, never across an active cap; it may request bounded Astra support for an unresolved material judgment, without a sizing-only review round.
 
 Before assigning production, the Reviewer establishes that the proposed route can produce the user's result and that acceptance can reject a plausible wrong result. A complete prompt, valid hashes, installed tools, or a healthy process alone do not prove readiness.
 
@@ -61,11 +69,11 @@ A deterministic shared defect belongs to [Reviewer repair](repair.md) before pro
 
 ## Required return route for both delegated roles
 
-Read [reporting](reporting.md) and pin its path/hash in every Worker and Thinker assignment. Include actual Reviewer destination, callable tool, assignment/generation, and compact receipt location in the initial message. Require direct result delivery before local final for all outcomes. Opening, closing, advice, and corrections use the same rule; no reliance on automatic forwarding. Missing return route blocks the dependent dispatch.
+Read [reporting](reporting.md) and pin its path/hash in each assignment. Worker and Thinker require an actual Reviewer destination and callable direct-message tool. Both roles require actual direct-message delivery before local final. Record actual receipt and consumption separately. Missing role-appropriate return capability blocks dependent dispatch.
 
 ## Execution owner before dispatch
 
-For production or recovery, identify executor=Worker in the existing assignment alongside the exact action, target, no-write preview evidence when required, and actual permission reference. Reviewer preparing or approving the packet does not execute it. A combined preview/apply command must be separated or proven in an isolated fixture before Reviewer use. Follow the SKILL.md repair/execution boundary and repair.md handback for repaired routes. Astra readiness and user authorization are separate checks.
+For production or recovery, identify executor=Worker in the existing assignment alongside the exact action, target, no-write preview evidence when required, and actual permission reference. Reviewer preparing or approving the packet does not execute it. A combined preview/apply command must be separated or proven in an isolated fixture before Reviewer use. Follow the SKILL.md repair/execution boundary and repair.md handback for repaired routes. Thinker advice is neither readiness nor user authorization.
 
 ## Start and Exactly-Once Dispatch
 
@@ -76,10 +84,10 @@ Before dispatch, record:
 - Worker model and effort;
 - workspace and authoritative resume entrypoint;
 - scope, permissions, safety boundary, and acceptance criteria;
-- an Astra-opening-derived, Main-pinned acceptance checklist pinned to the authoritative contract revision/hash, with criterion IDs, thresholds, and required evidence;
+- a Main-reviewed and Main-pinned acceptance checklist tied to the authoritative contract revision/hash, with criterion IDs, thresholds, and required evidence; note any Astra advice separately without treating it as authority;
 - the pre-run readiness conclusion, baseline/representative-result evidence, and the false-green case the acceptance check rejects;
 - exact direct-message tool;
-- `goal_mode=file-contract`, the fixed absolute `TRIO_GOAL.md` path, its SHA256, a unique `run_id`/`generation`, and absolute `stop_record_path` outside the goal/rules files; see [lifecycle cancellation](lifecycle.md);
+- `goal_mode=file-contract`, the fixed absolute `TASK_GOAL.md` path, its SHA256, a unique `run_id`/`generation`, and absolute `stop_record_path` outside the goal/rules files; see [lifecycle cancellation](lifecycle.md);
 - a dedup key from `Reviewer task ID + authority generation/action + normalized Worker goal`.
 
 Use the entrypoint authority rules for the checklist. Read [Worker execution](worker.md) to define the progress boundaries, event delivery, and local process contract before constructing the goal. Pin the entrypoint and applicable reference files by absolute path and SHA256, including the Worker's later acceptance and pause procedures. Each role reads a reference only when its workflow is needed, verifying the pinned hash before the governed action. A missing or mismatched reference stops that action for handoff, not silent use of a newer file.
@@ -90,13 +98,13 @@ In `file-contract` mode the persistent Worker executes the complete task normall
 
 Then:
 
-1. Resolve the existing persistent Worker or select one supported user-visible creation route. Prepare and hash the goal in steps 2–3 before calling creation in step 4.
-2. Before creation, write the complete executable goal to the fixed workspace `TRIO_GOAL.md`: mission, authority, scope, permissions, acceptance checklist, stop conditions, Reviewer address, and event contract. Apply the lifecycle reuse checks before overwriting an existing goal. Reviewer is its only writer; read back and hash the final UTF-8 file.
+1. Reuse the existing exact-ID persistent Worker when lifecycle permits. Select a supported user-visible creation route only when no reusable Worker satisfies the lifecycle criteria; a new assignment, phase, generation, idle state, or task-list omission does not justify replacement. Prepare and hash the goal in steps 2–3 before calling creation in step 4.
+2. Before creation, write the complete executable goal to the fixed workspace `TASK_GOAL.md`: mission, authority, scope, permissions, acceptance checklist, stop conditions, Reviewer address, and event contract. Apply the lifecycle reuse checks before overwriting an existing goal. Reviewer is its only writer; read back and hash the final UTF-8 file.
 3. The initial prompt contains `ROLE: Worker`, mission, authority, hard boundary, goal path+SHA256, run/generation, and an instruction to verify and read the complete file before acting. This applies to goals of any size. Never create a setup-only Worker, depend on a later goal message, or create dated/per-generation goal copies.
 4. Call the creation primitive at most once for the dedup key.
-5. Treat timeout, exception, missing receipt, or `Unknown projectId` as ambiguous. Take exactly one immediate `list_threads` inventory. Match by Reviewer ID, dedup or prompt fingerprint, creation window, workspace, and authority.
+5. Treat timeout, exception, missing receipt, or `Unknown projectId` as ambiguous. Take exactly one immediate `list_threads` inventory. Match by Reviewer ID, dedup or prompt fingerprint, creation window, workspace, and authority. A match is positive evidence; omission is not proof that creation did not occur.
 6. If a match exists, dispatch succeeded. Do not retry. Keep exactly one OWNER. Send each duplicate a `terminal_event_pending / duplicate_worker_retired` stop packet before it consumes an action. Archive it only after the receipt proves no controller or writer started.
-7. Use one fallback creation path only when the inventory proves no match exists. Keep the same dedup key.
+7. If the inventory returns no match, keep creation ambiguous and stop dependent dispatch without retry or fallback creation. Resume only from a later authoritative creation result or an exact stable task ID that resolves to the matching task.
 8. Before the OWNER consumes the canonical action, prove at most one matching controller tree and one writer WIP. A non-owner that sees an in-flight action stops; it never waits on or inspects the OWNER.
 9. Apply the role titles. For a newly created or replacement Worker only, take one immediate `read_thread` snapshot to prove its turn started and identify the OWNER.
 10. End the Reviewer turn. Do not wait for completion.
@@ -107,13 +115,13 @@ Do not call native goal APIs to assign a token budget. Counts such as “one Wor
 
 ## Worker Goal Shape
 
-Use this compact shape in `TRIO_GOAL.md`, referenced by the fresh Worker's initial prompt or one authorized follow-up to an existing Worker. Apply [lifecycle](lifecycle.md) first: file reuse requires the prior generation's stopped state, no in-flight side effects, and resolved review. If an old native goal exists, reconcile it before file-contract dispatch; do not require deletion of a nonexistent native goal:
+Use this compact shape in `TASK_GOAL.md`, referenced by the fresh Worker's initial prompt or one authorized follow-up to an existing Worker. Apply [lifecycle](lifecycle.md) first: file reuse requires the prior generation's stopped state, no in-flight side effects, and resolved review. If an old native goal exists, reconcile it before file-contract dispatch; do not require deletion of a nonexistent native goal:
 
 ```text
 ROLE: Worker
 
 goal_mode: file-contract
-goal_path: <fixed absolute workspace path to TRIO_GOAL.md>
+goal_path: <fixed absolute workspace path to TASK_GOAL.md>
 run_id / generation / absolute stop_record_path
 
 Workspace and authoritative resume entrypoint.
@@ -147,4 +155,4 @@ repair shared seam
 → do not change pinned canonical state until the Worker terminal event
 ```
 
-Put task IDs and creation/title/archive receipts in the external dispatch receipt. Keep `TRIO_GOAL.md` unchanged while its generation is active or awaiting acceptance. A missing file or changed hash stops dependent work for reconciliation; never adopt the new contents automatically. Record the failed identity/hash in the existing receipt, safely stop the old generation, and apply lifecycle reuse before writing a fresh goal at the same path. A file mismatch alone does not require replacing the Worker task or making an archival goal copy.
+Put task IDs and creation/title/archive receipts in the external dispatch receipt. Keep `TASK_GOAL.md` unchanged while its generation is active or awaiting acceptance. A missing file or changed hash stops dependent work for reconciliation; never adopt the new contents automatically. Record the failed identity/hash in the existing receipt, safely stop the old generation, and apply lifecycle reuse before writing a fresh goal at the same path. A file mismatch alone does not require replacing the Worker task or making an archival goal copy.
