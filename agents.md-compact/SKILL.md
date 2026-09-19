@@ -10,7 +10,7 @@ Use this skill to turn a bloated project `AGENTS.md` into a compact, durable ins
 ## Scope Guard
 
 1. Default scope is project/repo only.
-2. Do not edit global `~/.codex/AGENTS.md`, `%USERPROFILE%\.codex\AGENTS.md`, or another user-level instruction file unless the user explicitly says `global`, `全域`, `user-level`, or names that path.
+2. Do not edit global `~/.codex/AGENTS.md`, `C:\Users\user\.codex\AGENTS.md`, or another user-level instruction file unless the user explicitly says `global`, `全域`, `user-level`, or names that path.
 3. If multiple project instruction files exist, inspect the discovery chain and choose the relevant repo-local file closest to the working directory; if the target is ambiguous, report candidates and ask or make the smallest safe project-local change.
 4. Preserve project-specific build/test/deploy commands, architecture notes, environment constraints, and safety gates unless they are duplicated elsewhere in a clearly referenced project doc or skill.
 
@@ -32,7 +32,7 @@ Remove or move:
 - long explanations of why a rule exists
 - generic coding advice Codex already knows
 - stale tool/version details
-- repeated browser/CLI/DB/vendor-platform/PowerShell SOPs that belong in skills
+- repeated browser/CLI/DB/Shopify/PowerShell SOPs that belong in skills
 - historical reports, handoff essays, examples that are not runtime rules
 - duplicated rules that appear in both global and project guidance
 

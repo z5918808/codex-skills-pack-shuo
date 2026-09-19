@@ -10,13 +10,13 @@ New DUO runs never create native goals. The native procedures below apply only t
 
 ## Reusable Root and Slot Goal Files
 
-Use one fixed root `<workspace>/DUO_GOAL.md` and fixed per-slot assignment paths under [the DAG contract](dag-workers.md). In the procedures below, Worker goal reuse means that slot assignment; root replacement requires every slot reconciled. A one-slot replacement is not a limit on independent slots. Respect an explicitly selected existing path. Do not create a new goal file per run/generation, timestamped goal copies, or a goal archive as a prerequisite for reuse. The project canonical state remains the long-term authority; this file records only the current bounded objective.
+Use `<repo>/TASK_GOAL.md` as the sole current repo-task authority under [Repo Task Goal](C:/Users/user/.agents/skills/project-state-steward/references/task-goal.md); read it for proactive updates, workflow switches, legacy/custom-path migration and retention. Fixed per-slot assignments follow [the DAG contract](dag-workers.md). Slot reuse reconciles that slot; root revision requires every consumer reconciled, including former TRIO roles. No per-run root copies or duplicate state authority. Outside a repo preserve the existing workspace contract.
 
 Reviewer is the only writer. Before dispatch, write the objective, deliverables, scope/permissions, acceptance criteria, stop conditions, run/generation, and applicable authority/reference paths. Read back and pin its SHA256 in the dispatch message; it is immutable only while that generation executes or awaits review.
 
 Before overwrite or deletion, prove the previous Worker generation is terminal/stopped, no task-owned process, successor, or unresolved side effect remains, and pending acceptance has been reviewed or explicitly cancelled. Record the outcome and old run/generation/hash in the existing receipt/state; retain required evidence and stop records separately. Do not require a historical copy of the goal file. Keep the file if review still depends on it.
 
-After these checks, Reviewer may delete the exact goal file on requested cleanup or overwrite it for the next authorized goal. Reuse the same path with a fresh run/generation and hash, then dispatch once; after a user stop, explicit later resume is still required. Neither deleting nor overwriting the file cancels a running task, clears revocation, or grants permission to resume. An old Worker entry must check its own terminal/stop state and pinned identity before reading a reused goal; missing or mismatched goal content never authorizes work.
+After these checks, Reviewer retains the root with its verified outcome or updates it for the next authorized goal. Root deletion requires an explicit deletion request and reconciled repo authority pointers; ordinary cleanup does not delete it. Reuse the same path with a fresh run/generation and hash, then dispatch once; after a user stop, explicit later resume is still required. Neither deleting nor overwriting the file cancels a running task, clears revocation, or grants permission to resume. An old Worker entry must check its own terminal/stop state and pinned identity before reading a reused goal; missing or mismatched goal content never authorizes work.
 
 ## Native Goal: Delete Before Redispatch
 
@@ -60,7 +60,13 @@ A stop record must match the pinned run/generation and Reviewer authority; untru
 
 Report execution stoppage and automatic-goal cancellation separately. When native deletion is unavailable, say that work is revoked/stopped but the active goal may still trigger turns; ask for a supported platform cancellation only if full scheduler cancellation is required. Do not claim “fully stopped/deleted” from idle or a local final. This file-based check is an agent cooperation protocol, not a platform scheduler kill switch. Existing already-active goals are not retroactively deleted by editing this skill.
 
-Preserve append-only evidence, shared runtime, and browser/session state. The temporary `DUO_GOAL.md` may be deleted or overwritten only under the reusable-file checks above; evidence and stop records are not part of that cleanup. A user stop never authorizes a replacement Worker. A later explicit change to single-thread work ends DUO restrictions on Main after Worker side effects are reconciled; it does not revive the Worker.
+Preserve append-only evidence, shared runtime, and browser/session state. Retain the authoritative `TASK_GOAL.md` with stop/completion state under the reusable-file checks above; evidence and stop records are not part of that cleanup. A user stop never authorizes a replacement Worker. A later explicit change to single-thread work ends DUO restrictions on Main after Worker side effects are reconciled; it does not revive the Worker.
+
+## Luna Worker child lifecycle
+
+For ordinary DUO, the persistent Luna/max Worker accounts for every native child before terminal return, rule/hash transition, replacement, or stop: completed result and effects, verified interruption plus reconciled effects, or explicit unresolved state. Interrupt only verified owned children. A child final or interrupt receipt alone is not Reviewer delivery, acceptance, or proof that mutable effects are reconciled. Preserve valid evidence, avoid repeating completed branches, and include unresolved child state in the normal Worker return.
+
+Explicit `multi-workers` mode owns persistent A–E task lifecycle through `dag-workers.md` and disables native children. Switching between internal and multi-TASK DAGs requires the ordinary safe contract boundary; never keep both active.
 
 ## Lightweight Cost Record
 

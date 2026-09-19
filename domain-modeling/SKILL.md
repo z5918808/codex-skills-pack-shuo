@@ -1,6 +1,6 @@
 ---
 name: domain-modeling
-description: Build a project domain model, ubiquitous language, glossary, and architectural decisions.
+description: Build or sharpen a project's domain model, ubiquitous language, and architectural decisions.
 ---
 
 # Domain Modeling

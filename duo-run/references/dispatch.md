@@ -1,6 +1,8 @@
 # Dispatch
 
-Reviewer: read before dispatch after applying [automatic sizing](dag-workers.md). The creation/OWNER steps below apply per slot and assignment; fill the useful ready set before yielding. For reuse or replacement, first satisfy [lifecycle](lifecycle.md); a fresh task uses this document directly.
+Reviewer: read before dispatch after sizing the work under the entrypoint. The creation/OWNER steps below apply to the ordinary single persistent Worker, or per slot only when explicit `multi-workers` is active. For reuse or replacement, first satisfy [lifecycle](lifecycle.md); a fresh task uses this document directly.
+
+Ordinary DUO creates one persistent Luna/max Worker and pins the shared internal DAG contract. Read `dag-workers.md` for slot allocation only when explicit `multi-workers` is active; that route disables native children and retains its existing approval and A–E task topology.
 
 ## Visible Role Labels
 
@@ -36,6 +38,7 @@ Before dispatch, record:
 - Reviewer task ID and host ID when available;
 - actual Reviewer model and effort;
 - Worker model and effort, verified exactly `gpt-5.6-luna/max` under the applicable model/task gates;
+- the shared Luna Worker DAG reference/hash and `internal_child_dag=enabled`, or `disabled_by=multi-workers` for the explicit persistent multi-TASK route;
 - workspace and authoritative resume entrypoint;
 - scope, permissions, safety boundary, and acceptance criteria;
 - a Reviewer-derived acceptance checklist pinned to the authoritative contract revision/hash, with criterion IDs, thresholds, and required evidence;
@@ -53,7 +56,7 @@ In `file-contract` mode the persistent Worker executes the complete task normall
 Then:
 
 1. Resolve the existing persistent Worker or select one supported user-visible creation route. Prepare and hash the goal in steps 2–3 before calling creation in step 4.
-2. Before creation, write the complete executable goal to the fixed slot assignment `goal_path`, referencing the immutable root `DUO_GOAL.md`: mission, authority, scope, permissions, acceptance checklist, stop conditions, Reviewer address, and event contract. Apply the lifecycle reuse checks before overwriting an existing goal. Reviewer is its only writer; read back and hash the final UTF-8 file.
+2. Before creation, write the complete executable goal to the fixed slot assignment `goal_path`, referencing the immutable root `TASK_GOAL.md`: mission, authority, scope, permissions, acceptance checklist, stop conditions, Reviewer address, and event contract. Apply the lifecycle reuse checks before overwriting an existing goal. Reviewer is its only writer; read back and hash the final UTF-8 file.
 3. The initial prompt contains `ROLE: Worker`, mission, authority, hard boundary, goal path+SHA256, run/generation, and an instruction to verify and read the complete file before acting. This applies to goals of any size. Never create a setup-only Worker, depend on a later goal message, or create dated/per-generation goal copies.
 4. Call the creation primitive at most once for the dedup key.
 5. Treat timeout, exception, missing receipt, or `Unknown projectId` as ambiguous. Take exactly one immediate `list_threads` inventory. Match by Reviewer ID, dedup or prompt fingerprint, creation window, workspace, and authority.
@@ -87,6 +90,7 @@ Applicable work phase(s) and evidence deliverable; use Worker execution's phase 
 Scope, permission, and safety boundary.
 Applicable shared reference paths/hashes; verify and read when needed, before the governed action.
 shared_self_repair_budget=none; shared repair belongs to the Reviewer.
+internal_child_dag=enabled; follow the pinned bounded Luna Worker DAG contract; no child replaces this persistent Worker. In `multi-workers` mode set `internal_child_dag=disabled`.
 Reviewer-defined natural action boundaries, objective-progress signals, last renewed snapshot, and boundary stall window.
 Known false-block condition and bounded local process-wait rule.
 Acceptance checklist reference/hash and criterion IDs.
@@ -111,4 +115,4 @@ repair shared seam
 → do not change pinned canonical state until the Worker terminal event
 ```
 
-Put task IDs and creation/title/archive receipts in the external dispatch receipt. Keep root `DUO_GOAL.md` unchanged while any slot uses it; keep each assignment goal unchanged while that slot generation executes or awaits acceptance. Mutable DAG receipts stay outside both. A missing file or changed hash stops dependent work for reconciliation; never adopt the new contents automatically. Record the failed identity/hash in the existing receipt, safely stop the old generation, and apply lifecycle reuse before writing a fresh goal at the same path. A file mismatch alone does not require replacing the Worker task or making an archival goal copy.
+Put task IDs and creation/title/archive receipts in the external dispatch receipt. Keep root `TASK_GOAL.md` unchanged while any slot uses it; keep each assignment goal unchanged while that slot generation executes or awaits acceptance. Mutable DAG receipts stay outside both. A missing file or changed hash stops dependent work for reconciliation; never adopt the new contents automatically. Record the failed identity/hash in the existing receipt, safely stop the old generation, and apply lifecycle reuse before writing a fresh goal at the same path. A file mismatch alone does not require replacing the Worker task or making an archival goal copy.

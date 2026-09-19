@@ -28,6 +28,11 @@ type Usage = {
   text: number;
 };
 
+type UsageScan = {
+  usage: Map<string, Usage>;
+  scannedLogFiles: string[];
+};
+
 type Budget = {
   model: string;
   contextTokens: number;
@@ -376,6 +381,7 @@ function discoverRoots(): string[] {
   const rootsByRealPath = new Map<string, string>();
   [
     path.join(home, ".codex/skills"),
+    path.join(home, ".agents/skills"),
     path.join(home, ".codex/plugins/cache"),
     path.join(home, "Projects/agent-scripts/skills"),
     ...extraRoots.map(expandHome),
@@ -500,7 +506,7 @@ function walkRecentFiles(root: string, predicate: (file: string) => boolean, max
   return out;
 }
 
-function scanUsage(skills: Skill[], logFiles: string[]): Map<string, Usage> {
+function scanUsage(skills: Skill[], logFiles: string[]): UsageScan {
   const aliases = new Map<string, string[]>();
   for (const skill of skills) {
     const values = new Set([skill.name, skill.baseName, skill.name.split(":").at(-1) ?? skill.name]);
@@ -508,6 +514,7 @@ function scanUsage(skills: Skill[], logFiles: string[]): Map<string, Usage> {
   }
   const usage = new Map<string, Usage>();
   for (const skill of skills) usage.set(skill.name, { dollar: 0, fileRead: 0, text: 0 });
+  const scannedLogFiles: string[] = [];
   let consumedBytes = 0;
   for (const file of logFiles) {
     let text = "";
@@ -517,6 +524,7 @@ function scanUsage(skills: Skill[], logFiles: string[]): Map<string, Usage> {
       if (consumedBytes + stat.size > maxLogBytes) break;
       consumedBytes += stat.size;
       text = fs.readFileSync(file, "utf8");
+      scannedLogFiles.push(file);
     } catch {
       continue;
     }
@@ -543,44 +551,13 @@ function scanUsage(skills: Skill[], logFiles: string[]): Map<string, Usage> {
       }
     }
   }
-  return usage;
+  return { usage, scannedLogFiles };
 }
 
 function countTokens(values: string[]): Map<string, number> {
   const map = new Map<string, number>();
   for (const value of values) map.set(value, (map.get(value) ?? 0) + 1);
   return map;
-}
-
-function suggestDescription(skill: Skill): string {
-  const source = normalizeWords(`${skill.baseName} ${skill.description}`);
-  const cues: string[] = [];
-  const add = (label: string, pattern: RegExp) => {
-    if (pattern.test(source) && !cues.includes(label)) cues.push(label);
-  };
-  add("OpenClaw", /\bopenclaw|claw|clawd\b/);
-  add("GitHub", /\b(github|issue|pr|ci)\b|pull request/);
-  add("Slack", /\bslack\b/);
-  add("Discord", /\bdiscord\b/);
-  add("Gmail", /\bgmail|email\b/);
-  add("Google", /\b(google|drive|calendar|docs|sheets|slides)\b/);
-  add("Cloudflare", /\b(cloudflare|worker|wrangler)\b|durable object/);
-  add("release", /\b(release|publish|ship|notar)/);
-  add("debug", /\b(debug|trace|inspect|profile|diagnos)/);
-  add("search", /\b(search|archive|crawl|sync|history)\b/);
-  add("deploy", /\b(deploy|ops|server|ssh|vm)\b/);
-  add("docs", /\b(doc|docs|markdown|write|review)\b/);
-  const verbs = cues.length ? cues.slice(0, 5).join(", ") : skill.baseName.replace(/-/g, " ");
-  return `${verbs}: ${shortAction(source)}.`;
-}
-
-function shortAction(source: string): string {
-  if (/\btriage|review\b/.test(source)) return "triage, review, proof";
-  if (/\bdebug|diagnos|inspect\b/.test(source)) return "debug, inspect, fix";
-  if (/\bsearch|sync|archive\b/.test(source)) return "search, sync, summarize";
-  if (/\bdeploy|release|publish|ship\b/.test(source)) return "deploy, release, verify";
-  if (/\bcreate|scaffold|build\b/.test(source)) return "create, build, validate";
-  return "audit, clean, verify";
 }
 
 function groupBy<T>(items: T[], key: (item: T) => string): Map<string, T[]> {
@@ -833,7 +810,12 @@ function duplicateDeleteSuggestions(groups: [string, Skill[]][]): string[] {
   return lines.length ? lines : ["- none"];
 }
 
-function render(skills: Skill[], usage: Map<string, Usage>, logFiles: string[]): string {
+function render(
+  skills: Skill[],
+  usage: Map<string, Usage>,
+  logFiles: string[],
+  usageCheck: "checked" | "not_checked",
+): string {
   const enabled = skills.filter((skill) => skill.enabled || includeAll);
   const roots = groupBy(skills, (skill) => skill.root);
   const byBase = [...groupBy(enabled, (skill) => skill.baseName.toLowerCase()).entries()].filter(([, list]) => list.length > 1);
@@ -842,14 +824,16 @@ function render(skills: Skill[], usage: Map<string, Usage>, logFiles: string[]):
     .filter((skill) => skill.descChars >= 110 || skill.lineChars >= 180)
     .sort((a, b) => b.descChars - a.descChars)
     .slice(0, 30);
-  const unused = enabled
-    .filter((skill) => {
-      const item = usage.get(skill.name);
-      return !item || item.dollar + item.fileRead + item.text === 0;
-    })
-    .filter((skill) => !["codex", "codex-plugin"].includes(skill.scope))
-    .sort((a, b) => a.scope.localeCompare(b.scope) || a.name.localeCompare(b.name))
-    .slice(0, 80);
+  const unused = usageCheck === "checked"
+    ? enabled
+        .filter((skill) => {
+          const item = usage.get(skill.name);
+          return !item || item.dollar + item.fileRead + item.text === 0;
+        })
+        .filter((skill) => !["codex", "codex-plugin"].includes(skill.scope))
+        .sort((a, b) => a.scope.localeCompare(b.scope) || a.name.localeCompare(b.name))
+        .slice(0, 80)
+    : [];
   const totalLineChars = enabled.reduce((sum, skill) => sum + skill.lineChars, 0);
   const totalDescChars = enabled.reduce((sum, skill) => sum + skill.descChars, 0);
   const budget = skillBudget(enabled);
@@ -860,7 +844,8 @@ function render(skills: Skill[], usage: Map<string, Usage>, logFiles: string[]):
   lines.push(`skills: ${skills.length} discovered, ${enabled.length} considered`);
   lines.push(`description_chars: ${totalDescChars}`);
   lines.push(`rendered_line_chars: ${totalLineChars}`);
-  lines.push(`log_files_scanned: ${logFiles.length}`, "");
+  lines.push(`log_files_scanned: ${logFiles.length}`);
+  lines.push(`usage_check: ${usageCheck}`, "");
 
   lines.push("## Skill Budget", "");
   lines.push(`model: ${budget.model}`);
@@ -892,7 +877,7 @@ function render(skills: Skill[], usage: Map<string, Usage>, logFiles: string[]):
     lines.push(`  path: ${skill.path}`);
     lines.push(`  chars: description=${skill.descChars}, rendered_line=${skill.lineChars}`);
     lines.push(`  current: ${skill.description}`);
-    lines.push(`  suggested: ${suggestDescription(skill)}`);
+    lines.push("  manual review: preserve product, action, and trigger meaning; edit the frontmatter description deliberately.");
   }
   if (longDescriptions.length === 0) lines.push("- none");
   lines.push("");
@@ -942,10 +927,12 @@ function render(skills: Skill[], usage: Map<string, Usage>, logFiles: string[]):
 
 const skills = discoverSkills();
 const logFiles = recentLogFiles();
-const usage = scanUsage(skills, logFiles);
+const usageScan = scanUsage(skills, logFiles);
+const usage = usageScan.usage;
+const usageCheck = usageScan.scannedLogFiles.length > 0 ? "checked" : "not_checked";
 const consideredSkills = skills.filter((skill) => skill.enabled || includeAll);
 const budget = skillBudget(consideredSkills);
 const output = json
-  ? JSON.stringify({ skills, usage: Object.fromEntries(usage), logFiles, budget }, null, 2)
-  : render(skills, usage, logFiles);
+  ? JSON.stringify({ skills, usage: Object.fromEntries(usage), logFiles, usageCheck, budget }, null, 2)
+  : render(skills, usage, logFiles, usageCheck);
 console.log(output);

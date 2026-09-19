@@ -4,11 +4,11 @@ Worker: read to build the acceptance packet; Reviewer: read when it arrives. Del
 
 Reviewer records the [lightweight cost note](lifecycle.md#lightweight-cost-record) alongside the existing review result; it does not alter acceptance criteria or require extra Worker reporting.
 
-Parallel results arrive through [A's evidence-preserving aggregate](dag-workers.md#worker-a-reporting-relay). Reviewer checks original-source coverage and consequential evidence; only the Reviewer decides acceptance. Source delivery to A is not consumption. Required raw packets and criterion mappings remain accessible; missing or contradictory input cannot be summarized into a pass. Reconcile A's final manifest and relay closure before whole-goal ship.
+In ordinary DUO, native helper results return only to the persistent Luna Worker, which verifies and integrates them into one packet. Child finals are not Reviewer delivery or acceptance. In explicit `multi-workers` mode, parallel results arrive through [A's evidence-preserving aggregate](dag-workers.md#worker-a-reporting-relay). Reviewer checks original-source coverage and consequential evidence; only the Reviewer decides acceptance. Source delivery to A is not consumption. Required raw packets and criterion mappings remain accessible; missing or contradictory input cannot be summarized into a pass. Reconcile A's final manifest and relay closure before whole-goal ship.
 
 ## Acceptance Review
 
-Apply [whole-goal DAG acceptance](dag-workers.md): a slot pass releases eligible successors but is not ship. Review all root criteria, integrated output and every slot's effects/receipts before whole-goal ship; one late or missing branch remains incomplete.
+Review all root criteria, integrated output, child effects and receipts before whole-goal ship; one late or missing branch remains incomplete. In explicit `multi-workers` mode, also apply [whole-goal persistent DAG acceptance](dag-workers.md): a slot pass releases eligible successors but is not ship.
 
 Astra-authored work is reviewed only by the same Astra, at low. Do not send it to Luna, Sol or another Reviewer for review, approval or independent validation. Astra runs or inspects relevant tests and contract evidence itself; self-review is not independent model review. Worker may execute a repaired production route under a fresh explicit goal and return facts, but does not review the repair. Missing acceptance evidence still prevents ship.
 
@@ -23,6 +23,8 @@ authority_generation_or_revision:
 scope_and_actual_changed_paths:
 verification_commands_and_actual_results:
 artifact_or_diff_paths_and_sha256:
+native_child_manifest_or_none:
+native_children_reconciled: true|false
 remaining_risk_or_none:
 ```
 
@@ -45,6 +47,6 @@ residual_risk:
 - `fix-first`: the goal is valid but needs bounded correction or proof. Apply [lifecycle](lifecycle.md) before redispatch.
 - `rethink`: scope, architecture, authority, safety, or acceptance criteria are wrong. Stop at the real user or authority gate.
 
-Reject missing, stale, contradictory, or identity-mismatched evidence. Any later code, artifact, authority, or acceptance-state change invalidates the verdict and requires a new revision and full packet. Lifecycle-approved cleanup or reuse of the temporary `DUO_GOAL.md` after closure does not invalidate a recorded verdict for the old generation; it cannot transfer that verdict to the new goal. Never patch or reuse an old packet. Use the existing Reviewer; never create a third one.
+Reject missing, stale, contradictory, or identity-mismatched evidence. Any later code, artifact, authority, or acceptance-state change invalidates the verdict and requires a new revision and full packet. Lifecycle-approved recording of the accepted outcome or later reuse of authoritative `TASK_GOAL.md` after closure does not invalidate a recorded verdict for the old generation; it cannot transfer that verdict to the new goal. Never patch or reuse an old packet. Use the existing Reviewer; never create a third one.
 
 For stopped or retired generations, assess execution liveness and native-goal cancellation separately using [lifecycle](lifecycle.md). A lingering active native goal cannot be reported as deleted or as a fully cancelled scheduler. A stop record revokes Worker permission even while native cancellation is unavailable. Acceptance never clears that record or authorizes automatic resumption.

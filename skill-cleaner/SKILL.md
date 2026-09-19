@@ -1,6 +1,6 @@
 ---
 name: skill-cleaner
-description: "Skill budget"
+description: Audit skill discovery, duplicate providers, description truncation, and removable skill catalog entries.
 ---
 
 # Skill Cleaner
@@ -26,9 +26,9 @@ node --experimental-strip-types skills/skill-cleaner/scripts/skill-cleaner.ts --
 
 2. Read the report in this order:
 - `Skill Budget`: GPT-5.6 Terra context size by default, 2% skills budget, Codex-budgeted usage, and pre-budget full-list pressure.
-- `Description candidates`: long descriptions where relaxed grammar saves prompt budget.
+- `Description candidates`: long descriptions where relaxed grammar saves prompt budget; review each manually so product, action, and trigger meaning stays intact.
 - `Duplicates`: same skill name or near-identical description/body across Codex, plugin cache, repo siblings, and personal skill roots.
-- `Unused candidates`: no recent `$skill` mention, `SKILL.md` read, or explicit skill-use trace in recent Codex/OpenClaw logs.
+- `Unused candidates`: no recent `$skill` mention, `SKILL.md` read, or explicit skill-use trace in scanned Codex/OpenClaw logs. With `--no-logs`, or when no log files are available, usage is reported as not checked and this section renders no candidates.
 - `Root summary`: where skills came from and whether config marks them disabled.
 
 3. Before deleting or editing:
@@ -58,6 +58,7 @@ It must pass before calling cleanup complete. The guard scans direct Codex skill
 - For duplicate names, it reports description/body similarity and suggests deletion candidates only when bodies are near copies. Keep priority defaults to direct Codex system skills, then direct Codex skills, then plugin skills, then personal/repo copies.
 - It scans `~/.codex/history.jsonl` and recent `~/.codex/sessions/**/*.jsonl` by default. Add `--deep-logs` for archived sessions and common OpenClaw/Clawd log folders.
 - Usage evidence is heuristic: `$skill`, `Use $skill`, and paths like `skills/<name>/SKILL.md`.
+- Description candidates are notices for manual review; the analyzer does not fabricate replacement descriptions.
 
 ## Output Policy
 

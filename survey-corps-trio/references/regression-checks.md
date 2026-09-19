@@ -7,6 +7,8 @@ Review these against the main skill and reporting reference after edits. They ar
 | Bare trio, DUO, or skill editing | Correct separate route; no accidental run, third DUO role or changed active contract. |
 | Coupled redesign versus large fixed-rule batch | Existing Erwin plans coupled work upfront; volume alone stays in ordinary execution. |
 | Frozen evidence followed by known adapter work | Hange defines behavior/checks; Levi implements and verifies a coherent segment. Hange does not write the complete solution first. |
+| Two disjoint specified Levi branches | Levi runs the Luna parent and child gates, uses at most two depth-1 helpers, preserves disjoint ownership, integrates/validates their output and alone returns to Hange. |
+| Serial/shared-writer or missing child capability | Levi executes locally; no manufactured split, extra approval loop, replacement Worker or lost work. |
 | Unknown failure or weak classification | Affected Levi steps stop; Hange diagnoses or clarifies rules, then returns executable work. Only justified small-fix exception allows direct repair. |
 | Successful internal checkpoint | Continue prescribed steps within caps; no per-step review or extra calibration turn. Required approval still holds. |
 | Segment acceptance | Complete criterion evidence, no unexplained replay; summaries/sampling cannot replace required coverage. |
@@ -19,7 +21,7 @@ Review these against the main skill and reporting reference after edits. They ar
 | Astra-authored or mixed work | Same Astra self-reviews its portions at low with real proof; no delegated review or independent-review claim. |
 | Sol repair / conflicting evidence | Discriminating behavioral proof or escalate the gap; no automatic duplicate review round. |
 | Changed contract, shared repair or ambiguous creation | Reconcile prior lifecycle, preserve single writer and valid results; no duplicate creation or silent hash adoption. |
-| User stop, live action or clone | Stop both roles with latched revocation; fresh resume/live authority required; separately authorized clones return through parent. |
+| User stop, live action or child | Stop both persistent roles with latched revocation; Levi interrupts only verified owned children and reconciles effects; fresh resume/live authority required. |
 | Goal closure and retirement | Erwin whole-goal ship, consumed returns and reconciled effects; authorized cleanup/archive only, Astra retained, failed archival pending. |
 
 Verify linked files exist, UI prompt stays a short entrypoint, and ordinary TRIO/DUO hashes remain unchanged. Do not create live tasks to claim static checks passed.

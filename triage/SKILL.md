@@ -1,16 +1,12 @@
 ---
 name: triage
-description: Triage incoming issues and PRs through categorisation, verification, clarification, and agent-ready briefs.
+description: Triage issues and external PRs through category/state roles, verification, grilling, and agent-ready briefs.
 disable-model-invocation: true
 ---
 
 # Triage
 
 Move issues on the project issue tracker through a small state machine of triage roles.
-
-## External write gate
-
-Before changing labels, posting comments, assigning, closing, or otherwise mutating tracker items, confirm the target tracker and exact issue or PR set, preview the intended writes, and require current explicit authorization. Without it, stop after a read-only triage report. A successful dry-run is evidence, not permission.
 
 If this repo treats external pull requests as a request surface (see the issue-tracker config), triage covers them too: **a PR is an issue with attached code** — same roles, same states, same machine, with a few deltas marked "for a PR" below. Resolve a bare `#42` to an issue or PR per the tracker config.
 

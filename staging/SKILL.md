@@ -17,7 +17,7 @@ Turn the current conversation into one clear final goal and a realistic, executa
 4. If the final goal is unclear but can be reasonably inferred, state the inference and proceed.
 5. Ask a question only when a wrong inference would materially change the stage plan.
 6. Keep stages realistic: each stage must have a concrete output, verification method, and clear stop condition.
-7. Do not start implementation unless the user explicitly asks to execute after staging.
+7. A standalone planning request produces a plan only. When staging is used inside already-authorized execution, organizing the work does not revoke that authorization; continue afterward unless the user asked to stop at the plan.
 8. Separate `已驗證`, `推論`, and `待確認`.
 9. Do not confuse activity with progress. A stage is complete only when its verification evidence exists.
 
@@ -36,7 +36,7 @@ Turn the current conversation into one clear final goal and a realistic, executa
 3. Build the stage list.
    - Start with the smallest stage that creates clarity or removes the main blocker.
    - Continue until the final goal is reachable.
-   - Prefer 3-7 stages. Use more only when the goal is genuinely large.
+   - Use only as many stages as distinct verification boundaries require.
    - Avoid fake precision, vague aspirations, and giant "do everything" stages.
 
 4. Add execution reality to every stage.
@@ -46,7 +46,7 @@ Turn the current conversation into one clear final goal and a realistic, executa
    - Verification
    - Stop gate
    - Risk or dependency
-   - Progress percent
+   - Progress only when a defensible denominator exists
 
 5. End with the smallest safe next step.
    - Pick one next action, not a menu of ten.
@@ -58,7 +58,7 @@ Use this structure unless the user requests another format:
 
 ```markdown
 目前判斷：
-[用 1-2 句說明最終目標與目前清楚度。進度 X%。]
+[用 1-2 句說明最終目標與目前清楚度；有可靠分母時才寫進度。]
 
 最終目標：
 [一句話定錨。]
@@ -69,7 +69,7 @@ Use this structure unless the user requests another format:
 - 待確認：[only if needed]
 
 階段性目標：
-1. [階段名稱] - [進度 %]
+1. [階段名稱] [有可靠分母時才附進度]
    目標：[具體 outcome]
    行動：[可執行動作]
    產物：[檔案、決策、報告、測試結果、PR、部署等]

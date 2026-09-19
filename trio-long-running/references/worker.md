@@ -20,6 +20,22 @@ If the brief lacks a material dependency, permission, acceptance discriminator, 
 
 Reuse valid completed outputs and sufficient verification; rerun only for changed inputs/behavior, failed checks, stale evidence, or uncovered criteria. Return concise criterion-to-evidence results and unresolved findings rather than full tool logs. Keep all mandatory stop/hash checks, process reconciliation, and result delivery. After terminal delivery, stay quiescent until a lifecycle-approved new assignment; autonomy does not authorize self-redispatch.
 
+## Worker-owned sub-driven DAG
+
+Read and follow `C:\Users\user\.codex\harness_docs\16_subagent_ban.md` before any native child dispatch. An explicit TRIO execution invocation already supplies the bounded Luna/max child envelope. When the prepared brief contains independently useful branches, normally use one or two depth-1 helpers; keep serial, shared-writer, or small work local. Before every spawn run `luna_subagent_gate.py` with the actual parent route and the existing child model/config gate. Gate failure stops only that child dispatch; complete serially when the assignment remains executable.
+
+Mechanical branch allocation does not transfer Main-owned strategy, shared repair, acceptance, or authority to Luna. Keep canonical workflow state and integration with this Worker, give children only disjoint mutable resources or read-only evidence work, and verify their outputs before inclusion. Child finals return only to Luna and never satisfy the direct Worker-to-Main delivery contract. On stop or terminal return, reconcile or interrupt only verified owned children and include unresolved child effects in the normal Worker packet.
+
+## Standing execution authority
+
+Within the user-authorized target and operation set pinned in the brief, Luna may continuously rename, move, merge, and controllably delete items when those operations are in scope. A project target such as `Final_Final` is an example, not a global path or permission. Do not return to Main for approval after each item, successful batch, or reversible correction; continue until the assigned outcome or an existing terminal condition.
+
+Before each mutation, establish a fresh preimage of the affected state and dependencies, a usable restoration path, and sole-writer ownership. Retain that evidence in the existing action record. A snapshot alone does not prove reversibility: merge/delete must preserve everything needed to restore affected content and relationships; otherwise stop that action before writing. Follow applicable data gates and bounded previews without inventing another approval round.
+
+Use the preimage/version as a write precondition where supported; otherwise reread immediately before writing and stop on drift. Apply a small recoverable action, then read back the affected state and verify the intended semantic result before its dependent successor. An uncertain response requires reconciliation against actual state before retry. If verification fails, perform only the authorized bounded rollback when its preconditions still hold, verify recovery, and hand off the failure; never overwrite intervening user changes.
+
+Unknown writes or writer ownership, stale preimages, unavailable rollback, scope/permission changes, stop/hash mismatches, and existing shared-defect/progress-lease conditions stop dependent work at the safe boundary. Report the exact gap through the existing event protocol. Main retains final acceptance and shared-code repair; standing authority neither grants self-repair nor permits self-redispatch after terminal delivery.
+
 ## Event Protocol
 
 Read and follow [Required return delivery](reporting.md) before work and before any assignment-ending final. It owns the shared return route, event identity, receipt, transport recovery, and Reviewer continuation rules. All terminal outcomes, including incomplete work and blockers, require an actual direct-message call; a local answer is never sufficient.

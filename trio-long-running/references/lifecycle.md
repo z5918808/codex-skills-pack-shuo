@@ -68,13 +68,13 @@ Report execution stoppage and automatic-goal cancellation separately. When nativ
 
 Preserve append-only evidence, shared runtime, and browser/session state. Retain the authoritative `TASK_GOAL.md` with stop/completion state under the reusable-file checks above; evidence and stop records are not part of that cleanup. A user stop never authorizes a replacement Worker. A later explicit change to single-thread work ends TRIO restrictions on Main after Worker side effects are reconciled; it does not revive the Worker.
 
-## Stop existing subagents before independent dispatch
+## Luna Worker child lifecycle
 
-No new TRIO assignment may use a subagent. If this run already owns a child from old instructions, stop assigning work and interrupt only that verified child through supported lifecycle tools. Reconcile terminal state, delivered observations, pending effects, and the applicable child closeout gate; an interrupt receipt alone is not stopped-state proof. Never stop unrelated agents or user processes.
+Only the persistent Luna/max Worker may own native children, under the pinned shared DAG contract. Before terminal Worker delivery, rule/hash replacement, Worker replacement, or user/Reviewer stop, Luna accounts for every owned child: completed result and effects, verified interruption plus reconciled effects, or explicitly unresolved state. An interrupt receipt alone is not stopped-state proof. Never stop unrelated agents or user processes.
 
-Preserve useful evidence without treating it as current Main acceptance. After the old owner and effects are reconciled, dispatch only a necessary remaining support question to the independent Thinker or execution to Worker under current authority. No duplicate work or wholesale restart. Preserve unresolved findings and redo only required invalid/missing acceptance. Update pinned contracts at the safe boundary; the ban takes effect immediately for new delegation, but a skill edit cannot remotely stop another active run.
+Preserve useful child evidence without treating it as Main acceptance. Reconcile partial or disjoint edits before integration, do not duplicate completed branches, and redo only invalid or missing verification. A skill edit cannot remotely start or stop another run; an active generation adopts new child rules only through its normal safe rule/hash transition.
 
-Independent Thinker reuse requires terminal direct delivery, Main ingestion and reconciled effects. User stop revokes its assignment too; use a direct stop message and verify actual terminal delivery. Missing transport blocks the dependent successor, never permitting a subagent workaround.
+Independent Thinker reuse still requires terminal direct delivery, Main ingestion and reconciled effects. User stop revokes its assignment too; use a direct stop message and verify actual terminal delivery. Missing Thinker transport blocks the dependent successor, never permitting a child substitute.
 
 ## Whole-goal closeout and retirement
 

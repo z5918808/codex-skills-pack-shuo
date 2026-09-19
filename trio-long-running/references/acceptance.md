@@ -25,10 +25,12 @@ authority_generation_or_revision:
 scope_and_actual_changed_paths:
 verification_commands_and_actual_results:
 artifact_or_diff_paths_and_sha256:
+native_child_manifest_or_none:
+native_children_reconciled: true|false
 remaining_risk_or_none:
 ```
 
-The assigned reviewer reloads the pinned authoritative checklist and pre-run readiness evidence first, then reads current state, diff, and artifacts and checks every criterion against the packet's evidence mapping. Confirm that the pre-run false-green case is still rejected and that the actual result satisfies the declared coverage and tolerances. Reuse current applicable proof; run a bounded corroborating check when the evidence cannot distinguish success from that wrong result. Do not substitute the Worker's restated checklist, accept a Worker-proposed waiver, or add a new quality threshold after the run. Missing coverage requires `fix-first`; a necessary change to the contract requires `rethink` at the applicable gate.
+The assigned reviewer first reloads the original user outcome, pinned authoritative checklist and pre-run readiness evidence; next inspects current state, diffs, artifacts and actual test results; only then evaluates the Worker's explanatory narrative. Use packet locators to find evidence without treating its explanation or confidence as proof. Check every criterion against the evidence mapping. This reading order retains persistent Reviewer context; it is not an independent blind review. Confirm that the pre-run false-green case is still rejected and the actual result satisfies declared coverage and tolerances. Reuse current applicable proof; run a bounded corroborating check when evidence cannot distinguish success from that wrong result. Do not substitute the Worker's restated checklist, accept a Worker-proposed waiver, or add a new quality threshold after the run. Missing coverage requires `fix-first`; a necessary contract change requires `rethink` at the applicable gate.
 
 For high-risk changes, conflicting/unreliable evidence, or a shared repair made by the Reviewer, Main selects the cheapest independent check of the affected contract behavior: an existing read-only probe or bounded fixture that would expose a wrong result, rather than merely repeat the patch's implementation. Reuse decisive current proof when it already covers that behavior; do not rerun the full Worker job or start another Reviewer. If required corroboration is unavailable, mark `weak verification` and the missing proof; do not `ship` while a required acceptance gate remains unmet. A stronger Reviewer model or Thinker opinion is not a substitute for this evidence.
 

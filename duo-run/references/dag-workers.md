@@ -1,6 +1,6 @@
-# Task sizing and opt-in DAG Worker tasks
+# Persistent multi-TASK DAG Workers
 
-Canonical allocation contract for duo-run and astra-luna-duo. Reviewer reads before deciding whether to dispatch; dispatched Workers read the ownership, identity and stop rules applicable to their assignment. Pin this file with the invoking skill. This is a two-role workflow: one Reviewer, zero to five Luna Worker tasks, not extra reviewers or nested controllers. Skill maintenance starts no runtime tasks.
+Canonical persistent multi-TASK allocation contract for explicit `multi-workers` extension of duo-run and astra-luna-duo. Reviewer reads before deciding whether to dispatch; dispatched Workers read the ownership, identity and stop rules applicable to their assignment. Pin this file with the invoking skill. This is a two-role workflow: one Reviewer, zero to five Luna Worker tasks, not extra reviewers or nested controllers. Native child DAGs are disabled for every slot so parallelism has one owner. Skill maintenance starts no runtime tasks.
 
 ## Trigger and approval before task creation
 
@@ -63,7 +63,7 @@ Preserve a direct B–E → Reviewer route for urgent permission/safety decision
 
 ## Stable contracts, independent reuse and cancellation
 
-Use the existing fixed root goal (`DUO_GOAL.md` or `DUO_ASTRA_GOAL.md`) for whole-goal scope, authority, acceptance, rules hashes and run stop-record location. Keep it immutable while any assignment uses it. Keep mutable DAG/task IDs and receipts outside pinned goal files.
+Use the existing fixed root goal (`TASK_GOAL.md`) for whole-goal scope, authority, acceptance, rules hashes and run stop-record location. Keep it immutable while any assignment uses it. Keep mutable DAG/task IDs and receipts outside pinned goal files.
 
 Each used slot has one fixed reusable sibling assignment file: `DUO_WORKER_A_GOAL.md` … `DUO_WORKER_E_GOAL.md`, or `DUO_ASTRA_WORKER_A_GOAL.md` … `DUO_ASTRA_WORKER_E_GOAL.md`. Create only used slots, never a new path per node/generation. Reviewer writes the full bounded assignment before creation/redispatch: root path/hash, node/prerequisites and accepted input identities, allowed writes, predefined steps/checks, slot/generation, ordinary return address (A for parallel producers, Reviewer for A/serial), Reviewer emergency address, and separate run-level plus assignment-level stop-record paths. Workers verify both root and their own assignment identity on entry/resume and before governed effects.
 
@@ -75,4 +75,4 @@ User stop-DUO revokes the run, halts all new dispatches and sends a stop to ever
 
 Reviewer alone accepts per-node evidence and whole-goal completion. Ship requires full root criteria, accepted integrated artifacts, complete original-source coverage, consumed aggregate/source identities and reconciled relay closure/effects for every slot, with no unfinished descendant or reserved unknown creation. Dispatch counts are not completed work; claim actual parallel execution only with observed outputs or stages, otherwise report dispatched/unverified. Do not add a report or telemetry system merely to prove concurrency.
 
-For skill maintenance only, use [DAG regression fixtures](regression-checks.md#task-sizing-and-opt-in-dag-coverage).
+For skill maintenance only, use [persistent multi-TASK DAG regression fixtures](regression-checks.md#explicit-multi-workers-dag-coverage).

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zoomout"
+  short_description: "跳脫短期 ctx、找盲點，重排賽局與突破點"
+  default_prompt: "Use $zoomout to step back from the current ctx, identify blind spots and context traps, reframe the real bottleneck, ask better questions, and decide the next high-leverage move or minimum viable factory."

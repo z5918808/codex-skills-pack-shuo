@@ -14,33 +14,63 @@ param(
 
   [int]$MaxRows = 10,
 
+  [string]$AuthorizationPath,
+
   [string]$AuditLog = ".\logs\destructive-actions.jsonl"
 )
 
 $ErrorActionPreference = "Stop"
 
 function Fail($Message) {
-  Write-Error $Message
-  exit 1
+  throw $Message
 }
 
 if ($ExpectedCount -lt 0) {
   Fail "ExpectedCount cannot be negative."
 }
 
-if ($ExpectedCount -gt $MaxRows) {
-  Fail "ExpectedCount=$ExpectedCount exceeds MaxRows=$MaxRows. Human review required before raising the limit."
+$authorizationSource = "legacy-confirmation"
+$authorizationHash = $null
+$effectiveLimit = $MaxRows
+if ($AuthorizationPath) {
+  $recordText = Get-Content -LiteralPath $AuthorizationPath -Raw -Encoding UTF8
+  $record = $recordText | ConvertFrom-Json -AsHashtable
+  if ($record -isnot [System.Collections.IDictionary]) {
+    Fail "Authorization must be a JSON object."
+  }
+  foreach ($field in @("source", "action", "environment", "resource")) {
+    if ($record[$field] -isnot [string] -or [string]::IsNullOrWhiteSpace($record[$field])) {
+      Fail "Authorization requires a nonempty $field."
+    }
+  }
+  if ($record.action -cne $Action -or $record.environment -cne $Environment -or $record.resource -cne $Resource) {
+    Fail "Authorization action, environment, or resource mismatch."
+  }
+  if (($record.maxRows -isnot [int] -and $record.maxRows -isnot [long]) -or $record.maxRows -lt 0) {
+    Fail "Authorization maxRows must be a nonnegative integer."
+  }
+  $effectiveLimit = $record.maxRows
+  if ($PSBoundParameters.ContainsKey("MaxRows")) {
+    $effectiveLimit = [Math]::Min($effectiveLimit, $MaxRows)
+  }
+  if ($Environment -ieq "production" -and
+      ($record.backupEvidence -isnot [string] -or [string]::IsNullOrWhiteSpace($record.backupEvidence))) {
+    Fail "Production authorization requires backupEvidence."
+  }
+  $authorizationSource = $record.source
+  $authorizationHash = (Get-FileHash -LiteralPath $AuthorizationPath -Algorithm SHA256).Hash
+} else {
+  $confirm = [Environment]::GetEnvironmentVariable("CONFIRM_DESTRUCTIVE_ACTION")
+  $expected = "$($Action.ToUpperInvariant()) $Environment $Resource $ExpectedCount"
+  if ($Environment -ieq "production") {
+    $expected = "$expected I_HAVE_BACKUP"
+  }
+  if ($confirm -cne $expected) {
+    Fail "Missing or mismatched legacy confirmation. Supply current scoped authorization via -AuthorizationPath."
+  }
 }
-
-$confirm = [Environment]::GetEnvironmentVariable("CONFIRM_DESTRUCTIVE_ACTION")
-$expected = "$($Action.ToUpperInvariant()) $Environment $Resource $ExpectedCount"
-
-if ($Environment -eq "production") {
-  $expected = "$expected I_HAVE_BACKUP"
-}
-
-if ($confirm -ne $expected) {
-  Fail "Confirmation mismatch. Expected CONFIRM_DESTRUCTIVE_ACTION='$expected'."
+if ($effectiveLimit -lt 0 -or $ExpectedCount -gt $effectiveLimit) {
+  Fail "ExpectedCount=$ExpectedCount exceeds the applicable authorized limit=$effectiveLimit."
 }
 
 $audit = [ordered]@{
@@ -49,7 +79,9 @@ $audit = [ordered]@{
   environment = $Environment
   resource = $Resource
   expectedCount = $ExpectedCount
-  maxRows = $MaxRows
+  maxRows = $effectiveLimit
+  authorizationSource = $authorizationSource
+  authorizationHash = $authorizationHash
   confirmed = $true
 }
 
@@ -58,5 +90,5 @@ if ($parent -and -not (Test-Path $parent)) {
   New-Item -ItemType Directory -Path $parent | Out-Null
 }
 
-($audit | ConvertTo-Json -Compress) | Add-Content $AuditLog
-Write-Host "Destructive action confirmed and audit logged."
+($audit | ConvertTo-Json -Compress) | Add-Content -LiteralPath $AuditLog -Encoding utf8
+Write-Host "Authorization fields validated and audit logged; no database operation executed."

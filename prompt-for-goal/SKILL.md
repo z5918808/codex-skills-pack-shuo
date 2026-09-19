@@ -1,6 +1,6 @@
 ---
 name: prompt-for-goal
-description: Use /prompt for goal to compile, audit, or rewrite a concise executable /goal prompt and readiness package.
+description: "Use for /prompt for goal: executable /goal prompts, continuations, audits, and readiness packages."
 ---
 
 # Goal Compiler

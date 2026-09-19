@@ -1,4 +1,4 @@
 interface:
-  display_name: "Recenter"
-  short_description: "Recover goal, truth, risks, and next step."
-  default_prompt: "Use recenter to pause a long or compacted thread, recover the main goal, inspect drift and blind spots, and choose the next concrete step."
+  display_name: "Lock In"
+  short_description: "Nudge the task back to its main objective."
+  default_prompt: "Use $recenter to lock onto the main objective and resume the next useful action."

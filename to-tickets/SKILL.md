@@ -1,6 +1,6 @@
 ---
 name: to-tickets
-description: Break a plan or spec into tracer-bullet tickets with explicit blocking edges on the configured tracker.
+description: Turn a plan or spec into tracer-bullet tickets with blocking edges for a local or configured issue tracker.
 disable-model-invocation: true
 ---
 
@@ -9,10 +9,6 @@ disable-model-invocation: true
 Break a plan, spec, or conversation into a set of **tickets** — tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
 The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.
-
-## External write gate
-
-Before creating tickets, labels, or blocking links, confirm the target tracker, preview the bounded set of writes, and require current explicit authorization. Without it, stop after producing local ticket drafts. A successful dry-run is evidence, not permission.
 
 ## Process
 

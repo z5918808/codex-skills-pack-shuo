@@ -1,6 +1,6 @@
 ---
 name: durable-authority-resume
-description: Resume across sessions by reconciling pointers, checkpoints, memory, process state, and stale artifacts.
+description: Use when a repository must resume across sessions and pointer, checkpoint, status, _ctx, handoff, chat memory, process state, or latest artifacts may disagree or be stale.
 ---
 
 # Durable Authority Resume

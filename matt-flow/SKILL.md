@@ -1,6 +1,6 @@
 ---
 name: matt-flow
-description: "Explicit-only router for /matt-flow, $matt-flow, or Matt style; enters the nearest useful engineering stage."
+description: Use only for /matt-flow, $matt-flow, Matt style, or find-my-safe-work-island delegation.
 ---
 
 # matt-flow

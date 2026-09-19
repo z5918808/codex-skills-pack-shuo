@@ -1,16 +1,12 @@
 ---
 name: wayfinder
-description: Map a large multi-session effort as decision tickets, then resolve them until the route to delivery is clear.
+description: Plan multi-session work as decision tickets in an issue-tracker map, resolving them one at a time.
 disable-model-invocation: true
 ---
 
 A loose idea has arrived — too big for one agent session, and wrapped in fog: the way from here to the **destination** isn't visible yet. Wayfinding is about finding that way, not charging at the destination. This skill charts the way as a **shared map** on the repo's issue tracker, then works its **decision tickets** — questions whose resolution is a decision, not slices of a build to execute — one at a time until the route is clear.
 
 The destination varies per effort, and naming it is the first act of charting — it shapes every ticket. It might be a spec to hand off and iterate on, a decision to lock before planning starts, or a change made in place like a data-structure migration. The map is domain-agnostic — engineering work, course content, whatever fits the shape.
-
-## External write gate
-
-Before creating, assigning, commenting on, closing, updating, or deleting tracker items, confirm the target tracker and exact bounded item set, preview the intended writes, and require current explicit authorization. Without it, stop after a read-only map or draft. Deletion additionally requires authorization naming the exact targets. A successful dry-run is evidence, not permission.
 
 ## Plan, don't do
 

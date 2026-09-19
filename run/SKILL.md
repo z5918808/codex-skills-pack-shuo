@@ -79,7 +79,7 @@ Fix a trivial crash once or twice. If the idea is wrong, discard it; do not turn
 
 Use `risk-preflight` before production, database, destructive, financial, customer-data, deployment, or irreversible action. A green dry-run or artifact is not live permission.
 
-Stop when evidence conflicts, the editable surface keeps expanding, the proof cannot be defined, or the same lane fails twice without a new strategy.
+When evidence conflicts, pause only the dependent action and investigate if another bounded probe can resolve it. Stop the lane when scope remains unbounded, proof cannot be defined, or repeated attempts add no information and no safe useful next step remains.
 
 ## Completion
 

@@ -52,11 +52,11 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 ## Reviewer model and effort support
 
 - Required: Astra team research/guidance/review uses low or medium; local implementation/repair and self-review require verified low. High and above block dependent work until corrected through a supported setting control. Preserve the invoking Reviewer; Sol remains allowed with a supported setting.
-- Worker is exactly `gpt-5.6-luna/max` for creation and reuse, never merely a default. Reconcile active legacy work before correcting a mismatch. No alternate Worker model, silent setting change or additional Reviewer; up to five qualified Worker slots are permitted.
+- Worker is exactly `gpt-5.6-luna/max` for creation and reuse, never merely a default. Reconcile active legacy work before correcting a mismatch. No alternate Worker model, silent setting change or additional Reviewer. Ordinary DUO uses one persistent Worker; explicit `multi-workers` may use up to five qualified slots and disables native children.
 
 ## Direction, execution-only work and incidental calibration
 
-- Reviewer grounds direction in current evidence and gives one coherent brief with explicit steps, predefined checks and boundaries. Luna collects facts through named probes but never plans, brainstorms, manages or debugs; even an execution slip returns evidence to Reviewer. Correction execution follows new explicit instructions after lifecycle reconciliation.
+- Reviewer grounds direction in current evidence and gives one coherent brief with explicit steps, predefined checks and boundaries. Luna collects facts through named probes and may mechanically split already-decided disjoint steps among at most two helpers, but never chooses strategy, brainstorms, diagnoses or debugs; even an execution slip returns evidence to Reviewer. Correction execution follows new explicit instructions after lifecycle reconciliation.
 - Existing acceptance may reveal an instruction, tool/data or role-fit issue; Reviewer adjusts the next brief or segment size without a scorecard, calibration batch, extra round or delay to unrelated authorized work. Insufficient evidence remains unconfirmed; Luna-max routing stays fixed. Even three failed corrected attempts never summon Hange or another role in DUO; Reviewer retains diagnosis/repair ownership.
 - Worker result messages end with one whole-goal next-outcome question. Reviewer handles the result with substantive authorized action, dispatch, exact blocker or completion; no acknowledgement-only stop, polling or separate nudges.
 
@@ -94,7 +94,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 ## Fresh Worker goal delivery
 
 - Input: the user requests a fresh Worker and cross-thread follow-up delivery may be unreliable.
-- Required: save the complete executable goal at the fixed `DUO_GOAL.md` path before creation; put `ROLE: Worker`, mission, authority, hard boundary, path+SHA256, run/generation and read-before-action instructions in the single initial prompt; after the creation receipt, apply and verify the `[Worker]` title.
+- Required: save the complete executable goal at the fixed `TASK_GOAL.md` path before creation; put `ROLE: Worker`, mission, authority, hard boundary, path+SHA256, run/generation and read-before-action instructions in the single initial prompt; after the creation receipt, apply and verify the `[Worker]` title.
 - Required on ambiguous creation: use the normal one-inventory reconciliation and never resend the goal to a matching created task whose initial prompt already contains it.
 - Forbidden: create with `SETUP ONLY`, promise that a later `/goal` will arrive, require a second `send_message_to_thread` before work can start, or create another Worker when that follow-up fails.
 
@@ -159,7 +159,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 ## Large fresh Worker goal
 
 - Input: the complete Worker goal is too large or complex for a reliable thread-creation payload.
-- Required: write the complete UTF-8 goal to the same reusable `DUO_GOAL.md` after lifecycle checks, hash it, and create the Worker once with a compact initial prompt containing `ROLE: Worker`, mission, authority, hard boundary, artifact path+SHA256, run/generation, and instruction to read it before acting. Do not create a per-run copy.
+- Required: write the complete UTF-8 goal to the same reusable `TASK_GOAL.md` after lifecycle checks, hash it, and create the Worker once with a compact initial prompt containing `ROLE: Worker`, mission, authority, hard boundary, artifact path+SHA256, run/generation, and instruction to read it before acting. Do not create a per-run copy.
 - Required: the artifact contains the full acceptance and event-delivery contract; the initial prompt remains sufficient to fail closed if the artifact is missing or hash-mismatched.
 - Forbidden: split the goal across creation plus follow-up messages, omit the hash, depend on mtime/latest, or retry creation merely because a long-prompt request returned an ambiguous error.
 
@@ -385,7 +385,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 ## Goal file is reused or deleted
 
 - Input: a DUO generation is completed or cancelled, with stopped Worker proof, no remaining task-owned effects, and resolved acceptance; the user requests cleanup or another authorized DUO goal.
-- Required: delete the exact `DUO_GOAL.md` on cleanup or overwrite the same path for the next goal with a fresh run/generation and hash. Keep existing outcome evidence and stop records separately. No historical goal copy is required.
+- Required: retain authoritative `TASK_GOAL.md` with accepted outcome/evidence, or reuse the same path for a later authorized goal after consumer reconciliation with fresh run/generation/hash. Ordinary cleanup does not delete repo authority; explicit deletion also reconciles pointers. Keep required evidence and stop records.
 - Forbidden: create a new goal file/directory per generation, require a goal archive, call create_goal, or treat deletion as cancellation.
 
 ## Reuse requested before safe closure
@@ -400,11 +400,25 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 - Required: first respect the old generation's stop/terminal state; do not adopt new contents or recreate the file. A nonterminal mismatch stops dependent work for reconciliation. Only a fresh authorized dispatch can activate a new generation.
 - Forbidden: infer resume permission from the filename, reuse an old hash, clear stop records, or start native scheduling.
 
-The skill fails review if any scenario permits a subagent Worker, cross-task waiting or polling, unauthorized Reviewer takeover, a third persistent reviewer, accepted completion based only on a Worker-local final or delivery receipt, Worker-controlled acceptance criteria, Worker advice overriding authority, automatic resumption of a revoked generation, production readiness based only on administrative checks, per-generation goal files, unsafe goal overwrite/deletion, or native goal creation for new DUO work.
+The skill fails review if any scenario permits a child to replace the persistent Worker, a child outside the Luna/max envelope, Reviewer/other-model spawning, layered internal and `multi-workers` DAGs, cross-task waiting or polling, unauthorized Reviewer takeover, a third persistent reviewer, accepted completion based only on a child/Worker-local final or delivery receipt, Worker-controlled acceptance criteria, Worker advice overriding authority, automatic resumption of a revoked generation, production readiness based only on administrative checks, per-generation goal files, unsafe goal overwrite/deletion, or native goal creation for new DUO work.
 
-## Task sizing and opt-in DAG coverage
+## Ordinary Worker-internal DAG coverage
 
-Apply [the shared DAG contract](dag-workers.md) to the eleven static fixtures below. Earlier singular-Worker cases apply per slot; fixed goal paths refer to slot assignments plus the root contract, and `[Worker]` title expectations use the slot prefix. No whole-run single-Worker limit is implied. Verify that small maintenance creates zero tasks, dependent work stays serial, unapproved parallel work creates no parallel tasks, and approved ready work uses no more than five reservations, slot reuse preserves other hashes, and whole-run stop reaches all slots.
+Apply these static cases to ordinary DUO:
+
+1. A typo, short answer, or localized config fix stays with Main and creates no Worker or child.
+2. A substantial serial/shared-writer chain uses one persistent Luna/max Worker and no child.
+3. Two or more useful disjoint predefined branches cause Luna to run the parent and child gates and dispatch at most two depth-1 helpers without another user approval question.
+4. Helper results return only to Luna. Luna rereads changed artifacts, integrates, runs the assignment checks, reconciles every child, and alone sends the persistent Worker return to Reviewer.
+5. Helper failure, ambiguity, or failed predefined check follows DUO's normal safe handoff; Luna does not diagnose, retry strategically, or ask the child to self-replace.
+6. Missing helper capability or a rejected child gate degrades to valid serial execution when the persistent assignment remains executable. Sol, Astra, Terra, other Luna efforts, and depth-1 children never spawn.
+7. Explicit `multi-workers` disables this internal DAG before persistent A–E dispatch; switching requires the normal safe contract boundary.
+
+These are static contract cases, not observed runtime enforcement or measured speedup.
+
+## Explicit multi-workers DAG coverage
+
+Apply [the persistent multi-TASK contract](dag-workers.md) to the eleven static fixtures below only after explicit `$multi-workers`. Earlier singular-Worker cases apply per slot; fixed goal paths refer to slot assignments plus the root contract, and `[Worker]` title expectations use the slot prefix. No whole-run single-Worker limit is implied. Verify that unapproved expansion creates no parallel tasks, approved ready work uses no more than five reservations, native children remain disabled, slot reuse preserves other hashes, and whole-run stop reaches all slots.
 
 These are static reasoning fixtures, not observed multi-task runs.
 
@@ -417,8 +431,8 @@ These are static reasoning fixtures, not observed multi-task runs.
 7. A assignment file is reused while B runs: B's root/assignment hashes remain unchanged; old A cannot adopt the new generation.
 8. User stops while slots are pending: run revocation prevents new dispatch and all entries, with unknown task effects reported, not declared stopped.
 9. Whole-goal evidence misses one branch or integration: no ship despite green local Worker summaries.
-10. Parallel candidate without DAG approval: suggest the recommended split and ask; no parallel task creation. A bare skill invocation, silence or elapsed time is not approval. Existing goal-scoped DAG approval permits refills without repeated questions.
-11. Skill edit, unsupported task API or unavailable Luna max: no live maintenance dispatch, no subagent/model substitute; independent authorized preparation continues.
+10. Parallel persistent-task candidate without `$multi-workers` approval: suggest that optional expansion and ask; ordinary DUO may continue through its single Worker's internal DAG without creating more sidebar tasks. Existing goal-scoped multi-TASK approval permits refills without repeated questions.
+11. Skill edit, unsupported persistent-task API or unavailable Luna max: no live maintenance dispatch and no child/model substitute for the Worker; independent authorized preparation continues. Missing native-child capability alone permits serial Luna execution.
 
 ## Evidence-preserving relay fixtures
 

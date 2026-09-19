@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Review changes since a fixed point against repository standards and the originating spec, issue, or PRD.
+description: Review a commit, branch, tag, or merge-base for Standards and Spec; use for branch, PR, WIP, or review since X.
 ---
 
 Two-axis review of the diff between `HEAD` and a fixed point the user supplies:

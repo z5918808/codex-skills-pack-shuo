@@ -1,6 +1,6 @@
 ---
 name: codebase-design
-description: Design or improve deep module interfaces, seams, testability, and AI navigability.
+description: Design or improve deep module interfaces, seams, testability, and AI-navigability with codebase-design vocabulary.
 ---
 
 # Codebase Design

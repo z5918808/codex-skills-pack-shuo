@@ -1,6 +1,6 @@
 ---
 name: research
-description: Research with high-trust primary sources and save cited findings as Markdown in the repo.
+description: Research with high-trust primary sources; write cited Markdown findings in the repo or delegate reading legwork.
 ---
 
 Spin up a **background agent** to do the research, so you keep working while it reads.

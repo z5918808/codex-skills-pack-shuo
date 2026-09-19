@@ -1,6 +1,6 @@
 ---
 name: project-state-steward
-description: "Maintain declared canonical project state across decisions, milestones, handoffs, and long-running repository work."
+description: Maintain authoritative TASK_GOAL.md for sustained non-native repo work and reconcile existing PROJECT_STATUS.md or _ctx protocols on resume, material changes, workflow switches and closeout. No hooks.
 ---
 
 # Project State Steward
@@ -12,6 +12,8 @@ Keep a long-running repository executable across sessions with one current state
 Use repository files and named validators only. Never add or require lifecycle hooks.
 
 ## Resolve Authority
+
+For sustained non-native repo objectives, read [Repo Task Goal](references/task-goal.md) before creation, resume, material updates, workflow switches or closeout. It owns `TASK_GOAL.md` authority, proactive updates, legacy migration and retention. Apply its safe transfer rules before the older project-status/milestone conventions below; do not keep both as authority for the same current task. For that route, use its entry/update/closeout procedure and the relevant single-writer/evidence rules below, not mandatory creation of PROJECT_STATUS.md or MILESTONE.md. Other existing project protocols remain applicable to their distinct scope.
 
 - Follow system and developer instructions, current user authorization, and applicable `AGENTS.md` rules.
 - Follow a repository-specific state protocol when it differs from this generic workflow.

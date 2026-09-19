@@ -9,6 +9,10 @@ description: Use when Windows work risks UTF-8, PowerShell, native CLI, .cmd, JS
 
 Treat Windows process I/O as encoding-risk until proven otherwise. Preserve raw evidence first, then parse.
 
+## Headless Inspection
+
+Read this skill and referenced helper files through shell output or a non-UI file API. Never use `Invoke-Item`, `Start-Process`, Notepad, an editor, or `open_in_codex` merely to inspect them unless the user explicitly asks to view the file.
+
 ## Use The Helper
 
 Prefer dot-sourcing the user-level helper:

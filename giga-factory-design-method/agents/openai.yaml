@@ -1,0 +1,6 @@
+interface:
+  display_name: "Giga Factory Design Method"
+  short_description: "Design repeated data work as a streaming factory"
+  default_prompt: "Use $giga-factory-design-method to design a bounded, reusable streaming workflow before scaling this repeated multi-stage work."
+policy:
+  allow_implicit_invocation: true

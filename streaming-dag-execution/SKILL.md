@@ -1,6 +1,6 @@
 ---
 name: streaming-dag-execution
-description: Run independent work as a streaming DAG when batch barriers, feeder starvation, or final sections cause delay.
+description: Use when two or more independent work items are slowed by whole-batch barriers, sequential preparation, feeder starvation, dispatch-only progress, or a shared final critical section.
 ---
 
 # Streaming DAG Execution
@@ -27,12 +27,12 @@ description: Run independent work as a streaming DAG when batch barriers, feeder
 3. 單筆 prerequisites 一滿足就前進，不等整批：`ready → work → validated → packet_ready → critical_queue → done`。
 4. worker 只寫自己的 immutable output；central merger 單寫 registry、ledger、queue 與完成狀態。
 5. shared writer、deploy、live mutation、migration 或 final merge 必須是 `single writer` 並維持 WIP=1；prep 可以並行。
-6. feeder 意外輸出零筆、worker 未啟動或 queue 斷料時，明確列為 throughput blocker。修 feeder／runner，不准 Main 默默退回逐筆手工。
+6. feeder 意外輸出零筆、worker 未啟動或 queue 斷料時，明確列為 throughput blocker。比較恢復並行與完成剩餘工作的成本；在權限及 single-writer 約束允許時，可明示降級為串行。不得默默改變 owner、遺漏 item 或重複已完成工作。
 7. 單一 item 失敗只進具名 repair lane，不得阻塞其他無依賴 item，也不得從總目標消失。
 
 ## 真實 DAG Proof
 
-每次狀態回報必須列：
+一般狀態回報只列狀態變化、blocker 與下一步。只有宣稱並行運作／收益、診斷 throughput，或做 DAG 驗收時才列完整證據：
 
 - `eligible_items`、`requested_workers`、`actual_workers`
 - stage distribution，含各 stage 的 item IDs

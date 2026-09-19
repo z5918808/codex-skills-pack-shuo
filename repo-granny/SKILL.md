@@ -1,6 +1,6 @@
 ---
 name: repo-granny
-description: "Explicit workspace audit: preserve unique work, classify stale material, and propose one evidence-backed decision."
+description: Audit a repository or workspace collection from current intent and live evidence, preserve unique work, classify stale or duplicate material, and reduce the result to one decision gate. Use only for an explicit repository-gardening or workspace-cleanup request; do not use for ordinary code review, a single bug fix, or a direct deletion request.
 metadata:
   version: "0.1.0"
 ---
@@ -64,7 +64,7 @@ In `audit`, perform no writes, including report files. In `audit-report`, write 
 
 ### 2. Build inventory
 
-Prefer the deterministic scanner when Python 3.11+ and Git are available:
+Prefer the deterministic scanner when Python 3.9+ and Git are available:
 
 ```text
 python <skill-directory>/scripts/inventory_workspace.py --root <scope>

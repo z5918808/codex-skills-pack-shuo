@@ -1,6 +1,6 @@
 ---
 name: risk-preflight
-description: "Preflight destructive, production, database, financial, secret, bulk, deployment, or irreversible actions."
+description: Preflight high-impact writes when target, scope, recovery, or existing authorization must be verified.
 ---
 
 # Risk Preflight
@@ -14,7 +14,7 @@ description: "Preflight destructive, production, database, financial, secret, bu
 高風險包含：
 
 - production、部署、live theme、公開發布。
-- database、migration、bulk update/delete、超過 10 筆資料。
+- database、migration、bulk update/delete。
 - 金錢、訂單、庫存、預約、通知、客戶資料。
 - token、secret、權限、broad-scope credential。
 - destructive filesystem 或 git 操作，例如大範圍刪除、批量 move/delete、`git reset --hard`、`git checkout --`。
@@ -31,12 +31,12 @@ description: "Preflight destructive, production, database, financial, secret, bu
 4. Preview：dry-run、diff、plan、affected row count、或等價預覽。
 5. Rollback：如何回復；不能回復就明講。
 6. Guard：應使用的 script、rules、hook、MCP guard、CLI wrapper 或專門 skill。
-7. Confirmation：需要使用者明確確認時，先停下。
+7. Authorization：沿用涵蓋目前動作、環境、資源與影響上限的既有授權；只有授權缺少或擴大時才詢問。
 
 ## Routing
 
 - Database / migration / bulk data：優先用 `$agent-db-safety` 或 repo guard。
-- Vendor commerce / orders / inventory / live storefront：使用對應平台 skill，寫入前先做 preview / diff / plan。
+- Shopify / orders / inventory / live theme：用 Shopify 對應 skill，寫入前 preview / diff / plan。
 - Browser / UI critical flow：用 browser skill 或專案既有驗證流程。
 - Codex CLI sidecar 或 automation：確認不繞過 production、金錢、客戶資料、destructive 限制。
 - Git destructive：除非使用者明確要求且風險已說清，否則不要執行。
@@ -50,7 +50,7 @@ description: "Preflight destructive, production, database, financial, secret, bu
 輸出其中一種：
 
 - `Proceed`: 已有 preview、範圍、rollback，且不需額外確認。
-- `Need confirmation`: 影響 production、高價值資料、超過 10 筆、不可逆、或使用者需選擇策略。
+- `Need confirmation`: 缺少或需要擴大任務授權，或有無法從現況推定的重要策略選擇。
 - `Blocked`: 缺少權限、guard、preview、rollback、或現況證據。
 - `Reduce scope`: 先改 staging、少量樣本、read-only audit、或建立 dry-run。
 

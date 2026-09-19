@@ -1,6 +1,6 @@
 ---
 name: tdd
-description: Test-driven development for features or bug fixes with red-green-refactor and integration tests.
+description: Test-driven development for test-first features or bug fixes, red-green-refactor, and integration tests.
 ---
 
 # Test-Driven Development
@@ -19,9 +19,7 @@ See [tests.md](tests.md) for examples and [mocking.md](mocking.md) for mocking g
 
 A **seam** is the public boundary you test at: the interface where you observe behavior without reaching inside. Tests live at seams, never against internals.
 
-**Test only at pre-agreed seams.** Before writing any test, write down the seams under test and confirm them with the user. No test is written at an unconfirmed seam. You can't test everything — agreeing the seams up front is how testing effort lands on the critical paths and complex logic instead of every edge case.
-
-Ask: "What's the public interface, and which seams should we test?"
+Choose test boundaries from the existing public interfaces, test conventions, and acceptance criteria. Continue testing within the user's existing authorization. Ask only when choosing a boundary would materially change the product contract or requested scope and the answer cannot be inferred from available evidence.
 
 ## Anti-patterns
 

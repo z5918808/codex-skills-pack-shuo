@@ -2,7 +2,7 @@
 
 一套以「能直接完成工作」為標準整理的 Codex skills 精選集，包含可單獨使用的通用技能，以及可按任務階段路由的完整工程工作流。
 
-目前收錄 **109 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
+目前收錄 **114 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
 
 > 適合：想快速建立可重複工作流的新手，以及重視證據、風險檢查、工作交接與長任務協作的進階使用者。
 
@@ -25,11 +25,17 @@ Copy-Item -LiteralPath ".\diagnose" -Destination $skillsRoot -Recurse -Force
 
 macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](./docs/GETTING_STARTED.md)。
 
-TRIO 長跑需要一起安裝 `trio-long-running`、`duo-brainer` 與 `duo-run`：
+TRIO 長跑需要一起安裝 `trio-long-running`、`giga-factory-design-method` 與 `zoomout`：
 
 ```powershell
 $skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
-Copy-Item -LiteralPath ".\trio-long-running", ".\duo-brainer", ".\duo-run" -Destination $skillsRoot -Recurse -Force
+Copy-Item -LiteralPath ".\trio-long-running", ".\giga-factory-design-method", ".\zoomout" -Destination $skillsRoot -Recurse -Force
+```
+
+舊名稱 `duo-brainer` 現在是 `heavy-duo` 的相容入口；若仍使用舊名稱，請一起安裝兩者：
+
+```powershell
+Copy-Item -LiteralPath ".\duo-brainer", ".\heavy-duo" -Destination $skillsRoot -Recurse -Force
 ```
 
 兩種 DUO 都由 Main 直接處理小任務；較大串行工作用一位 Luna max。只有值得並行時才提出 DAG 建議，取得本次任務同意後，最多使用五個側欄 task：`[Worker A]` 彙整與回報，`[Worker B]`–`[Worker E]` 執行。A 保留原始結果與逐項證據對照，Reviewer 負責驗收。`astra-luna-duo` 使用共用派工契約，請與 `duo-run` 一起安裝：
@@ -94,6 +100,7 @@ Copy-Item -LiteralPath ".\astra-luna-duo", ".\duo-run" -Destination $skillsRoot 
 [`checkpoint`](./checkpoint/) ·
 [`astra-luna-duo`](./astra-luna-duo/) ·
 [`duo-run`](./duo-run/) ·
+[`heavy-duo`](./heavy-duo/) ·
 [`durable-authority-resume`](./durable-authority-resume/) ·
 [`explain`](./explain/) ·
 [`find-my-safe-work-island`](./find-my-safe-work-island/) ·
@@ -115,7 +122,8 @@ Copy-Item -LiteralPath ".\astra-luna-duo", ".\duo-run" -Destination $skillsRoot 
 [`survey-corps-trio`](./survey-corps-trio/) ·
 [`trio-long-running`](./trio-long-running/) ·
 [`staging`](./staging/) ·
-[`step-back-and-think`](./step-back-and-think/)
+[`step-back-and-think`](./step-back-and-think/) ·
+[`zoomout`](./zoomout/)
 
 ### 工程、架構與品質
 
@@ -130,6 +138,7 @@ Copy-Item -LiteralPath ".\astra-luna-duo", ".\duo-run" -Destination $skillsRoot 
 [`eval-harness`](./eval-harness/) ·
 [`factory-output`](./factory-output/) ·
 [`frontend-patterns`](./frontend-patterns/) ·
+[`giga-factory-design-method`](./giga-factory-design-method/) ·
 [`improve-codebase-architecture`](./improve-codebase-architecture/) ·
 [`minimum-effective-harness-tuning`](./minimum-effective-harness-tuning/) ·
 [`repo-bootstrap`](./repo-bootstrap/) ·

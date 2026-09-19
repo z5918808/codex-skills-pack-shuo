@@ -1,6 +1,6 @@
 ---
 name: diagnose
-description: Diagnose bugs through bounded reproduction, falsifiable hypotheses, and evidence-based root cause.
+description: Diagnose errors; use for root-cause investigation across product, tooling, environment, and workflow.
 ---
 
 # Diagnose
@@ -36,7 +36,9 @@ description: Diagnose bugs through bounded reproduction, falsifiable hypotheses,
 
 可用形式：test、HTTP fixture、CLI snapshot、browser flow、captured trace replay、differential run、property test、bisection 或 profiler。Signal 要對準原症狀，不只是「沒 crash」。
 
-穩定 repro 最好，但不是推理的硬門檻。低頻 incident 可用 captured artifact 建暫定假設與探針；沒有第二路徑前不得定根因或開修法。
+穩定 repro 最好，但不是推理的硬門檻。低頻 incident 可用 captured artifact 建暫定假設與探針；根因判定依前述證據狀態；高風險或仍有關鍵替代原因時，補獨立驗證。
+
+難重現、需要縮小案例或量測效能時，按需讀 [進階診斷技巧](../diagnosing-bugs/references/techniques.md)。
 
 ## 3. 建最小假設集合
 

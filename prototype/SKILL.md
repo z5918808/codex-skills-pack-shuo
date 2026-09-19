@@ -1,6 +1,6 @@
 ---
 name: prototype
-description: Build a throwaway prototype to test a design question, state model, UI direction, or logic.
+description: Build a throwaway prototype to answer a design or UI question and sanity-check state or logic.
 ---
 
 # Prototype

@@ -1,6 +1,6 @@
 ---
 name: grilling
-description: Grill a plan, decision, or idea to expose assumptions, risks, and missing details.
+description: Grill a plan, decision, or idea; use to stress-test thinking or grill trigger phrases.
 ---
 
 Interview me relentlessly about every aspect of this until we reach a shared understanding. Walk down each branch of the decision tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.

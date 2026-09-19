@@ -1,6 +1,6 @@
 ---
 name: design3steps
-description: "3-step design"
+description: Use a lightweight visual thesis, structure, and finish workflow for straightforward frontend design work.
 ---
 
 # Design3steps
@@ -15,16 +15,16 @@ This skill is deliberately conservative:
 2. lock the structure
 3. refine the finish
 
-If the work needs deeper diagnosis or command-level routing, switch to `impeccable-design-workflow`.
+If the work needs deeper diagnosis or command-level routing, use `impeccable`.
 
 ## Hard Rules
 
 1. Start with a one-line visual thesis before writing or revising UI code.
-2. Sample at least 3 relevant reference systems before locking direction.
+2. Inspect references only when they resolve a real visual or interaction uncertainty; do not require a fixed count.
 3. Treat `impeccable.style` as an anti-pattern reference, not as the target aesthetic.
 4. Give each section one job only.
 5. Do not jump to detailed polish before the layout skeleton is stable.
-6. Use this skill as the default baseline. Escalate to `impeccable-design-workflow` only when the command choice is non-obvious or the problem is already diagnostic.
+6. Use this skill as the lightweight baseline. Escalate to `impeccable` only when requested, command choice is non-obvious, or the problem is diagnostic.
 
 ## The 3 Steps
 
@@ -45,7 +45,7 @@ Good example:
 Output for this step:
 
 - one-line visual thesis
-- 2-3 reference systems
+- relevant references, when needed to resolve the direction
 - 1 anti-reference
 
 ### Step 2: Skeleton
@@ -102,9 +102,9 @@ Output for this step:
 - material direction
 - motion direction
 
-## Escalate to Impeccable Workflow When
+## Escalate to Impeccable When
 
-Switch to `impeccable-design-workflow` if any of these are true:
+Switch to `impeccable` if any of these are true:
 
 - you are not sure whether to use `/shape`, `/critique`, `/audit`, or a surgical Impeccable command
 - the UI already exists and the failure mode is unclear

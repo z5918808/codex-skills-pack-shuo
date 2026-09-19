@@ -10,7 +10,7 @@ Use `[Reviewer]`, `[Thinker]`, and `[Worker]` for the three independent tasks, p
 
 Every Main pairs with one separate persistent user-visible `gpt-6-astra` Thinker task, default effort medium. Preserve explicit supported Astra effort overrides. Main cannot satisfy or replace this support role, even when Main is Astra. Thinker is never a Reviewer, readiness owner, acceptance owner, or clearance gate. Never use a subagent or CLI substitute for Thinker support.
 
-Before dispatch, require `python C:\Users\user\.codex\scripts\verify_subagents_disabled.py` to pass, then apply the actual model gate to the independent-task route and current task-bound invocation/approval evidence. A gate named `subagent_model_gate.py` does not authorize native child dispatch. The Thinker must have a stable task ID whose exact-ID read matches the expected role and workspace. A positive ordinary-list match can discover a task, but list omission cannot invalidate an exact-ID match. Missing supported task creation, direct messaging, exact-ID identity, or model capability blocks that dependent question; do not invent a fallback.
+Apply the actual model gate to the independent-task route and current task-bound invocation/approval evidence. Native multi-agent availability never authorizes a Thinker child or replacement role. The Luna Worker child envelope is separate and governed by `C:\Users\user\.codex\harness_docs\16_subagent_ban.md`. The Thinker must have a stable task ID whose exact-ID read matches the expected role and workspace. A positive ordinary-list match can discover a task, but list omission cannot invalidate an exact-ID match. Missing supported task creation, direct messaging, exact-ID identity, or model capability blocks that dependent question; do not invent a fallback.
 
 Reuse the existing Thinker after its previous assignment is terminal, delivered, ingested and effects reconciled. When creation is needed, use the supported task tool with explicit selected model/effort and a complete bounded initial assignment. Discover the project first; use the approved saved local project for read-only repo analysis, never an unapproved worktree. Reconcile ambiguous creation once; retain one Thinker OWNER and never retry from task-list omission alone.
 
@@ -38,18 +38,33 @@ Main prepares and reviews this compact brief in the existing goal/dispatch artif
 
 | Brief content | What Luna must be able to determine |
 | --- | --- |
-| Outcome and acceptance | Concrete deliverable, coverage, criterion IDs, required proof, and a plausible wrong result the check must reject. |
-| Relevant context | Confirmed decisions, inputs, current baseline, supported entrypoint/fixture, known failed approach and cause if relevant, and only the needed paths/pinned references. |
-| Coherent work segment | What to finish autonomously, dependency order, natural action boundaries, useful progress signals, and where completion or a decision ends this assignment. Multiple authorized phases may stay in one assignment. |
-| Judgment and permission | Routine choices Luna may make; protected state, allowed operations, and decisions that require handoff. Never delegate shared code repair or imply live permission. |
-| Verification and recovery | Appropriate checks, expected results/tolerances, evidence to retain, how to avoid repeating completed effects, and the existing stop/shared-defect escalation conditions. |
-| Return contract | Reviewer chat/tool, assignment/generation, pinned reporting.md, required result/blocker payload, and direct delivery before local final. |
+| Job / outcome | User outcome, coverage, coherent autonomous segment, dependency order, progress signals and natural completion/handoff boundary. Multiple authorized phases may stay in one assignment. |
+| Sources / factual inputs | Authoritative inputs and locatable evidence, confirmed decisions, current baseline, supported entrypoint/fixture, relevant failed approaches and known causes. Identify unresolved inputs rather than silently filling them from inference. |
+| Judgment / completion | Routine choices Luna may make, pinned criterion IDs, checks and tolerances, and a plausible wrong result the evidence must reject. |
+| Output / handoff | Deliverable, evidence and recovery references, Reviewer chat/tool, assignment/generation and pinned reporting.md. Directly deliver results or blockers before local final. |
+| Forbidden / boundaries | Protected state and prohibited actions alongside allowed operations; no shared code repair or implied live permission. Name stop/escalation conditions and how completed or uncertain effects are reconciled before retry. |
+
+The brief also pins the shared Luna Worker DAG reference/hash and whether an explicit `multi-workers` route disables internal children. Main does not pre-plan child nodes. Luna decides mechanical branch allocation from the executable brief, within the same scope, ownership, checks, and stop conditions.
+
+These five groups reorganize the existing brief, not its authority. Reuse permission, identity, version/hash and return fields without duplicating them or adding another checklist. Use the same content principles for bounded Thinker questions while preserving their read-only/support role.
 
 During opening review, Main asks: Can Luna start without repeating broad investigation or guessing a consequential decision? Can it tell success from a false green? Is the segment large enough to complete useful work without per-step approvals, yet bounded by known dependencies and permission? Are ordinary execution choices distinguished from shared defects and authority changes? Is the return route explicit? If Astra support is used, request concrete gaps and the cheapest decisive evidence, not a verdict, full duplicate implementation, or rewrite for style.
 
 Before dispatch, Main resolves material gaps and confirms the final brief and criteria with its own evidence-based review. Thinker advice may inform but never approve them. Bundle independent or sequential work only when the same authorized contract and safe boundaries cover it; do not enlarge a live/bulk action merely to reduce messages. Do not issue “continue” with no executable objective. On correction, supply the specific delta plus the current complete contract reference, not a replacement transcript. A complete revised acceptance packet is still required at closing, even when the correction prompt is concise.
 
+## Main-owned look-ahead
+
+While Luna executes, Main owns routine preparation of the next useful assignment from existing material, the accepted plan and prior returns. After successful Worker dispatch, use the remaining handling turn for one bounded draft when its inputs are independent of the pending result, then yield. On later user/result-driven entry, reuse or refresh that draft rather than starting a planning round from scratch. Do not keep the turn alive, poll, schedule wakeups, shadow Luna's traversal, or perform Worker production to fill the interval.
+
+Keep the draft as a compact non-executable note in the existing receipt/state outside pinned files: candidate outcome and scope, known evidence, missing facts/dependencies, intended checks and recovery constraints. It is not a second TASK_GOAL.md, dispatch authorization or queued assignment. Do not modify active goal/rules hashes, send a future job to the busy Worker, or touch its production/shared-code lane. If preparation depends on the pending result, record the gap and yield instead of guessing.
+
+On Luna's direct return, prioritize Main-owned review and reconciliation. Recheck the draft against actual effects, current authority and remaining acceptance gaps; correct or discard stale assumptions. Once prior ownership and required review are resolved, pin the next contract and dispatch exactly once to the same Luna task in the handling turn. If a blocker isolates one route, an independently ready in-scope route may proceed only after safe reconciliation; never bypass a whole-goal dependency or unresolved write.
+
+Do not assign routine look-ahead to Astra. Keep the same Thinker available for material semantic uncertainty, difficult decisions, or unresolved shared causes under the existing escalation rules; no busywork consultation or automatic cancellation of an already-active question. Main prepares ordinary briefs and performs decisively supported shared repair. Draft readiness never replaces Main acceptance or expands permissions.
+
 ## Reviewer Pre-run Readiness
+
+For mutation work, pin standing authority for the complete authorized segment using [Worker standing execution authority](worker.md#standing-execution-authority): target, allowed operations, protected state, recovery evidence/location, and real stop conditions. Prefer this coherent segment over one-item approval assignments when readiness supports it. Small execution batches remain local checkpoints, not terminal review gates. Preserve explicit user/project ceilings and unresolved canary limits; remove a temporary limit only at the existing safe contract boundary with evidence, never by silently expanding an active assignment.
 
 The brief names why its segment must return, what current evidence would permit a larger successor, and the authorized ceiling. Local checkpoints alone do not end an assignment. Preserve small execution batches, per-item proof and proportionate semantic review while avoiding unnecessary terminal handoffs. At the next eligible handoff, reassess a temporary canary ceiling instead of copying it forever. Enlarge only when relevant failure modes are controlled and coverage, dependencies, recovery and authority remain adequate; high pass counts alone, automatic doubling, or a universal batch count are insufficient. New source shapes, unresolved semantic patterns or contradictory evidence require Main to reassess the affected scope. Main pins any larger segment through a reconciled successor contract, never across an active cap; it may request bounded Astra support for an unresolved material judgment, without a sizing-only review round.
 
@@ -82,6 +97,7 @@ Before dispatch, record:
 - Reviewer task ID and host ID when available;
 - actual Reviewer model and effort;
 - Worker model and effort;
+- the shared Luna Worker DAG reference/hash and `internal_child_dag=enabled` unless an explicit `multi-workers` route owns parallelism;
 - workspace and authoritative resume entrypoint;
 - scope, permissions, safety boundary, and acceptance criteria;
 - a Main-reviewed and Main-pinned acceptance checklist tied to the authoritative contract revision/hash, with criterion IDs, thresholds, and required evidence; note any Astra advice separately without treating it as authority;
@@ -107,7 +123,7 @@ Then:
 7. If the inventory returns no match, keep creation ambiguous and stop dependent dispatch without retry or fallback creation. Resume only from a later authoritative creation result or an exact stable task ID that resolves to the matching task.
 8. Before the OWNER consumes the canonical action, prove at most one matching controller tree and one writer WIP. A non-owner that sees an in-flight action stops; it never waits on or inspects the OWNER.
 9. Apply the role titles. For a newly created or replacement Worker only, take one immediate `read_thread` snapshot to prove its turn started and identify the OWNER.
-10. End the Reviewer turn. Do not wait for completion.
+10. Complete useful bounded Main-owned look-ahead preparation, then end the Reviewer turn. Do not wait for completion.
 
 If ownership cannot be mapped, freeze new claims, refills, and writes and send a Reviewer incident. Never guess.
 
@@ -131,6 +147,7 @@ Applicable work phase(s) and evidence deliverable; use Worker execution's phase 
 Scope, permission, and safety boundary.
 Applicable shared reference paths/hashes; verify and read when needed, before the governed action.
 shared_self_repair_budget=none; shared repair belongs to the Reviewer.
+internal_child_dag=enabled; follow the pinned bounded Luna Worker DAG contract; no child replaces this persistent Worker.
 Reviewer-defined natural action boundaries, objective-progress signals, last renewed snapshot, and boundary stall window.
 Known false-block condition and bounded local process-wait rule.
 Acceptance checklist reference/hash and criterion IDs.

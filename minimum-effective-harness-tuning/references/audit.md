@@ -10,6 +10,8 @@ If the user supplies a design article, extract general principles separately fro
 
 ## Choose an Action
 
+For an observed failure, first distinguish missing guidance, guidance not loaded, an implementation defect, an acceptance gap, and an unenforced permission boundary. Fix the smallest owning component; a failure is not automatically a reason to add another instruction.
+
 | Action | Appropriate reason |
 | --- | --- |
 | Retain | It supplies non-obvious knowledge or protects an applicable authority, correctness, recovery, or acceptance boundary. |
@@ -30,8 +32,12 @@ Do not force every instruction into a report table. Explain only decisions that 
 
 ## Evaluate the Change
 
+Before claiming enforcement, trace the protected action through the named check: when it runs, whether rejection blocks the action, and what a negative fixture proves. A check that the agent must voluntarily call is advisory at the integration boundary; a passing result does not prove every action went through it. Resolve policy/document/code/test conflicts against the current authority.
+
 Use the cheapest evidence that answers the actual concern. For a reference move, check that the consumer can discover the destination and that needed boundaries survived. For a claim of faster agent work, compare relevant observed runs under comparable tasks and conditions.
 
 Useful observations include unnecessary file reads, repeated approvals or tests, premature stops, rework, and permission/acceptance failures. Count only what existing evidence supports. Entry-file size measures loading footprint, not total runtime or quality; do not create a monitor or benchmark system merely to supply a metric.
+
+For material behavior changes, note the expected improvement and plausible regression in the existing change record. Revisit when a relevant comparable run is available; until then, effectiveness is unverified. Reuse evidence rather than adding full tool-call logging or a new report system.
 
 If a shared change needs rollout proof under the existing project contract, follow its canary and versioning mechanism. Do not invent a new rollout gate for an ordinary isolated document edit.
