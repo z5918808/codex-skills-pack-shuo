@@ -8,7 +8,7 @@ Static scenarios; no live dispatch, model compliance or savings claim follows fr
 - Every review checks whole-goal priority, facts versus explanations, context bias, shared causes and deletion/simplification before its decision. No mandatory step-back skill invocation or separate reflection turn.
 - Passing internal checks continue under the brief; unknown failure pauses affected steps without Luna debugging/retries.
 - Specified shared-code correction is permitted only with bounded scope, ownership reconciliation and discriminating checks; it grants no self-repair or live authority.
-- Astra-authored repair stays with same-Astra low self-review; Luna facts do not become delegated review.
+- Astra-authored repair stays with the same Astra at its verified supported effort, high by default; Luna facts do not become delegated review.
 - Local Worker final, consumed input without continuation, ambiguous send and stale generation cannot become completion or duplicate dispatch.
 - Stop revokes execution across re-entry; no native-goal creation, unapproved worktree, automatic replacement after stop or extra Reviewer. Ordinary DUO has one persistent Luna/max Worker with at most two depth-1 helpers; explicit `multi-workers` may instead use up to five qualified persistent slots, with no native children.
 - Acceptance needs whole-goal evidence and actual delivery/consumption/effect reconciliation; compact proof is not sampling away coverage.

@@ -1,7 +1,7 @@
 interface:
   display_name: "Astra Luna Duo"
   short_description: "Astra 決策驗收，Luna max 內部分支執行"
-  default_prompt: "使用 $astra-luna-duo：Astra 負責方向、修復設計與整體驗收，較大工作交給一個 Luna max Worker；Luna 對適合並行的既定步驟預設使用最多兩個單層 helpers。"
+  default_prompt: "使用 $astra-luna-duo：Astra Main 預設 high，保留已選設定；Astra 負責方向、修復設計與整體驗收，較大工作交給一個 Luna max Worker；Luna 對適合並行的既定步驟預設使用最多兩個單層 helpers。"
 
 policy:
   allow_implicit_invocation: false

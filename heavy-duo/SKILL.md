@@ -5,7 +5,7 @@ description: Run explicit two-task collaboration with a Worker and Astra Reviewe
 
 # Heavy Duo
 
-Default pairing: `gpt-5.6-sol/medium` Worker + `gpt-6-astra` Reviewer. Preserve the user's selected Astra effort; this skill sets no new Reviewer effort default and never changes the running app model. Use Heavy Duo when the user requests this pair or substantive two-role work. Editing or discussing the skill starts no tasks.
+Default pairing: `gpt-5.6-sol/medium` Worker + `gpt-6-astra/high` Reviewer. Preserve the user's explicitly selected supported Astra effort and never change the running app model. Use Heavy Duo when the user requests this pair or substantive two-role work. Editing or discussing the skill starts no tasks.
 
 ## Flexible roles
 

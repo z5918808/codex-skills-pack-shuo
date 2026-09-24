@@ -1,4 +1,4 @@
 interface:
   display_name: "Heavy Duo"
   short_description: "Sol medium 執行、Astra 計畫與審查，依任務自由調整雙人分工"
-  default_prompt: "使用 $heavy-duo，預設 Sol medium Worker 搭配 Astra Reviewer，需要計畫時由 Astra 負責，Sol 依計畫執行，Astra 審查驗收；分工可依我的指示調整。"
+  default_prompt: "使用 $heavy-duo，預設 Sol medium Worker 搭配 Astra high Reviewer，需要計畫時由 Astra 負責，Sol 依計畫執行，Astra 審查驗收；分工可依我的指示調整。"

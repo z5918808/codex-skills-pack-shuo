@@ -10,7 +10,7 @@ In ordinary DUO, native helper results return only to the persistent Luna Worker
 
 Review all root criteria, integrated output, child effects and receipts before whole-goal ship; one late or missing branch remains incomplete. In explicit `multi-workers` mode, also apply [whole-goal persistent DAG acceptance](dag-workers.md): a slot pass releases eligible successors but is not ship.
 
-Astra-authored work is reviewed only by the same Astra, at low. Do not send it to Luna, Sol or another Reviewer for review, approval or independent validation. Astra runs or inspects relevant tests and contract evidence itself; self-review is not independent model review. Worker may execute a repaired production route under a fresh explicit goal and return facts, but does not review the repair. Missing acceptance evidence still prevents ship.
+Astra-authored work is reviewed only by the same Astra at its verified supported effort, high by default. Do not send it to Luna, Sol or another Reviewer for review, approval or independent validation. Astra runs or inspects relevant tests and contract evidence itself; self-review is not independent model review. Worker may execute a repaired production route under a fresh explicit goal and return facts, but does not review the repair. Missing acceptance evidence still prevents ship.
 
 The Worker delivers:
 

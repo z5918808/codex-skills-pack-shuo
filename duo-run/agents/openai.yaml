@@ -1,4 +1,4 @@
 interface:
   display_name: "Duo Run"
   short_description: "Reviewer 驗收，Luna max 預設內部分支執行"
-  default_prompt: "使用 $duo-run：Sol 6 Main 預設 high，保留已選 Main 設定；小任務由 Main 完成，較大工作交給一個 Luna max Worker；Luna 對適合並行的既定步驟預設使用最多兩個單層 helpers，Reviewer 保留方向、修復與驗收。"
+  default_prompt: "使用 $duo-run：Sol 6 或 Astra Main 預設 high，保留已選 Main 設定；小任務由 Main 完成，較大工作交給一個 Luna max Worker；Luna 對適合並行的既定步驟預設使用最多兩個單層 helpers，Reviewer 保留方向、修復與驗收。"

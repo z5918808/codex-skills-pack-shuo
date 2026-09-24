@@ -17,8 +17,8 @@ Review these against the main skill and reporting reference after edits. They ar
 | Consumed return, interrupted before successor | Reconcile pending continuation and actual effects; finish only unfinished action. |
 | Hange finishes review with goal unfinished | Actual successor or delivered Erwin return before voluntary final; local summary fails. |
 | Rejected or ambiguous send | One correction for definite rejection; unknown transport has no blind resend. Sent is not wake-up proof. |
-| Astra medium takes over implementation | Reconciled ownership and verified low first; idle teammates are no exemption. |
-| Astra-authored or mixed work | Same Astra self-reviews its portions at low with real proof; no delegated review or independent-review claim. |
+| Astra Main takes over implementation | Reconciled ownership and verified supported effort first; high is the default, idle teammates are no exemption. |
+| Astra-authored or mixed work | Same Astra self-reviews its portions at its verified supported effort with real proof; no delegated review or independent-review claim. |
 | Sol repair / conflicting evidence | Discriminating behavioral proof or escalate the gap; no automatic duplicate review round. |
 | Changed contract, shared repair or ambiguous creation | Reconcile prior lifecycle, preserve single writer and valid results; no duplicate creation or silent hash adoption. |
 | User stop, live action or child | Stop both persistent roles with latched revocation; Levi interrupts only verified owned children and reconciles effects; fresh resume/live authority required. |

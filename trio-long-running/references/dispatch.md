@@ -8,7 +8,7 @@ Use `[Reviewer]`, `[Thinker]`, and `[Worker]` for the three independent tasks, p
 
 ## Independent Thinker dispatch
 
-Every Main pairs with one separate persistent user-visible `gpt-6-astra` Thinker task, default effort medium. Preserve explicit supported Astra effort overrides. Main cannot satisfy or replace this support role, even when Main is Astra. Thinker is never a Reviewer, readiness owner, acceptance owner, or clearance gate. Never use a subagent or CLI substitute for Thinker support.
+Every Main pairs with one separate persistent user-visible `gpt-6-astra` Thinker task, default effort high. Preserve explicit supported Astra effort overrides. Main cannot satisfy or replace this support role, even when Main is Astra. Thinker is never a Reviewer, readiness owner, acceptance owner, or clearance gate. Never use a subagent or CLI substitute for Thinker support.
 
 Apply the actual model gate to the independent-task route and current task-bound invocation/approval evidence. Native multi-agent availability never authorizes a Thinker child or replacement role. The Luna Worker child envelope is separate and governed by `C:\Users\user\.codex\harness_docs\16_subagent_ban.md`. The Thinker must have a stable task ID whose exact-ID read matches the expected role and workspace. A positive ordinary-list match can discover a task, but list omission cannot invalidate an exact-ID match. Missing supported task creation, direct messaging, exact-ID identity, or model capability blocks that dependent question; do not invent a fallback.
 

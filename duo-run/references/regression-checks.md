@@ -57,7 +57,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 
 ## Reviewer model and effort support
 
-- Required: Astra team research/guidance/review uses low or medium; local implementation/repair and self-review require verified low. High and above block dependent work until corrected through a supported setting control. Preserve the invoking Reviewer; Sol remains allowed with a supported setting.
+- Required: Astra Main defaults to high for team research/guidance/review and authorized local implementation/repair/self-review. Preserve any explicitly selected supported effort and the invoking Reviewer; Sol remains allowed with a supported setting. A recommendation is not proof of the running model or effort.
 - Worker is exactly `gpt-5.6-luna/max` for creation and reuse, never merely a default. Reconcile active legacy work before correcting a mismatch. No alternate Worker model, silent setting change or additional Reviewer. Ordinary DUO uses one persistent Worker; explicit `multi-workers` may use up to five qualified slots and disables native children.
 
 ## Direction, execution-only work and incidental calibration
@@ -68,7 +68,7 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 
 ## Astra reviews its own repair
 
-- The same Astra at low reviews its own implementation using relevant contract tests/readbacks. Do not send the repair to Luna, Sol or another Astra for review. Worker may execute a repaired route under explicit instructions, but does not assess repair design. Self-review is not independent model review, and missing evidence still blocks ship.
+- The same Astra at its verified supported effort, high by default, reviews its own implementation using relevant contract tests/readbacks. Do not send the repair to Luna, Sol or another Astra for review. Worker may execute a repaired route under explicit instructions, but does not assess repair design. Self-review is not independent model review, and missing evidence still blocks ship.
 
 ## Healthy runner; user says it will report
 

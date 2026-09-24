@@ -1,6 +1,6 @@
 interface:
   display_name: "Heavy Duo (舊名 Duo Brainer)"
   short_description: "舊 duo-brainer 指令入口，轉到 Heavy Duo 的雙人協作流程"
-  default_prompt: "使用 $duo-brainer，依 Heavy Duo 預設安排 Sol medium Worker 與 Astra Reviewer。"
+  default_prompt: "使用 $duo-brainer，依 Heavy Duo 預設安排 Sol medium Worker 與 Astra high Reviewer。"
 policy:
   allow_implicit_invocation: false
