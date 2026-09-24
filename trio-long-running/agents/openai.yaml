@@ -1,4 +1,4 @@
 interface:
   display_name: "Trio Long Running"
   short_description: "Main 負責覆核，獨立 Astra Thinker 僅供支援"
-  default_prompt: "使用 $trio-long-running：保留 Main，另起或重用 Astra Thinker 與 Luna max Worker；Main 負責覆核，Astra 只支援決策，Luna 對適合並行的執行預設使用最多兩個單層 native helpers。"
+  default_prompt: "使用 $trio-long-running：Sol 6 Main 預設 high，保留已選 Main 設定；另起或重用 Astra Thinker 與 Luna max Worker；Main 負責覆核，Astra 只支援決策，Luna 對適合並行的執行預設使用最多兩個單層 native helpers。"

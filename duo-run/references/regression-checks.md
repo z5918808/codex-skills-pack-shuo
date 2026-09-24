@@ -2,6 +2,12 @@
 
 Use these semantic scenarios when editing or reviewing the skill. Native-goal scenarios cover legacy already-existing goals and cancellation only; they never authorize native creation in new DUO work.
 
+## Sol Main recommendation
+
+- Input: a new DUO assignment uses Sol as Main without an explicit effort override.
+- Required: recommend `gpt-6-sol/high` for Main and keep any already-selected supported effort unchanged. The interface prompt agrees with SKILL.md; editing this skill does not change a running task.
+- Forbidden: treat the recommendation as an observed runtime setting, silently change Main, or apply it to an Astra Main or Luna Worker.
+
 ## Assignment has an unresolved dependency
 
 - Input: production needs an undecided interface, but a bounded read-only discovery can identify the options.
