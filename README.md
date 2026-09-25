@@ -2,7 +2,7 @@
 
 一套以「能直接完成工作」為標準整理的 Codex skills 精選集，包含可單獨使用的通用技能，以及可按任務階段路由的完整工程工作流。
 
-目前收錄 **115 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
+目前收錄 **116 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
 
 > 適合：想快速建立可重複工作流的新手，以及重視證據、風險檢查、工作交接與長任務協作的進階使用者。
 
@@ -24,6 +24,16 @@ Copy-Item -LiteralPath ".\diagnose" -Destination $skillsRoot -Recurse -Force
 ```
 
 macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](./docs/GETTING_STARTED.md)。
+
+`loop` 把限量研究、目標契約與可驗證階段串成一次流程。需一起安裝它與三個方法 skill：
+
+```powershell
+$skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
+New-Item -ItemType Directory -Force -Path $skillsRoot | Out-Null
+Copy-Item -LiteralPath ".\loop", ".\strategic-autoresearch", ".\prompt-for-goal", ".\staging" -Destination $skillsRoot -Recurse -Force
+```
+
+重新開啟 Codex task 後使用 `$loop`，或從斜線選單選 `loop`。它會沿用專案指定的權威契約；一般任務不自動建立 `task_goal.md`。
 
 TRIO 的目前目標由 Main 依 `project-state-steward` 維護；安裝技能時兩者要一起複製：
 
@@ -120,6 +130,7 @@ Copy-Item -LiteralPath ".\project-state-steward" -Destination $agentSkillsRoot -
 [`handoff`](./handoff/) ·
 [`history-matters`](./history-matters/) ·
 [`long-running-agent`](./long-running-agent/) ·
+[`loop`](./loop/) ·
 [`pause-and-reflect`](./pause-and-reflect/) ·
 [`project-context-compactor`](./project-context-compactor/) ·
 [`project-memory-gate`](./project-memory-gate/) ·

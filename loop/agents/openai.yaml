@@ -1,0 +1,4 @@
+interface:
+  display_name: "Loop"
+  short_description: "Research a goal and plan verified stages"
+  default_prompt: "Use $loop to research this objective, define one executable goal contract, and stage the path with verification."

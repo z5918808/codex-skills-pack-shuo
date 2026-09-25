@@ -114,6 +114,7 @@ DUO 開跑前由 Main 確認真實入口、最小有效結果，以及能抓出�
 
 | Skill | 適合的工作 | 相依條件 |
 |---|---|---|
+| `loop` | 限量研究、定義可執行目標並規劃驗證階段 | 須一起安裝 `strategic-autoresearch`、`prompt-for-goal`、`staging`；安裝指令見 [README](../README.md#快速開始) |
 | `staging` | 把模糊目標拆成可驗證階段 | 可單獨使用，規劃不會自行啟動實作 |
 | `find-my-safe-work-island` | 在大型或有未提交變更的 repo 中界定本次工作範圍 | 僅建立範圍可單獨使用；要繼續規格或實作，需下節的完整 Matt 工作流 |
 | `strategic-autoresearch` | 用少量實驗判斷真正瓶頸與第一個修正 | 可單獨使用；高風險操作依本包 `risk-preflight` |
