@@ -43,7 +43,7 @@ Copy-Item -LiteralPath ".\duo-brainer", ".\heavy-duo" -Destination $skillsRoot -
 
 `heavy-duo` 若用於持續的 repo 任務，也需要將 `project-state-steward` 複製到 `~/.agents/skills`，並使用下述本機派遣契約。
 
-一般 `duo-run` 由 Main 直接處理小任務；持續執行或大量資料才按需派 Luna/max Worker，並由 `project-state-steward` 管理目前的 `TASK_GOAL.md`。另有獨立的 `astra-luna-duo` 雙角色流程：它沿用自己的 `DUO_ASTRA_GOAL.md`，並只在需要時讀取 `duo-run` 的共用派工參考。安裝兩者時可一併複製：
+`duo-run` 由 Main 直接處理小任務；持續執行或大量資料才按需派 Luna/max Worker。`astra-luna-duo` 是相容入口，明確指定 Astra／Luna 配對時沿用該選擇。兩者的新 repo 長任務都由 Main 依 `project-state-steward` 維護同一份目前的 `TASK_GOAL.md`；舊 `DUO_ASTRA_GOAL.md` 只在原任務仍釘選它時保留，待安全交接後轉入共用目標。安裝兩者時可一併複製：
 
 ```powershell
 $skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
