@@ -1,32 +1,24 @@
 # Dispatch
 
-Reviewer: read before dispatch. Establish Main's identity using [the entrypoint's identity rule](../SKILL.md#establish-mains-identity-without-changing-the-thinker), not its role title or historical route. Main identity is recorded but never selects or replaces the Thinker. For reuse or replacement, first satisfy [lifecycle](lifecycle.md); a fresh task uses this document directly.
+Read the entrypoint and shared conditional routing/gate process first. This file supplies dispatch mechanics only for a role actually selected by a current routing receipt. No required three-role roster. Preserve the activation Main model and task; labels do not prove models.
 
 ## Visible Role Labels
 
-Use `[Reviewer]`, `[Thinker]`, and `[Worker]` for the three independent tasks, preserving their base titles. Titles identify roles, never actual models. Missing title control is not a substitute for missing task identity.
+Use Reviewer/Main, Worker and Thinker labels only for actually assigned persistent tasks. Reuse their existing base titles. Confirm exact task identities; ordinary list omission is not proof of absence or authority to create a duplicate.
 
 ## Independent Thinker dispatch
 
-Every Main pairs with one separate persistent user-visible `gpt-6-astra` Thinker task, default effort high. Preserve explicit supported Astra effort overrides. Main cannot satisfy or replace this support role, even when Main is Astra. Thinker is never a Reviewer, readiness owner, acceptance owner, or clearance gate. Never use a subagent or CLI substitute for Thinker support.
+Create or reuse an Astra/high advisor only for the shared gate's named decision predicate or a bound explicit user override. Verify the routing receipt for action=advise and run the existing task-bound model authorization check with routing arguments. Main being Astra does not require a second Astra task. Missing creation, exact identity or direct-return capability blocks the delegated question, not unrelated authorized work.
 
-Apply the actual model gate to the independent-task route and current task-bound invocation/approval evidence. Native multi-agent availability never authorizes a Thinker child or replacement role. The Luna Worker child envelope is separate and governed by `C:\Users\user\.codex\harness_docs\16_subagent_ban.md`. The Thinker must have a stable task ID whose exact-ID read matches the expected role and workspace. A positive ordinary-list match can discover a task, but list omission cannot invalidate an exact-ID match. Missing supported task creation, direct messaging, exact-ID identity, or model capability blocks that dependent question; do not invent a fallback.
+Reuse a suitable advisor only after the previous question is terminal, delivered, ingested and effects reconciled. A new generation alone does not justify a new task or question. Create with the complete bounded initial assignment, actual Main return address, selected model/effort and approved project target. No unapproved worktree, native child, CLI substitute, startup-only prompt or duplicate analysis.
 
-Reuse the existing Thinker after its previous assignment is terminal, delivered, ingested and effects reconciled. When creation is needed, use the supported task tool with explicit selected model/effort and a complete bounded initial assignment. Discover the project first; use the approved saved local project for read-only repo analysis, never an unapproved worktree. Reconcile ambiguous creation once; retain one Thinker OWNER and never retry from task-list omission alone.
+Send task_id / role / scope / permissions / rules_ref / rules_hash / state_version / next_action, the original outcome, precise decision, options, unresolved assumption, decisive evidence, falsification condition, and actual return tool/task. Pin the relevant rules including reporting.md and the shared routing policy. Preserve evidence in one accessible location. Huge source digestion belongs to Luna first; do not copy entire repositories, histories or raw logs into Astra.
 
-Keep substantive support research in that independent Thinker task so Main need not load the research conversation. Reuse its relevant accumulated findings across planning, mid-run investigation, and zoomout; a new question or phase is not a reason to create a new Thinker. Main supplies the original outcome and constraints initially, then sends changed facts, failed attempts, current evidence references and the precise support question with the current complete contract reference. Do not copy either role's full transcript, repeat settled research, or use subagents to protect Main's context.
+The advisor is read-only except required analysis artifacts and direct result delivery. It returns recommendation, reasons, counterexamples, uncertainty and decisive verification, never readiness, acceptance, production or user authorization. Main yields after dispatch, consumes the direct result, resolves substantive concerns from evidence and binds the resolution before dependent execution. Advice alone is not clearance.
 
-Thinker returns only decision-relevant advice, reasons, options, assumptions, unresolved uncertainty and locatable evidence under the existing compact reporting contract. It never returns `ready`, `ship`, `fix-first`, `rethink`, approval, clearance, or a review verdict. Main verifies the advice and owns every decision. Retain necessary reproducible research evidence once and reference it; avoid duplicating raw logs or scratch reasoning into Main or repo notes. Persistence is not unlimited memory: after compaction or changed evidence, recover the needed sources, recheck affected assumptions and explicitly supersede stale findings. Neither prior conversation nor model capability supplies missing facts or current authority.
+## Main-owned opening with conditional Astra support
 
-Include `task_id / role / scope / permissions / rules_ref / rules_hash / state_version / next_action`, original outcome, question ID, relevant evidence and unresolved findings, actual Main task/return tool, and stopping condition. Initial support binds the existing draft/dispatch revision; later work binds the current goal generation/hash. Thinker is read-only except required support artifacts and direct result delivery: no review verdict, shared repair, production, or further delegation.
-
-Ask for one coherent decision bundle: recommendation, reasons, material assumptions, what to omit, decomposition where needed, decisive verification and unresolved findings. Main ends its turn after dispatch. Thinker sends its result through [reporting](reporting.md) with a successful tool receipt before local final; reuse that task for later scoped questions.
-
-## Main-owned opening with Astra support
-
-Apply SKILL.md's Main-owned opening rule. Main reviews the plan, readiness, and acceptance evidence; normal phases and new assignment generations reuse that locatable Main review when it remains current. A new generation alone never requires a Thinker call. Main maintains the Worker brief for ordinary transitions directly and sends only a bounded unresolved support question to the independent Astra Thinker when useful.
-
-TRIO activation still launches or reuses the independent Astra Thinker task regardless of Main's model, but this never transfers review authority. If a bounded opening support question is assigned, send the original request, relevant evidence, boundaries, and the short reframing prompt; consume its advisory result and record its identity/receipt separately from Main's decision. Main may adopt, reject, or verify the advice, then records readiness and pins the checklist from its own review. Do not send a Thinker assignment merely to approve wording, a deterministic repair, or Main's completed review. Main-owned readiness and acceptance never require Astra clearance.
+Sol normally owns plan/readiness/acceptance. Reuse current applicable reviews for unchanged phases; do not request Astra to approve a generation, wording or a deterministic repair. If the gate identifies an unresolved high-risk decision, resolve only that decision before dependent work. Record the actual route/receipt with the existing contract; no extra state system or unconditional opening call.
 
 ## Worker brief for sustained execution
 
@@ -42,7 +34,7 @@ Main prepares and reviews this compact brief in the existing goal/dispatch artif
 | Sources / factual inputs | Authoritative inputs and locatable evidence, confirmed decisions, current baseline, supported entrypoint/fixture, relevant failed approaches and known causes. Identify unresolved inputs rather than silently filling them from inference. |
 | Judgment / completion | Routine choices Luna may make, pinned criterion IDs, checks and tolerances, and a plausible wrong result the evidence must reject. |
 | Output / handoff | Deliverable, evidence and recovery references, Reviewer chat/tool, assignment/generation and pinned reporting.md. Directly deliver results or blockers before local final. |
-| Forbidden / boundaries | Protected state and prohibited actions alongside allowed operations; no shared code repair or implied live permission. Name stop/escalation conditions and how completed or uncertain effects are reconciled before retry. |
+| Forbidden / boundaries | Protected state and prohibited actions alongside allowed operations; no unassigned shared-policy/infrastructure repair or implied live permission; assigned implementation/correction paths and checks must be explicit. Name stop/escalation conditions and how completed or uncertain effects are reconciled before retry. |
 
 The brief also pins the shared Luna Worker DAG reference/hash and whether an explicit `multi-workers` route disables internal children. Main does not pre-plan child nodes. Luna decides mechanical branch allocation from the executable brief, within the same scope, ownership, checks, and stop conditions.
 
@@ -88,7 +80,7 @@ Read [reporting](reporting.md) and pin its path/hash in each assignment. Worker 
 
 ## Execution owner before dispatch
 
-For production or recovery, identify executor=Worker in the existing assignment alongside the exact action, target, no-write preview evidence when required, and actual permission reference. Reviewer preparing or approving the packet does not execute it. A combined preview/apply command must be separated or proven in an isolated fixture before Reviewer use. Follow the SKILL.md repair/execution boundary and repair.md handback for repaired routes. Thinker advice is neither readiness nor user authorization.
+For production or recovery, identify the exact executor task in the existing assignment alongside the action, target, required preview and actual permission reference. Luna owns sustained execution. A bounded Sol takeover needs the shared safe-transfer protocol and a new routing check; preparing or approving a packet alone never transfers execution. A combined preview/apply command must be separated or proven in an isolated fixture before Reviewer use. Follow the SKILL.md repair/execution boundary and repair.md handback for repaired routes. Thinker advice is neither readiness nor user authorization.
 
 ## Start and Exactly-Once Dispatch
 
@@ -115,7 +107,7 @@ In `file-contract` mode the persistent Worker executes the complete task normall
 Then:
 
 1. Reuse the existing exact-ID persistent Worker when lifecycle permits. Select a supported user-visible creation route only when no reusable Worker satisfies the lifecycle criteria; a new assignment, phase, generation, idle state, or task-list omission does not justify replacement. Prepare and hash the goal in steps 2–3 before calling creation in step 4.
-2. Before creation, write the complete executable goal to the fixed workspace `TASK_GOAL.md`: mission, authority, scope, permissions, acceptance checklist, stop conditions, Reviewer address, and event contract. Apply the lifecycle reuse checks before overwriting an existing goal. Reviewer is its only writer; read back and hash the final UTF-8 file.
+2. Before creation, Main writes and prunes the current executable goal at the fixed workspace `TASK_GOAL.md` under Repo Task Goal: mission, authority, scope, permissions, completion criteria and necessary stop/return/reference fields. Shared procedures are referenced, not copied; prior assignments and receipts remain outside. Apply lifecycle reuse checks before replacement; read back and hash the final UTF-8 file.
 3. The initial prompt contains `ROLE: Worker`, mission, authority, hard boundary, goal path+SHA256, run/generation, and an instruction to verify and read the complete file before acting. This applies to goals of any size. Never create a setup-only Worker, depend on a later goal message, or create dated/per-generation goal copies.
 4. Call the creation primitive at most once for the dedup key.
 5. Treat timeout, exception, missing receipt, or `Unknown projectId` as ambiguous. Take exactly one immediate `list_threads` inventory. Match by Reviewer ID, dedup or prompt fingerprint, creation window, workspace, and authority. A match is positive evidence; omission is not proof that creation did not occur.
@@ -141,14 +133,14 @@ goal_path: <fixed absolute workspace path to TASK_GOAL.md>
 run_id / generation / absolute stop_record_path
 
 Workspace and authoritative resume entrypoint.
-Fresh state and last successful evidence.
+Authoritative current-state/evidence entry references; only facts needed for this assignment.
 One current interface or action.
 Applicable work phase(s) and evidence deliverable; use Worker execution's phase guidance.
 Scope, permission, and safety boundary.
 Applicable shared reference paths/hashes; verify and read when needed, before the governed action.
-shared_self_repair_budget=none; shared repair belongs to the Reviewer.
+implementation_scope=<explicit code/resources and checks>; unassigned shared-policy/infrastructure repair is forbidden; consequential diagnosis returns to Sol.
 internal_child_dag=enabled; follow the pinned bounded Luna Worker DAG contract; no child replaces this persistent Worker.
-Reviewer-defined natural action boundaries, objective-progress signals, last renewed snapshot, and boundary stall window.
+Applicable execution-contract reference for action boundaries, progress signals and stall handling.
 Known false-block condition and bounded local process-wait rule.
 Acceptance checklist reference/hash and criterion IDs.
 Reviewer task ID, host ID, event types, and exact direct-message tool.

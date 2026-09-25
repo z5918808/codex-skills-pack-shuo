@@ -2,7 +2,7 @@
 
 Reviewer: read before dispatch after sizing the work under the entrypoint. The creation/OWNER steps below apply to the ordinary single persistent Worker, or per slot only when explicit `multi-workers` is active. For reuse or replacement, first satisfy [lifecycle](lifecycle.md); a fresh task uses this document directly.
 
-Ordinary DUO creates one persistent Luna/max Worker and pins the shared internal DAG contract. Read `dag-workers.md` for slot allocation only when explicit `multi-workers` is active; that route disables native children and retains its existing approval and A–E task topology.
+Only the selected delegated Luna route creates/reuses one persistent Luna/max Worker and pins the shared internal DAG contract. Run the mandatory routing receipt/action check first; solo work does not create a Worker. Read `dag-workers.md` for slot allocation only when explicit `multi-workers` is active; that route disables native children and retains its existing approval and A–E task topology.
 
 ## Visible Role Labels
 
@@ -37,7 +37,7 @@ Before dispatch, record:
 
 - Reviewer task ID and host ID when available;
 - actual Reviewer model and effort;
-- Worker model and effort, verified exactly `gpt-5.6-luna/max` under the applicable model/task gates;
+- Worker model and effort, verified exactly `gpt-6-luna/max` under the applicable model/task gates;
 - the shared Luna Worker DAG reference/hash and `internal_child_dag=enabled`, or `disabled_by=multi-workers` for the explicit persistent multi-TASK route;
 - workspace and authoritative resume entrypoint;
 - scope, permissions, safety boundary, and acceptance criteria;
@@ -56,7 +56,7 @@ In `file-contract` mode the persistent Worker executes the complete task normall
 Then:
 
 1. Resolve the existing persistent Worker or select one supported user-visible creation route. Prepare and hash the goal in steps 2–3 before calling creation in step 4.
-2. Before creation, write the complete executable goal to the fixed slot assignment `goal_path`, referencing the immutable root `TASK_GOAL.md`: mission, authority, scope, permissions, acceptance checklist, stop conditions, Reviewer address, and event contract. Apply the lifecycle reuse checks before overwriting an existing goal. Reviewer is its only writer; read back and hash the final UTF-8 file.
+2. Before creation, Main writes and prunes the current executable slot assignment at its fixed `goal_path`, referencing the immutable root `TASK_GOAL.md`: mission, scope, permissions, completion criteria and necessary identity/stop/return/reference fields. Follow Repo Task Goal's current-prompt retention for root and slot; shared procedures, prior assignments and receipts are not pasted into either. Apply lifecycle reuse checks before replacement; read back and hash the final UTF-8 file.
 3. The initial prompt contains `ROLE: Worker`, mission, authority, hard boundary, goal path+SHA256, run/generation, and an instruction to verify and read the complete file before acting. This applies to goals of any size. Never create a setup-only Worker, depend on a later goal message, or create dated/per-generation goal copies.
 4. Call the creation primitive at most once for the dedup key.
 5. Treat timeout, exception, missing receipt, or `Unknown projectId` as ambiguous. Take exactly one immediate `list_threads` inventory. Match by Reviewer ID, dedup or prompt fingerprint, creation window, workspace, and authority.
@@ -84,12 +84,12 @@ slot / node_id / accepted prerequisite artifact identities
 run_id / assignment generation / run_stop_record_path / assignment stop_record_path
 
 Workspace and authoritative resume entrypoint.
-Fresh state and last successful evidence.
+Authoritative current-state/evidence entry references; only facts needed for this assignment.
 One current interface or action.
 Applicable work phase(s) and evidence deliverable; use Worker execution's phase guidance.
 Scope, permission, and safety boundary.
 Applicable shared reference paths/hashes; verify and read when needed, before the governed action.
-shared_self_repair_budget=none; shared repair belongs to the Reviewer.
+implementation_scope=<explicit allowed code/resources and checks>; unassigned shared-policy/infrastructure repair is forbidden; consequential diagnosis returns to Sol.
 internal_child_dag=enabled; follow the pinned bounded Luna Worker DAG contract; no child replaces this persistent Worker. In `multi-workers` mode set `internal_child_dag=disabled`.
 Reviewer-defined natural action boundaries, objective-progress signals, last renewed snapshot, and boundary stall window.
 Known false-block condition and bounded local process-wait rule.
@@ -99,7 +99,7 @@ Terminal delivery requires a successful tool receipt; a local final is not deliv
 Only a defined event may stop the run.
 ```
 
-Every new or reused Worker assignment uses exactly `gpt-5.6-luna/max`; unavailable or mismatched settings block dependent dispatch, not safe Reviewer preparation. Reconcile an active legacy assignment before changing its settings. Do not steer a healthy Worker repeatedly.
+Every new or reused Worker assignment uses exactly `gpt-6-luna/max`; unavailable or mismatched settings block dependent dispatch, not safe Reviewer preparation. Reconcile an active legacy assignment before changing its settings. Do not steer a healthy Worker repeatedly.
 
 ## Hash-Bound Authority
 

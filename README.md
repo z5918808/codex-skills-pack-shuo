@@ -2,7 +2,7 @@
 
 一套以「能直接完成工作」為標準整理的 Codex skills 精選集，包含可單獨使用的通用技能，以及可按任務階段路由的完整工程工作流。
 
-目前收錄 **114 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
+目前收錄 **115 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
 
 > 適合：想快速建立可重複工作流的新手，以及重視證據、風險檢查、工作交接與長任務協作的進階使用者。
 
@@ -43,6 +43,8 @@ Copy-Item -LiteralPath ".\duo-brainer", ".\heavy-duo" -Destination $skillsRoot -
 ```powershell
 Copy-Item -LiteralPath ".\astra-luna-duo", ".\duo-run" -Destination $skillsRoot -Recurse -Force
 ```
+
+`sub-astra-thinker` 是選用的本機整合技能。它需要先配置 `side_astra` 角色、`~/.codex/harness_docs` 中的派遣契約，以及 `~/.codex/scripts` 中的授權 gate；單獨複製 skill 不會啟用子 agent。只有使用者明確叫用時，Sol／Luna Main 才可按需諮詢一位 Astra/medium 唯讀 Thinker。
 
 ## 完整工程工作流
 
@@ -119,6 +121,7 @@ Copy-Item -LiteralPath ".\astra-luna-duo", ".\duo-run" -Destination $skillsRoot 
 [`resume`](./resume/) ·
 [`run`](./run/) ·
 [`save`](./save/) ·
+[`sub-astra-thinker`](./sub-astra-thinker/) ·
 [`survey-corps-trio`](./survey-corps-trio/) ·
 [`trio-long-running`](./trio-long-running/) ·
 [`staging`](./staging/) ·

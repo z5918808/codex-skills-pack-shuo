@@ -4,7 +4,7 @@ Read when starting, resuming, materially updating, switching workflows or closin
 
 ## One authority
 
-Use `<repo>/TASK_GOAL.md` as the sole current authority for the active objective, scope, acceptance, workflow, role ownership, verified progress, blockers and next action. User instructions and permission gates remain higher authority; runtime evidence proves facts. The file grants no permissions and does not start or resume work by itself.
+Use `<repo>/TASK_GOAL.md` as the Main agent's current goal prompt: the requested outcome, scope/exclusions, constraints/permissions, completion criteria and minimum references needed to act now. It is not a progress log, receipt store or collection of past contracts. User instructions and permission gates remain higher authority; existing runtime evidence proves facts. The file grants no permissions and does not start or resume work by itself.
 
 Main is the sole designated writer. In a workflow whose activation task is a Worker, explicitly name the state writer and acceptance owner; they need not be the same task. Other roles return proposed changes and evidence. Never infer ownership from titles; archived tasks cannot be active owners or resume targets.
 
@@ -14,9 +14,13 @@ Repo `AGENTS.md` or its existing index must point here as the current task autho
 
 ## Keep it useful and current
 
-Keep only: original request/correction references; objective and exclusions; permissions and acceptance; workflow and actual role IDs; revision/run/generation and applicable rule/evidence references; verified completed work; unresolved obligations/blockers; one next action with its owner; stop/completion state. Existing subordinate slot assignments are bounded execution instructions, not competing repo goals. No transcripts, duplicate logs or new tracking service.
+On every Trio/Duo/Heavy Duo activation or resume, Main first checks the existing goal's size and structure as part of normal entry. Revision-by-revision narratives, old assignments, superseded contracts, repeated rules or competing next actions trigger pruning before new dispatch; the user need not request cleanup. Length is a signal, not a reason to remove necessary current constraints. If all content is needed to execute the current goal, retain it. When existing consumers still pin the file, record the pending cleanup outside it and perform it at the next reconciled safe boundary. Main owns this upkeep without creating a cleanup task or asking routine permission. Briefly mention a material reduction in the normal progress report; keep normal execution moving.
 
-Update proactively when accepted user guidance, scope, acceptance, workflow, owner, verified progress, blocker or next action materially changes, and before handoff/compaction/closeout. Do not require a separate user request for authorized state upkeep, write for every tool call, or mark planned work complete. Read-only scope still permits only a proposed delta.
+Main maintains and prunes the prompt itself at each safe update. Keep only the current outcome, scope/exclusions, constraints/permissions, completion criteria, necessary owner/revision/hash identity and authoritative entry references. Include a blocker, unresolved obligation, completed-work reminder or one next action only when it changes what the agent must do now; use a concise statement and a source link. Existing subordinate slot assignments contain only their current bounded assignment. No transcripts, revision narratives, completed dispatches, old role rosters, cumulative progress tables or superseded contracts.
+
+Replace and prune affected instructions in place. Remove resolved blockers, superseded next actions and duplicate rules; link the authoritative rule rather than paste it. Keep receipts and detailed decisions in existing evidence locations, read on demand. Before removing unique historical proof from an accumulated file, preserve it once in the existing history/evidence location and leave a precise reference; do not copy the whole goal every generation or start another log. Do not preserve obsolete instructions under a historical section in the goal. No arbitrary length cap may discard current permissions, completion criteria or unresolved obligations.
+
+Update when user guidance, scope, completion criteria, ownership or a material execution change alters the current prompt; prune again before handoff/compaction/closeout. Routine progress belongs in existing receipts and does not require appending to the goal. Main does this within its existing authority without waiting for a cleanup request. Read-only roles return a proposed delta.
 
 While any assignment executes or awaits review against the file's hash, keep that revision immutable. Record a compact pending delta with its original source in the existing receipt outside pinned files. If guidance invalidates execution, stop affected work through its actual lifecycle. At the next safe boundary, reconcile all consumers, returns, processes, side effects and acceptance; then update the same file, increment revision/generation as applicable, reread/hash and dispatch once. A send receipt or idle task alone is not reconciliation. Do not invent monitoring or duplicate goal snapshots to keep status current.
 
@@ -31,7 +35,7 @@ While any assignment executes or awaits review against the file's hash, keep tha
 
 `TRIO_GOAL.md`, `DUO_GOAL.md`, `DUO_ASTRA_GOAL.md` or a custom existing contract stay pinned until old consumers are reconciled. Then transfer the current objective to `TASK_GOAL.md`, update repo pointers/validators and next dispatch references, and mark the legacy authority superseded with a pointer. Preserve required historical proof; no automatic deletion, bulk migration or changes to unrelated running repos during skill maintenance. Do not migrate fixed per-slot assignment files merely because the root changed.
 
-At completion retain `TASK_GOAL.md` with the accepted outcome, evidence, unresolved items and no active next action. At pause retain the stop state and resume condition. It is repo authority, not disposable scratch. Reuse it for a later authorized objective only after prior ownership/results/effects are reconciled. Deletion requires an explicit request that also resolves the repo authority pointer.
+At completion replace the active prompt with a short completion statement and acceptance evidence pointer; preserve any unresolved obligation and no active next action. At pause keep the current goal, stop state and resume condition. Reuse it for a later authorized objective only after prior ownership/results/effects are reconciled; replace the old prompt instead of appending the new goal. Deletion requires an explicit request that also resolves the repo authority pointer.
 
 ## Maintenance checks
 
@@ -42,3 +46,5 @@ Verify these scenarios by inspecting affected instructions; static checks do not
 - Existing legacy/custom root or project-status authority: keep active hash valid, migrate only at a safe boundary, update pointers, no competing current goal.
 - Paused or archived owner: no automatic resume or reuse; completion retains the authoritative file.
 - Small/read-only/native task: no forced goal-file creation, writes or native-mode conversion.
+- Repeated completed generations: replace current facts in place; the root does not accumulate their dispatches or returns. A corrected count appears once with its current proof; its superseded value remains only in historical evidence. Compaction preserves unresolved obligations and waits for consumer reconciliation when the root is pinned.
+- User says only "Trio" or "Duo" with an accumulated existing goal: Main detects stale/repeated content during entry and prunes before new dispatch without another cleanup request; pinned consumers defer only the rewrite to a safe boundary. A long goal containing only necessary current requirements is not blindly truncated.

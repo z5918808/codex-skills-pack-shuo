@@ -1,6 +1,6 @@
 ---
 name: project-state-steward
-description: Maintain authoritative TASK_GOAL.md for sustained non-native repo work and reconcile existing PROJECT_STATUS.md or _ctx protocols on resume, material changes, workflow switches and closeout. No hooks.
+description: Maintain and prune the Main agent's current TASK_GOAL.md prompt for sustained non-native repo work; reconcile existing project-state protocols without accumulating history. No hooks.
 ---
 
 # Project State Steward
@@ -13,7 +13,7 @@ Use repository files and named validators only. Never add or require lifecycle h
 
 ## Resolve Authority
 
-For sustained non-native repo objectives, read [Repo Task Goal](references/task-goal.md) before creation, resume, material updates, workflow switches or closeout. It owns `TASK_GOAL.md` authority, proactive updates, legacy migration and retention. Apply its safe transfer rules before the older project-status/milestone conventions below; do not keep both as authority for the same current task. For that route, use its entry/update/closeout procedure and the relevant single-writer/evidence rules below, not mandatory creation of PROJECT_STATUS.md or MILESTONE.md. Other existing project protocols remain applicable to their distinct scope.
+For sustained non-native repo objectives, read [Repo Task Goal](references/task-goal.md) before creation, resume, material updates, workflow switches or closeout. It owns `TASK_GOAL.md` as Main's current goal prompt, including proactive pruning, safe transfer and retention. For this route its update/closeout procedure takes precedence over the status-checkpoint conventions below: routine progress goes to existing evidence, not appended goal sections. Do not create PROJECT_STATUS.md or MILESTONE.md for this route. Other existing project protocols retain their distinct scope.
 
 - Follow system and developer instructions, current user authorization, and applicable `AGENTS.md` rules.
 - Follow a repository-specific state protocol when it differs from this generic workflow.

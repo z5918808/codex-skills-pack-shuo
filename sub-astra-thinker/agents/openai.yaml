@@ -1,0 +1,6 @@
+interface:
+  display_name: "Sub Astra Thinker"
+  short_description: "Sol／Luna Main 遇到具體難題才諮詢 Astra/medium 唯讀 Thinker"
+  default_prompt: "使用 $sub-astra-thinker 啟用按需 Thinker；由目前 Sol 或 Luna Main 推進，只有具體難題符合條件才問 Astra/medium，不立即派遣。"
+policy:
+  allow_implicit_invocation: false
