@@ -25,11 +25,14 @@ Copy-Item -LiteralPath ".\diagnose" -Destination $skillsRoot -Recurse -Force
 
 macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](./docs/GETTING_STARTED.md)。
 
-TRIO 長跑需要一起安裝 `trio-long-running`、`giga-factory-design-method` 與 `zoomout`：
+TRIO 的目前目標由 Main 依 `project-state-steward` 維護；安裝技能時兩者要一起複製：
 
 ```powershell
 $skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
-Copy-Item -LiteralPath ".\trio-long-running", ".\giga-factory-design-method", ".\zoomout" -Destination $skillsRoot -Recurse -Force
+$agentSkillsRoot = Join-Path $env:USERPROFILE ".agents\skills"
+New-Item -ItemType Directory -Force -Path $skillsRoot, $agentSkillsRoot | Out-Null
+Copy-Item -LiteralPath ".\trio-long-running" -Destination $skillsRoot -Recurse -Force
+Copy-Item -LiteralPath ".\project-state-steward" -Destination $agentSkillsRoot -Recurse -Force
 ```
 
 舊名稱 `duo-brainer` 現在是 `heavy-duo` 的相容入口；若仍使用舊名稱，請一起安裝兩者：
@@ -38,11 +41,19 @@ Copy-Item -LiteralPath ".\trio-long-running", ".\giga-factory-design-method", ".
 Copy-Item -LiteralPath ".\duo-brainer", ".\heavy-duo" -Destination $skillsRoot -Recurse -Force
 ```
 
-兩種 DUO 都由 Main 直接處理小任務；較大串行工作用一位 Luna max。只有值得並行時才提出 DAG 建議，取得本次任務同意後，最多使用五個側欄 task：`[Worker A]` 彙整與回報，`[Worker B]`–`[Worker E]` 執行。A 保留原始結果與逐項證據對照，Reviewer 負責驗收。`astra-luna-duo` 使用共用派工契約，請與 `duo-run` 一起安裝：
+`heavy-duo` 若用於持續的 repo 任務，也需要將 `project-state-steward` 複製到 `~/.agents/skills`，並使用下述本機派遣契約。
+
+一般 `duo-run` 由 Main 直接處理小任務；持續執行或大量資料才按需派 Luna/max Worker，並由 `project-state-steward` 管理目前的 `TASK_GOAL.md`。另有獨立的 `astra-luna-duo` 雙角色流程：它沿用自己的 `DUO_ASTRA_GOAL.md`，並只在需要時讀取 `duo-run` 的共用派工參考。安裝兩者時可一併複製：
 
 ```powershell
+$skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
+$agentSkillsRoot = Join-Path $env:USERPROFILE ".agents\skills"
+New-Item -ItemType Directory -Force -Path $skillsRoot, $agentSkillsRoot | Out-Null
 Copy-Item -LiteralPath ".\astra-luna-duo", ".\duo-run" -Destination $skillsRoot -Recurse -Force
+Copy-Item -LiteralPath ".\project-state-steward" -Destination $agentSkillsRoot -Recurse -Force
 ```
+
+這些條件式協作技能還依賴本機 `~/.codex/harness_docs` 的派遣契約與 `~/.codex/scripts` 的檢查程式；此技能包未包含它們。僅複製上述目錄不足以執行派遣。
 
 `sub-astra-thinker` 是選用的本機整合技能。它需要先配置 `side_astra` 角色、`~/.codex/harness_docs` 中的派遣契約，以及 `~/.codex/scripts` 中的授權 gate；單獨複製 skill 不會啟用子 agent。只有使用者明確叫用時，Sol／Luna Main 才可按需諮詢一位 Astra/medium 唯讀 Thinker。
 
@@ -91,7 +102,7 @@ Copy-Item -LiteralPath ".\astra-luna-duo", ".\duo-run" -Destination $skillsRoot 
 | [`security-review`](./security-review/) | 以證據建立威脅模型並進行安全審查 |
 | [`risk-preflight`](./risk-preflight/) | Production、secret、bulk、delete 或不可逆操作前 |
 | [`handoff`](./handoff/) | 把可接續的狀態交給下一個 agent 或 task |
-| [`duo-run`](./duo-run/) | 小任務 Main 直接做；同意 DAG 後最多五位 Luna max，Reviewer 負責修正與整體驗收 |
+| [`duo-run`](./duo-run/) | 小任務 Main 直接做；持續執行才按需派 Luna/max，Main 驗收結果 |
 | [`question-eli10`](./question-eli10/) | 想用先結論、白話方式理解複雜問題 |
 
 ## Skill 目錄
