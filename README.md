@@ -67,7 +67,7 @@ Copy-Item -LiteralPath ".\project-state-steward" -Destination $agentSkillsRoot -
 
 `sub-astra-thinker` 是選用的本機整合技能。它需要先配置 `side_astra` 角色、`~/.codex/harness_docs` 中的派遣契約，以及 `~/.codex/scripts` 中的授權 gate；單獨複製 skill 不會啟用子 agent。只有使用者明確叫用時，Sol／Luna Main 才可按需諮詢一位 Astra/medium 唯讀 Thinker。
 
-`sidekick` 為長跑的 Luna／Sol Main 配同專案 Astra Thinker chat，按需給輕量引導並直接回報 Main；它與一般獨立分析的 `thinker` 共用回報流程。安裝 `sidekick` 時一起安裝兩者：
+`sidekick` 為長跑的 Luna／Sol Main 配同專案 Astra Thinker chat，按需給輕量引導並直接回報 Main；它與一般獨立分析的 `thinker` 共用回報流程。啟用時先做一次方向校準，之後在主要分支或階段切換及證據失效時由 Main 再觸發，避免 chat 閒置而主線偏離目標。安裝 `sidekick` 時一起安裝兩者：
 
 ```powershell
 Copy-Item -LiteralPath ".\sidekick", ".\thinker" -Destination $skillsRoot -Recurse -Force
