@@ -165,7 +165,7 @@ Copy-Item -LiteralPath ".\project-state-steward" -Destination $agentSkillsRoot -
 [`frontend-patterns`](./frontend-patterns/) ·
 [`giga-factory-design-method`](./giga-factory-design-method/) ·
 [`improve-codebase-architecture`](./improve-codebase-architecture/) ·
-[`minimum-effective-harness-tuning`](./minimum-effective-harness-tuning/) ·
+[`harness-fine-tuning`](./harness-fine-tuning/) ·
 [`repo-bootstrap`](./repo-bootstrap/) ·
 [`repo-cleanup-judge`](./repo-cleanup-judge/) ·
 [`repo-granny`](./repo-granny/) ·

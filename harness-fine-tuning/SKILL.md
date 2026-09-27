@@ -1,9 +1,9 @@
 ---
-name: minimum-effective-harness-tuning
+name: harness-fine-tuning
 description: Design or prune skills, AGENTS.md, and agent prompts for minimal guidance with intact authority and acceptance.
 ---
 
-# Minimum Effective Harness Tuning
+# Harness Fine Tuning
 
 Keep the smallest set of instructions that changes useful behavior. Optimize for completed work, sound evidence, and clear authority; fewer words alone do not prove improvement.
 
