@@ -13,13 +13,13 @@ description: 為長跑的 Luna 或 Sol Main 配同專案 Astra Thinker chat；Th
 
 啟用前用可用的 chat 工具核對 Thinker 是可持續讀取與傳訊的 Codex chat，projectId／host 與 Main 相符，並取得雙方 ID。使用者直接在 Thinker chat 叫用時，也先定位 Main；無法唯一識別才問 Main 連結或 ID。若目前是 ChatGPT 暫時 side chat，告知它不符合 repo Thinker 條件，轉至同專案 Codex chat 後再啟用。此 skill 的分析與回報採用 [thinker](../thinker/SKILL.md)；安裝時一併安裝兩者。
 
-Main 遇到卡住、反覆失敗、證據衝突、下一步不清楚或 goal prompt 不足時，送一個能改變下一步的具體問題，附現有目標的權威來源、最近結果、已試方法與邊界。發給 Thinker 的實際訊息須明寫「請回傳結果給main」，附 Main threadId／host，要求 Thinker 完成後用 `send_message_to_thread` 回傳結論並確認 receipt，不能只在 Thinker chat 作答；Main 也核對派工送達。單純開好 chat 不代表已取得建議。
+Main 符合下述求援門檻時，送一個能改變下一步的具體問題，附現有目標的權威來源、最近結果、已試方法與邊界。發給 Thinker 的實際訊息須明寫「請回傳結果給main」，附 Main threadId／host，要求 Thinker 完成後用 `send_message_to_thread` 回傳結論並確認 receipt，不能只在 Thinker chat 作答；Main 也核對派工送達。單純開好 chat 不代表已取得建議。
 
-## Main 觸發契約
+## Main 求援契約
 
-啟用並核對回傳通道後，Main 在下一個重大動作前先送一次輕量方向校準：目前下一步如何服務使用者目標、最可能漏掉哪個前提、用什麼結果驗證。這是具體問題，不要求 Thinker 重做整份計畫。Main 可同時推進不依賴該判斷的安全工作。
+Main 持續長跑，啟用時只核對同專案 Thinker 與回傳通道，不發開場校準或例行問題。分支完成、階段切換與 Thinker 閒置本身都不觸發諮詢；Main 在正常決策中自行核對下一步是否仍服務使用者目標，能用現有證據推進就直接做。
 
-之後每次完成一個有驗收結果的主要分支、準備切換階段或投入下一個重大分支時，Main 檢查目前目標、最新證據、關鍵假設與下一步，並送一個精簡的對齊問題給 sidekick；若相同目標與證據下已有仍有效的答覆，明確沿用即可，不重派。出現兩次同路線失敗、證據推翻原假設、goal／驗收標準不清或下一步無法連到目標時，立即諮詢，不等階段結束。每次收到建議，Main 在自己的工作脈絡記下採納／不採納的依據與下一個觸發點，不強制建立 goal 檔或排程。若 Thinker 未就緒或回傳失敗，標示 sidekick 尚未提供本輪引導，不假稱已完成校準。
+只有卡住才向 sidekick 求援：同一路線兩次失敗仍找不到共同原因、關鍵證據推翻原假設且最小查證後仍無法決定、goal／驗收條件不足以選下一步，或 Main 無法指出目前行動如何推進目標而開始重複繞圈。Main 先做便宜的唯讀查證，仍有會改變下一步的具體判斷問題才送 Thinker；附已試方法、失敗證據與邊界。無關且安全的工作可繼續。Thinker 回覆後 Main 核對、採納或否決並繼續長跑；相同問題沒有新證據不重問，也不建立排程或定期 review。若求援送達或回傳失敗，標示尚未取得建議，不冒充已解卡。
 
 ## 輕量支援
 
