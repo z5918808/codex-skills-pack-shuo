@@ -5,6 +5,7 @@ import path from "node:path";
 
 type SkillFrontmatter = {
   name: string;
+  nameCount: number;
   description: string;
   path: string;
   descriptionCount: number;
@@ -12,7 +13,13 @@ type SkillFrontmatter = {
 
 const home = os.homedir();
 const personalCodexRoot = path.join(home, ".codex", "skills");
-const roots = [
+const rootOption = process.argv.indexOf("--root");
+if (rootOption >= 0 && !process.argv[rootOption + 1]) {
+  console.error("--root requires a directory");
+  process.exit(1);
+}
+const repositoryRoot = rootOption >= 0 ? path.resolve(process.argv[rootOption + 1]!) : null;
+const roots = repositoryRoot ? [{ path: repositoryRoot, enforceDescriptionLimit: false }] : [
   { path: personalCodexRoot, enforceDescriptionLimit: true },
   { path: path.join(home, ".agents", "skills"), enforceDescriptionLimit: false },
   { path: path.join(home, ".codex", "plugins", "cache"), enforceDescriptionLimit: false },
@@ -83,12 +90,16 @@ function parseFrontmatter(file: string): SkillFrontmatter | null {
   if (end < 0) return null;
   const fm = lines.slice(1, end);
   let name = path.basename(path.dirname(file));
+  let nameCount = 0;
   let description = "";
   let descriptionCount = 0;
   for (let index = 0; index < fm.length; index++) {
     const line = fm[index] ?? "";
     const nameMatch = /^name\s*:\s*(.*)$/.exec(line);
-    if (nameMatch) name = sanitize(nameMatch[1] ?? name);
+    if (nameMatch) {
+      nameCount++;
+      name = sanitize(nameMatch[1] ?? name);
+    }
     const descMatch = /^description\s*:\s*(.*)$/.exec(line);
     if (!descMatch) continue;
     descriptionCount++;
@@ -104,7 +115,7 @@ function parseFrontmatter(file: string): SkillFrontmatter | null {
       description = sanitize(raw);
     }
   }
-  return { name, description, path: file, descriptionCount };
+  return { name, nameCount, description, path: file, descriptionCount };
 }
 
 const skills = new Map<string, SkillFrontmatter>();
@@ -113,6 +124,9 @@ for (const root of roots) {
   for (const file of walkSkillFiles(root.path)) {
     const skill = parseFrontmatter(file);
     if (!skill) continue;
+    if (repositoryRoot && skill.nameCount !== 1) {
+      errors.push(`${skill.name}: expected exactly 1 frontmatter name, found ${skill.nameCount} (${skill.path})`);
+    }
     if (skill.descriptionCount !== 1) {
       errors.push(`${skill.name}: expected exactly 1 frontmatter description, found ${skill.descriptionCount} (${skill.path})`);
     }
@@ -126,7 +140,7 @@ for (const root of roots) {
   }
 }
 
-for (const [name, aliases] of Object.entries(requiredAliases)) {
+for (const [name, aliases] of Object.entries(repositoryRoot ? {} : requiredAliases)) {
   const skill = skills.get(name);
   if (!skill) {
     errors.push(`${name}: required skill missing`);
@@ -140,11 +154,29 @@ for (const [name, aliases] of Object.entries(requiredAliases)) {
   }
 }
 
+if (repositoryRoot) {
+  const readmePath = path.join(repositoryRoot, "README.md");
+  if (!exists(readmePath)) {
+    errors.push(`README.md missing (${readmePath})`);
+  } else {
+    const readme = fs.readFileSync(readmePath, "utf8");
+    const declaredCount = /收錄 \*\*(\d+) 個通用 skills\*\*/.exec(readme);
+    if (!declaredCount || Number(declaredCount[1]) !== skills.size) {
+      errors.push(`README skill count does not match ${skills.size} skill directories`);
+    }
+    for (const name of skills.keys()) {
+      if (!readme.includes(`](./${name}/)`)) errors.push(`${name}: missing README index link`);
+    }
+  }
+}
+
 if (errors.length) {
   console.error(["Skill index validation failed:", ...errors.map((error) => `- ${error}`)].join("\n"));
   process.exit(1);
 }
 
 console.log(
-  `Skill index validation passed: ${skills.size} skills, ${Object.keys(requiredAliases).length} protected trigger sets, max description ${maxDescriptionChars} chars.`,
+  repositoryRoot
+    ? `Skill index validation passed: ${skills.size} repository skills and README links.`
+    : `Skill index validation passed: ${skills.size} skills, ${Object.keys(requiredAliases).length} protected trigger sets, max description ${maxDescriptionChars} chars.`,
 );

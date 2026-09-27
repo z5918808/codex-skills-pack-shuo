@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sidekick"
+  short_description: "Astra Thinker 支援兼任執行與驗收的長跑 Main"
+  default_prompt: "使用 $sidekick：Luna 或 Sol Main 繼續長跑並自行驗收；先核對同專案 Codex Thinker chat，再由一般速度、非 Fast 的 Astra 按需引導並回報 Main；沿用 Main 已有的 Goal mode。"

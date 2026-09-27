@@ -1,0 +1,4 @@
+interface:
+  display_name: "Thinker"
+  short_description: "獨立唯讀分析，完成後直接回報 Main"
+  default_prompt: "使用 $thinker：依問題與可用模型安排獨立唯讀分析；派工時明寫「請回傳結果給main」，Thinker 完成後直接傳給 Main。"
