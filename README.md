@@ -10,7 +10,7 @@
 
 這是一套以「能直接完成工作」為標準整理的 Codex skills 精選集，包含可單獨使用的通用技能，以及可按任務階段路由的完整工程工作流。
 
-目前收錄 **118 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
+目前收錄 **119 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
 
 **適合：**想快速建立可重複工作流的新手，以及重視證據、風險檢查、工作交接與長任務協作的進階使用者。
 
@@ -75,6 +75,8 @@ Copy-Item -LiteralPath ".\project-state-steward" -Destination $agentSkillsRoot -
 
 `sub-astra-thinker` 是選用的本機整合技能。它需要先配置 `side_astra` 角色、`~/.codex/harness_docs` 中的派遣契約，以及 `~/.codex/scripts` 中的授權 gate；單獨複製 skill 不會啟用子 agent。只有使用者明確叫用時，Sol／Luna Main 才可按需諮詢一位 Astra/medium 唯讀 Thinker。
 
+`4-agent-shift` 為管理系統任務安排 Nox 盤點、Tally 規劃、Rivet 執行、Tock 獨立驗收，四位固定 Sol 6.1/medium，由目前 Main 管理並依容量分批派遣。安裝完整目錄後，還需登記隨包的 `four_agent_shift_sol` 角色，並符合主機的模型與派遣規則；不提供雲端常駐或自動夜班服務。詳見 [安裝指南](./docs/GETTING_STARTED.md#4-agent-shift-四位管理系統子代理)。
+
 `sidekick` 為長跑的 Luna／Sol Main 配同專案 Astra Thinker chat；Main 持續工作，只有卡住且最小查證仍無法決定下一步時才求援，Thinker 直接回報 Main。它與一般獨立分析的 `thinker` 共用回報流程。安裝 `sidekick` 時一起安裝兩者：
 
 ```powershell
@@ -135,6 +137,7 @@ Copy-Item -LiteralPath ".\sidekick", ".\thinker" -Destination $skillsRoot -Recur
 
 ### 執行、狀態與長任務
 
+[`4-agent-shift`](./4-agent-shift/) ·
 [`check`](./check/) ·
 [`checkpoint`](./checkpoint/) ·
 [`astra-luna-duo`](./astra-luna-duo/) ·
