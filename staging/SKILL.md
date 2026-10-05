@@ -1,120 +1,29 @@
 ---
 name: staging
-description: "/staging, $staging"
+description: "/staging、$staging：將目前目標整理成可開始、可驗證且有停止條件的階段。"
 ---
 
 # Staging
 
-## Purpose
+將目前對話整理成一個可觀察的最終結果及可開始的階段。規劃請求只交付計畫；已授權執行中使用本技能則整理後繼續，除非使用者要求停在規劃。
 
-Turn the current conversation into one clear final goal and a realistic, executable stage list. The unit is not a wish, idea, or vague todo; the unit is a staged outcome that can be acted on, verified, and handed off.
+## 定義目標
 
-## Core Rules
+從原始要求、最新修正及現場證據，確認最終結果、範圍、限制與驗收。分開已驗證、推論及待確認。能合理推斷時簡短說明假設；只有錯誤推斷會實質改變路線，才詢問那個必要選擇，並繼續獨立工作。
 
-1. Use Traditional Chinese by default.
-2. First lock the final goal, then list stages.
-3. Base the goal on the current conversation and available live truth. Do not invent project state.
-4. If the final goal is unclear but can be reasonably inferred, state the inference and proceed.
-5. Ask a question only when a wrong inference would materially change the stage plan.
-6. Keep stages realistic: each stage must have a concrete output, verification method, and clear stop condition.
-7. A standalone planning request produces a plan only. When staging is used inside already-authorized execution, organizing the work does not revoke that authorization; continue afterward unless the user asked to stop at the plan.
-8. Separate `已驗證`, `推論`, and `待確認`.
-9. Do not confuse activity with progress. A stage is complete only when its verification evidence exists.
+## 階段
 
-## Workflow
+只保留有不同驗證邊界的階段。每階段包含：
 
-1. Reconstruct the conversation goal.
-   - Identify the user's seed request.
-   - Identify the real desired end state.
-   - Identify constraints, non-goals, and risks.
+- 動作及可見產物。
+- 證明產物達到本次結果的檢查。
+- 過關、停止或轉向條件。
+- 會阻擋開始的依賴、風險或未確認假設。
 
-2. Define the final goal.
-   - Write one concise final-goal sentence.
-   - Include what success looks like.
-   - Include what is explicitly out of scope.
+先安排能消除路線不確定性的最小階段，再推到最終驗收。每階段須能靠必要來源直接開始、足夠小而可審查，並降低歧義、解除阻礙或推進交付。用具體動作取代「改善／研究更多／測一下」；成果由證據判定。
 
-3. Build the stage list.
-   - Start with the smallest stage that creates clarity or removes the main blocker.
-   - Continue until the final goal is reachable.
-   - Use only as many stages as distinct verification boundaries require.
-   - Avoid fake precision, vague aspirations, and giant "do everything" stages.
+## 交付與保存
 
-4. Add execution reality to every stage.
-   - Objective
-   - Action
-   - Output/artifact
-   - Verification
-   - Stop gate
-   - Risk or dependency
-   - Progress only when a defensible denominator exists
+使用繁體中文，先說目前判斷及最終目標，再列必要邊界與階段，結束於一個可執行下一步或具體缺口。有可靠分母才提供百分比；準備完成與成果驗收分開。
 
-5. End with the smallest safe next step.
-   - Pick one next action, not a menu of ten.
-   - If a blocker exists, name the exact missing evidence or decision.
-
-## Output Format
-
-Use this structure unless the user requests another format:
-
-```markdown
-目前判斷：
-[用 1-2 句說明最終目標與目前清楚度；有可靠分母時才寫進度。]
-
-最終目標：
-[一句話定錨。]
-
-邊界：
-- 已包含：[scope]
-- 不包含：[non-goals]
-- 待確認：[only if needed]
-
-階段性目標：
-1. [階段名稱] [有可靠分母時才附進度]
-   目標：[具體 outcome]
-   行動：[可執行動作]
-   產物：[檔案、決策、報告、測試結果、PR、部署等]
-   驗證：[如何證明完成]
-   停止門檻：[看到什麼就停或轉向]
-   風險/依賴：[主要風險或前置條件]
-
-下一步：
-[最小安全下一手。]
-```
-
-## Stage Quality Bar
-
-A valid stage must pass all checks:
-
-- It can be started by an agent without rereading the whole conversation.
-- It has a visible output.
-- It has a verification method.
-- It reduces ambiguity, removes a blocker, creates a durable artifact, or moves toward shipment.
-- It is small enough to audit.
-- It does not depend on hidden assumptions unless those assumptions are stated.
-
-Reject or rewrite stages that sound like:
-
-- "Improve the project"
-- "Make it better"
-- "Finish everything"
-- "Optimize later"
-- "Research more" without a decision artifact
-- "Test it" without naming what test or evidence
-
-## Durable Memory
-
-If the user asks to save, continue later, use long-running agents, or hand off work:
-
-- Prefer writing the staged plan into the project memory system if `_ctx/INDEX.md` exists.
-- Otherwise write only if the user asks for a file or the project already has an obvious planning file.
-- Do not create durable files for a tiny one-off conversation unless it clearly helps.
-
-## Handoff Rule
-
-When staging is complete, a future agent should be able to answer:
-
-1. What is the final goal?
-2. What stage are we currently in?
-3. What evidence proves prior stages are complete?
-4. What is the next executable action?
-5. What must not be touched?
+讀者須能判斷最終目標、目前階段、前階段完成證據、下一步與保護範圍。明確要求保存、之後接續或交棒時，沿既有 project memory／`_ctx/INDEX.md` 路由；沒有既定位置時，只在要求檔案或已有明確計畫檔時寫入。一般小任務的計畫留在對話。

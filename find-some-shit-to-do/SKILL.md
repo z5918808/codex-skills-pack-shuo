@@ -1,6 +1,6 @@
 ---
 name: find-some-shit-to-do
-description: "Use to inspect a repo and find useful work: bugs, broken flows, stale state, unsafe automation, or missing tests."
+description: "在指定 repo 或 harness 範圍找一個有證據的改善；要求修復時實作並驗證。"
 ---
 
 # Find Some Shit To Do

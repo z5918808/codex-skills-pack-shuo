@@ -14,7 +14,7 @@ A goal may include several phases. Phase transitions already covered by that goa
 
 ## Worker-owned sub-driven DAG
 
-Read and follow `C:\Users\user\.codex\harness_docs\16_subagent_ban.md` before native delegation. An explicit DUO execution invocation authorizes this persistent Luna/max Worker to use one or two depth-1 helpers for already-specified, independently useful execution branches. Before every spawn run the Luna parent gate with actual parent data and the existing child model/config gate. Keep small, serial, dependent, shared-writer, or ambiguous work local. If explicit `multi-workers` mode is active, do not spawn native children; that mode's persistent task DAG owns parallelism.
+Read and follow `~/.codex/harness_docs/16_subagent_ban.md` before native delegation. An explicit DUO execution invocation authorizes this persistent Luna/max Worker to use one or two depth-1 helpers for already-specified, independently useful execution branches. Before every spawn run the Luna parent gate with actual parent data and the existing child model/config gate. Keep small, serial, dependent, shared-writer, or ambiguous work local. If explicit `multi-workers` mode is active, do not spawn native children; that mode's persistent task DAG owns parallelism.
 
 Branch allocation is mechanical only. Children receive exact steps, allowed disjoint resources, predefined checks, and stop conditions. They cannot plan, diagnose, repair, retry, edit canonical workflow state, or report to Reviewer/A. Luna remains the sole assignment OWNER, rereads and verifies child output, integrates it, and follows the normal error rule on any child failure. Before terminal delivery or stop, reconcile every owned child and include unresolved effects in the Worker packet.
 

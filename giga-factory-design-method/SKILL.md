@@ -1,6 +1,6 @@
 ---
 name: giga-factory-design-method
-description: Design a reusable streaming workflow for repeated multi-stage data work when dependencies, handoffs, verification, or failure recovery need an end-to-end design. Use before scaling or restructuring such work; not for routine batches on an already validated route.
+description: "為反覆多階段工作設計可重用的資料流、責任、驗收與恢復方式，再依證據擴大執行。"
 ---
 
 # Giga Factory Design Method

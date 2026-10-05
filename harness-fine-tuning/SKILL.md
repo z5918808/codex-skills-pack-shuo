@@ -9,6 +9,8 @@ Keep the smallest set of instructions that changes useful behavior. Optimize for
 
 Use this skill when the instructions themselves are being designed or revised. Merely encountering an AGENTS.md or using another skill is not a reason to audit it.
 
+修整技能描述、步驟或參考結構時，讀 [prompting philosophy](references/prompting-philosophy.md)；它補充觸發指標、資訊層級與相依載入，不取代本技能的授權及驗收原則。
+
 ## Working Method
 
 Use these questions to guide decisions, not as a mandatory sequence or report template:

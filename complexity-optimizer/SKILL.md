@@ -1,6 +1,6 @@
 ---
 name: complexity-optimizer
-description: "Complexity audit"
+description: "分析程式複雜度與效能熱點，提出有證據的改善；已要求實作時保留行為並比較結果。"
 ---
 
 # Complexity Optimizer

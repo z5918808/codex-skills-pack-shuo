@@ -61,50 +61,7 @@ Deterministic code 才能決定：
 
 AI output 永遠不是 execution permission。
 
-## Required AI Evidence
-
-每個 AI 結果至少要留下：
-
-```json
-{
-  "model_call_attempted": true,
-  "model": "...",
-  "model_tier": "low|stronger|critic",
-  "prompt_version": "...",
-  "input_ref": "...",
-  "raw_output_ref": "...",
-  "validated_output_ref": "...",
-  "evidence_refs": [],
-  "confidence": {},
-  "unknowns": [],
-  "fields_to_change": [],
-  "fields_to_preserve": [],
-  "validators_required": []
-}
-```
-
-如果 `model_call_attempted=false`，只能標成 rules-only 或 placeholder，不能標成 AI-layer-complete。
-
-## Structured Output
-
-AI 必須回結構化資料，不要只回自然語言，也不要直接回可執行 SQL、API payload、writer call 或權限判斷。
-
-通用輸出形狀：
-
-```json
-{
-  "decision": "repair|preserve|degrade|escalate|business_decision",
-  "target": {},
-  "confidence": {},
-  "supporting_evidence": [],
-  "contradicting_evidence": [],
-  "unknowns": [],
-  "fields_to_change": [],
-  "fields_to_preserve": [],
-  "validators_required": [],
-  "needs_higher_tier": false
-}
-```
+設計或修改 AI producer／consumer 時，先讀 [語意結果契約](references/semantic-contract.md)，對齊呼叫證據、結構化欄位與下游消費者。
 
 ## Final States
 
@@ -157,23 +114,7 @@ No-execute 可以驗：
 
 No-execute 不能宣稱 live apply 成功，也不能要求 post-submit reload 或 live-after proof 才算 no-execute 自己通過。
 
-## Required Artifacts
-
-至少保留：
-
-- `semantic_inputs.jsonl`
-- `prompts/`
-- `raw_ai_outputs/`
-- `validated_targets.jsonl`
-- `validation_results.jsonl`
-- `replay_results.jsonl`
-- `execution_results.jsonl`
-- `qa_results.jsonl`
-- `rollback_results.jsonl`
-- `ledger.jsonl`
-- `summary.json`
-
-AI 結果只存在聊天裡，等於沒有可重跑證據。
+定義可重跑的落檔及 ledger 時，讀 [artifact 契約](references/artifacts.md)，沿專案既有位置保留所需證據。
 
 ## Regression Proof
 

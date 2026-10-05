@@ -1,6 +1,6 @@
 ---
 name: prompt-for-goal
-description: Draft, audit, or revise executable /goal prompts and readiness packages when the user asks to work on a goal prompt.
+description: "/prompt for goal：設計、審查或修訂短目標提示，包含結果、方法與可觀察驗收。"
 ---
 
 # Prompt for Goal

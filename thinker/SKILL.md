@@ -1,6 +1,6 @@
 ---
 name: thinker
-description: 為獨立分析任務選擇 Thinker，在另一條 Codex chat 完成唯讀判斷並直接回報 Main。
+description: "為明確分析請求選擇相容的 Luna、Sol 或 Astra 唯讀判斷入口，依派遣契約將結論送回 Main。"
 ---
 
 # Thinker

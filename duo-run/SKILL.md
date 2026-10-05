@@ -5,11 +5,11 @@ description: Run conditional Duo with Luna as the long-running workhorse and Sol
 
 # Conditional Duo
 
-Use for explicit Duo execution. Maintenance/discussion starts no tasks. Apply [conditional routing](../../harness_docs/17_conditional_collaboration.md) and run [required decision gate process](../../harness_docs/18_conditional_gate_process.md) before implementation or dispatch on every invocation. Missing/stale routing evidence stops the dependent action. Read-only classification can proceed; reassess material scope/risk/owner changes rather than every item.
+Use for explicit Duo execution. Maintenance/discussion starts no tasks. Apply conditional routing（本機 `~/.codex/harness_docs/17_conditional_collaboration.md`，本包未提供） and run required decision gate process（本機 `~/.codex/harness_docs/18_conditional_gate_process.md`，本包未提供） before implementation or dispatch on every invocation. Missing/stale routing evidence stops the dependent action. Read-only classification can proceed; reassess material scope/risk/owner changes rather than every item.
 
 ## Allocation
 
-At every activation/resume, Main checks the existing TASK_GOAL.md for accumulated historical or duplicate content and proactively prunes it under [Repo Task Goal](C:/Users/user/.agents/skills/project-state-steward/references/task-goal.md) before new dispatch. The invocation includes this routine upkeep; do not wait for a separate cleanup request. Preserve active pins until their safe boundary.
+At every activation/resume, Main checks the existing TASK_GOAL.md for accumulated historical or duplicate content and proactively prunes it under Repo Task Goal（本機 `~/.agents/skills/project-state-steward/references/task-goal.md`） before new dispatch. The invocation includes this routine upkeep; do not wait for a separate cleanup request. Preserve active pins until their safe boundary.
 
 Recommend GPT-6 Sol/medium Main (including its own reviews and bounded interventions; a separate Sol reviewer defaults to medium) and Luna/max Worker when sustained execution or huge data digestion justifies delegation. A triggered Astra advisor or explicitly selected Astra Main defaults to high under the shared route; preserve an actual selected effort. Strictly low-risk deterministic work can stay with a Luna activation task; a short judgment-heavy task stays with Sol. Sol does not replace Luna as the long-run workhorse: a bounded Sol diagnosis/repair ends with a safe handback of remaining execution. Work size alone never triggers Astra.
 
@@ -38,11 +38,11 @@ Read only applicable references:
 - [Trio advisor dispatch](../trio-long-running/references/dispatch.md#independent-thinker-dispatch) and [reporting](../trio-long-running/references/reporting.md) only for a gate-triggered Astra question.
 - [Regression scenarios](references/regression-checks.md) only for maintenance.
 
-These detailed delegated procedures do not force a Worker for solo work. Use one TASK_GOAL.md as Main's current goal prompt under [Repo Task Goal](C:/Users/user/.agents/skills/project-state-steward/references/task-goal.md). Main rewrites and prunes it at safe updates; keep current outcome, boundaries, completion criteria and required identity/reference fields, with history and receipts outside. Small/direct work creates no forced goal. Keep active pinned contracts until safe reconciliation; this edit does not migrate running projects. No native Goal mode or scheduler. Follow [existing hook integration](../../hooks/JEV_MAIN.md) only where its contract applies.
+These detailed delegated procedures do not force a Worker for solo work. Use one TASK_GOAL.md as Main's current goal prompt under Repo Task Goal（本機 `~/.agents/skills/project-state-steward/references/task-goal.md`）. Main rewrites and prunes it at safe updates; keep current outcome, boundaries, completion criteria and required identity/reference fields, with history and receipts outside. Small/direct work creates no forced goal. Keep active pinned contracts until safe reconciliation; this edit does not migrate running projects. No native Goal mode or scheduler. Follow existing hook integration（本機 `~/.codex/hooks/JEV_MAIN.md`，本包未提供） only where its contract applies.
 
 ## Delegation and delivery
 
-Persistent user-visible tasks are the cross-task route. Only the verified Luna/max root Worker may use up to two depth-1 helpers under the existing Luna gate/envelope; helpers never replace the Worker or review/acceptance. Sol/Astra never spawn. Explicit [multi-workers](../multi-workers/SKILL.md) retains its separate approval and [A-E relay](references/dag-workers.md), disables native children and never follows merely from data volume.
+Persistent user-visible tasks are the cross-task route. Only the verified Luna/max root Worker may use up to two depth-1 helpers under the existing Luna gate/envelope; helpers never replace the Worker or review/acceptance. Sol/Astra never spawn. Explicit multi-workers（需另行安裝的 `multi-workers` 技能，沿其授權契約） retains its separate approval and [A-E relay](references/dag-workers.md), disables native children and never follows merely from data volume.
 
 Reuse healthy role tasks after terminal delivery/ingestion and effect reconciliation. Every assigned terminal result/blocker requires direct-message delivery and an actual receipt before local final. Main consumes the result into an authorized successor, exact blocker or completion. Failed delivery preserves the packet for bounded recovery, not repeated work.
 

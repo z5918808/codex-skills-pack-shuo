@@ -10,7 +10,7 @@ New DUO runs never create native goals. The native procedures below apply only t
 
 ## Reusable Root and Slot Goal Files
 
-Use `<repo>/TASK_GOAL.md` as the sole current repo-task authority under [Repo Task Goal](C:/Users/user/.agents/skills/project-state-steward/references/task-goal.md); read it for proactive updates, workflow switches, legacy/custom-path migration and retention. Fixed per-slot assignments follow [the DAG contract](dag-workers.md). Slot reuse reconciles that slot; root revision requires every consumer reconciled, including former TRIO roles. No per-run root copies or duplicate state authority. Outside a repo preserve the existing workspace contract.
+Use `<repo>/TASK_GOAL.md` as the sole current repo-task authority under Repo Task Goal（本機 `~/.agents/skills/project-state-steward/references/task-goal.md`）; read it for proactive updates, workflow switches, legacy/custom-path migration and retention. Fixed per-slot assignments follow [the DAG contract](dag-workers.md). Slot reuse reconciles that slot; root revision requires every consumer reconciled, including former TRIO roles. No per-run root copies or duplicate state authority. Outside a repo preserve the existing workspace contract.
 
 Main/Reviewer is the only writer and prunes root and slot prompts on each safe replacement under Repo Task Goal. Before dispatch, retain only the current objective, scope/permissions, completion criteria and necessary identity/stop/reference fields. Read back and pin its SHA256 in the dispatch message; it is immutable only while that generation executes or awaits review.
 

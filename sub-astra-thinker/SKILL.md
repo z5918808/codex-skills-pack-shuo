@@ -1,6 +1,6 @@
 ---
 name: sub-astra-thinker
-description: 使用者明確叫用 sub astra thinker 時，為 Sol 或 Luna Main 啟用按需 Astra/medium 唯讀 Thinker；遇到具體難題才派遣，不例行召喚。
+description: "為明確叫用的 Sol／Luna 任務提供按需 Astra/medium 唯讀判斷；Main 執行，派遣前核對 gate。"
 ---
 
 # Sub Astra Thinker

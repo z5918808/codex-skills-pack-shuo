@@ -1,247 +1,39 @@
 ---
 name: autoresearch
-description: "Bounded research"
+description: "以有限實驗釐清原因、比較方案或量測改善；依明確指標決定保留、捨棄或轉向。"
 ---
 
 # Autoresearch
 
-Autoresearch is a bounded experiment loop, not generic research mode.
+用有限的證據迴圈把不確定性變成保留、捨棄、轉向或下一步的決策。清楚的小修改、一次查詢及只要求交付產物的任務直接處理。
 
-Default behavior: run the lightest loop that turns uncertainty into evidence, a decision, or the next action. Do not maximize analysis. Do not run indefinitely by default.
+## 選擇模式
 
-## Core Contract
+| 模式 | 預設預算 | 適用情況 |
+| --- | --- | --- |
+| Quick | 1–2 輪 | 少量查證能決定原因或方向；預設模式 |
+| Standard | 2–4 輪 | 需要比較多份證據、選項或測量；先說明升級理由 |
+| Autonomous | 明確要求的預算或停止條件，每輪有界 | 使用者明確要求自治迭代，且隔離環境與實驗契約成立 |
 
-Every run must define:
+自治模式開始前完整讀取 [自治實驗契約](references/autonomous-experiments.md)。一般研究及叫用本技能只使用有界模式。
 
-```text
-Goal:
-Metric / success signal:
-Editable surface:
-Frozen surface:
-Loop budget:
-Stop condition:
-Artifact / ledger:
-```
+## 執行
 
-If the metric, editable surface, frozen surface, or stop condition cannot be stated, do not start an experiment loop. First shape the question or gather the missing evidence.
+1. 定義目標、主要指標或成功訊號、可改範圍、凍結範圍、輪數及停止條件；需要 ledger 時沿既有位置。條件不清楚時先查證或縮成唯讀工作。
+2. 每輪只查一個會影響決策的假設。選最便宜的決定性證據，記下實際結果，分開已驗證、推論及缺口。
+3. 根據結果選 `keep / keep-partial / discard / pivot / stop`。新一輪須有新的證據目標；方向被反駁就轉向，沒有資訊增量就換方法或結束。
+4. 指標達成、下一步已清楚、預算用盡或真正邊界阻擋時停止研究；已授權的後續實作依原任務繼續。
 
-## When To Use
+可改範圍通常是一個檔案、模組、提示或測量設定。評估工具、準備資料、正式設定、公開契約、無關使用者變更及秘密列入凍結範圍。
 
-Use for:
+## 證據與權限
 
-- codebase or system investigation
-- debugging or root-cause narrowing
-- benchmark / performance comparison
-- UI or product review with evidence
-- comparing options, vendors, prompts, skills, or workflows
-- testing whether a change improves a measurable outcome
-- turning uncertainty into a keep / discard / pivot decision
+專案事實讀檔案、命令、測試或 runtime；記憶只作線索。時效性外部事實查原始來源並附引用，說明過期與矛盾。
 
-Do not use for:
+實驗不擴張權限。正式環境、資料庫、金流、訂單、庫存、客戶資料或破壞性操作，先載入適用的 `risk-preflight` 與專案 gate。明確載入相依技能：使用環境提供的技能工具，或讀取已定位的 `SKILL.md`；一個名稱一次載入。
 
-- simple edits
-- direct implementation with a clear spec
-- one-shot factual lookup
-- tasks where the user only asked for a final artifact
-- production, database, money, order, inventory, customer data, or destructive operations before `$risk-preflight`
+## 保存與完成
 
-## Modes
+Quick 結果留在對話。自治 ledger、會重用的 Standard 結果、明確要求的報告／交接、影響專案狀態或過長內容才落檔；沿既有 `results.tsv`、`experiments.tsv` 或專案報告位置。Project memory 依 `project-memory-gate`，只有其契約已啟用時才建立 `_ctx`。
 
-Choose the lightest mode.
-
-| Mode | Default budget | Use when | Output |
-| --- | --- | --- | --- |
-| Quick evidence loop | 1-2 loops | Direction or cause can likely be found quickly | conclusion, evidence, inference, next |
-| Standard loop | 2-4 loops | Multiple files, sources, options, or measurements must be compared | decision, evidence ledger, next action |
-| Autonomous experiment loop | explicit budget or until user stops | Sandbox + clear metric + user explicitly asks for autonomous iteration | keep/discard/crash ledger and best current result |
-
-Quick evidence loop is the default.
-
-Standard loop needs a reason.
-
-Autonomous experiment loop is opt-in only.
-
-## Quick Evidence Loop
-
-Use this for most tasks.
-
-```text
-Question:
-Evidence target:
-Action:
-Verified:
-Inferred:
-Decision:
-Next:
-```
-
-Rules:
-
-- Inspect live truth, not memory.
-- Run only the evidence action needed for the decision.
-- Stop when the next action is clear enough.
-- Do not create files unless the finding is durable or the user asked.
-
-## Standard Loop
-
-Use when one loop is not enough.
-
-Each loop:
-
-```text
-Loop N:
-Hypothesis:
-Action:
-Evidence:
-Result:
-Decision: keep / keep-partial / discard / pivot / stop
-Next:
-```
-
-Rules:
-
-- One hypothesis per loop.
-- Separate verified facts from inference.
-- If the loop produces no new information, change method or stop.
-- If evidence contradicts the direction, pivot.
-- Save an artifact only when findings are durable, reused, or too long for chat.
-
-## Autonomous Experiment Loop
-
-This mode is Karpathy-style: fixed experiment loop, measurable metric, keep/discard, repeat.
-
-Only enter this mode when all gates are true:
-
-1. User explicitly asks for autonomous iteration, overnight run, Karpathy-style autoresearch, or loop-until-stopped behavior.
-2. Work is in a sandbox, throwaway branch/worktree, or repo workflow designed for experiments.
-3. There is one primary metric or clear success signal.
-4. There is a fixed command or procedure to measure the metric.
-5. Editable surface is narrow and explicit.
-6. Frozen surface is explicit and must not be modified.
-7. Each loop has a time or iteration budget.
-8. Keep/discard/crash/blocked ledger location is defined.
-9. Discard path is safe and will not erase unrelated user work.
-
-If any gate is missing, do not run autonomous mode. Output the missing gate and the smallest setup step.
-
-### Experiment Loop Shape
-
-```text
-Experiment N:
-Hypothesis:
-Editable change:
-Metric command:
-Result:
-Decision: keep / discard / crash / blocked
-Ledger:
-Next experiment:
-```
-
-### Keep / Discard Rules
-
-- `keep`: metric improved or success condition met without unacceptable complexity or risk.
-- `discard`: metric same/worse, evidence weak, or complexity cost exceeds improvement.
-- `crash`: run failed; fix only if the failure is a small implementation bug. Otherwise log and move on.
-- `blocked`: missing dependency, permission, unsafe state, or no valid discard path.
-
-Do not use `git reset --hard`, `git checkout --`, or destructive cleanup unless the user explicitly authorized it and the work area is proven isolated. Prefer branch/worktree discipline, reverse patches, or repo-provided experiment scripts.
-
-## Surfaces
-
-Editable surface examples:
-
-- one file
-- one module
-- one prompt/program file
-- one benchmark configuration
-- one UI page/flow
-
-Frozen surface examples:
-
-- evaluation harness
-- data prep
-- production config
-- public API contract
-- user-edited unrelated files
-- secrets/tokens/customer data
-
-If the editable/frozen boundary is unclear, ask one short question or reduce scope to read-only investigation.
-
-## Artifact Routing
-
-Do not create artifacts for quick loops.
-
-Create an artifact only when:
-
-- autonomous experiment loop is active
-- standard loop findings are durable
-- the user asked for handoff/report
-- result affects project state
-- output is too long or easy to lose
-
-Preferred:
-
-- experiment ledger: `results.tsv`, `experiments.tsv`, or repo-native path
-- durable research: `reports/autoresearch-YYYYMMDD-<topic>.md`
-- project memory: only through `$project-memory-gate`
-
-Do not create `_ctx` unless long-run/project-memory rules are already active.
-
-## External Facts
-
-For current facts, laws, prices, schedules, product specs, API behavior, companies, public figures, or market conditions:
-
-- inspect live sources
-- cite sources
-- mark stale or conflicting claims
-
-For local project facts:
-
-- inspect files, logs, tests, commands, or runtime state
-- treat memory as a hint only
-
-## Completion Format
-
-Quick loop:
-
-```text
-結論：
-已驗證：
-推論：
-決策：
-下一步：
-```
-
-Standard loop:
-
-```text
-狀態：complete / partial / blocked
-Metric / stop：
-已驗證：
-推論：
-Decision：keep / keep-partial / discard / pivot / stop
-Evidence：
-Artifact：path or none
-下一步：
-```
-
-Autonomous experiment loop:
-
-```text
-Best result:
-Ledger:
-Kept:
-Discarded / crashed:
-Current blocker:
-Next experiment:
-Stop reason:
-```
-
-## Cost Control
-
-- Default to Quick evidence loop.
-- Stop when the answer is clear enough to act.
-- Continue only when the next loop has a specific evidence target.
-- Do not broaden the lane unless evidence shows the current lane is wrong.
-- Do not save artifacts merely to look systematic.
-- Never run indefinite autonomous loops without explicit user request and safe experiment gates.
+回報決策、指標／停止原因、關鍵證據、推論、剩餘缺口與一個下一步。自治結果另附最佳結果及 ledger，說明保留、捨棄、失敗及阻礙。完成由決策與證據判定，不以填滿輪數判定。

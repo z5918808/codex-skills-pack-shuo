@@ -1,6 +1,6 @@
 ---
 name: repo-bootstrap
-description: "Repo bootstrap"
+description: "初始化或補齊 repo-local AGENTS.md，沿既有範本保留專案入口、規則與驗證方式。"
 ---
 
 # Repo Bootstrap

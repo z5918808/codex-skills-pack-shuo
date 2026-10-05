@@ -50,3 +50,7 @@ SOFTWARE.
 ```
 
 `matt-flow` 是本套件提供的明示啟用路由器，用來選擇上述工作流中的最近必要階段。
+
+## 本次採用的寫作指引
+
+個人技能的修整方法參考 [mattpocock/skills v1.3.1](https://github.com/mattpocock/skills/releases/tag/v1.3.1) 的 `writing-for-agents`、`SKILL-MECHANICS.md` 與 `.agents/invocation.md`；以摘要及來源連結收錄於 `harness-fine-tuning/references/prompting-philosophy.md`。這次沒有整包升級上述第三方技能；其既有來源、MIT 授權與客製差異仍沿原聲明。

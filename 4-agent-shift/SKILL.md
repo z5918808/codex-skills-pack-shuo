@@ -1,6 +1,6 @@
 ---
 name: 4-agent-shift
-description: 為管理系統任務組織四位 Sol 6.1 medium 子代理，分工盤點、規劃、執行與獨立驗收，交付結果與精簡待決清單。建立或討論技能只處理文件；實際派遣須有當前使用者明確叫用及任務範圍。
+description: "明確叫用後以四位 Sol/medium 分工盤點、規劃、執行及驗收；派遣依任務授權、容量與模型 gate。"
 ---
 
 # 4 agent shift

@@ -5,13 +5,13 @@ description: Run conditional Trio with Luna long-running execution, Sol judgment
 
 # Conditional Trio
 
-Use for explicit Trio execution. Editing or discussing skills starts no tasks. Trio is a conditional workflow, not a required three-task roster. Apply [conditional routing](../../harness_docs/17_conditional_collaboration.md) as the single model-selection owner.
+Use for explicit Trio execution. Editing or discussing skills starts no tasks. Trio is a conditional workflow, not a required three-task roster. Apply conditional routing（本機 `~/.codex/harness_docs/17_conditional_collaboration.md`，本包未提供） as the single model-selection owner.
 
 ## Mandatory invocation gate
 
-At every activation/resume, Main checks the existing TASK_GOAL.md for accumulated historical or duplicate content and proactively prunes it under [Repo Task Goal](C:/Users/user/.agents/skills/project-state-steward/references/task-goal.md) before new dispatch. The invocation includes this routine upkeep; do not wait for a separate cleanup request. Preserve active pins until their safe boundary.
+At every activation/resume, Main checks the existing TASK_GOAL.md for accumulated historical or duplicate content and proactively prunes it under Repo Task Goal（本機 `~/.agents/skills/project-state-steward/references/task-goal.md`） before new dispatch. The invocation includes this routine upkeep; do not wait for a separate cleanup request. Preserve active pins until their safe boundary.
 
-Before implementation or dispatch, run [required decision gate process](../../harness_docs/18_conditional_gate_process.md): assess current facts, produce a hash-bound routing receipt, and check each selected action. Missing/stale routing evidence blocks the dependent action. Read-only fact collection needed for classification may proceed. Reassess changed scope, risk, failed approaches or owner; do not run a routing ceremony per mechanical item. Skill maintenance is exempt.
+Before implementation or dispatch, run required decision gate process（本機 `~/.codex/harness_docs/18_conditional_gate_process.md`，本包未提供）: assess current facts, produce a hash-bound routing receipt, and check each selected action. Missing/stale routing evidence blocks the dependent action. Read-only fact collection needed for classification may proceed. Reassess changed scope, risk, failed approaches or owner; do not run a routing ceremony per mechanical item. Skill maintenance is exempt.
 
 The routes are Luna-only for strictly eligible low-risk work, Luna then Sol for sustained implementation/digestion, Sol-only for small judgment-heavy work, and bounded Astra advice for the policy's explicit predicates. Luna/max is the long-running workhorse and owns huge data digestion. Sol Main/medium or a separate Sol/medium task resolves judgment and bounded repair, then hands remaining sustained work back to Luna. Astra is neither created nor messaged merely because the user said Trio.
 
@@ -34,7 +34,7 @@ Main starts review from requirements, diff, tests and Worker report. Expand to c
 
 ## Long-running contract and lifecycle
 
-Sustained repo work uses one TASK_GOAL.md as Main's current goal prompt under [Repo Task Goal](C:/Users/user/.agents/skills/project-state-steward/references/task-goal.md). Main rewrites and prunes it at safe updates; keep current outcome, boundaries, completion criteria and required identity/reference fields, with history and receipts outside. Small/direct work creates no forced long-run scaffold. No native Goal mode, create_goal or substitute scheduler. Follow [local hook integration](../../hooks/JEV_MAIN.md) only for the existing eligible Main contract; it grants no dispatch or wake-up guarantee.
+Sustained repo work uses one TASK_GOAL.md as Main's current goal prompt under Repo Task Goal（本機 `~/.agents/skills/project-state-steward/references/task-goal.md`）. Main rewrites and prunes it at safe updates; keep current outcome, boundaries, completion criteria and required identity/reference fields, with history and receipts outside. Small/direct work creates no forced long-run scaffold. No native Goal mode, create_goal or substitute scheduler. Follow local hook integration（本機 `~/.codex/hooks/JEV_MAIN.md`，本包未提供） only for the existing eligible Main contract; it grants no dispatch or wake-up guarantee.
 
 Do not overwrite an active pinned contract. Adopt these rules only after prior consumers are reconciled at a safe boundary. A skill edit does not migrate active projects. User stop revokes the current generation; resume requires fresh user authority. Never layer a new goal over unresolved effects or an unfinished assignment. Existing live/data, rollback and separation-of-duty gates remain binding.
 

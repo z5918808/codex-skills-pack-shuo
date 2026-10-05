@@ -1,6 +1,6 @@
 ---
 name: long-running-agent
-description: "/longrun, /goal, /resume"
+description: "/longrun、/goal、/resume：持續推進可驗證目標，依既有契約處理接續、里程碑與停止。"
 ---
 
 # Long-Running Agent

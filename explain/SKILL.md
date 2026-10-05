@@ -1,6 +1,6 @@
 ---
 name: explain
-description: "/explain, $explain"
+description: "/explain、$explain：以白話重建任務脈絡、已驗證現況、風險與一個可執行下一步。"
 ---
 
 # Explain

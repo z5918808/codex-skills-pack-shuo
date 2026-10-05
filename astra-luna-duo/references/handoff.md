@@ -1,6 +1,6 @@
 # Handoff and lifecycle
 
-Ordinary execution uses one persistent Luna/max Worker with the internal DAG contract at `C:\Users\user\.codex\harness_docs\16_subagent_ban.md`. Apply [the persistent multi-TASK contract](../../duo-run/references/dag-workers.md) only after explicit `$multi-workers`; that route disables native children. Lifecycle steps below apply to the ordinary assignment or per slot in multi-TASK mode; root changes require every consumer reconciled.
+Ordinary execution uses one persistent Luna/max Worker with the internal DAG contract at `~/.codex/harness_docs/16_subagent_ban.md`. Apply [the persistent multi-TASK contract](../../duo-run/references/dag-workers.md) only after explicit `$multi-workers`; that route disables native children. Lifecycle steps below apply to the ordinary assignment or per slot in multi-TASK mode; root changes require every consumer reconciled.
 
 ## Start once per assignment and return directly
 

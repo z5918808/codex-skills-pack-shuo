@@ -1,6 +1,6 @@
 ---
 name: reconcile-project-state
-description: "State reconcile"
+description: "釐清互相矛盾的狀態、handoff 與現況，重建工作線邊界及真正的停止條件。"
 ---
 
 # Reconcile Project State
@@ -64,7 +64,7 @@ description: "State reconcile"
 回報要短，先給結論：
 
 ```text
-結論：不要停 lane；舊狀態把 exhausted 邊界講錯。最新 canonical state 是 current manager body exhausted，下一步是重建 MISUMI source。
+結論：不要停 lane；舊狀態把 exhausted 邊界講錯。最新 canonical state 是 current manager body exhausted，下一步是重建指定來源。
 
 採用證據：
 - old: ...

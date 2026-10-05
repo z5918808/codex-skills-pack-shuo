@@ -1,6 +1,6 @@
 ---
 name: domain-modeling
-description: Build or sharpen a project's domain model, ubiquitous language, and architectural decisions.
+description: "釐清程式術語、建立或修訂 GLOSSARY.md 與 ADR，以具體情境校正專案領域模型。"
 ---
 
 # Domain Modeling

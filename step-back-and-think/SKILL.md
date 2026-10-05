@@ -1,6 +1,6 @@
 ---
 name: step-back-and-think
-description: Use for /step-back-and-think, 退一步想, 大方向, 盲點, 卡住, or when local patches may hide the real bottleneck.
+description: "/step-back-and-think：以 canonical zoomout 重新判斷主線瓶頸及最小可驗證下一步。"
 ---
 
 # Step Back And Think

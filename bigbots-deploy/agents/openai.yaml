@@ -1,4 +1,4 @@
 interface:
   display_name: "Bigbots Deploy"
-  short_description: "依有效切片協作；Sol/medium 或逐任務授權的 Astra"
-  default_prompt: "使用 $bigbots-deploy，依技能路由派送有邊界的切片；Astra 必須有該子任務的明確使用者授權。"
+  short_description: "三個 Sol/medium 角色從不同切點分析"
+  default_prompt: "使用 $bigbots-deploy，讓三個唯讀角色分析同一問題，再由 Main 查核整合。"

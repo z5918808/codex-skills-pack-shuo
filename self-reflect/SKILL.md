@@ -1,191 +1,34 @@
 ---
 name: self-reflect
-description: "/self-reflect, $self-reflect"
+description: "/self-reflect、$self-reflect：檢查策略的關鍵假設與漏洞，以有限查證修正並決定下一步。"
 ---
 
 # Self Reflect
 
-`/self-reflect` is a strategy confidence audit loop.
+檢查目前策略是否能從真實條件走到使用者結果。每輪找出會改變決策的漏洞，修正策略並驗證。
 
-It is not praise, vibes, or generic second-guessing. It exists to prevent confident wrong plans.
+## 信心
 
-Core behavior:
-
-1. State the current strategy.
-2. Ask whether it is actually 100% evidence-backed.
-3. If not, find loopholes.
-4. Patch the strategy.
-5. Verify the patch against facts, code, docs, tests, logs, constraints, or user goals.
-6. Repeat until no decision-relevant loopholes remain, a real blocker appears, or further looping has low value.
-
-Never say "100% confident" unless every material assumption is verified or explicitly out of scope.
-
-## Core Rule
-
-Do not flatter the user or the previous assistant answer.
-
-Treat the existing strategy as guilty until evidence clears it.
-
-The loop must separate:
-
-- verified facts
-- assumptions
-- loopholes
-- fixes
-- remaining risks
-- confidence after fixes
-
-If confidence is not truly 100%, say the real confidence and what would be needed to increase it.
-
-## Confidence Meaning
-
-`100%` means:
-
-- all material assumptions are verified
-- all known loopholes are patched or accepted as out of scope
-- safety gates are respected
-- the strategy has a concrete verification path
-- no contradictory live evidence remains
-- remaining uncertainty would not change the next action
-
-If any of these are false, do not claim 100%.
-
-Use these confidence labels:
-
-| Label | Meaning |
+| 標記 | 意義 |
 | --- | --- |
-| Low | Strategy is mostly speculative or missing key facts. |
-| Medium | Main direction is plausible, but important loopholes remain. |
-| High | Strategy is likely good; remaining risks are bounded and non-blocking. |
-| Operationally 100% | Not metaphysical certainty; all decision-relevant loopholes visible in the current evidence have been handled. |
+| Low | 關鍵事實不足或主要依賴推測 |
+| Medium | 方向合理，但重要漏洞仍待處理 |
+| High | 方向有證據，剩餘風險有界且不阻擋下一步 |
+| Operationally 100% | 目前可見的決策相關漏洞均已處理；必要假設已驗證或明確列出範圍之外 |
 
-Prefer `High` over fake `100%`.
+最後一級還要求安全 gate 成立、有具體驗證路徑、現況無未解矛盾，且剩餘未知不會改變下一步。通常用 `High`；缺證據時說明需要什麼才能提高信心。
 
-## Loop Protocol
+## 查證迴圈
 
-Use 1-3 loops by default. Continue only when the next loop has a specific evidence target and is likely to change the strategy.
+預設 1–3 輪；下一輪須有可能改變策略的具體證據目標。
 
-```text
-Loop N:
-Current strategy:
-Confidence:
-Loopholes found:
-Evidence checked:
-Fixes:
-Revised strategy:
-Residual risk:
-Decision:
-- keep
-- patch-again
-- pivot
-- blocked
-- stop
-```
+1. 列出目前策略及其關鍵假設。第一輪直接挑戰意圖推論、工作目錄／session、工具可用性、權限、安全、驗收、過度範圍及局部修飾取代主線的風險。
+2. 先依最新使用者指令與 live 檔案、diff、log、runtime、terminal、UI／API、測試判讀；專案規則決定契約，skill／腳本確認依賴，記憶只作線索。外部時效性資訊查原始來源。
+3. 將已驗證、假設、漏洞、修正及剩餘風險分開。修正須改變可執行策略，例如縮範圍、補一個決定性驗證、換入口或調整順序。
+4. 驗證修正並選 `keep / patch-again / pivot / blocked / stop`。安全或必要決策只阻擋其依賴；可查證的低信心問題先取證。
 
-The first loop must be harsh. Look for:
+沒有重要漏洞、剩餘風險不阻擋、下一步清楚，或下一輪只會重述時結束。遇到真正授權／使用者決策邊界則指出缺口。
 
-- hidden assumptions
-- missing evidence
-- wrong workspace / stale session
-- outdated docs
-- unsupported user-intent inference
-- safety or permission gaps
-- production / database / irreversible risk
-- verification gap
-- unclear success metric
-- over-scoped plan
-- local polish replacing structural progress
-- dependency on tools that may not work
-- conflict between skill files, metadata, repo-local shadows, and live behavior
+## 輸出
 
-## Evidence Order
-
-Use the strongest available evidence before confidence claims:
-
-1. User's explicit latest request.
-2. Live files, diffs, logs, process state, terminal output, browser output, test output.
-3. Project instructions: `AGENTS.md`, `_ctx/INDEX.md`, `PROJECT_STATUS.md`, handoff/status docs.
-4. Relevant skill files and helper scripts when the strategy depends on skills.
-5. Prior chat memory only as a hint.
-
-When the question is about current facts, software versions, GitHub repos, laws, prices, schedules, products, or external docs, browse or inspect current sources.
-
-## Patch Rules
-
-A fix must be concrete:
-
-- edit the strategy
-- narrow scope
-- add a verification step
-- add a safety gate
-- choose a better driver
-- define missing evidence
-- change the order of operations
-- stop and ask the user only when the decision is genuinely user-owned
-
-Bad fixes:
-
-- "be careful"
-- "monitor closely"
-- "consider risks"
-- "ensure quality"
-- "communicate clearly"
-
-These are decorations unless they specify exactly what will be checked or changed.
-
-## Stop Conditions
-
-Stop the loop when:
-
-- no material loopholes remain
-- remaining risks are explicitly non-blocking
-- the next action is clear and verifiable
-- a safety or user-decision gate blocks progress
-- the next loop would only rephrase existing concerns
-
-Do not loop forever to perform confidence theater.
-
-## Output Format
-
-Default concise format:
-
-```text
-目前策略:
-信心:
-漏洞:
-修正:
-驗證:
-剩餘風險:
-結論:
-下一步:
-```
-
-For larger strategy work:
-
-```text
-Confidence Audit
-- Current strategy:
-- Initial confidence:
-- Loopholes:
-- Fixes:
-- Evidence checked:
-- Revised strategy:
-- Final confidence:
-- Residual risks:
-- Stop / next action:
-```
-
-When invoked before execution, end with either:
-
-- `Proceed:` plus the exact next action
-- `Patch again:` plus the exact missing evidence
-- `Blocked:` plus the real blocker
-
-## Anti-Patterns
-
-- Saying "you're absolutely right" before checking facts.
-- Pretending a plan is 100% because it sounds coherent.
-- Listing vague risks without changing the strategy.
-- Repeating the same self-critique loop after no new evidence appears.
-- Treating low confidence as a reason to freeze when a small verification step exists.
-- Overfitting to one local detail while the structural risk remains unresolved.
+簡述目前策略、信心、最重要漏洞、實際修正與驗證、剩餘風險及一個下一步。執行前結論用 `Proceed`、`Patch again` 或 `Blocked`，附具體動作／缺口。以證據決定信心，避免用贊同、保證或空泛提醒代替查證。

@@ -1,6 +1,6 @@
 ---
 name: ask-like-human-user-prompt
-description: Use for $ask-like-human-user-prompt or to question another agent like a nontechnical human and verify completion.
+description: "產生一般使用者能問出的完成核對問題，讓接收者以可觀察結果回答。"
 ---
 
 # Ask Like Human User Prompt

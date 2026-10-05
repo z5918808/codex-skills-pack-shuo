@@ -1,6 +1,6 @@
 ---
 name: resume
-description: "/resume, $resume"
+description: "/resume、$resume：對帳中斷前後的目標、工作與副作用，補齊證據後恢復已授權的執行。"
 ---
 
 # Resume

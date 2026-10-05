@@ -10,7 +10,7 @@ New TRIO runs never create native goals. The native procedures below apply only 
 
 ## One Reusable Goal File
 
-Use `<repo>/TASK_GOAL.md` as the sole current repo-task authority under [Repo Task Goal](C:/Users/user/.agents/skills/project-state-steward/references/task-goal.md). Read it for proactive updates, workflow switches, legacy/custom-path migration and retention. Keep existing active paths pinned until consumer reconciliation; no per-run goal copies or duplicate state authority. Outside a repo, preserve the existing fixed workspace contract.
+Use `<repo>/TASK_GOAL.md` as the sole current repo-task authority under Repo Task Goal（本機 `~/.agents/skills/project-state-steward/references/task-goal.md`）. Read it for proactive updates, workflow switches, legacy/custom-path migration and retention. Keep existing active paths pinned until consumer reconciliation; no per-run goal copies or duplicate state authority. Outside a repo, preserve the existing fixed workspace contract.
 
 Reviewer is the only writer. Before dispatch, write the objective, deliverables, scope/permissions, acceptance criteria, stop conditions, run/generation, and applicable authority/reference paths. Read back and pin its SHA256 in the dispatch message; it is immutable only while that generation executes or awaits review.
 

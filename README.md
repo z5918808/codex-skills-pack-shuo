@@ -33,12 +33,12 @@ Copy-Item -LiteralPath ".\diagnose" -Destination $skillsRoot -Recurse -Force
 
 macOS、Linux、整包安裝、更新與移除方式請看 [新手使用指南](./docs/GETTING_STARTED.md)。
 
-`loop` 把限量研究、目標契約與可驗證階段串成一次流程。需一起安裝它與三個方法 skill：
+`loop` 把限量研究、目標契約與可驗證階段串成一次流程，明確叫用後依主機原生 goal 工具續接執行；只要求規劃時交付目標提示。需一起安裝三個方法 skill 與 goal 續接入口：
 
 ```powershell
 $skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
 New-Item -ItemType Directory -Force -Path $skillsRoot | Out-Null
-Copy-Item -LiteralPath ".\loop", ".\strategic-autoresearch", ".\prompt-for-goal", ".\staging" -Destination $skillsRoot -Recurse -Force
+Copy-Item -LiteralPath ".\loop", ".\strategic-autoresearch", ".\prompt-for-goal", ".\staging", ".\long-running-agent" -Destination $skillsRoot -Recurse -Force
 ```
 
 重新開啟 Codex task 後使用 `$loop`，或從斜線選單選 `loop`。它會沿用專案指定的權威契約；一般任務不自動建立 `task_goal.md`。
@@ -84,6 +84,9 @@ Copy-Item -LiteralPath ".\sidekick", ".\thinker" -Destination $skillsRoot -Recur
 ```
 
 執行時需要 Codex 專案 chat 的辨識、讀取與跨 chat 傳訊能力；若建立工具無法選 Astra，由使用者在 Main 所在專案建立。Fast 與模型 effort 需依實際介面確認。此流程不依賴本包未提供的私有派遣腳本。
+
+
+`bigbots-deploy` 目前採三個 Sol/medium 唯讀切點，Main 查核整合。它依賴主機的 `bigbots_sol` 角色、profile、共用派遣文件及模型授權 gate；完整條件見 [技能入口](./bigbots-deploy/SKILL.md#安裝條件)。這些執行環境未隨包提供，缺少時停止派遣。
 
 ## 完整工程工作流
 
@@ -282,6 +285,12 @@ Copy-Item -LiteralPath ".\sidekick", ".\thinker" -Destination $skillsRoot -Recur
 [`investor-outreach`](./investor-outreach/) ·
 [`step-by-step-report`](./step-by-step-report/) ·
 [`writing-great-skills`](./writing-great-skills/)
+
+## 技能修整方式
+
+個人工作流依 [v1.3.1 prompting philosophy](./harness-fine-tuning/references/prompting-philosophy.md) 修整：精準描述用途、聚合同一規則、把分支細節放在有讀取條件的參考，並以可觀察結果驗收。保留既有叫用政策、模型與授權契約；檔案檢查不代表所有外部流程已實測。
+
+安裝更新時複製完整 skill 目錄，包含此次新增的 `references/`。明確相依須先載入實際入口；主機沒有 Skill tool 時以檔案讀取載入。單獨複製 `SKILL.md` 會漏掉條件式流程。
 
 ## 收錄原則
 
