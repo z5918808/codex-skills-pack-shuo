@@ -98,10 +98,10 @@ done
 
 - `run`：先做足以決定方向的研究，再執行到可驗證結果。這是原 `smart-go` 的新名稱；請使用 `$run`，本包不提供 `go` 或 `smart-go` 別名。它不會自行建立原生 Goal。一般執行可單獨安裝；多輪研究、跨回合接續或高風險操作時，分別按需安裝本包的 `autoresearch`、`project-memory-gate`、`long-running-agent` 或 `risk-preflight`。
 - `harness-fine-tuning`：精簡 skills、AGENTS.md 與提示詞，同時保留權限和驗收標準。安裝整個同名目錄，包含 `references/`。實際修改 skill 格式時會使用 Codex 內建的 `skill-creator`；若環境沒有它，需先提供相應的格式驗證能力。
-- `duo-run`：小任務由 Main 直接完成；持續執行或大量資料才按需派 Luna/max Worker。Main 負責判斷與驗收；Astra 只在具體重大決策符合派遣條件時提供建議。Main 依 `project-state-steward` 維護只含目前要求的 `TASK_GOAL.md`，每次啟動或恢復時檢查並修剪舊內容；使用中的釘選版本要等安全邊界才能改。
+- `duo-run`：小任務由 Main 直接完成；持續執行或大量資料才按需派 Terra medium Worker。Reviewer 預設 Sol 6.1 medium；Main 負責判斷與驗收，Astra 只在具體重大決策符合派遣條件時提供建議。Main 依 `project-state-steward` 維護只含目前要求的 `TASK_GOAL.md`，每次啟動或恢復時檢查並修剪舊內容；使用中的釘選版本要等安全邊界才能改。
 - `astra-luna-duo`：`duo-run` 的相容入口；只有使用者明確指定 Astra／Luna 配對時才沿用這個選擇。新 repo 長任務與一般 Duo 共用 `TASK_GOAL.md`，Main 在每次啟動或恢復時檢查並修剪舊內容。仍釘選 `DUO_ASTRA_GOAL.md` 的舊任務先完成安全交接，再將目前目標轉入共用檔案。兩種 DUO 都依賴本機派遣契約與 gate，本包沒有提供完整執行環境。
 - `sidekick`：Luna／Sol Main 持續長跑，使用同專案 Astra Thinker chat；只在 Main 卡住且最小查證無法解決時求援，不做開場校準或定期 review。Main 的派工訊息須請 Thinker 回傳結果給 Main。安裝時一起複製 `sidekick` 和 `thinker`。需要 Codex 專案 chat 辨識、讀取與跨 chat 傳訊能力；工具不能指定 Astra 時，由使用者在該專案建立 chat，並於介面確認一般速度而非 Fast。
-- `thinker`：獨立唯讀分析，依問題與可用模型選 Luna、Sol 或 Astra；完成後直接傳結論給 Main。單獨安裝可用於一般分析；遵守所在環境的模型派遣與任務建立規則。
+- `thinker`：獨立唯讀分析，大量來源由 Terra medium 消化，一般判斷預設 Sol 6.1 medium，具名決策才選 Astra；完成後直接傳結論給 Main。單獨安裝可用於一般分析；遵守所在環境的模型派遣與任務建立規則。
 
 DUO 開跑前由 Main 確認真實入口、最小有效結果，以及能抓出漏項、空結果或舊資料等假成功的驗收方法。已知共享故障先修好，再派正式工作；若任務本身是探索，就派有邊界的探索切片。沿用足夠的既有證據，不要求每次重跑全流程。
 
@@ -134,7 +134,7 @@ DUO 開跑前由 Main 確認真實入口、最小有效結果，以及能抓出�
 
 完整複製 `4-agent-shift` 目錄，包含 `agents/` 與 `references/`。它安排四個實際子代理任務，Main 另計；Nox 盤點、Tally 規劃、Rivet 在指定範圍寫入、Tock 唯讀驗收。
 
-在支援自訂角色的 Codex 主機，按 [角色安裝](../4-agent-shift/references/shift-operation.md#角色安裝) 登記 `four_agent_shift_sol`，保留已有設定與容量限制。重新載入後確認派遣工具真的列出此角色，且固定 `gpt-6.1-sol` / `medium`。模型、角色或授權路由不相容就停止派遣，不用其他代理代替。
+在支援自訂角色的 Codex 主機，按 [角色安裝](../4-agent-shift/references/shift-operation.md#角色安裝) 登記 `four_agent_shift_terra` 與 `four_agent_shift_sol`，保留已有設定與容量限制。重新載入後確認派遣工具真的列出此角色，其中 Nox／Rivet 使用 Terra medium，Tally／Tock 使用 `gpt-6.1-sol` / `medium`。模型、角色或授權路由不相容就停止派遣，不用其他代理代替。
 
 ```text
 請使用 $4-agent-shift。
@@ -331,6 +331,8 @@ done
 ```bash
 git pull --ff-only
 ```
+
+本版已移除 `trio-long-running` 與 `survey-corps-trio`；以前安裝的目錄不會因更新自動移除，請先確認位置與備份，再依移除章節處理。
 
 再重新執行單一 skill 或整包安裝命令。複製前若你曾自行修改已安裝版本，請先做 diff 或備份；不要默默覆蓋自己的客製內容。
 

@@ -2,7 +2,7 @@
 
 Reviewer: read before dispatch after sizing the work under the entrypoint. The creation/OWNER steps below apply to the ordinary single persistent Worker, or per slot only when explicit `multi-workers` is active. For reuse or replacement, first satisfy [lifecycle](lifecycle.md); a fresh task uses this document directly.
 
-Only the selected delegated Luna route creates/reuses one persistent Luna/max Worker and pins the shared internal DAG contract. Run the mandatory routing receipt/action check first; solo work does not create a Worker. Read `dag-workers.md` for slot allocation only when explicit `multi-workers` is active; that route disables native children and retains its existing approval and A–E task topology.
+Only the selected delegated Terra route creates/reuses one persistent Terra/medium Worker and pins the single-Worker no-child boundary. Run the mandatory routing receipt/action check first; solo work does not create a Worker. Read `dag-workers.md` for slot allocation only when explicit `multi-workers` is active; that route disables native children and retains its existing approval and A–E task topology.
 
 ## Visible Role Labels
 
@@ -37,8 +37,8 @@ Before dispatch, record:
 
 - Reviewer task ID and host ID when available;
 - actual Reviewer model and effort;
-- Worker model and effort, verified exactly `gpt-6-luna/max` under the applicable model/task gates;
-- the shared Luna Worker DAG reference/hash and `internal_child_dag=enabled`, or `disabled_by=multi-workers` for the explicit persistent multi-TASK route;
+- Worker model and effort, verified exactly `gpt-6.1-terra/medium` under the applicable model/task gates;
+- the applicable rules reference/hash and `internal_child_dag=disabled`;
 - workspace and authoritative resume entrypoint;
 - scope, permissions, safety boundary, and acceptance criteria;
 - a Reviewer-derived acceptance checklist pinned to the authoritative contract revision/hash, with criterion IDs, thresholds, and required evidence;
@@ -90,7 +90,7 @@ Applicable work phase(s) and evidence deliverable; use Worker execution's phase 
 Scope, permission, and safety boundary.
 Applicable shared reference paths/hashes; verify and read when needed, before the governed action.
 implementation_scope=<explicit allowed code/resources and checks>; unassigned shared-policy/infrastructure repair is forbidden; consequential diagnosis returns to Sol.
-internal_child_dag=enabled; follow the pinned bounded Luna Worker DAG contract; no child replaces this persistent Worker. In `multi-workers` mode set `internal_child_dag=disabled`.
+internal_child_dag=disabled; Terra Workers do not spawn native children.
 Reviewer-defined natural action boundaries, objective-progress signals, last renewed snapshot, and boundary stall window.
 Known false-block condition and bounded local process-wait rule.
 Acceptance checklist reference/hash and criterion IDs.
@@ -99,7 +99,7 @@ Terminal delivery requires a successful tool receipt; a local final is not deliv
 Only a defined event may stop the run.
 ```
 
-Every new or reused Worker assignment uses exactly `gpt-6-luna/max`; unavailable or mismatched settings block dependent dispatch, not safe Reviewer preparation. Reconcile an active legacy assignment before changing its settings. Do not steer a healthy Worker repeatedly.
+Every new or reused Worker assignment uses exactly `gpt-6.1-terra/medium`; unavailable or mismatched settings block dependent dispatch, not safe Reviewer preparation. Reconcile an active legacy assignment before changing its settings. Do not steer a healthy Worker repeatedly.
 
 ## Hash-Bound Authority
 

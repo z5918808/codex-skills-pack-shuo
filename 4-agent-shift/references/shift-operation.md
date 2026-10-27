@@ -4,30 +4,34 @@
 
 ## 角色安裝
 
-完整安裝 `4-agent-shift` 目錄到所在環境的 skills 根目錄。隨包的 [角色設定](../agents/four_agent_shift_sol.toml) 只定義模型與角色邊界，還要在支援自訂代理的主機設定中登記。
+完整安裝 `4-agent-shift` 目錄到所在環境的 skills 根目錄。隨包的 [Terra 角色](../agents/four_agent_shift_terra.toml) 與 [Sol 角色](../agents/four_agent_shift_sol.toml) 只定義模型與角色邊界，還要在支援自訂代理的主機設定中登記。
 
-使用預設 skills 安裝位置時，在 Codex 使用者設定加入以下單一區段；既有區段先核對，不重複追加，不覆寫其他設定：
+使用預設 skills 安裝位置時，在 Codex 使用者設定加入以下兩個區段；既有區段先核對，不重複追加，不覆寫其他設定：
 
 ```toml
 [agents.four_agent_shift_sol]
-description = "Sol 6.1/medium child for Nox census, Tally planning, Rivet scoped execution, or Tock read-only acceptance. No child delegation."
+description = "Sol 6.1/medium child for Tally planning or Tock read-only acceptance. No child delegation."
 config_file = "skills/4-agent-shift/agents/four_agent_shift_sol.toml"
+
+[agents.four_agent_shift_terra]
+description = "Terra medium child for Nox census or Rivet scoped execution. No child delegation."
+config_file = "skills/4-agent-shift/agents/four_agent_shift_terra.toml"
 ```
 
 非預設安裝位置須調整 profile 路徑。重新載入主機設定後，從實際派遣 schema 確認角色、模型、effort 與容量。只複製目錄不等於已啟用子代理；主機若禁止 Sol root／四角色分批派遣，按該主機的正式授權入口處理，不能從其他技能借例外。此技能不依賴作者私人腳本，也不提供雲端執行服務；主機規定的 gates 仍需由主機提供。
 
 ## 派遣前置
 
-1. 確認是 root，使用者已明確要求本團隊處理具體任務且未撤回。Main 不換模型。從主機模型清單與派遣工具核對 `gpt-6.1-sol` / `medium`。主機若要求最新家族模型而與此設定衝突，停止派遣並列出衝突，不能自行升版或繞過 gate。
-2. 在**當前工具 schema** 確認已載入 `four_agent_shift_sol`，固定模型 `gpt-6.1-sol`、effort `medium`。磁碟 config 不證明 session 已載入。缺角色時請使用者在載入新設定的聊天叫用；不發探測 child、不借用其他限定角色或 model override 掩蓋不相容。
+1. 確認是 root，使用者已明確要求本團隊處理具體任務且未撤回。Main 不換模型。從主機模型清單與派遣工具核對 Terra / medium 與 `gpt-6.1-sol` / `medium`。主機若要求最新家族模型而與此設定衝突，停止派遣並列出衝突，不能自行升版或繞過 gate。
+2. 在**當前工具 schema** 確認已載入 Terra medium 的 `four_agent_shift_terra` 與 Sol 6.1 medium 的 `four_agent_shift_sol`。磁碟 config 不證明 session 已載入。缺角色時請使用者在載入新設定的聊天叫用；不發探測 child、不借用其他限定角色或 model override 掩蓋不相容。
 3. 核對容量與既有 child，最多兩位執行中。idle、timeout 或缺回覆不等於 writer 終止；確認終止及 side effects 後再換 writer。只清理本班擁有且已確認過期的 process。
 4. 四位各有唯一 planned child task ID。依主機已有的模型與派遣授權契約，綁定實際**執行叫用**的訊息；需要紀錄時存 repo 外受控工作目錄。建立技能的訊息不算執行授權。
 
 紀錄格式沿主機契約，至少能追到唯一 task ID、原始叫用來源、所選模型、effort、範圍及時間。只從真實訊息填寫，不複製範例或捏造同意，每次派遣前核對未撤回。
 
-每次 spawn **之前**跑主機要求的模型、父任務與授權 gates。必要 gate 缺少、非零或授權路由不允許這個 root 使用四位 Sol child 時，停止該派遣，回報具體規則與缺口，繼續獨立授權工作。不修改父任務規則或關閉安全控制；安裝設定不會自行建立派遣例外。gate PASS 只驗傳入事實，不證明訊息真實性、runtime 攔截或 child 已使用模型。
+每次 spawn **之前**跑主機要求的模型、父任務與授權 gates。必要 gate 缺少、非零或授權路由不允許這個 root 使用這四個有界 child 時，停止該派遣，回報具體規則與缺口，繼續獨立授權工作。不修改父任務規則或關閉安全控制；安裝設定不會自行建立派遣例外。gate PASS 只驗傳入事實，不證明訊息真實性、runtime 攔截或 child 已使用模型。
 
-通過後使用 `collaboration.spawn_agent`：`agent_type="four_agent_shift_sol"`、`model="gpt-6.1-sol"`、`reasoning_effort="medium"`、`fork_turns="none"`。回傳後綁定 planned ID 與 actual child ID，查核 role/model/effort 收據；工具未揭露欄位標 `unverified`，不填預期值。設定不符停止該 child 的依賴工作。
+通過後使用 `collaboration.spawn_agent`：Nox/Rivet 使用 `agent_type="four_agent_shift_terra"`、`model="gpt-6.1-terra"`；Tally/Tock 使用 `agent_type="four_agent_shift_sol"`、`model="gpt-6.1-sol"`。兩種角色都指定 `reasoning_effort="medium"`、`fork_turns="none"`。回傳後綁定 planned ID 與 actual child ID，查核 role/model/effort 收據；工具未揭露欄位標 `unverified`，不填預期值。設定不符停止該 child 的依賴工作。
 
 ## 任務包與進度
 

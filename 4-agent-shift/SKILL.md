@@ -1,6 +1,6 @@
 ---
 name: 4-agent-shift
-description: "明確叫用後以四位 Sol/medium 分工盤點、規劃、執行及驗收；派遣依任務授權、容量與模型 gate。"
+description: "明確叫用後以Terra medium 與 Sol 6.1 medium 分工盤點、規劃、執行及驗收；派遣依任務授權、容量與模型 gate。"
 ---
 
 # 4 agent shift
@@ -20,7 +20,7 @@ description: "明確叫用後以四位 Sol/medium 分工盤點、規劃、執行
 | Rivet | 沿現役 owner 執行 Main 核准的工作包，保留回復路徑 | 僅任務包指定資源 | 實際變更、結果讀回、相關驗證與缺口 |
 | Tock | 從原始需求及實際產物獨立驗收 | none | 通過、未驗證或阻擋的判定與證據 |
 
-四者均為 `gpt-6.1-sol` / `medium`，使用專用角色 `four_agent_shift_sol`。不得借用其他技能限定的角色、改成 Luna/Astra 或切換 effort。盤點數不算完成任務數；Tally 不代替 Main 授權；Rivet 不自我放行；Tock 的結論仍由 Main 查核。child 深度一層，不再派遣或建立其他聊天。
+Nox 與 Rivet 預設 `gpt-6.1-terra/medium` 的 `four_agent_shift_terra`；Tally 與 Tock 使用 `gpt-6.1-sol/medium` 的 `four_agent_shift_sol`。核對實際載入的模型、effort 與角色用途，不靠 override 假裝相容。盤點數不算完成任務數；Tally 不代替 Main 授權；Rivet 不自我放行；Tock 的結論仍由 Main 查核。child 深度一層，不再派遣或建立其他聊天。
 
 ## 班次推進
 

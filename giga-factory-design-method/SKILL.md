@@ -19,7 +19,7 @@ description: "為反覆多階段工作設計可重用的資料流、責任、驗
 
 ## Role Contract
 
-在已授權 TRIO 中，既有 Thinker 先做 bounded workflow proposal；Main 提供最小事實與待決問題，不先完成整套方案再請 Thinker 蓋章。Thinker 僅提出設計、反例與待驗假設，不批准 stage、商品或開工。Main 擁有 authority、設計採納、必要 shared repair、review 及 acceptance；Luna 擁有已授權執行、逐單位閉環與證據。沿用角色，不用 subagent、額外 writer 或輪詢。非 TRIO 任務不因載入本 skill 自動取得協作派工權限。
+執行設計前先依 條件式決策門（主機 `18_conditional_gate_process.md`，本包未附） 分配工作。一般工作流設計由 Sol medium 完成；大量來源消化與後續長跑由 Terra medium 負責。只有共用路由的具名高風險或未解決決策才交 Astra，不能因 factory 或 TRIO 名稱固定召喚 Thinker。Main 保留 authority、設計採納及驗收；採用既有單一 writer、直接回件與安全交接。非協作任務不因本方法取得額外派工權限，技能編輯也不啟動流程。
 
 ## Design Steps
 
@@ -32,7 +32,7 @@ description: "為反覆多階段工作設計可重用的資料流、責任、驗
 7. **整合驗收。** 所有必要內容、圖片及使用者可見結果都進同一 cell 完成條件；逐交易薄驗證即時執行，人工 review 集中在有決策價值的集合。抽驗不能替代必要全量機器驗證；新缺陷可以增加必要驗收，不以固定 review 次數壓低標準。
 8. **制定最小遷移與 canary。** 優先重用現有 routes，區分已支持與需 Main 實作的接縫。選一個具名、有代表性且 bounded 的完整 cell；無證據就給一個最便宜 selection query，不猜。目標同時量測結果正確性、首成果、總等待、往返、利用率與 recovery，基線缺失標明，禁止虛報倍速。列出退出／退回既有路徑條件。
 
-## Fixed Thinker Output
+## Design Output
 
 用一份既有交付位置的簡潔規格或直接回件，包含以下欄位；有機器消費需求才另做 JSON，不強制新增追蹤文件：
 

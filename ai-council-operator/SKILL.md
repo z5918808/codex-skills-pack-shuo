@@ -9,7 +9,7 @@ description: Use for AI council or control-room review, architecture or code rev
 
 把同一個 assistant run 當成低成本五人小會議：`Operator`、`Architect`、`Critic`、`Verifier`、`PM / Business`。
 
-預設不要啟動真 subagents、外部 API、搜尋服務、額外模型、OpenRouter、Perplexity、Oh My Pi，或其他 infra。只有使用者明確要求真 subagents，且目前工具可用時，才把 subagents 當作額外驗證層。
+預設不要啟動真 subagents、外部 API、搜尋服務、額外模型、OpenRouter、Perplexity、Oh My Pi，或其他 infra。只有使用者明確要求真 subagents，且目前工具可用時，才把 subagents 當作額外驗證層。實際 Worker 預設 Terra medium，獨立 Reviewer 預設 Sol 6.1 medium；所在環境的模型與派遣授權仍須通過，內部觀點不算獨立代理。
 
 內部角色可以互相檢查，但最終只輸出合成後的可用答案；不要輸出隱藏辯論、逐字會議、角色聊天紀錄。
 

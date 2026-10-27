@@ -10,7 +10,7 @@
 
 這是一套以「能直接完成工作」為標準整理的 Codex skills 精選集，包含可單獨使用的通用技能，以及可按任務階段路由的完整工程工作流。
 
-目前收錄 **119 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
+目前收錄 **117 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
 
 **適合：**想快速建立可重複工作流的新手，以及重視證據、風險檢查、工作交接與長任務協作的進階使用者。
 
@@ -43,16 +43,6 @@ Copy-Item -LiteralPath ".\loop", ".\strategic-autoresearch", ".\prompt-for-goal"
 
 重新開啟 Codex task 後使用 `$loop`，或從斜線選單選 `loop`。它會沿用專案指定的權威契約；一般任務不自動建立 `task_goal.md`。
 
-TRIO 的目前目標由 Main 依 `project-state-steward` 維護；安裝技能時兩者要一起複製：
-
-```powershell
-$skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
-$agentSkillsRoot = Join-Path $env:USERPROFILE ".agents\skills"
-New-Item -ItemType Directory -Force -Path $skillsRoot, $agentSkillsRoot | Out-Null
-Copy-Item -LiteralPath ".\trio-long-running" -Destination $skillsRoot -Recurse -Force
-Copy-Item -LiteralPath ".\project-state-steward" -Destination $agentSkillsRoot -Recurse -Force
-```
-
 舊名稱 `duo-brainer` 現在是 `heavy-duo` 的相容入口；若仍使用舊名稱，請一起安裝兩者：
 
 ```powershell
@@ -61,7 +51,9 @@ Copy-Item -LiteralPath ".\duo-brainer", ".\heavy-duo" -Destination $skillsRoot -
 
 `heavy-duo` 若用於持續的 repo 任務，也需要將 `project-state-steward` 複製到 `~/.agents/skills`，並使用下述本機派遣契約。
 
-`duo-run` 由 Main 直接處理小任務；持續執行或大量資料才按需派 Luna/max Worker。`astra-luna-duo` 是相容入口，明確指定 Astra／Luna 配對時沿用該選擇。兩者的新 repo 長任務都由 Main 依 `project-state-steward` 維護同一份目前的 `TASK_GOAL.md`；舊 `DUO_ASTRA_GOAL.md` 只在原任務仍釘選它時保留，待安全交接後轉入共用目標。安裝兩者時可一併複製：
+`duo-run` 由 Main 直接處理小任務；持續執行或大量資料才按需派 Terra medium Worker。`astra-luna-duo` 是相容入口，明確指定 Astra／Luna 配對時沿用該選擇。兩者的新 repo 長任務都由 Main 依 `project-state-steward` 維護同一份目前的 `TASK_GOAL.md`；舊 `DUO_ASTRA_GOAL.md` 只在原任務仍釘選它時保留，待安全交接後轉入共用目標。安裝兩者時可一併複製：
+
+這次更新的協作流程以 Terra medium 執行、Sol 6.1 medium 審查為預設；Main 保留實際選定模型，當次明確的模型選擇及在途釘選契約優先。
 
 ```powershell
 $skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
@@ -75,7 +67,7 @@ Copy-Item -LiteralPath ".\project-state-steward" -Destination $agentSkillsRoot -
 
 `sub-astra-thinker` 是選用的本機整合技能。它需要先配置 `side_astra` 角色、`~/.codex/harness_docs` 中的派遣契約，以及 `~/.codex/scripts` 中的授權 gate；單獨複製 skill 不會啟用子 agent。只有使用者明確叫用時，Sol／Luna Main 才可按需諮詢一位 Astra/medium 唯讀 Thinker。
 
-`4-agent-shift` 為管理系統任務安排 Nox 盤點、Tally 規劃、Rivet 執行、Tock 獨立驗收，四位固定 Sol 6.1/medium，由目前 Main 管理並依容量分批派遣。安裝完整目錄後，還需登記隨包的 `four_agent_shift_sol` 角色，並符合主機的模型與派遣規則；不提供雲端常駐或自動夜班服務。詳見 [安裝指南](./docs/GETTING_STARTED.md#4-agent-shift-四位管理系統子代理)。
+`4-agent-shift` 為管理系統任務安排 Nox 盤點、Tally 規劃、Rivet 執行、Tock 獨立驗收，Nox／Rivet 預設 Terra medium，Tally／Tock 為 Sol 6.1 medium，由目前 Main 管理並依容量分批派遣。安裝完整目錄後，還需登記隨包的 `four_agent_shift_terra` 與 `four_agent_shift_sol` 角色，並符合主機的模型與派遣規則；不提供雲端常駐或自動夜班服務。詳見 [安裝指南](./docs/GETTING_STARTED.md#4-agent-shift-四位管理系統子代理)。
 
 `sidekick` 為長跑的 Luna／Sol Main 配同專案 Astra Thinker chat；Main 持續工作，只有卡住且最小查證仍無法決定下一步時才求援，Thinker 直接回報 Main。它與一般獨立分析的 `thinker` 共用回報流程。安裝 `sidekick` 時一起安裝兩者：
 
@@ -133,7 +125,7 @@ Copy-Item -LiteralPath ".\sidekick", ".\thinker" -Destination $skillsRoot -Recur
 | [`security-review`](./security-review/) | 以證據建立威脅模型並進行安全審查 |
 | [`risk-preflight`](./risk-preflight/) | Production、secret、bulk、delete 或不可逆操作前 |
 | [`handoff`](./handoff/) | 把可接續的狀態交給下一個 agent 或 task |
-| [`duo-run`](./duo-run/) | 小任務 Main 直接做；持續執行才按需派 Luna/max，Main 驗收結果 |
+| [`duo-run`](./duo-run/) | 小任務 Main 直接做；持續執行才按需派 Terra medium，Main 驗收結果 |
 | [`question-eli10`](./question-eli10/) | 想用先結論、白話方式理解複雜問題 |
 
 ## Skill 目錄
@@ -167,9 +159,7 @@ Copy-Item -LiteralPath ".\sidekick", ".\thinker" -Destination $skillsRoot -Recur
 [`save`](./save/) ·
 [`sidekick`](./sidekick/) ·
 [`sub-astra-thinker`](./sub-astra-thinker/) ·
-[`survey-corps-trio`](./survey-corps-trio/) ·
 [`thinker`](./thinker/) ·
-[`trio-long-running`](./trio-long-running/) ·
 [`staging`](./staging/) ·
 [`step-back-and-think`](./step-back-and-think/) ·
 [`zoomout`](./zoomout/)

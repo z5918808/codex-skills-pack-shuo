@@ -1,26 +1,24 @@
 # Worker Execution
 
-Worker: read before the first production action. Use exactly `gpt-5.6-luna/max` and follow the entrypoint execution-only boundary: no management, brainstorming, debugging, planning or self-directed fixes. Reviewer reads this when preparing a goal; it does not authorize Reviewer production work.
+Worker: read before assigned execution. The routing receipt selects the executor and scope. Terra/medium owns sustained implementation and huge data digestion. A bounded Sol intervention requires reconciled prior ownership and a fresh pinned assignment; it does not transfer the remaining long run. All executors follow applicable effect/stop/hash safeguards; default Terra Workers have no native children. An executor acting in Main records its local result rather than messaging itself; preserve any actual independent-review requirement.
 
 ## Evidence by Work Phase
 
 Use only the phases needed for the assigned objective, within the same persistent Worker and pinned scope:
 
-- Evidence collection: execute Reviewer-named probes/lookups and return observed facts and unresolved questions; do not design an investigation or choose a solution.
-- Execution: return the authorized artifact or change and its relevant verification results. This phase does not grant repo/shared-code repair authority; shared defects still belong to the Reviewer.
-- Correction execution: follow explicit Reviewer-provided correction steps within a fresh authorized goal and return predefined check results. Diagnosis, fix design and shared-code changes remain Reviewer-owned.
+- Evidence collection: perform scoped source digestion/probes and return coverage, counts, exceptions and traceable evidence; consequential interpretation belongs to Sol.
+- Execution: return the authorized artifact or change and its relevant verification results. Implement and correct only the explicitly assigned code/resources with meaningful checks; unassigned shared authority/infrastructure defects and unresolved consequential decisions return to Sol.
+- Correction execution: resolve a known local implementation issue within the assigned scope and checks; return consequential diagnosis, unassigned shared changes or repeated failures to Sol. A post-terminal correction needs a fresh reconciled assignment.
 
 A goal may include several phases. Phase transitions already covered by that goal need no new message, task, or acceptance gate; use the existing terminal events and lifecycle rules when scope or authority changes. Do not split healthy work into extra handoffs merely to label phases.
 
-## Worker-owned sub-driven DAG
+## Worker delegation boundary
 
-Read and follow `~/.codex/harness_docs/16_subagent_ban.md` before native delegation. An explicit DUO execution invocation authorizes this persistent Luna/max Worker to use one or two depth-1 helpers for already-specified, independently useful execution branches. Before every spawn run the Luna parent gate with actual parent data and the existing child model/config gate. Keep small, serial, dependent, shared-writer, or ambiguous work local. If explicit `multi-workers` mode is active, do not spawn native children; that mode's persistent task DAG owns parallelism.
-
-Branch allocation is mechanical only. Children receive exact steps, allowed disjoint resources, predefined checks, and stop conditions. They cannot plan, diagnose, repair, retry, edit canonical workflow state, or report to Reviewer/A. Luna remains the sole assignment OWNER, rereads and verifies child output, integrates it, and follows the normal error rule on any child failure. Before terminal delivery or stop, reconcile every owned child and include unresolved effects in the Worker packet.
+The default Terra/medium Worker executes its own assigned slice and never spawns children. Existing native-parent restrictions remain unchanged. Additional persistent Workers require explicit multi-workers approval and its A-E relay. Reconcile any already-owned legacy children under the old pinned contract before adoption; no automatic migration or replacement.
 
 ## Event Protocol
 
-For explicit `multi-workers` parallel work, B–E use the [A reporting relay](dag-workers.md#worker-a-reporting-relay) and native children are disabled. A follows that reference's nonterminal intermediate-report lifecycle; execution-only production rules below apply to B–E and serial A. Ordinary DUO has one persistent Worker whose native helpers return only to it.
+For explicit `multi-workers` parallel work, B–E use the [A reporting relay](dag-workers.md#worker-a-reporting-relay) and native children are disabled. A follows that reference's nonterminal intermediate-report lifecycle; execution-only production rules below apply to B–E and serial A. Ordinary DUO has one persistent Terra/medium Worker and no native helpers.
 
 ### Re-entry and stop precedence
 

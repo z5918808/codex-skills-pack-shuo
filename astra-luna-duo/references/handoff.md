@@ -1,4 +1,6 @@
-# Handoff and lifecycle
+# Legacy handoff and lifecycle
+
+Use only for an already-pinned legacy assignment. Fresh work uses the current Duo contract and Terra/medium default; this reference grants no new legacy dispatch.
 
 Ordinary execution uses one persistent Luna/max Worker with the internal DAG contract at `~/.codex/harness_docs/16_subagent_ban.md`. Apply [the persistent multi-TASK contract](../../duo-run/references/dag-workers.md) only after explicit `$multi-workers`; that route disables native children. Lifecycle steps below apply to the ordinary assignment or per slot in multi-TASK mode; root changes require every consumer reconciled.
 

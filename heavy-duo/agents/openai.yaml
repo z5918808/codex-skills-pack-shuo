@@ -1,4 +1,4 @@
 interface:
   display_name: "Heavy Duo"
-  short_description: "Sol medium 執行、Astra 計畫與審查，依任務自由調整雙人分工"
-  default_prompt: "使用 $heavy-duo，預設 Sol medium Worker 搭配 Astra high Reviewer，需要計畫時由 Astra 負責，Sol 依計畫執行，Astra 審查驗收；分工可依我的指示調整。"
+  short_description: "先跑決策門：Terra 長跑與資料消化、Sol 判斷、Astra 條件升級"
+  default_prompt: "使用 $heavy-duo；先執行條件式路由決策門，讓 Terra medium 負責長跑與大量資料消化，Sol 6.1 medium Main / Reviewer 負責判斷與覆核，只有明確觸發條件才用 Astra high。"

@@ -10,7 +10,7 @@ New DUO runs never create native goals. The native procedures below apply only t
 
 ## Reusable Root and Slot Goal Files
 
-Use `<repo>/TASK_GOAL.md` as the sole current repo-task authority under Repo Task Goal（本機 `~/.agents/skills/project-state-steward/references/task-goal.md`）; read it for proactive updates, workflow switches, legacy/custom-path migration and retention. Fixed per-slot assignments follow [the DAG contract](dag-workers.md). Slot reuse reconciles that slot; root revision requires every consumer reconciled, including former TRIO roles. No per-run root copies or duplicate state authority. Outside a repo preserve the existing workspace contract.
+Use `<repo>/TASK_GOAL.md` as the sole current repo-task authority under [Repo Task Goal](../../project-state-steward/references/task-goal.md); read it for proactive updates, workflow switches, legacy/custom-path migration and retention. Fixed per-slot assignments follow [the DAG contract](dag-workers.md). Slot reuse reconciles that slot; root revision requires every consumer reconciled, including former TRIO roles. No per-run root copies or duplicate state authority. Outside a repo preserve the existing workspace contract.
 
 Main/Reviewer is the only writer and prunes root and slot prompts on each safe replacement under Repo Task Goal. Before dispatch, retain only the current objective, scope/permissions, completion criteria and necessary identity/stop/reference fields. Read back and pin its SHA256 in the dispatch message; it is immutable only while that generation executes or awaits review.
 
@@ -62,9 +62,9 @@ Report execution stoppage and automatic-goal cancellation separately. When nativ
 
 Preserve append-only evidence, shared runtime, and browser/session state. Retain the authoritative `TASK_GOAL.md` with stop/completion state under the reusable-file checks above; evidence and stop records are not part of that cleanup. A user stop never authorizes a replacement Worker. A later explicit change to single-thread work ends DUO restrictions on Main after Worker side effects are reconciled; it does not revive the Worker.
 
-## Luna Worker child lifecycle
+## Legacy child reconciliation
 
-For ordinary DUO, the persistent Luna/max Worker accounts for every native child before terminal return, rule/hash transition, replacement, or stop: completed result and effects, verified interruption plus reconciled effects, or explicit unresolved state. Interrupt only verified owned children. A child final or interrupt receipt alone is not Reviewer delivery, acceptance, or proof that mutable effects are reconciled. Preserve valid evidence, avoid repeating completed branches, and include unresolved child state in the normal Worker return.
+Only for already-pinned legacy helper assignments, the original persistent Worker accounts for every owned native child before terminal return, rule/hash transition, replacement, or stop: completed result and effects, verified interruption plus reconciled effects, or explicit unresolved state. Interrupt only verified owned children. A child final or interrupt receipt alone is not Reviewer delivery, acceptance, or proof that mutable effects are reconciled. Preserve valid evidence, avoid repeating completed branches, and include unresolved child state in the normal Worker return.
 
 Explicit `multi-workers` mode owns persistent A–E task lifecycle through `dag-workers.md` and disables native children. Switching between internal and multi-TASK DAGs requires the ordinary safe contract boundary; never keep both active.
 

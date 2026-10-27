@@ -1,6 +1,6 @@
 interface:
   display_name: "Heavy Duo (舊名 Duo Brainer)"
-  short_description: "舊 duo-brainer 指令入口，轉到 Heavy Duo 的雙人協作流程"
-  default_prompt: "使用 $duo-brainer，依 Heavy Duo 預設安排 Sol medium Worker 與 Astra high Reviewer。"
+  short_description: "先跑決策門：Terra 長跑與資料消化、Sol 判斷、Astra 條件升級"
+  default_prompt: "使用 $duo-brainer；先執行條件式路由決策門，讓 Terra medium 負責長跑與大量資料消化，Sol 6.1 medium Main / Reviewer 負責判斷與覆核，只有明確觸發條件才用 Astra high。"
 policy:
   allow_implicit_invocation: false

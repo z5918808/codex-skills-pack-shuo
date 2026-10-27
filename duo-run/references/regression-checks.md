@@ -1,12 +1,12 @@
 # Duo Run Regression Checks
 
-Use these semantic scenarios when editing or reviewing the skill. Native-goal scenarios cover legacy already-existing goals and cancellation only; they never authorize native creation in new DUO work.
+Use these semantic scenarios when editing or reviewing the skill. New assignments default to Terra/medium execution and Sol 6.1/medium review, with no native children; explicit current model choices and old pinned contracts retain their own authority. Native-goal scenarios cover legacy already-existing goals and cancellation only; they never authorize native creation in new DUO work.
 
 ## Sol Main recommendation
 
 - Input: a new DUO assignment uses Sol as Main without an explicit effort override.
-- Required: recommend `gpt-6-sol/high` for Main and keep any already-selected supported effort unchanged. The interface prompt agrees with SKILL.md; editing this skill does not change a running task.
-- Forbidden: treat the recommendation as an observed runtime setting, silently change Main, or apply it to an Astra Main or Luna Worker.
+- Required: recommend `gpt-6.1-sol/medium` for Main and keep any already-selected supported effort unchanged. The interface prompt agrees with SKILL.md; editing this skill does not change a running task.
+- Forbidden: treat the recommendation as an observed runtime setting, silently change Main, or apply it to an Astra Main or Terra Worker.
 
 ## Assignment has an unresolved dependency
 
@@ -52,23 +52,23 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 ## Invocation chat owns the Reviewer role
 
 - Input: the user activates `duo-run` in task A without naming another Reviewer.
-- Required: keep task A as the Reviewer and user-facing endpoint, label it `[Reviewer]`, and resolve or create a separate `[Worker]` task.
+- Required: keep task A as the Reviewer and user-facing endpoint, label it `[Reviewer]`, and resolve or create a separate `[Worker]` task only when the substantial assignment justifies it; a permitted direct route needs none.
 - Forbidden: make task A the Worker, create a new Reviewer, or select another Reviewer from task recency or activity.
 
 ## Reviewer model and effort support
 
 - Required: Astra Main defaults to high for team research/guidance/review and authorized local implementation/repair/self-review. Preserve any explicitly selected supported effort and the invoking Reviewer; Sol remains allowed with a supported setting. A recommendation is not proof of the running model or effort.
-- Worker is exactly `gpt-5.6-luna/max` for creation and reuse, never merely a default. Reconcile active legacy work before correcting a mismatch. No alternate Worker model, silent setting change or additional Reviewer. Ordinary DUO uses one persistent Worker; explicit `multi-workers` may use up to five qualified slots and disables native children.
+- Worker is exactly `gpt-6.1-terra/medium` for creation and reuse, unless the current user explicitly selects another supported task-bound model. Reconcile active legacy work before correcting a mismatch. No silent model change, unsupported substitute or ceremonial additional Reviewer. Ordinary DUO uses one persistent Worker; explicit `multi-workers` may use up to five qualified slots and disables native children.
 
 ## Direction, execution-only work and incidental calibration
 
-- Reviewer grounds direction in current evidence and gives one coherent brief with explicit steps, predefined checks and boundaries. Luna collects facts through named probes and may mechanically split already-decided disjoint steps among at most two helpers, but never chooses strategy, brainstorms, diagnoses or debugs; even an execution slip returns evidence to Reviewer. Correction execution follows new explicit instructions after lifecycle reconciliation.
-- Existing acceptance may reveal an instruction, tool/data or role-fit issue; Reviewer adjusts the next brief or segment size without a scorecard, calibration batch, extra round or delay to unrelated authorized work. Insufficient evidence remains unconfirmed; Luna-max routing stays fixed. Even three failed corrected attempts never summon Hange or another role in DUO; Reviewer retains diagnosis/repair ownership.
+- Reviewer grounds direction in current evidence and gives one coherent brief with explicit steps, predefined checks and boundaries. Terra collects facts, implements and corrects known local issues within its assigned scope. Consequential diagnosis, shared authority changes and repeated failures return to Main/Sol. No native helpers; post-terminal corrections require lifecycle reconciliation.
+- Existing acceptance may reveal an instruction, tool/data or role-fit issue; Reviewer adjusts the next brief or segment size without a scorecard, calibration batch, extra round or delay to unrelated authorized work. Insufficient evidence remains unconfirmed; Terra-max routing stays fixed. Even three failed corrected attempts never summon Hange or another role in DUO; Reviewer retains diagnosis/repair ownership.
 - Worker result messages end with one whole-goal next-outcome question. Reviewer handles the result with substantive authorized action, dispatch, exact blocker or completion; no acknowledgement-only stop, polling or separate nudges.
 
-## Astra reviews its own repair
+## Main-authored bounded repair
 
-- The same Astra at its verified supported effort, high by default, reviews its own implementation using relevant contract tests/readbacks. Do not send the repair to Luna, Sol or another Astra for review. Worker may execute a repaired route under explicit instructions, but does not assess repair design. Self-review is not independent model review, and missing evidence still blocks ship.
+- The actual Main verifies its bounded implementation using decisive tests/readbacks and applicable independent corroboration. Default separate review is Sol 6.1/medium; no automatic Astra review or model switch. Worker may execute a repaired route under explicit instructions, but does not assess repair design. Self-review is not independent model review, and missing evidence still blocks ship.
 
 ## Healthy runner; user says it will report
 
@@ -406,19 +406,15 @@ Use these semantic scenarios when editing or reviewing the skill. Native-goal sc
 - Required: first respect the old generation's stop/terminal state; do not adopt new contents or recreate the file. A nonterminal mismatch stops dependent work for reconciliation. Only a fresh authorized dispatch can activate a new generation.
 - Forbidden: infer resume permission from the filename, reuse an old hash, clear stop records, or start native scheduling.
 
-The skill fails review if any scenario permits a child to replace the persistent Worker, a child outside the Luna/max envelope, Reviewer/other-model spawning, layered internal and `multi-workers` DAGs, cross-task waiting or polling, unauthorized Reviewer takeover, a third persistent reviewer, accepted completion based only on a child/Worker-local final or delivery receipt, Worker-controlled acceptance criteria, Worker advice overriding authority, automatic resumption of a revoked generation, production readiness based only on administrative checks, per-generation goal files, unsafe goal overwrite/deletion, or native goal creation for new DUO work.
+The skill fails review if any scenario permits a child to replace the persistent Worker, native-child use by a new default Terra Worker, layered internal and `multi-workers` DAGs, cross-task waiting or polling, unauthorized Reviewer takeover, a third persistent reviewer, accepted completion based only on a child/Worker-local final or delivery receipt, Worker-controlled acceptance criteria, Worker advice overriding authority, automatic resumption of a revoked generation, production readiness based only on administrative checks, per-generation goal files, unsafe goal overwrite/deletion, or native goal creation for new DUO work.
 
-## Ordinary Worker-internal DAG coverage
+## Default Worker delegation boundary
 
-Apply these static cases to ordinary DUO:
-
-1. A typo, short answer, or localized config fix stays with Main and creates no Worker or child.
-2. A substantial serial/shared-writer chain uses one persistent Luna/max Worker and no child.
-3. Two or more useful disjoint predefined branches cause Luna to run the parent and child gates and dispatch at most two depth-1 helpers without another user approval question.
-4. Helper results return only to Luna. Luna rereads changed artifacts, integrates, runs the assignment checks, reconciles every child, and alone sends the persistent Worker return to Reviewer.
-5. Helper failure, ambiguity, or failed predefined check follows DUO's normal safe handoff; Luna does not diagnose, retry strategically, or ask the child to self-replace.
-6. Missing helper capability or a rejected child gate degrades to valid serial execution when the persistent assignment remains executable. Sol, Astra, Terra, other Luna efforts, and depth-1 children never spawn.
-7. Explicit `multi-workers` disables this internal DAG before persistent A–E dispatch; switching requires the normal safe contract boundary.
+1. A short direct task creates no ceremonial Worker; Main verifies the actual outcome.
+2. A substantial serial or shared-writer chain uses one persistent Terra/medium Worker and no child.
+3. Useful independent branches still do not grant Terra native-parent permission. Continue serially or use a separately installed and explicitly authorized multi-workers extension.
+4. Any already-owned legacy helper is reconciled under its original pinned lifecycle before adopting these defaults. It cannot replace persistent delivery or acceptance.
+5. Missing native-child capability does not block valid serial execution. Existing host parent/model gates remain binding for all independently authorized native routes.
 
 These are static contract cases, not observed runtime enforcement or measured speedup.
 
@@ -437,8 +433,8 @@ These are static reasoning fixtures, not observed multi-task runs.
 7. A assignment file is reused while B runs: B's root/assignment hashes remain unchanged; old A cannot adopt the new generation.
 8. User stops while slots are pending: run revocation prevents new dispatch and all entries, with unknown task effects reported, not declared stopped.
 9. Whole-goal evidence misses one branch or integration: no ship despite green local Worker summaries.
-10. Parallel persistent-task candidate without `$multi-workers` approval: suggest that optional expansion and ask; ordinary DUO may continue through its single Worker's internal DAG without creating more sidebar tasks. Existing goal-scoped multi-TASK approval permits refills without repeated questions.
-11. Skill edit, unsupported persistent-task API or unavailable Luna max: no live maintenance dispatch and no child/model substitute for the Worker; independent authorized preparation continues. Missing native-child capability alone permits serial Luna execution.
+10. Parallel persistent-task candidate without `$multi-workers` approval: suggest that optional expansion and ask; ordinary DUO continues serially through its existing Worker without creating more sidebar tasks. Existing goal-scoped multi-TASK approval permits refills without repeated questions.
+11. Skill edit, unsupported persistent-task API or unavailable Terra medium: no live maintenance dispatch and no child/model substitute for the Worker; independent authorized preparation continues. Default Terra execution is already serial and has no native-child dependency.
 
 ## Evidence-preserving relay fixtures
 

@@ -1,11 +1,11 @@
 ---
 name: thinker
-description: "為明確分析請求選擇相容的 Luna、Sol 或 Astra 唯讀判斷入口，依派遣契約將結論送回 Main。"
+description: "為明確分析請求選擇相容的 Terra、Sol 或 Astra 唯讀判斷入口，依派遣契約將結論送回 Main。"
 ---
 
 # Thinker
 
-用於使用者明確要求獨立 Thinker 分析時；討論或修改本 skill 不啟動任務。Main 保留執行、驗收與授權責任。先遵守所在環境的模型派遣、任務建立與授權規則，再選擇可用模型：大量資料消化可用 Luna/max；一般架構、比較與診斷可用 Sol/medium；具體高難度決策或使用者明確指定時可用 Astra/high。這些是建議，不覆蓋使用者指定的模型或 effort，也不保證主機提供該模型。
+用於使用者明確要求獨立 Thinker 分析時；討論或修改本 skill 不啟動任務。Main 保留執行、驗收與授權責任。先遵守所在環境的模型派遣、任務建立與授權規則，再選擇可用模型：大量資料消化可用 Terra/medium；一般架構、比較與診斷可用 gpt-6.1-sol/medium；具體高難度決策或使用者明確指定時可用 Astra/high。這些是建議，不覆蓋使用者指定的模型或 effort，也不保證主機提供該模型。
 
 獨立分析使用一條可持續讀取、傳訊的 Codex chat；repo 任務須與 Main 在同一專案。優先核對可沿用且前次結果已交接的 Thinker。建立新 chat 前確認本次授權、實際模型／effort、專案、Main threadId／host 與工具能力；若工具不能選指定模型，請使用者在對應專案建立，不能用其他模型或 ChatGPT 暫時對話冒充。不要以原生 subagent 或新 worktree 代替這條 chat。
 
