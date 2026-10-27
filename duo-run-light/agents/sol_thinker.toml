@@ -1,0 +1,4 @@
+name = "duo_run_light_thinker"
+description = "Read-only Sol 6.1 medium advice for one evidenced duo-run-light bottleneck."
+model = "gpt-6.1-sol"
+model_reasoning_effort = "medium"

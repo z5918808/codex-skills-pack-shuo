@@ -1,0 +1,4 @@
+interface:
+  display_name: "Duo Run Light"
+  short_description: "Terra Main 執行與驗收，遇到瓶頸才請 Sol 6.1 medium 提供建議"
+  default_prompt: "使用 $duo-run-light 完成本次目標；由 Terra Main 執行與驗收，只有具體瓶頸才請 Sol 6.1 medium Thinker 提供唯讀建議。"

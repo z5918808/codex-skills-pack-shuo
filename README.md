@@ -10,7 +10,7 @@
 
 這是一套以「能直接完成工作」為標準整理的 Codex skills 精選集，包含可單獨使用的通用技能，以及可按任務階段路由的完整工程工作流。
 
-目前收錄 **117 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
+目前收錄 **124 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
 
 **適合：**想快速建立可重複工作流的新手，以及重視證據、風險檢查、工作交接與長任務協作的進階使用者。
 
@@ -78,7 +78,22 @@ Copy-Item -LiteralPath ".\sidekick", ".\thinker" -Destination $skillsRoot -Recur
 執行時需要 Codex 專案 chat 的辨識、讀取與跨 chat 傳訊能力；若建立工具無法選 Astra，由使用者在 Main 所在專案建立。Fast 與模型 effort 需依實際介面確認。此流程不依賴本包未提供的私有派遣腳本。
 
 
-`bigbots-deploy` 目前採三個 Sol/medium 唯讀切點，Main 查核整合。它依賴主機的 `bigbots_sol` 角色、profile、共用派遣文件及模型授權 gate；完整條件見 [技能入口](./bigbots-deploy/SKILL.md#安裝條件)。這些執行環境未隨包提供，缺少時停止派遣。
+`bigbots-deploy` 目前採三個 Sol/medium 唯讀切點，Main 查核整合。共用派遣文件已隨包提供；執行仍需主機的 `bigbots_sol` 角色、profile 及模型授權 gate；完整條件見 [技能入口](./bigbots-deploy/SKILL.md#安裝條件)。這些執行環境未隨包提供，缺少時停止派遣。
+
+### 新增的協作流程
+
+Worker 預設 Terra medium，Reviewer 預設 Sol 6.1 medium；Main 保留實際選擇。
+
+| 技能 | 用途與安裝相依 |
+| --- | --- |
+| `duo-run-light` | Terra Main 執行與驗收，瓶頸才請 Sol Thinker；主機需可選模型、辨識 chat 並直接回報 |
+| `bots-deploy`、`lilbots-deploy` | 有界 native 子代理；一併複製 `_shared/`，並遵守主機 parent/model/task gates |
+| `multi-workers` | 延伸已授權 Duo；一併安裝 `duo-run`、`project-state-steward`，增加分支仍須明確同意 |
+| `sol-astra-team` | Terra 探查／執行，Sol Reviewer 在三個具體時點審查；完整複製角色與參考，再按 setup 登記 |
+| `swarm-planner` | 產生含依賴的實作計畫；Context7 可選，獨立 Sol review 仍受主機授權／容量限制 |
+| `team-run` | Reviewer 管理多條有界 native 工作線；完整複製 references，主機提供正式派遣與 lifecycle 工具 |
+
+安裝這些技能不會啟動角色或排程，也不會安裝作者私人 scripts、hooks 或 parent-gate 例外。沒有相容工具、角色或必要授權時，回報實際缺口，不用其他模型冒充。
 
 ## 完整工程工作流
 
@@ -137,6 +152,13 @@ Copy-Item -LiteralPath ".\sidekick", ".\thinker" -Destination $skillsRoot -Recur
 [`checkpoint`](./checkpoint/) ·
 [`astra-luna-duo`](./astra-luna-duo/) ·
 [`duo-run`](./duo-run/) ·
+[`duo-run-light`](./duo-run-light/) ·
+[`bots-deploy`](./bots-deploy/) ·
+[`lilbots-deploy`](./lilbots-deploy/) ·
+[`multi-workers`](./multi-workers/) ·
+[`sol-astra-team`](./sol-astra-team/) ·
+[`swarm-planner`](./swarm-planner/) ·
+[`team-run`](./team-run/) ·
 [`heavy-duo`](./heavy-duo/) ·
 [`durable-authority-resume`](./durable-authority-resume/) ·
 [`explain`](./explain/) ·

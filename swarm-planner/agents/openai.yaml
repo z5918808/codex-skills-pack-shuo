@@ -1,0 +1,6 @@
+interface:
+  display_name: "Swarm Planner"
+  short_description: "建立含依賴、驗收與並行邊界的計畫，獨立審查依主機授權"
+  default_prompt: "使用 $swarm-planner 建立本次實作計畫；列明依賴、驗收與並行邊界，規劃不啟動實作。"
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Bots Deploy"
+  short_description: "Terra medium 執行、Sol 6.1 medium 審查的有界協作"
+  default_prompt: "使用 $bots-deploy 處理本次有界工作；Worker 預設 Terra medium，Reviewer 預設 Sol 6.1 medium，保留當次明確模型選擇與授權。"
+policy:
+  allow_implicit_invocation: false

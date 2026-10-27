@@ -1,0 +1,11 @@
+# Shared bounded dispatch
+
+The calling skill owns activation, model choice and role count. Editing or installing a skill starts no agents. Worker defaults to Terra/medium; independent Reviewer defaults to gpt-6.1-sol/medium. Main keeps its actual identity/model and final acceptance.
+
+1. Confirm the explicit current task, actual parent eligibility, native runtime capacity, supported model/effort and a compatible loaded role. A file on disk or override argument does not prove the role is loaded. Run every model/parent/authorization gate required by the host; missing required gates stop only dependent dispatch. This package grants no parent-model exception and does not require the author's private scripts.
+2. Each bounded assignment includes the outcome, necessary inputs, exact read/write scope, protected resources, prerequisites, acceptance evidence, selected role/model/effort, stop condition and the real return route. Reference applicable project rules and hashes; require reading them, including Outcome-first verification when the host defines it. Never inherit external/live permission from Main or another role.
+3. Analysis has write scope none. Execution receives only named authorized resources, with one writer per mutable resource. Children cannot delegate, create chats, change canonical state or accept the whole task. Use the actual supported API and record the actual receipt/ID; ambiguous creation is reconciled before any retry.
+4. Children return changes or conclusions, original evidence, actual checks, uncertainty and unresolved effects through the native parent channel. Main reads back the real changed state, integrates and verifies the user's result. Do not count an undispatched role, local confidence or a returned status as accepted delivery.
+5. On cancellation, interruption or replacement, stop new dispatch, reconcile owned writers/effects and late results, then use the host's real lifecycle controls. Unknown/idle state does not prove termination. Preserve work and report exact gaps; no recursive delegation, polling, shadow execution or killing unknown processes.
+
+Host authorization and capability checks remain binding. A successful gate validates supplied facts, not universal tool interception or model quality. Preserve explicit task choices and active pinned contracts until their reconciled safe boundary.

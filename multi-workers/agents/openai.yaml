@@ -1,0 +1,4 @@
+interface:
+  display_name: "Multi Workers"
+  short_description: "先跑分工決策門，Terra 消化與長跑、Sol 判斷、Astra 條件升級"
+  default_prompt: "使用 $multi-workers，先跑條件式決策門；Terra medium 負責大量資料與持續執行，Sol medium 負責判斷覆核，Astra high 只處理具名高風險決策。"

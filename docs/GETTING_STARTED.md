@@ -130,6 +130,16 @@ DUO 開跑前由 Main 確認真實入口、最小有效結果，以及能抓出�
 
 上述技能不需要私人路徑、固定 E 槽、特定商店或登入 session。模型、外部寫入及子任務的權限仍依使用者和所在環境的實際規則。
 
+### 新增的協作技能
+
+`duo-run-light` 由 Terra Main 執行，只有具體瓶頸才用 Sol 6.1 medium Thinker。它與一般 Duo 不同，不另建 Worker 或強制目標檔案。主機仍需提供可核對模型與身分的持續 chat 和直接回報工具。
+
+`bots-deploy`／`lilbots-deploy` 要連同根目錄 `_shared/` 複製到 skills 位置；共用文件不是可單獨叫用的技能。`multi-workers` 需要 `duo-run` 與 `project-state-steward`。`sol-astra-team` 須完整安裝 agents/references，再讀其 setup 登記角色；skill 名稱不要求自動使用 Astra。
+
+`swarm-planner` 保留上游 MIT 來源；Context7 缺少時用官方文件或原始來源查證。`team-run` 使用主機真正的 native delegation 與 lifecycle 檢查，不依賴作者的私有腳本。規劃、安裝與技能維護都不啟動實作或子代理。
+
+完整用途與相依表見 [README 的新增協作流程](../README.md#新增的協作流程)。安裝後重新載入設定，再核對實際角色與工具，不能只以磁碟檔案宣稱 runtime 已啟用。
+
 ### 4 agent shift 四位管理系統子代理
 
 完整複製 `4-agent-shift` 目錄，包含 `agents/` 與 `references/`。它安排四個實際子代理任務，Main 另計；Nox 盤點、Tally 規劃、Rivet 在指定範圍寫入、Tock 唯讀驗收。

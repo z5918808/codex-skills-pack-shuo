@@ -1,0 +1,4 @@
+interface:
+  display_name: "TEAM RUN / 影分身之術"
+  short_description: "Reviewer 負責思考與驗收，調度 Terra medium 影分身處理耗時重複工作"
+  default_prompt: "使用 $team-run（/影分身之術）：由 reviewer 思考、分派與驗收，影分身預設 Terra medium，只處理耗時重複工作；自訂模型、強度或數量可直接寫在本 prompt。"

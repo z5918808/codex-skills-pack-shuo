@@ -1,0 +1,6 @@
+interface:
+  display_name: "LILBOTS-DEPLOY"
+  short_description: "依有效工作切片啟動自適應 Terra/medium 子代理協作波次"
+  default_prompt: "使用 $lilbots-deploy，把這項任務交給自適應的 Terra/medium 子代理波次執行。"
+policy:
+  allow_implicit_invocation: false

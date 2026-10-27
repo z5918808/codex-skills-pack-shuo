@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sol Astra Team"
+  short_description: "Terra medium 執行與研究，Sol 6.1 medium 審查，Main 整合交付"
+  default_prompt: "使用 $sol-astra-team 完成本次目標；Terra medium 處理有界執行與研究，Sol 6.1 medium Reviewer 審查計畫、重複錯誤及長任務成果。"
