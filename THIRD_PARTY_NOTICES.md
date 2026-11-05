@@ -58,3 +58,7 @@ SOFTWARE.
 ## Swarm Planner
 
 `swarm-planner` 改寫自 [am-will/swarms 的技能](https://github.com/am-will/swarms/tree/main/skills/swarm-planner)。上游 [README 的 License 章節](https://github.com/am-will/swarms#license) 標示 MIT，於 2026-10-27 核對；取得的入口及 README 未另列著作權聲明。本包保留來源與 [MIT 條款](./swarm-planner/LICENSE)，並加入模型預設、主機授權／父任務限制及公開相依說明；未複製或執行上游安裝器。
+
+## Verification Before Completion
+
+`verification-before-completion/SKILL.md` 原文來自 [obra/superpowers](https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/verification-before-completion/SKILL.md)，同步基準為 commit `22f0b463e7a5e579904dd6211a520321035526f7`，於 2026-11-05 核對。本包只新增允許自動選用的 `agents/openai.yaml`，未修改技能原文。原作依 MIT License 提供，Copyright (c) 2025 Jesse Vincent；完整條款隨目錄保留於 [LICENSE](./verification-before-completion/LICENSE)。

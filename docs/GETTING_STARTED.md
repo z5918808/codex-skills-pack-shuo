@@ -94,6 +94,12 @@ done
 
 安裝後重新開啟 Codex task，讓 skill index 重新載入。
 
+### 完成前驗證
+
+`verification-before-completion` 要求在宣稱完成、修好或測試通過前，先執行相應驗證並核對輸出。可單獨安裝；請完整複製同名目錄，包含 `agents/openai.yaml` 與 `LICENSE`。
+
+`agents/openai.yaml` 設定 `allow_implicit_invocation: true`，允許相容的 Codex 主機按任務自動選用，也可明確呼叫 `$verification-before-completion`。允許自動選用不等於每次都會觸發，也不是系統強制攔截。它沿用目前專案的驗證工具、環境與操作權限，不會修改全域 `AGENTS.md` 或 `config.toml`。
+
 ### 選擇規劃、執行與審查工作流
 
 - `run`：先做足以決定方向的研究，再執行到可驗證結果。這是原 `smart-go` 的新名稱；請使用 `$run`，本包不提供 `go` 或 `smart-go` 別名。它不會自行建立原生 Goal。一般執行可單獨安裝；多輪研究、跨回合接續或高風險操作時，分別按需安裝本包的 `autoresearch`、`project-memory-gate`、`long-running-agent` 或 `risk-preflight`。
