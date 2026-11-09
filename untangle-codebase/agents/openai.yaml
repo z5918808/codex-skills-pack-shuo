@@ -1,0 +1,6 @@
+interface:
+  display_name: "Untangle Codebase"
+  short_description: "Refactor coupled code and verify existing behavior"
+  default_prompt: "Use $untangle-codebase to review coupling in this codebase, agree on scope, and verify behavior after refactoring."
+policy:
+  allow_implicit_invocation: false

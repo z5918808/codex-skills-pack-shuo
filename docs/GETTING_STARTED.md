@@ -123,6 +123,10 @@ DUO 開跑前由 Main 確認真實入口、最小有效結果，以及能抓出�
 | Skill | 適合的工作 | 相依條件 |
 |---|---|---|
 | `loop` | 限量研究、定義可執行目標並規劃驗證階段 | 須一起安裝 `strategic-autoresearch`、`prompt-for-goal`、`staging`、`long-running-agent`；執行模式需主機提供原生 goal 工具，跨回合記憶再按需安裝 `project-memory-gate`；安裝指令見 [README](../README.md#快速開始) |
+| [`find-implicit-state-machines`](../find-implicit-state-machines/) | 追查散落在程式裡的狀態、轉換和副作用 | 可單獨安裝，預設唯讀 |
+| [`untangle-codebase`](../untangle-codebase/) | 盤點程式耦合，重構後驗證既有行為 | 複製完整目錄並手動叫用。子代理只在主機和使用者授權時使用 |
+| [`gstack-qa-only`](../gstack-qa-only/) | 依 gstack 流程執行唯讀 QA 並交付可重現的缺陷報告 | 複製完整目錄。需要 gstack 瀏覽器或證據工具的探測須另備執行環境 |
+| [`cloudflare-security-audit`](../cloudflare-security-audit/) | 找出有證據的安全邊界缺口 | 複製完整目錄。完整稽核需要已授權的代理工具及支援 `O_NOFOLLOW` 和 `O_NONBLOCK` 的 Node.js 環境，例如 Linux。Windows 原生 Node.js 缺少這兩項檔案保護。執行受查程式另需符合技能要求的作業系統隔離 |
 | `staging` | 把模糊目標拆成可驗證階段 | 可單獨使用，規劃不會自行啟動實作 |
 | `find-my-safe-work-island` | 在大型或有未提交變更的 repo 中界定本次工作範圍 | 僅建立範圍可單獨使用；要繼續規格或實作，需下節的完整 Matt 工作流 |
 | `strategic-autoresearch` | 用少量實驗判斷真正瓶頸與第一個修正 | 可單獨使用；高風險操作依本包 `risk-preflight` |

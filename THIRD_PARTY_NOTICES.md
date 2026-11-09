@@ -62,3 +62,15 @@ SOFTWARE.
 ## Verification Before Completion
 
 `verification-before-completion/SKILL.md` 原文來自 [obra/superpowers](https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/verification-before-completion/SKILL.md)，同步基準為 commit `22f0b463e7a5e579904dd6211a520321035526f7`，於 2026-11-05 核對。本包只新增允許自動選用的 `agents/openai.yaml`，未修改技能原文。原作依 MIT License 提供，Copyright (c) 2025 Jesse Vincent；完整條款隨目錄保留於 [LICENSE](./verification-before-completion/LICENSE)。
+
+## Untangle Codebase
+
+`untangle-codebase` 來自 [caldoai/skills](https://github.com/caldoai/skills/tree/f3cf47774975a7d9fca45730babf4ff7ad765ada/skills/untangle-codebase)，依 MIT License 提供，Copyright (c) 2026 Maze。本包加入 Codex 手動叫用設定，並依使用者授權限制重構範圍、持續目標與代理派遣。完整條款見 [LICENSE](./untangle-codebase/LICENSE)。
+
+## gstack QA Only
+
+`gstack-qa-only` 改寫自 [garrytan/gstack 的 qa-only](https://github.com/garrytan/gstack/tree/74418edabc0ed566de97a7283e09543604de883c/qa-only)，依 MIT License 提供，Copyright (c) 2026 Garry Tan。本包保留上游 QA 文件、範本與共用章節，將未隨包收錄的文件連回原始版本，並加入 Codex 入口和執行條件。完整條款見 [LICENSE](./gstack-qa-only/LICENSE)。
+
+## Cloudflare Security Audit
+
+`cloudflare-security-audit` 來自 [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill/tree/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit)，依 MIT License 提供，Copyright (c) 2025-2026 Cloudflare, Inc. 本包保留原有稽核文件、驗證器和測試，將入口名稱改為 `cloudflare-security-audit`，以區分既有安全審查技能。完整條款見 [LICENSE](./cloudflare-security-audit/LICENSE)。

@@ -10,7 +10,7 @@
 
 這是一套以「能直接完成工作」為標準整理的 Codex skills 精選集，包含可單獨使用的通用技能，以及可按任務階段路由的完整工程工作流。
 
-目前收錄 **125 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
+目前收錄 **129 個通用 skills**，涵蓋工程、除錯、研究、安全、長任務協作、前端設計與內容工作。多數 skill 可單獨安裝；具有相依關係的工作流則提供完整安裝方式。
 
 **適合：**想快速建立可重複工作流的新手，以及重視證據、風險檢查、工作交接與長任務協作的進階使用者。
 
@@ -198,6 +198,7 @@ Worker 預設 Terra medium，Reviewer 預設 Sol 6.1 medium；Main 保留實際�
 [`e2e-testing`](./e2e-testing/) ·
 [`eval-harness`](./eval-harness/) ·
 [`factory-output`](./factory-output/) ·
+[`find-implicit-state-machines`](./find-implicit-state-machines/) ·
 [`frontend-patterns`](./frontend-patterns/) ·
 [`giga-factory-design-method`](./giga-factory-design-method/) ·
 [`improve-codebase-architecture`](./improve-codebase-architecture/) ·
@@ -210,6 +211,7 @@ Worker 預設 Terra medium，Reviewer 預設 Sol 6.1 medium；Main 保留實際�
 [`system-instruction-craft`](./system-instruction-craft/) ·
 [`tdd`](./tdd/) ·
 [`trim-repo-agents-md`](./trim-repo-agents-md/) ·
+[`untangle-codebase`](./untangle-codebase/) ·
 [`verification-before-completion`](./verification-before-completion/) ·
 [`windows-encoding-safety`](./windows-encoding-safety/)
 
@@ -247,9 +249,11 @@ Worker 預設 Terra medium，Reviewer 預設 Sol 6.1 medium；Main 保留實際�
 [`audit`](./audit/) ·
 [`autoresearch`](./autoresearch/) ·
 [`bigbots-deploy`](./bigbots-deploy/) ·
+[`cloudflare-security-audit`](./cloudflare-security-audit/) ·
 [`duo-brainer`](./duo-brainer/) ·
 [`find-some-shit-to-do`](./find-some-shit-to-do/) ·
 [`grilling`](./grilling/) ·
+[`gstack-qa-only`](./gstack-qa-only/) ·
 [`market-research`](./market-research/) ·
 [`report-for-outsourcing`](./report-for-outsourcing/) ·
 [`research`](./research/) ·

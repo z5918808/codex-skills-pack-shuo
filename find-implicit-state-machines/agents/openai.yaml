@@ -1,0 +1,4 @@
+interface:
+  display_name: "隱含狀態機盤點"
+  short_description: "Find hidden states, transitions, owners and code evidence"
+  default_prompt: "使用 $find-implicit-state-machines 盤點這個 app 的隱含狀態機，列出轉換條件、狀態儲存位置、跨流程約束與程式證據。"
