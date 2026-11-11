@@ -127,6 +127,7 @@ DUO 開跑前由 Main 確認真實入口、最小有效結果，以及能抓出�
 | [`untangle-codebase`](../untangle-codebase/) | 盤點程式耦合，重構後驗證既有行為 | 複製完整目錄並手動叫用。子代理只在主機和使用者授權時使用 |
 | [`gstack-qa-only`](../gstack-qa-only/) | 依 gstack 流程執行唯讀 QA 並交付可重現的缺陷報告 | 複製完整目錄。需要 gstack 瀏覽器或證據工具的探測須另備執行環境 |
 | [`cloudflare-security-audit`](../cloudflare-security-audit/) | 找出有證據的安全邊界缺口 | 複製完整目錄。完整稽核需要已授權的代理工具及支援 `O_NOFOLLOW` 和 `O_NONBLOCK` 的 Node.js 環境，例如 Linux。Windows 原生 Node.js 缺少這兩項檔案保護。執行受查程式另需符合技能要求的作業系統隔離 |
+| [`system-expanse`](../system-expanse/) | 用白話、拓樸圖與分流表釐清多系統責任，整理可驗收規格 | 說明與拓樸可單獨使用；正式規格需一起安裝 `to-spec` 以查閱模板，goal 草案另需 `prompt-for-goal`。發布到 tracker 須有當次授權及該專案的 tracker 設定；不需要作者的私人專案或範例 |
 | `staging` | 把模糊目標拆成可驗證階段 | 可單獨使用，規劃不會自行啟動實作 |
 | `find-my-safe-work-island` | 在大型或有未提交變更的 repo 中界定本次工作範圍 | 僅建立範圍可單獨使用；要繼續規格或實作，需下節的完整 Matt 工作流 |
 | `strategic-autoresearch` | 用少量實驗判斷真正瓶頸與第一個修正 | 可單獨使用；高風險操作依本包 `risk-preflight` |

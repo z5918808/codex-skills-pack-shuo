@@ -1,0 +1,4 @@
+interface:
+  display_name: "SYSTEM-EXPANSE"
+  short_description: "用白話釐清系統分工與訊息分流，畫拓樸並產出可驗收規格"
+  default_prompt: "用 $system-expanse 幫我整理這套系統。先 ELI10、畫拓樸、寫 spec，最後附引用 spec 的階段式 goal prompt。"
