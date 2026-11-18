@@ -63,6 +63,10 @@ cp -R ./diagnose ~/.codex/skills/
 
 把 `diagnose` 換成任何 skill 目錄名稱即可。
 
+### GPT 模型更新
+
+將 [gpt-model-up-to-date](../gpt-model-up-to-date/) 整個目錄複製到技能根目錄後，明確叫用 $gpt-model-up-to-date。它會查核受授權的 Codex 設定、技能與 CLI／API 接線，逐項核對相容性、成本與實際載入。需要持續目標時可另外安裝 [Loop 及其相依技能](../README.md#快速開始)。主機的自訂同步工具與模型派遣規則由使用者環境提供。
+
 ## 5. 安裝整包
 
 整包安裝只複製含 `SKILL.md` 的目錄，不會複製 repository 的 README、docs 或 `AGENTS.md`。
